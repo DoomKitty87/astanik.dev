@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ansel Stanik</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+<style type="text/css">
+body {
+    background-color: #0A0A0A;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="namecard"><div></div><h1 class="nametitle"><center><span class="name1">Ansel </span><span class="name2">Stanik</span>
+</center></h1></div>
+<center>
+
+<div class="body">
+	<div class="textcard1"><p class="bodytext"><span class="poptext">Hi,</span> I'm a student and developer from Portland, Oregon. I enjoy front and backend development for web and software, and maybe some cybersecurity.</p></div>
+	<div class="textcard2"><h2 class="bodytext2">Interested in my projects?<a href="#portfolio">Portfolio</a></h2>
+	<h2 class="bodytext2">Want to contact me?<a href="#contact_card">Email</a></h2></div>
+	<canvas class="cubecanvas" id="cubecanvas"></canvas>
+	<div class="skillscontainer">
+	<h1 class="skillstitle">Skills</h1>
+	<div class="skill"><p class="skilllabel">Frontend</p><div class="skillbar" style="--skillvalue: 60%"></div></div>
+	<div class="skill"><p class="skilllabel">Backend</p><div class="skillbar" style="--skillvalue: 50%"></div></div>
+	<div class="skill"><p class="skilllabel">Gamedev</p><div class="skillbar" style="--skillvalue: 65%"></div></div>
+	<div class="skill"><p class="skilllabel">Software</p><div class="skillbar" style="--skillvalue: 45%"></div></div>
+	<div class="skill"><p class="skilllabel">Security</p><div class="skillbar" style="--skillvalue: 30%"></div></div>
+	</div>
+	<div class="aboutcard">
+	<h1 class="abouttitle">Who am I?</h1>
+	<p class="abouttext">A high school sophomore who loves to create, innovate, and learn. I like to self-produce bad rap music and solve cube puzzles in my spare time, or play incremental/roguelike games. I love brightly colored games and websites (ironic), especially with copious amounts of neon, as well as old computers. I'm a big fan of numbers, and hope to break the record for computing pi at some point, though that's not the most achieveable goal. I'm a student leader in the Makerspace club, and was part the FTC robotics team at my last school. I hope you enjoy my website!</p>
+	</div>
+	<div class="languages">
+	<span class="hexagon" onclick="writescript('HTML')">&#x2B22;<h3 class="languagelabel">HTML5</h3></span>
+	<span class="hexagon" onclick="writescript('CSS')">&#x2B22;<h3 class="languagelabel">CSS</h3></span>
+	<span class="hexagon" onclick="writescript('JS')">&#x2B22;<h3 class="languagelabel">JavaScript</h3></span>
+	<span class="hexagon" onclick="writescript('CS')">&#x2B22;<h3 class="languagelabel">C#</h3></span>
+	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PHP')">&#x2B22;<h3 class="languagelabel">PHP</h3></span>
+	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('SQL')">&#x2B22;<h3 class="languagelabel">SQL</h3></span>
+	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PY')">&#x2B22;<h3 class="languagelabel">Python</h3></span>
+	<div class="typedscripts">
+	<p class="scripttext" id="scripttypearea"></p>	
+	</div>
+	</div>
+	<div class="portfoliocontainer">
+	<h1 class="portfoliotitle" id="portfolio">Things I've Made</h1>
+	<div class="portfolioitem" data-active="true">
+		<p class="portfoliotext"><strong class="portfolioheader">Transience</strong><br><br>2D Unity Platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of transience menu.">
+	</div>
+	<div class="portfolioitem" data-active="false">
+		<p class="portfoliotext"><strong class="portfolioheader">Not Transience</strong><br><br>3D Unity Not a platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of transience menu.">
+	</div>
+		<button class="portfolionav" style="left: 65rem;" onclick="changeSlide(1)" >&#8594;</button>
+		<button onclick="changeSlide(-1)" class="portfolionav" style="left: 2.5rem;">&#8592;</button>
+	</div>
+	<div class="experiencecard">
+		<h1 class="experiencetitle">Why am I qualified?</h1>
+		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting for programs and microcontrollers, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>Nothing programming related :(</p>
+		<canvas class="modelcanvas" id="modelcanvas"></canvas>
+	</div>
+	<div class="contactcard" id="contact_card">
+		<h1 class="contacttitle">Contact me</h1>
+		<span class="emailinfo">
+		<span class="email" id="email">noscraping@haha.no</span>
+		<button class="emailbutton"><a class="emaillink" id="emaillink" href="#">&#9993;</a></button>
+		<div class="linkdiv"><span class="linktitle">GitHub:</span><a class="sitelink" href="https://github.com/DoomKitty87">Link</a></div>
+		<div class="linkdiv"><span class="linktitle">NPM:</span><a class="sitelink" href="https://www.npmjs.com/~anselstanik">Link</a></div>
+		</span>
+	</div>
+</div>
+</center>
+	</div>
+	<script>
+	var name = "ansel.stanik";
+	var domain = "icloud.com";
+	
+	document.getElementById("emaillink").href = `mailto:${name}@${domain}`;
+	document.getElementById("email").innerHTML = `${name}@${domain}`;
+		
+	document.getElementById("email").addEventListener("click", () => {
+		navigator.clipboard.writeText(`${name}@${domain}`);
+	});
+	</script>
+	<script type="importmap">
+  	{
+    "imports": {
+      "three": "https://unpkg.com/three/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three/examples/jsm/"
+    	}
+  	}
+	</script>
+	<script type="module">
+		import * as THREE from 'three';
+		import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+		import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+		import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+		import {RenderPixelatedPass} from 'three/addons/postprocessing/RenderPixelatedPass.js';
+		import {AfterimagePass} from 'three/addons/postprocessing/AfterimagePass.js';
+
+		
+		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(0x0A0A0A);
+		const cubecanvas = document.getElementById("cubecanvas");
+		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+		const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+		const material = new THREE.MeshBasicMaterial({color: 0x717171});
+		const materialdark = new THREE.MeshBasicMaterial({color: 0x161616});
+		const cube = new THREE.Mesh(geometry, material);
+		const cubedark = new THREE.Mesh(geometry, materialdark);
+		scene.add(cube);
+		scene.add(cubedark);
+		cube.position.x = -0.5;
+		cube.position.y = 0.25;
+		cubedark.position.x = 0.5;
+		cubedark.position.z = 0.2;
+		cubedark.position.y = -0.25;
+		camera.position.z = 5;
+		const raycaster = new THREE.Raycaster();
+		const pointer = new THREE.Vector2(1, 1);
+		var scale = false;
+		var scaledown = false;
+
+		function onPointerMove(event) {
+			const rect = event.target.getBoundingClientRect();
+			pointer.x = (event.clientX - rect.left) / event.target.clientWidth * 2 - 1;
+			pointer.y = (event.clientY - rect.top) / event.target.clientHeight * 2 - 1;
+		}
+		
+		function onMouseClick(event) {
+			raycaster.setFromCamera(pointer, camera);
+			const intersected = raycaster.intersectObjects(scene.children);
+			if (intersected.length > 0) {
+				scale = true;
+				scaledown = false;
+				cube.scale.x = 1;
+				cube.scale.y = 1;
+				cube.scale.z = 1;
+				cubedark.scale.x = 1;
+				cubedark.scale.y = 1;
+				cubedark.scale.z = 1;
+			}
+		}
+			
+		const renderer = new THREE.WebGLRenderer({antialias: true, canvas: cubecanvas});
+		renderer.setSize(cubecanvas.clientWidth, cubecanvas.clientHeight);
+		
+		const composer = new EffectComposer(renderer);
+		const renderPass = new RenderPass(scene, camera);
+		composer.addPass(renderPass);
+		
+		const renderPixelatedPass = new RenderPixelatedPass(6, scene, camera);
+		composer.addPass(renderPixelatedPass);
+		const afterimagePass = new AfterimagePass();
+		composer.addPass(afterimagePass);
+			
+		function animate() {
+			requestAnimationFrame(animate);
+			composer.render();
+			
+			raycaster.setFromCamera(pointer, camera);
+			const intersects = raycaster.intersectObjects(scene.children);
+			if (intersects.length > 0) {
+				cubedark.material = material;
+				cube.material = materialdark;
+			}
+			else {
+				cubedark.material = materialdark;
+				cube.material = material;
+			}
+			
+			if (scale) {
+				if (cube.scale.x >= 1.15) {
+					scale = false;
+					scaledown = true;
+				}
+				else {
+					cube.scale.x += 0.01;
+					cube.scale.y += 0.01;
+					cube.scale.z += 0.01;
+					cubedark.scale.x += 0.01;
+					cubedark.scale.y += 0.01;
+					cubedark.scale.z += 0.01;
+				}
+			}
+			else if (scaledown) {
+				if (cube.scale.x <= 1) {
+					scaledown = false;
+				}
+				else {
+					cube.scale.x -= 0.0075;
+					cube.scale.y -= 0.0075;
+					cube.scale.z -= 0.0075;
+					cubedark.scale.x -= 0.0075;
+					cubedark.scale.y -= 0.0075;
+					cubedark.scale.z -= 0.0075;
+				}
+			}
+			cube.rotation.x += 0.0025;
+			cube.rotation.y += 0.0025;
+			cubedark.rotation.x -= 0.0025;
+			cubedark.rotation.z += 0.0025;
+		}
+		cubecanvas.addEventListener('mousemove', onPointerMove);
+		cubecanvas.addEventListener('click', onMouseClick);
+		animate();
+	</script>
+	<script>
+	var i = 0;
+	var txt = 'Lorem ipsum.';
+	var speed = 10;
+	var typehandle;
+	function typing() {
+		if (i < txt.length) {
+			document.getElementById("scripttypearea").innerHTML += txt.charAt(i);
+			i++;
+			typehandle = setTimeout(typing, speed);
+		}
+	}
+	function writescript(type) {
+		document.getElementById("scripttypearea").innerHTML = null;
+		i = 0;
+		switch (type) {
+			case "HTML":
+				txt = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset="utf-8">\n\t\t<title>Ansel Stanik</title>\n\t\t<link href="index.css" rel="stylesheet" type="text/css">\n\t</head>\n\t<body>\n\t\t<div class="container">\n\t\t\t<p>Hello World!</p>\n\t\t</div>\n\t</body>\n</html>`;
+				break;
+			case "CSS":
+				txt = `.container {\n\tbackground-color: #FFFFFF;\n\tpadding: 10px;\n\tmargin-top: 5rem;\n}\n.nav a {\n\ttext-decoration: none;\n\tcolor: #000000;\n\ttransition: transform 0.5s;\n\ttransform: scale(1);\n\tbackground-color: #161616;\n}\n.nav a:hover {\n\ttransform: scale(1.1);\n}`;
+				break;
+			case "JS":
+				txt = `let i = 1n;\nlet x = 3n * (10n ** 1020n);\nlet pi = x;\nwhile (x > 0) {\n\tx = x * i / ((i + 1n) * 4n);\n\tpi += x / (i + 2n);\n\ti += 2n;\n}\nconsole.log(pi / (10n ** 20n));`;
+				break;
+			case "CS":
+				txt = `using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\n\npublic class HelloWorld : MonoBehaviour\n{\n\t[SerializeField] private float speed;\n\n\tprivate void Start() {\n\t\tDebug.Log("Hello World!");\n\t}\n\n\tprivate void FixedUpdate() {\n\t\ttransform.position += new Vector3(speed * Time.deltaTime, 0, 0);\n\t}\n}`;
+				break;
+			case "PHP":
+				txt = `<?php\n\tfunction Authenticate($username, $password) {\n\t\t$sql = "SELECT password FROM users WHERE name = ?";\n\t\t$request = $connection->prepare($sql);\n\t\t$request->bind_param("s", $username);\n\t\t$responsepass = $request->execute();\n\t\t$request->close();\n\t\tif ($password == $responsepass)\n\t\t\treturn true;\n\t\telse\n\t\t\treturn false;\n\t}\n\tdefine("DBHOST", "localhost");\n\tdefine("DBNAME", "anselsdata");\n\tdefine("DBUSER", "admin");\n\tdefine("DBPASS", "password123");\n\t$connection = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);\n\tif (isset($_POST['authenticate'])) {\n\t\t$username = $_POST['username'];\n\t\t$password = $_POST['password'];\n\t\tif (!Authenticate($name, $password)) {\n\t\t\tthrow new RuntimeException("Authentication failed.", mysqli_connect_error());\n\t\t}\n\t}\n?>`;
+				break;
+			case "SQL":
+				txt = `IF (SELECT ISNULL(\n\t\tSELECT *\n\t\tFROM users\n\t\tWHERE id=0)) {\n\tINSERT INTO users VALUES (\n\t\t"admin",\n\t\t"password123",\n\t\t"admin@example.xyz");\n}`;
+				break;
+			case "PY":
+				txt = `testrange = input("How many numbers to test?")\n\nfor i in range(1, testrange):\n\tif (i % 3 == 0) and (i % 5 == 0):\n\t\tprint("FizzBuzz")\n\telse if (i % 3 == 0):\n\t\tprint("Fizz")\n\telse if (i % 5 == 0):\n\t\tprint("Buzz")\n\telse:\n\t\tprint(i)`;
+				break;
+		}
+		speed = 10 / (txt.length / 250);
+		clearTimeout(typehandle);
+		typing();
+	}
+	var loadedInitHTML = false;
+	window.addEventListener("scroll", function() {
+		if (window.pageYOffset > document.getElementById("scripttypearea").getBoundingClientRect().top && !loadedInitHTML) {
+			writescript("HTML");
+			loadedInitHTML = true;
+		}
+	});
+</script>
+<script>
+	var slidePos = 0;
+	var slides = document.getElementsByClassName("portfolioitem");
+	showslide(slidePos);
+	
+	function changeSlide(n) {
+		slidePos += n;
+		showslide(n);
+	}
+	
+	function showslide(n) {
+		if (slidePos > slides.length - 1) slidePos = 0;
+		if (slidePos < 0) slidePos = slides.length - 1;
+		for (var i = 0; i < slides.length; i++) {
+			if (slides[i].dataset.active == "true") {
+				slides[i].dataset.active = "tofalse";
+				slides[i].style.setProperty("--entry", (n < 0) ? "200%" : "-200%");
+			}
+		}
+		slides[slidePos].dataset.active = "true";
+		slides[slidePos].style.setProperty("--entry", (n < 0) ? "200%" : "-200%")
+	}
+	
+	window.addEventListener("animationend", (event) => {
+		if (event.target.dataset.active == "tofalse") event.target.dataset.active = "false";
+	})
+</script>
+<script type="module">
+	import * as THREE from 'three';
+	import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+	
+	const scene = new THREE.Scene();
+	const modelcanvas = document.getElementById("modelcanvas");
+	const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+	const raycaster = new THREE.Raycaster();
+	const pointer = new THREE.Vector2(1, 1);
+	
+	const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: modelcanvas});
+	renderer.setSize(modelcanvas.clientWidth, modelcanvas.clientHeight);
+	renderer.outputEncoding = THREE.sRGBEncoding;
+	const light = new THREE.AmbientLight(0x404040);
+	scene.add(light);
+	
+	var turntime = 0;
+	var turn = false;
+	
+	const loader = new GLTFLoader();
+	var loadedobj;
+	loader.load('poly.glb', function (gltf) {
+		//const mat = new THREE.MeshBasicMaterial({color:0x717171});
+		//gltf.scene.traverse((o) => {
+		//	o.material = mat;
+		//})
+		loadedobj = gltf;
+		scene.add(gltf.scene);
+	});
+	camera.position.z = 2;
+	
+	function onMouseClick(event) {
+		raycaster.setFromCamera(pointer, camera);
+		const intersected = raycaster.intersectObjects(scene.children);
+		if (intersected.length > 0) {
+			turn = true;
+		}
+	}
+	
+	function onPointerMove(event) {
+		const rect = event.target.getBoundingClientRect();
+		pointer.x = (event.clientX - rect.left) / event.target.clientWidth * 2 - 1;
+		pointer.y = (event.clientY - rect.top) / event.target.clientHeight * 2 - 1;
+	}
+				
+	function animate() {
+		requestAnimationFrame(animate);
+		if (loadedobj != null) {
+			loadedobj.scene.traverse((o) => {
+				if (o.isMesh) {
+					o.rotation.y += 0.005;
+					if (turn) {
+						o.rotation.z += 0.05;
+						turntime++;
+					}
+					if (turntime > 30) {
+						turn = false;
+						turntime = 0;
+					}
+				}
+			});
+		}
+		raycaster.setFromCamera(pointer, camera);
+		if (raycaster.intersectObjects(scene.children).length > 0) {
+			modelcanvas.style.setProperty("transform", "scale(1.1)");
+		}
+		else {
+			modelcanvas.style.setProperty("transform", "scale(1)");
+		}
+		renderer.render(scene, camera);
+	}
+	modelcanvas.addEventListener("mousemove", onPointerMove);
+	modelcanvas.addEventListener("click", onMouseClick);
+	animate();
+</script>
+</body>
+</html>
