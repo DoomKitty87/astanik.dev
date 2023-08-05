@@ -276,6 +276,14 @@ html {
 	right: 20rem;
 	align-items: center;
 }
+.languages2 {
+	width: 35rem;
+	height: 30rem;
+	position: relative;
+	bottom: 41rem;
+	right: 20rem;
+	align-items: center;
+}
 .hexagon {
 	text-align: center;
 	font-family: 'Golos Text', sans-serif;
@@ -325,6 +333,7 @@ html {
 	box-shadow: 1rem 1rem 0 0 #717171;
 	margin-top: -5rem;
 	z-index: 1;
+	bottom: 38rem;
 }
 .portfoliotitle {
 	font-family: 'Golos Text', sans-serif;
@@ -396,6 +405,7 @@ html {
 	height: 40rem;
 	text-align: left;
 	display: inline-block;
+	bottom: 38rem;
 }
 .experiencetitle {
 	color: #F1F1F1;
@@ -422,7 +432,7 @@ html {
 	width: 30rem;
 	position: relative;
 	margin-top: 5rem;
-	top: 12rem;
+	bottom: 21rem;
 	text-align: left;
 	display: inline-block;
 }
