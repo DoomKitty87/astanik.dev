@@ -332,6 +332,7 @@ html {
 	background-color: #161616;
 	box-shadow: 1rem 1rem 0 0 #717171;
 	z-index: 1;
+	bottom: 38rem;
 }
 .portfoliotitle {
 	font-family: 'Golos Text', sans-serif;
@@ -403,6 +404,7 @@ html {
 	height: 40rem;
 	text-align: left;
 	display: inline-block;
+	bottom: 38rem;
 }
 .experiencetitle {
 	color: #F1F1F1;
@@ -429,7 +431,7 @@ html {
 	width: 30rem;
 	position: relative;
 	margin-top: 5rem;
-	top: 12rem;
+	bottom: 21rem;
 	text-align: left;
 	display: inline-block;
 }
@@ -506,6 +508,6 @@ html {
 	width: 40rem;
 	height: 40rem;
 	left: 30rem;
-	bottom: 12rem;
+	bottom: 9rem;
 	transition: transform 0.25s;
 }

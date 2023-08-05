@@ -304,7 +304,7 @@ body {
 	const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: modelcanvas});
 	renderer.setSize(modelcanvas.clientWidth, modelcanvas.clientHeight);
 	renderer.outputEncoding = THREE.sRGBEncoding;
-	const light = new THREE.AmbientLight(0x404040);
+	const light = new THREE.AmbientLight(0xFFFFFF);
 	scene.add(light);
 	
 	var turntime = 0;
