@@ -276,6 +276,14 @@ html {
 	right: 20rem;
 	align-items: center;
 }
+.languages2 {
+	width: 35rem;
+	height: 30rem;
+	position: relative;
+	bottom: 41rem;
+	right: 20rem;
+	align-items: center;
+}
 .hexagon {
 	text-align: center;
 	font-family: 'Golos Text', sans-serif;
