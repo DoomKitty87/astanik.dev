@@ -323,6 +323,7 @@ html {
 	height: 30rem;
 	background-color: #161616;
 	box-shadow: 1rem 1rem 0 0 #717171;
+	margin-top: -5rem;
 	z-index: 1;
 }
 .portfoliotitle {
@@ -498,6 +499,6 @@ html {
 	width: 40rem;
 	height: 40rem;
 	left: 30rem;
-	bottom: 12rem;
+	bottom: 11rem;
 	transition: transform 0.25s;
 }

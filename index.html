@@ -41,9 +41,11 @@ body {
 	<span class="hexagon" onclick="writescript('CSS')">&#x2B22;<h3 class="languagelabel">CSS</h3></span>
 	<span class="hexagon" onclick="writescript('JS')">&#x2B22;<h3 class="languagelabel">JavaScript</h3></span>
 	<span class="hexagon" onclick="writescript('CS')">&#x2B22;<h3 class="languagelabel">C#</h3></span>
+	<span class="hexagon" onclick="writescript('JAVA')">&#x2B22;<h3 class="languagelabel">Java</h3></span>
 	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PHP')">&#x2B22;<h3 class="languagelabel">PHP</h3></span>
 	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('SQL')">&#x2B22;<h3 class="languagelabel">SQL</h3></span>
 	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PY')">&#x2B22;<h3 class="languagelabel">Python</h3></span>
+	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('CPP')">&#x2B22;<h3 class="languagelabel">C++</h3></span>
 	<div class="typedscripts">
 	<p class="scripttext" id="scripttypearea"></p>	
 	</div>
@@ -61,7 +63,7 @@ body {
 	</div>
 	<div class="experiencecard">
 		<h1 class="experiencetitle">Why am I qualified?</h1>
-		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting for programs and microcontrollers, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>Nothing programming related :(</p>
+		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting for programs and microcontrollers, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>2023 Oregon Game Project Challenge Programming (High School Division)</p>
 		<canvas class="modelcanvas" id="modelcanvas"></canvas>
 	</div>
 	<div class="contactcard" id="contact_card">
@@ -247,6 +249,12 @@ body {
 			case "PY":
 				txt = `testrange = input("How many numbers to test?")\n\nfor i in range(1, testrange):\n\tif (i % 3 == 0) and (i % 5 == 0):\n\t\tprint("FizzBuzz")\n\telse if (i % 3 == 0):\n\t\tprint("Fizz")\n\telse if (i % 5 == 0):\n\t\tprint("Buzz")\n\telse:\n\t\tprint(i)`;
 				break;
+			case "CPP":
+				txt = `e`
+				break;
+			case "JAVA":
+				txt = `e`
+				break;
 		}
 		speed = 10 / (txt.length / 250);
 		clearTimeout(typehandle);
@@ -300,7 +308,7 @@ body {
 	const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: modelcanvas});
 	renderer.setSize(modelcanvas.clientWidth, modelcanvas.clientHeight);
 	renderer.outputEncoding = THREE.sRGBEncoding;
-	const light = new THREE.AmbientLight(0x404040);
+	const light = new THREE.AmbientLight(0xFFFFFF);
 	scene.add(light);
 	
 	var turntime = 0;
