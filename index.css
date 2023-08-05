@@ -269,18 +269,10 @@ html {
 	line-height: 145%;
 }
 .languages {
-	width: 30rem;
-	height: 30rem;
-	position: relative;
-	bottom: 30rem;
-	right: 20rem;
-	align-items: center;
-}
-.languages2 {
 	width: 35rem;
 	height: 30rem;
 	position: relative;
-	bottom: 41rem;
+	bottom: 30rem;
 	right: 20rem;
 	align-items: center;
 }
@@ -333,7 +325,6 @@ html {
 	box-shadow: 1rem 1rem 0 0 #717171;
 	margin-top: -5rem;
 	z-index: 1;
-	bottom: 38rem;
 }
 .portfoliotitle {
 	font-family: 'Golos Text', sans-serif;
@@ -405,7 +396,6 @@ html {
 	height: 40rem;
 	text-align: left;
 	display: inline-block;
-	bottom: 38rem;
 }
 .experiencetitle {
 	color: #F1F1F1;
@@ -432,7 +422,7 @@ html {
 	width: 30rem;
 	position: relative;
 	margin-top: 5rem;
-	bottom: 21rem;
+	top: 12rem;
 	text-align: left;
 	display: inline-block;
 }
