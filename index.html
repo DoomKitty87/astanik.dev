@@ -34,7 +34,7 @@ body {
 	</div>
 	<div class="aboutcard">
 	<h1 class="abouttitle">Who am I?</h1>
-	<p class="abouttext">A high school sophomore who loves to create, innovate, and learn. I like to self-produce bad rap music and solve cube puzzles in my spare time, or play incremental/roguelike games. I love brightly colored games and websites (ironic), especially with copious amounts of neon, as well as old computers. I'm a big fan of numbers, and hope to break the record for computing pi at some point, though that's not the most achieveable goal. I'm a student leader in the Makerspace club, and was part the FTC robotics team at my last school. I hope you enjoy my website!</p>
+	<p class="abouttext">A high school <s>sophomore</s> junior who loves to create, innovate, and learn. I like to self-produce bad rap music and solve cube puzzles in my spare time, or play incremental/roguelike games. I love brightly colored games and websites (ironic), especially with copious amounts of neon, as well as old computers. I'm a big fan of numbers, and hope to break the record for computing pi at some point, though that's not the most achieveable goal. I'm a student leader in the Makerspace club, and was part the FTC robotics team at my last school. I hope you enjoy my website!</p>
 	</div>
 	<div class="languages">
 	<span class="hexagon" onclick="writescript('HTML')">&#x2B22;<h3 class="languagelabel">HTML5</h3></span>
@@ -53,17 +53,29 @@ body {
 	<div class="portfoliocontainer">
 	<h1 class="portfoliotitle" id="portfolio">Things I've Made</h1>
 	<div class="portfolioitem" data-active="true">
-		<p class="portfoliotext"><strong class="portfolioheader">Transience</strong><br><br>2D Unity Platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of transience menu.">
+		<p class="portfoliotext"><strong class="portfolioheader">Symbiont</strong><br><br>3D Unity FPS puzzle game made for OGPC 2023, written in C#. A lot of Blender, Photoshop, and Premiere Pro for marketing material and modeling.</p><img class="portfolioimage" src="symbiont.png" alt="Poster for Symbiont.">
 	</div>
 	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Not Transience</strong><br><br>3D Unity Not a platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of transience menu.">
+		<p class="portfoliotext"><strong class="portfolioheader">Primes</strong><br><br>Python application with PyQT to calculate and visualize large prime numbers using a variety of different methods.</p><img class="portfolioimage" src="primes.png" alt="Primes application.">
+	</div>
+	<div class="portfolioitem" data-active="false">
+		<p class="portfoliotext"><strong class="portfolioheader">Transience</strong><br><br>2D Unity Platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of Transience menu.">
+	</div>
+	<div class="portfolioitem" data-active="false">
+		<p class="portfoliotext"><strong class="portfolioheader">Commandline3D</strong><br><br>C++ command line tool to render and animate objects in 3D space using a terminal window with text (because it's fun). Works best in Unix.</p><img class="portfolioimage" src="cube.png" alt="Example cube in CL3D.">
+	</div>
+	<div class="portfolioitem" data-active="false">
+		<p class="portfoliotext"><strong class="portfolioheader">Trebuchet</strong><br><br>NPM package adding lightweight and simple physics simulations to threejs, a popular 3D rendering package for JavaScript.</p><img class="portfolioimage" src="trebuchet.png" alt="Screenshot of NPM page.">
+	</div>
+	<div class="portfolioitem" data-active="false">
+		<p class="portfoliotext"><strong class="portfolioheader">RouteGen</strong><br><br>Command line tool used to generate gemstone mining routes for a popular MMORPG, utilizing OpenMP, decision tree methodology, and weighted pathfinding.</p><img class="portfolioimage" src="route.png" alt="Route output from one iteration.">
 	</div>
 		<button class="portfolionav" style="left: 65rem;" onclick="changeSlide(1)" >&#8594;</button>
 		<button onclick="changeSlide(-1)" class="portfolionav" style="left: 2.5rem;">&#8592;</button>
 	</div>
 	<div class="experiencecard">
 		<h1 class="experiencetitle">Why am I qualified?</h1>
-		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting for programs and microcontrollers, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>2023 Oregon Game Project Challenge Programming (High School Division)</p>
+		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting with Python and Arduino, C++ experience, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>2023 Oregon Game Project Challenge Programming (High School Division)</p>
 		<canvas class="modelcanvas" id="modelcanvas"></canvas>
 	</div>
 	<div class="contactcard" id="contact_card">
@@ -250,10 +262,10 @@ body {
 				txt = `testrange = input("How many numbers to test?")\n\nfor i in range(1, testrange):\n\tif (i % 3 == 0) and (i % 5 == 0):\n\t\tprint("FizzBuzz")\n\telse if (i % 3 == 0):\n\t\tprint("Fizz")\n\telse if (i % 5 == 0):\n\t\tprint("Buzz")\n\telse:\n\t\tprint(i)`;
 				break;
 			case "CPP":
-				txt = `e`
+				txt = `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n\tstring name;\n\n\tcout << "Hello! What is your name?" << endl;\n\tcin >> name;\n\tcout << "Hi there " << name << "! Nice to meet you!" << endl;\n\n\treturn 0;\n}`;
 				break;
 			case "JAVA":
-				txt = `e`
+				txt = `public class Ansel {\n\tint coolness;\n\tstring keyboard_layout;\n\n\tpublic Ansel() {\n\t\tcoolness = 102;\n\t\tkeyboard_layout = "QWERTY (for now)";\n\t}\n\n\tpublic void how_cool() {\n\t\tSystem.out.println(coolness);\n\t}\n}`
 				break;
 		}
 		speed = 10 / (txt.length / 250);
