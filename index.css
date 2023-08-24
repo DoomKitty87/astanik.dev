@@ -502,3 +502,8 @@ html {
 	bottom: 11rem;
 	transition: transform 0.25s;
 }
+.link {
+  text-decoration: none;
+  color: #F1F1F1;
+  font-weight: 600;
+}
