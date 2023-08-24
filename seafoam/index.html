@@ -201,8 +201,8 @@
       const gemDensities = [];
       // Loading etherwarp pad coordinates
       var padFile;
-      fetch('pads.json')
-        .then(response => response.JSON())
+      await fetch('pads.json')
+        .then(response => response.json())
         .then((data) => {padFile = data;});
       const padData = JSON.parse(padFile);
       for (const pad of padData) {
@@ -218,8 +218,8 @@
       }
       */
       var gemstoneData;
-      fetch('sector' + sector + '.json')
-        .then(response => response.JSON())
+      await fetch('sector' + sector + '.json')
+        .then(response => response.json())
         .then((data) => {gemstoneData = data;});
       const gemData = JSON.parse(gemstoneData);
       console.log("Loaded block json");
