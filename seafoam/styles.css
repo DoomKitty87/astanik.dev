@@ -1,26 +1,26 @@
 @font-face {
   font-family: "Poppins-Thin";
-  src: url(assets/fonts/Poppins/Poppins-Thin.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-Thin.ttf) format("truetype");
 }
 @font-face {
   font-family: "Poppins-ExtraLight";
-  src: url(assets/fonts/Poppins/Poppins-ExtraLight.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-ExtraLight.ttf) format("truetype");
 }
 @font-face {
   font-family: "Poppins-Light";
-  src: url(assets/fonts/Poppins/Poppins-Light.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-Light.ttf) format("truetype");
 }
 @font-face {
   font-family: "Poppins-Medium";
-  src: url(assets/fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-Medium.ttf) format("truetype");
 }
 @font-face {
   font-family: "Poppins-SemiBold";
-  src: url(assets/fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
 }
 @font-face {
   font-family: "Poppins-Bold";
-  src: url(assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+  src: url(fonts/Poppins/Poppins-Bold.ttf) format("truetype");
 }
 
 :root {
