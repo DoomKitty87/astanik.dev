@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seafoam</title>
+  </head>
+  <body>
+    <div id="navbarandmaincontainer">
+      <div class="navbar">
+        <div class="logocontainer">
+          <div class="logo">
+            <img class="icon" src="assets/seafoamarmadillo.webp">
+            <h1 class="title">seafoam</h1>
+          </div>
+        </div>
+        <div class="menubutton" onclick="resetMenu()"><h2 class="buttontext">GENERATE</h2></div>
+        <div class="menubutton" onclick="routeMenu()""><h2 class="buttontext">OLD ROUTES</h2></div>
+      </div>
+      <div class="main">
+        <div class="menucontainer" id="menua">
+          <ul class="progressbar">
+            <li class="progressitem" data-active="true">MAP ZONE<span class="dot" data-active="true"></span></li>
+            <li class="progressitem" data-active="false">WAYPOINTS<span class="dot"></span></li>
+            <li class="progressitem" data-active="false">SETTINGS<span class="dot" data-active="false"></span></li>
+            <li class="progressitem" data-active="false">GENERATE<span class="dot" data-active="false"></span></li>
+          </ul>
+          <div class="menuscreen" id="menua1">
+            <div class="lefttextcontainer">
+              <div class="infobox">
+                <h4 class="infotitlesuperscript">Step One:</h4>
+                <h1 class="infotitle">ROUTE AREA</h1>
+                <h3 class="infodesc">Click to choose the area where your route will generate.</h3>
+                <form>
+                  <input class="mfbox" type="checkbox" id="mfbox">
+                  <label class="mfbox" for="mfbox">Magma Fields Only (Ruby/Topaz)</label>
+                  <input class="mfbox" type="checkbox" id="nodens">
+                  <label class="mfbox" for="nodens">Ignore density (Manual/Bomb mining)</label>
+                </form>
+              </div>
+              <div class="nextbutton">
+                <h2 class="nextbuttontext" id="mapnextbutton" onclick="moveStep()">NEXT &#8594</h2>
+              </div>
+            </div>
+            <div class="rightcontentcontainer">
+              <div class="mapbox">
+                <img id="mapimage" src="assets/map.png">
+                <div class="xaxis">
+                  <div class="yaxis">
+                    <div class="mapsquare" id="20" onclick="selectSquare(20)"></div>
+                    <div class="mapsquare" id="21" onclick="selectSquare(21)"></div>
+                    <div class="mapsquare" id="22" onclick="selectSquare(22)"></div>
+                    <div class="mapsquare" id="23" onclick="selectSquare(23)"></div>
+                    <div class="mapsquare" id="24" onclick="selectSquare(24)"></div>
+                  </div>
+                  <div class="yaxis">
+                    <div class="mapsquare" id="15" onclick="selectSquare(15)"></div>
+                    <div class="mapsquare" id="16" onclick="selectSquare(16)"></div>
+                    <div class="mapsquare" id="17" onclick="selectSquare(17)"></div>
+                    <div class="mapsquare" id="18" onclick="selectSquare(18)"></div>
+                    <div class="mapsquare" id="19" onclick="selectSquare(19)"></div>
+                  </div>
+                  <div class="yaxis">
+                    <div class="mapsquare" id="10" onclick="selectSquare(10)"></div>
+                    <div class="mapsquare" id="11" onclick="selectSquare(11)"></div>
+                    <div class="mapsquare" style="opacity: 0"></div>
+                    <div class="mapsquare" id="13" onclick="selectSquare(13)"></div>
+                    <div class="mapsquare" id="14" onclick="selectSquare(14)"></div>
+                  </div>
+                  <div class="yaxis">
+                    <div class="mapsquare" id="5" onclick="selectSquare(5)"></div>
+                    <div class="mapsquare" id="6" onclick="selectSquare(6)"></div>
+                    <div class="mapsquare" id="7" onclick="selectSquare(7)"></div>
+                    <div class="mapsquare" id="8" onclick="selectSquare(8)"></div>
+                    <div class="mapsquare" id="9" onclick="selectSquare(9)"></div>
+                  </div>
+                  <div class="yaxis">
+                    <div class="mapsquare" id="0" onclick="selectSquare(0)"></div>
+                    <div class="mapsquare" id="1" onclick="selectSquare(1)"></div>
+                    <div class="mapsquare" id="2" onclick="selectSquare(2)"></div>
+                    <div class="mapsquare" id="3" onclick="selectSquare(3)"></div>
+                    <div class="mapsquare" id="4" onclick="selectSquare(4)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menuscreen" id="menua2">
+            <div class="lefttextcontainer">
+              <div class="infobox">
+                <h4 class="infotitlesuperscript">Step Two:</h4>
+                <h1 class="infotitle">WAYPOINTS</h1>
+                <h3 class="infodesc">Enter desired waypoints- route may be +-10% of the value.</h3>
+              </div>
+              <div class="waypointentry">
+                <form>
+                  <input id="wpform" class="waypointform" type="number" value="150">
+                </form>
+              </div>
+              <div class="nextbutton">
+                <h2 class="nextbuttontext" onclick="moveStep()">NEXT &#8594</h2>
+              </div>
+            </div>
+          </div>
+          <div class="menuscreen" id="menua3">
+            <div class="lefttextcontainer">
+              <div class="infobox">
+                <h4 class="infotitlesuperscript">Step Three:</h4>
+                <h1 class="infotitle">SETTINGS</h1>
+              </div>
+              <div class="settingbox">
+                <h2 class="settingdesc">Choose priority for teleport distance or density for route output.</h2>
+                <form>
+                  <input class="priorityform" id="tp" type="radio" value="TP" name="priority">
+                  <label class="priorityform" for="tp">TP Distance</label>
+                  <br>
+                  <input class="priorityform" id="dens" type="radio" value="DENS" name="priority">
+                  <label class="priorityform" for="dens">Density</label>
+                </form>
+              </div>
+              <div class="settingbox">
+                <h2 class="settingdesc">Set allowed out of bounds range from the 8x8 chunk area (only use if you know what that means).</h2>
+                <form>
+                  <input class="oobform" type="number" value="0">
+                </form>
+              </div>
+              <div class="settingbox">
+                <h2 class="settingdesc">Enable/disable line of sight checking for tps (disable for any route not using etherwarps, allows gems in way of tp).</h2>
+                <form>
+                  <input class="angleenable" type="checkbox" id="los" checked>
+                  <label class="angleenable" for="los">Enable</label>
+                </form>
+              </div>
+              <div class="settingbox">
+                <h2 class="settingdesc">Preference for approach/exit angle difference on a teleport pad.</h2>
+                <form>
+                  <input class="angleenable" type="checkbox" id="anglecheck">
+                  <label class="angleenable" for="anglecheck">Enable</label>
+                  <br><br>
+                  <input class="oobform" class="anglesettings" type="number" value="0" id="angle22">
+                  <label class="anglesettings" for="angle22">2x2 Veins</label>
+                  <br><br>
+                  <input class="oobform" class="anglesettings" type="number" value="0" id="angle33">
+                  <label class="anglesettings" for="angle33">3x3 Veins</label>
+                </form>
+              </div>
+              <div class="nextbutton" style="margin-top: 2rem">
+                <h2 class="nextbuttontext" onclick="moveStep()">GENERATE</h2>
+              </div>
+            </div>
+          </div>
+          <div class="menuscreen" id="menua4">
+            <div class="lefttextcontainer">
+              <div class="infobox">
+                <h4 class="infotitlesuperscript">Step Four:</h4>
+                <h1 class="infotitle">GENERATE</h1>
+                <h3 class="infodesc">Your route is being generated. Please wait.</h3>
+              </div>
+              <div class="routeresults">
+                <div class="routebox">
+                  <p id="routeout" class="routeoutput">Route loading...</p>
+                </div>
+                <h3 id="routestats" class="routestats"></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menucontainer" id="menub">
+          <div class="menuscreen" id="menub1">
+            <div class="lefttextcontainer">
+              <div class="routesinfo">
+                <div class="routeviewer">
+                  <h2 id="routeviewerstats" class="routestats"></h2>
+                  <div class="routebox"><p id="routeviewerpath" class="routeoutput"></p></div>
+                </div>
+                <h1 class="routestitle">ROUTES</h1>
+                <h3 class="routesdesc">Click on a saved route to view it.</h3>
+              </div>
+            </div>
+            <div class="rightcontentcontainer">
+              <div class="routeviewbox">
+                <!--<div class="route">
+                  <h3 class="routetitle">Route title</h3>
+                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    async function generateRoute(sector, allowedOOB, priority, waypointCount, angleEnable, angle22, angle33, mfOnly, checkingLOS, ignoreDens) {
+      const fs = require('fs');
+      const angle3 = Math.min(angle33, 360 - angle33);
+      const angle2 = Math.min(angle22, 360 - angle22);
+      allowedOOB = parseInt(allowedOOB);
+      waypointCount = parseInt(waypointCount);
+      const readTextFile = fs.readTextFile;
+      const overallPads = [];
+      const gemDensities = [];
+      // Loading etherwarp pad coordinates
+      const padFile = readFileSync('pads.json');
+      const padData = JSON.parse(padFile);
+      for (const pad of padData) {
+        overallPads.push(parseInt(pad.x), parseInt(pad.y), parseInt(pad.z));
+        gemDensities.push(parseInt(pad.density));
+      }
+      console.log("Done loading pads.");
+      /*
+      const padLines = padFile.trim().split('\n');
+      for (const line of padLines) {
+        const [x, y, z] = line.split(' ').map(Number);
+        overallPads.push(x, y, z);
+      }
+      */
+      const gemstoneDat = readFileSync('sector' + sector + '.json');
+      const gemData = JSON.parse(gemstoneData);
+      console.log("Loaded block json");
+      const blockData = [];
+      blockData.length = 640;
+      for (let x = 0; x < 640; x++) {
+        blockData[x] = [];
+        blockData[x].length = 256;
+        for (let y = 0; y < 256; y++) {
+          blockData[x][y] = [];
+          blockData[x][y].length = 640;
+          for (let z = 0; z < 640; z++) {
+            blockData[x][y][z] = 0;
+          }
+        }
+      }
+      
+      /*
+      const lines = gemstoneData.trim().split('\n');
+      for (let x = 0; x < 622; x++) {
+        console.log(`Loading block data... ${Math.floor(x / 622 * 100)}%`);
+        blockData[x] = [];
+        for (let y = 0; y < 256; y++) {
+          blockData[x][y] = [];
+          const values = lines.shift().split(' ').map(Number);
+          blockData[x][y] = values;
+        }
+      }
+      */
+      //const densPath = await resolveResource('assets/densitylistv3.txt');
+      /*
+      const gemDensities = [];
+      const densityFile = await readTextFile(densPath);
+      const densityLines = densityFile.trim().split('\n');
+      for (const line of densityLines) {
+        gemDensities.push(Number(line));
+      }
+      */
+      console.log(`Loaded ${overallPads.length / 3} pads.`);
+
+      const jadecoordsx = 823;
+      const jadecoordsz = 202;
+
+      const sectors = [];
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          const sectortmp = [];
+          const cornerx = jadecoordsx + i * -128;
+          const cornerz = jadecoordsz + j * 128;
+          sectortmp.push(cornerx);
+          sectortmp.push(cornerz);
+          sectortmp.push(cornerx - 128);
+          sectortmp.push(cornerz + 128);
+          sectors.push(sectortmp);
+        }
+      }
+      if (checkingLOS) {
+        for (let x = 0; x < 128; x++) {
+          for (let y = 0; y < 256; y++) {
+            for (let z = 0; z < 128; z++) {
+              if (sectors[sector][0] - x - 202 > 621 || sectors[sector][0] - x - 202 < 0 || z + sectors[sector][1] - 202 > 621 || z + sectors[sector][1] - 202 < 0) continue;
+              blockData[sectors[sector][0] - x - 202][y][z + sectors[sector][1] - 202] = gemData[x][y][z];
+            }
+          }
+        }
+        console.log("Done loading blocks.");
+      }
+  
+      const desiredPathLength = waypointCount;
+      const padCoords = [];
+      const secDensities = [];
+      console.log(sectors[sector][0] + allowedOOB, sectors[sector][2] - allowedOOB, sectors[sector][1] - allowedOOB, sectors[sector][3] + allowedOOB)
+      for (var i = 0; i < overallPads.length / 3; i++) {
+        if (overallPads[i * 3] <= sectors[sector][0] + allowedOOB && overallPads[i * 3] > sectors[sector][2] - allowedOOB && overallPads[i * 3 + 2] >= sectors[sector][1] - allowedOOB && overallPads[i * 3 + 2] < sectors[sector][3] + allowedOOB) {
+          if (mfOnly && overallPads[i * 3 + 1] >= 64) continue;
+          padCoords.push(overallPads[i * 3]);
+          padCoords.push(overallPads[i * 3 + 1]);
+          padCoords.push(overallPads[i * 3 + 2]);
+          secDensities.push(gemDensities[i]);
+        }
+      }
+      var lowestAvgDist = Infinity;
+      var lowestAvgDistDensity = 0;
+      var lowestAvgDistPath = [];
+      var highestDensity = 0;
+      var highestDensityPath = [];
+      var highestDensityDist = Infinity;
+      console.log(padCoords.length / 3);
+      for (var i = 0; i < padCoords.length / 3; i++) {
+        //console.log(`Generating route... ${Math.floor(i / (padCoords.length / 3) * 100)}%`);
+        //document.getElementById("routeout").innerHTML = `Generating route... ${Math.floor(i / (padCoords.length / 3) * 100)}%`;
+        const path = [];
+        path.push(padCoords[i * 3]);
+        path.push(padCoords[i * 3 + 1]);
+        path.push(padCoords[i * 3 + 2]);
+
+        var density = secDensities[i];
+        const usedPads = [];
+        var done = false;
+
+        while (!done) {
+          const weightChart = [];
+          for (var j = 0; j < padCoords.length / 3; j++) {
+            var weight = 0;
+
+            const xdiff = Math.abs(path[path.length - 3] - padCoords[j * 3]);
+            const ydiff = Math.abs(path[path.length - 2] - padCoords[j * 3 + 1]);
+            const zdiff = Math.abs(path[path.length - 1] - padCoords[j * 3 + 2]);
+            const dist = Math.sqrt(xdiff * xdiff + ydiff * ydiff + zdiff * zdiff);
+            const startdiffx = Math.abs(path[0] - padCoords[j * 3]);
+            const startdiffy = Math.abs(path[1] - padCoords[j * 3 + 1]);
+            const startdiffz = Math.abs(path[2] - padCoords[j * 3 + 2]);
+            const startdist = Math.sqrt(startdiffx * startdiffx + startdiffy * startdiffy + startdiffz * startdiffz);
+            const gemDensity = secDensities[j];
+            var angleWeight = 1;
+            const angleDiff = 180 / Math.PI * Math.abs(Math.atan2(path[path.length - 6] - path[path.length - 3], path[path.length - 4] - path[path.length - 1]) - Math.atan2(padCoords[j * 3] - path[path.length - 3], padCoords[j * 3 + 2] - path[path.length - 1]));
+            //Include settable angle weighting later
+            if (angleEnable) {
+              if (gemDensity > 50) {
+                angleWeight = Math.abs(Math.min(angleDiff, 360 - angleDiff) - angle3) / 100 + 1
+              } else {
+                angleWeight = Math.abs(Math.min(angleDiff, 360 - angleDiff) - angle2) / 100 + 1
+              }
+            }
+            if (ignoreDens) weight = angleWeight * (Math.pow(dist, 2) + Math.pow(startdist, 1 * (usedPads.length / desiredPathLength)));
+            else weight = angleWeight * (Math.pow(dist, 2) + Math.pow(startdist, 1 * (usedPads.length / desiredPathLength))) / ((gemDensity - 44) * 4);
+            if (dist > 62) weight = Infinity;
+
+            weightChart.push(weight);
+          }
+          var lowestIndex = -1;
+          var lowestWeight = Infinity;
+
+          for (var j = 0; j < weightChart.length; j++) {
+            if (j == i && path.length == 6) continue;
+            if (padCoords[j * 3] == path[path.length - 3] && padCoords[j * 3 + 1] == path[path.length - 2] && padCoords[j * 3 + 2] == path[path.length - 1]) {
+              weightChart[j] = Infinity;
+              continue;
+            }
+            if (Math.abs(padCoords[j * 3] - path[path.length - 3]) < 3 && Math.abs(padCoords[j * 3 + 2] - path[path.length - 1]) < 3) {
+              weightChart[j] = Infinity;
+              continue;
+            }
+            for (var k = 0; k < usedPads.length; k++) {
+              if (j == usedPads[k]) {
+                weightChart[j] = Infinity;
+                break;
+              }
+              if (Math.abs(padCoords[j * 3] - padCoords[usedPads[k] * 3]) < 3 && Math.abs(padCoords[j * 3 + 1] - padCoords[usedPads[k] * 3 + 1]) < 3 && Math.abs(padCoords[j * 3 + 2] - padCoords[usedPads[k] * 3 + 2]) < 3) {
+                weightChart[j] = Infinity;
+                break;
+              }
+            }
+            if (weightChart[j] < lowestWeight) {
+              lowestWeight = weightChart[j];
+              lowestIndex = j;
+            }
+          }
+          var blocked = true;
+          if (!checkingLOS) blocked = false;
+          while (blocked) {
+            blocked = false;
+            const headx = path[path.length - 3];
+            const heady = path[path.length - 2] + 2;
+            const headz = path[path.length - 1];
+            const tailx = padCoords[lowestIndex * 3];
+            const taily = padCoords[lowestIndex * 3 + 1];
+            const tailz = padCoords[lowestIndex * 3 + 2];
+            const xdist = tailx - headx;
+            const ydist = taily - heady;
+            const zdist = tailz - headz;
+            const interval = xdist + ydist + zdist;
+            for (var j = 1; j < interval; j++) {
+              const x = Math.round(headx + j * xdist / interval);
+              const y = Math.round(heady + j * ydist / interval);
+              const z = Math.round(headz + j * zdist / interval);
+              if (Math.max(Math.abs(x - headx), Math.abs(z - headz)) < 2 && Math.abs(y - heady) < 2) continue;
+              if (x - 202 > 621 || x - 202 < 0 || y > 255 || y < 0 || z - 202 > 621 || z - 202 < 0) continue;
+              if (blockData[x - 202][y][z - 202] != 0) blocked = true;
+              if (blocked) {
+                weightChart[lowestIndex] = Infinity;
+                lowestWeight = Infinity;
+                lowestIndex = -1;
+                for (var k = 0; k < weightChart.length; k++) {
+                  if (k == i && path.length == 6) continue;
+                  if (weightChart[k] < lowestWeight) {
+                    lowestWeight = weightChart[k];
+                    lowestIndex = k;
+                  }
+                }
+                break;
+              }
+              blocked = false;
+            }
+            if (lowestWeight == Infinity) break;
+          }
+
+          if (lowestWeight == Infinity) {
+            //console.log("Route blocked.");
+            break;
+          }
+          if (lowestIndex == i) {
+            //console.log("Route complete.");
+            done = true;
+            break;
+          }
+
+          path.push(padCoords[lowestIndex * 3]);
+          path.push(padCoords[lowestIndex * 3 + 1]);
+          path.push(padCoords[lowestIndex * 3 + 2]);
+          usedPads.push(lowestIndex);
+          density += secDensities[lowestIndex];
+        }
+
+        var avgDist = 0;
+        for (var j = 0; j < path.length / 3 - 1; j++) {
+          avgDist += Math.sqrt(Math.pow(path[j * 3] - path[j * 3 + 3], 2) + Math.pow(path[j * 3 + 1] + 2 - path[j * 3 + 4], 2) + Math.pow(path[j * 3 + 2] - path[j * 3 + 5], 2));
+        }
+        avgDist += Math.sqrt(Math.pow(path[path.length - 3] - path[0], 2) + Math.pow(path[j * 3 + 1] + 2 - path[1], 2) + Math.pow(path[path.length - 1] - path[2], 2));
+        avgDist /= path.length / 3 + 1;
+        density /= path.length / 3;
+        if (avgDist < lowestAvgDist && desiredPathLength - desiredPathLength / 10 <= path.length / 3 && path.length / 3 <= desiredPathLength + desiredPathLength / 10) {
+          lowestAvgDist = avgDist;
+          lowestAvgDistDensity = density;
+          lowestAvgDistPath = path;
+        }
+        if (density > highestDensity && desiredPathLength - desiredPathLength / 10 <= path.length / 3 && path.length / 3 <= desiredPathLength + desiredPathLength / 10) {
+          highestDensity = density;
+          highestDensityPath = path;
+          highestDensityDist = avgDist;
+        }
+        //console.log(path.length / 3, density, avgDist);
+      }
+      //Choose between density and dist in settings as well though
+      var outPath = [];
+      var outPathDensity = 0;
+      var outPathDist = 0;
+      if (priority == "tp") {
+        outPath = lowestAvgDistPath;
+        outPathDensity = lowestAvgDistDensity;
+        outPathDist = lowestAvgDist;
+      } else {
+        outPath = highestDensityPath;
+        outPathDensity = highestDensity;
+        outPathDist = highestDensityDist;
+      }
+
+      var pathOutput = "[";
+      for (var i = 0; i < outPath.length / 3; i++) {
+        pathOutput += "{\"x\":" + outPath[i * 3] + ",\"y\":" + outPath[i * 3 + 1] + ",\"z\":" + outPath[i * 3 + 2] + ",\"r\":0,\"g\":1,\"b\":0,\"options\":{\"name\":\"" + (i + 1) + "\"}}";
+        if (i != outPath.length / 3 - 1) pathOutput += ",";
+      }
+      pathOutput += "]";
+      document.getElementById("routeout").innerHTML = pathOutput;
+      console.log(outPath.length / 3, outPathDensity, outPathDist);
+      document.getElementById("routestats").innerHTML = `Waypoints: ${outPath.length / 3}<br>Density: ${outPathDensity.toPrecision(4)}<br>Distance: ${outPathDist.toPrecision(4)}`;
+      return pathOutput, outPath.length / 3, outPathDensity, outPathDist;
+    }
+    var activeSquareIndex = -1;
+    var currentStep = 1;
+
+    var mfOnly = false;
+    var checkingLOS = true;
+    var noDens = false;
+
+    var waypointNumber = 150;
+
+    var priority = "tp";
+    var allowedOOB = 0;
+
+    var angleEnable = false;
+    var angle22 = 0;
+    var angle33 = 0;
+
+    document.getElementById("menua1").style.opacity = 1;
+    document.getElementById("menua1").style.display = "flex";
+    document.getElementById("menub").style.height = 0;
+
+    function selectSquare(index) {
+      if (activeSquareIndex != -1) {
+        document.getElementById(activeSquareIndex).style.backgroundColor = "rgba(1, 1, 2, 0.665)";
+      }
+      document.getElementById("mapnextbutton").style.opacity = 1;
+      activeSquareIndex = parseInt(index);
+      let selectedSquareDiv = document.getElementById(index);
+      selectedSquareDiv.style.backgroundColor = "#edbdc2";
+    }
+    function getRoute() {
+      var output = generateRoute(activeSquareIndex, allowedOOB, priority, waypointNumber, angleEnable, angle22, angle33, mfOnly, checkingLOS, noDens);
+    }
+    async function resetMenu() {
+      document.getElementById("menub").style.height = 0;
+      document.getElementById("menub1").style.opacity = 0;
+      document.getElementById("menua" + (currentStep)).style.opacity = 0;
+      document.getElementsByClassName("progressitem")[currentStep - 1].setAttribute("data-active", "false");
+      document.getElementsByClassName("dot")[currentStep - 1].setAttribute("data-active", "false");
+      await new Promise(r => setTimeout(r, 500)); 
+      document.getElementById("menub1").style.display = "none";
+      document.getElementById("menua" + (currentStep)).style.display = "none";
+      currentStep = 1;
+      if (activeSquareIndex != -1) document.getElementById(activeSquareIndex).style.backgroundColor = "#0e141b";
+      activeSquareIndex = -1;
+      document.getElementsByClassName("progressbar")[0].style.opacity = 1;
+      document.getElementById("menua" + (currentStep)).style.display = "flex";
+      document.getElementById("menua" + (currentStep)).style.opacity = 1;
+      document.getElementsByClassName("progressitem")[currentStep - 1].setAttribute("data-active", "true");
+      document.getElementsByClassName("dot")[currentStep - 1].setAttribute("data-active", "true");
+    }
+    async function updateMenu(step) {
+      document.getElementById("menua" + (step - 1)).style.opacity = 0;
+      document.getElementsByClassName("progressitem")[step - 2].setAttribute("data-active", "false");
+      document.getElementsByClassName("dot")[step - 2].setAttribute("data-active", "false");
+      await new Promise(r => setTimeout(r, 500)); 
+      document.getElementById("menua" + (step - 1)).style.display = "none";
+
+      document.getElementById("menua" + (step)).style.display = "flex";
+      document.getElementById("menua" + (step)).style.opacity = 1;
+      document.getElementsByClassName("progressitem")[step - 1].setAttribute("data-active", "true");
+      document.getElementsByClassName("dot")[step - 1].setAttribute("data-active", "true");
+      if (step == 4) getRoute();
+    }
+    async function routeMenu() {
+      document.getElementsByClassName("progressbar")[0].style.opacity = 0;
+      document.getElementById("menua" + (currentStep)).style.opacity = 0;
+      document.getElementsByClassName("progressitem")[currentStep - 1].setAttribute("data-active", "false");
+      document.getElementsByClassName("dot")[currentStep - 1].setAttribute("data-active", "false");
+      await new Promise(r => setTimeout(r, 500)); 
+      document.getElementById("menua" + (currentStep)).style.display = "none";
+      document.getElementById("menua").style.height = 0;
+      currentStep = 1;
+      if (activeSquareIndex != -1) document.getElementById(activeSquareIndex).style.backgroundColor = "#0e141b";
+      activeSquareIndex = -1;
+      document.getElementById("menub").style.height = "100%";
+      document.getElementById("menub1").style.display = "flex";
+      document.getElementById("menub1").style.opacity = 1;
+    }
+    function moveStep() {
+      if (currentStep == 1 && activeSquareIndex == -1) return;
+      if (currentStep == 1) {
+        mfOnly = document.getElementById("mfbox").checked;
+        noDens = document.getElementById("nodens").checked;
+      }
+      if (currentStep == 2) waypointNumber = document.getElementById("wpform").value;
+      if (currentStep == 3) {
+        if (document.getElementById("tp").checked) priority = "tp"; else priority = "dens";
+        allowedOOB = document.getElementsByClassName("oobform")[0].value;
+        if (document.getElementById("anglecheck").checked) {
+          angleEnable = true; 
+          angle22 = document.getElementById("angle22").value;
+          angle33 = document.getElementById("angle33").value;
+        } else angleEnable = false;
+        if (document.getElementById("los").checked) checkingLOS = true;
+        else checkingLOS = false;
+        document.getElementById("routeout").innerHTML = "Route loading...";
+        document.getElementById("routestats").innerHTML = "";
+      }
+      if (currentStep == 4) return;
+      currentStep++;
+      updateMenu(currentStep);
+    }
+    function changeDisplayedRoute(route) {
+      document.getElementById("routeviewerpath").innerHTML = route.path;
+      document.getElementById("routeviewerstats").innerHTML = `Waypoints: ${route.waypoints}<br>Density: ${route.density}<br>Distance: ${route.distance}`;
+    }
+    function loadSavedRoutes() {
+      //Get list of saved routes from file
+      routes = [];
+      for (const route in routes) {
+        const routeBox = document.createElement("div");
+        routeBox.className = "route";
+        const routeTitle = document.createElement("h3");
+        routeTitle.className = "routetitle";
+        routeTitle.innerHTML = route.title;
+        routeBox.appendChild(routeTitle);
+        routeBox.parentElement = document.getElementById("routebox");
+        routeBox.onclick = changeDisplayedRoute(route);
+      }
+    }
+  </script>
+  </body>
+</html>
