@@ -1,0 +1,494 @@
+@font-face {
+  font-family: "Poppins-Thin";
+  src: url(assets/fonts/Poppins/Poppins-Thin.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraLight";
+  src: url(assets/fonts/Poppins/Poppins-ExtraLight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url(assets/fonts/Poppins/Poppins-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url(assets/fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url(assets/fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url(assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+}
+
+:root {
+  --main-bg-color: #295d8c;
+  --accent-bg-color: #427baf;
+  --button-bg-color: #427baf;
+  --white-text-color: rgba(255, 255, 255, 0.8);
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  user-select: none;
+  background-color: var(--main-bg-color);
+  font-family: "Poppins-Medium";
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#navbarandmaincontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+}
+
+.main {
+  flex-grow: 1;
+  margin-left: 15rem;
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+  justify-content: flex-start;
+  background-color: #131b23;
+  min-height: 100%;
+  text-align: center;
+  box-shadow: 1px 0px 10px 3px rgba(0, 0, 0, 0.511);
+}
+
+.icon {
+  width: 4rem;
+}
+
+.title {
+  display: flex;
+  color: var(--white-text-color);
+  font-weight: 300;
+  margin: 0;
+}
+
+.logocontainer {
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  margin-bottom: 5rem;
+  font-family: "Poppins-ExtraLight";
+}
+
+.menubutton {
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+  align-items: center;
+  height: 5rem;
+  font-size: 0.7rem;
+  color: var(--white-text-color);
+  background-color: #131b23;
+  transition: background-color 0.25s;
+  padding-left: 2rem;
+}
+
+.buttontext {
+  font-family: "Poppins-SemiBold";
+  letter-spacing: 0.2rem;
+  font-size: 12pt;
+}
+
+.menucontainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+}
+
+.menuscreen {
+  display: none;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.menubutton:hover {
+  background-color: var(--button-bg-color);
+}
+
+.progressbar {
+  width: 30rem;
+  transition: opacity 0.5s;
+  margin: 0;
+}
+
+.progressitem {
+  margin: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--white-text-color);
+  display: inline-block;
+  opacity: 0.3;
+  transition: opacity 0.25s;
+}
+
+.progressitem[data-active="true"] {
+  opacity: 1;
+}
+
+.dot {
+  height: .8rem;
+  width: .8rem;
+  background-color: var(--white-text-color);
+  border-radius: 50%;
+  display: block;
+  margin: 0.5rem auto auto auto;
+  transition: opacity 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transform: scale(0.5);
+  opacity: 0.3;
+}
+
+.dot[data-active="true"] {
+  transform: scale(0.8);
+  opacity: 1;
+}
+
+.lefttextcontainer {
+  display: inline-block;
+  flex-grow: 1;
+  margin: 5rem;
+}
+
+.rightcontentcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 2;
+  margin: 5rem;
+}
+
+.infobox {
+  width: 20rem;
+}
+
+.infotitlesuperscript {
+  font-size: 12pt;
+  font-family: "Poppins-ExtraLight";
+  letter-spacing: 0.05rem;
+  color: var(--white-text-color);
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.infotitle {
+  font-size: 3rem;
+  font-family: "Poppins-Light";
+  letter-spacing: 0.1rem;
+  color: var(--white-text-color);
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.infodesc {
+  font-size: 12pt;
+  font-family: "Poppins-Thin";
+  letter-spacing: 0.05rem;
+  color: var(--white-text-color);
+}
+
+#mapnextbutton {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.nextbutton {
+  margin-top: 5rem;
+  width: fit-content;
+  padding: 0 1rem 0 0;
+}
+
+.nextbuttontext {
+  color: var(--white-text-color);
+  font-family: "Poppins-SemiBold";
+  display: inline-block;
+  position: relative;
+}
+
+.nextbuttontext::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white-text-color);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nextbuttontext:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.mapbox {
+  display: inline-block;
+  width: 40rem;
+  height: 40rem;
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: var(--accent-bg-color);
+  align-items: center;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.142);
+}
+
+#mapimage {
+  opacity: 0.8;
+  width: 40rem;
+}
+
+.xaxis {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  position: relative;
+  bottom: 40.45rem;
+}
+
+.yaxis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.mapsquare {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 7.8rem;
+  height: 7.8rem;
+  background-color: rgba(1, 1, 2, 0.665);
+  margin: 0.1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.mapsquare:hover {
+  opacity: 0.8;
+}
+
+#mapboxselectedtext {
+  text-align: center;
+  color: var(--white-text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.waypointentry {
+  margin-top: 2rem;
+  width: 40rem;
+}
+
+.waypointform {
+  background-color: var(--accent-bg-color);
+  height: 2rem;
+  width: 7rem;
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: "Poppins";
+  border: none;
+}
+
+.waypointform::-webkit-outer-spin-button,
+.waypointform::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.settingbox {
+  width: 40rem;
+}
+
+.priorityform {
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-right: 1rem;
+  border: none;
+}
+
+.settingdesc {
+  margin-top: 1rem;
+  width: 40rem;
+  font-size: 12pt;
+  font-family: "Poppins-Thin";
+  letter-spacing: 0.05rem;
+  color: var(--white-text-color);
+}
+
+.oobform {
+  background-color: var(--accent-bg-color);
+  height: 1.5rem;
+  width: 5rem;
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: "Poppins";
+  border: none;
+}
+
+.oobform::-webkit-outer-spin-button,
+.oobform::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.angleenable:checked {
+  background-color: var(--white-text-color);
+}
+
+label.angleenable {
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+  position: relative;
+  bottom: 0.2rem;
+}
+
+input.angleenable {
+  background-color: var(--accent-bg-color);
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input.anglesettings {
+  background-color: var(--accent-bg-color);
+  height: 1.5rem;
+  width: 5rem;
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: "Poppins";
+}
+
+input.anglesettings::-webkit-outer-spin-button,
+input.anglesettings::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label.anglesettings {
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+  position: relative;
+  bottom: 0.2rem;
+}
+
+.routeresults {
+  width: 40rem;
+}
+
+.routeoutput {
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  user-select: text;
+}
+
+.routebox {
+  height: 10rem;
+  overflow: auto;
+}
+
+.routestats {
+  color: var(--white-text-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+.routesinfo {
+  /* position: relative;
+  left: 20rem;
+  width: 40rem; */
+  margin-top: 5rem;
+}
+
+.routestitle {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--white-text-color);
+  /* margin-top: 1rem;
+  margin-bottom: 0; */
+}
+
+.routesdesc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--white-text-color);
+}
+
+/* .routeviewbox {
+  position: relative;
+  left: 20rem;
+  width: 50rem;
+  height: 40rem;
+  overflow: auto;
+} */
+
+.routetitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--white-text-color);
+  /* margin-top: 1rem;
+  margin-bottom: 0; */
+}
+
+.route {
+  width: 40rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: var(--accent-bg-color);
+}
+
+/* .routeviewer {
+  position: absolute;
+  left: 50rem;
+  width: 40rem;
+  height: 40rem;
+} */
+
+label.mfbox {
+  color: var(--white-text-color);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+}
