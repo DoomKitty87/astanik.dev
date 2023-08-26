@@ -38,6 +38,9 @@
                   <label class="mfbox" for="mfbox">Magma Fields Only (Ruby/Topaz)</label>
                   <input class="mfbox" type="checkbox" id="nodens">
                   <label class="mfbox" for="nodens">Ignore density (Manual/Bomb mining)</label>
+                  <br>
+                  <input class="mfbox" type="checkbox" id="rubyonly">
+                  <label class="mfbox" for="rubyonly">Ruby only (Manual)</label>
                 </form>
               </div>
               <div class="nextbutton">
@@ -373,9 +376,16 @@
       waypointCount = parseInt(waypointCount);
       //densityThreshold = parseInt(densityThreshold);
       var padData;
-      await fetch('pads.json')
+      if (rubyOnly) {
+        await fetch('rubypads.json')
         .then(response => response.json())
         .then((data) => {padData = data;});
+      }
+      else {
+        await fetch('pads.json')
+        .then(response => response.json())
+        .then((data) => {padData = data;});
+      }
       const overallPads = [];
       const gemDensities = [];
       for (const pad of padData) {
@@ -706,6 +716,7 @@
     var angleEnable = false;
     var angle22 = 0;
     var angle33 = 0;
+    var rubyOnly = false;
 
     document.getElementById("menua1").style.opacity = 1;
     document.getElementById("menua1").style.display = "flex";
@@ -722,7 +733,7 @@
       selectedSquareDiv.style.backgroundColor = "#edbdc2";
     }
     function getRoute() {
-      var output = generateRoute(activeSquareIndex, allowedOOB, priority, waypointNumber, angleEnable, angle22, angle33, mfOnly, checkingLOS, noDens);
+      var output = generateRoute(activeSquareIndex, allowedOOB, priority, waypointNumber, angleEnable, angle22, angle33, mfOnly, checkingLOS, noDens, rubyOnly);
     }
     function genOre() {
       var oreType;
@@ -805,6 +816,7 @@
       if (currentStep == 1) {
         mfOnly = document.getElementById("mfbox").checked;
         noDens = document.getElementById("nodens").checked;
+        rubyOnly = document.getElementById("rubyonly").checked;
       }
       if (currentStep == 2) waypointNumber = document.getElementById("wpform").value;
       if (currentStep == 3) {
