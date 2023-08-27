@@ -375,6 +375,9 @@
       allowedOOB = parseInt(allowedOOB);
       waypointCount = parseInt(waypointCount);
       //densityThreshold = parseInt(densityThreshold);
+      const readTextFile = window.__TAURI__.fs.readTextFile;
+      const resolveResource = window.__TAURI__.path.resolveResource;
+      var padPath;
       if (rubyOnly) {
         console.log("Ruby Only");
         ignoreDens = true;
@@ -396,8 +399,6 @@
       const overallPads = [];
       const gemDensities = [];
       // Loading etherwarp pad coordinates
-      const padFile = await readTextFile(padPath);
-      const padData = JSON.parse(padFile);
       if (!rubyOnly) {
         for (const pad of padData) {
           overallPads.push(parseInt(pad.x), parseInt(pad.y), parseInt(pad.z));
@@ -423,6 +424,7 @@
       await fetch('sector' + sector + '.json')
         .then(response => response.json())
         .then((data) => {gemData = data;});
+      console.log("Loaded block json");
       console.log("Loaded block json");
       const blockData = [];
       blockData.length = 640;
