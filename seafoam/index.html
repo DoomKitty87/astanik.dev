@@ -571,6 +571,7 @@
               } else {
                 angleWeight = Math.abs(Math.min(angleDiff, 360 - angleDiff) - angle2) / 100 + 1
               }
+              console.log(angleWeight);
             }
             if (ignoreDens) weight = angleWeight * (Math.pow(dist, 2) + Math.pow(startdist, 1 * (usedPads.length / desiredPathLength)));
             else weight = angleWeight * (Math.pow(dist, 2) + Math.pow(startdist, 1 * (usedPads.length / desiredPathLength))) / ((gemDensity - 44) * 4);
