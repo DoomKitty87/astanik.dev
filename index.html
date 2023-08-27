@@ -375,6 +375,13 @@
       allowedOOB = parseInt(allowedOOB);
       waypointCount = parseInt(waypointCount);
       //densityThreshold = parseInt(densityThreshold);
+      if (rubyOnly) {
+        console.log("Ruby Only");
+        ignoreDens = true;
+        angleEnable = false;
+        checkingLOS = false;
+        priority = "tp";
+      }
       var padData;
       if (rubyOnly) {
         await fetch('rubypads.json')
