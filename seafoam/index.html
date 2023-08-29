@@ -39,10 +39,12 @@
                   <input class="mfbox" type="checkbox" id="nodens">
                   <label class="mfbox" for="nodens">Ignore density (Manual/Bomb mining)</label>
                   <br>
-                  <!--
                   <input class="mfbox" type="checkbox" id="hybrid">
                   <label class="mfbox" for="hybrid">Hybrid dillo ruby</label>
-                  <br>-->
+                  <br>
+                  <input class="mfbox" type="checkbox" id="nomf">
+                  <label class="mfbox" for="nomf">No magma fields (for hybrid)</label>
+                  <br>
                   <input class="mfbox" type="checkbox" id="rubyonly">
                   <label class="mfbox" for="rubyonly">Single gem (Manual)</label>
                   <h3 class="infodesc">Below only applies if Single gem is checked.</h3>
@@ -397,7 +399,7 @@
       pathOutput += "]";
       document.getElementById("oreout").innerHTML = pathOutput;
     }
-    async function generateRoute(sector, allowedOOB, priority, waypointCount, angleEnable, angle22, angle33, mfOnly, checkingLOS, ignoreDens, minPadDist, oneGemOnly, gemType, hybrid=false) {
+    async function generateRoute(sector, allowedOOB, priority, waypointCount, angleEnable, angle22, angle33, mfOnly, checkingLOS, ignoreDens, minPadDist, oneGemOnly, gemType, hybrid, nomf) {
       const angle3 = Math.min(angle33, 360 - angle33);
       const angle2 = Math.min(angle22, 360 - angle22);
       allowedOOB = parseInt(allowedOOB);
@@ -559,7 +561,8 @@
         if (overallPads[i * 3] <= sectors[sector][0] + allowedOOB && overallPads[i * 3] > sectors[sector][2] - allowedOOB && overallPads[i * 3 + 2] >= sectors[sector][1] - allowedOOB && overallPads[i * 3 + 2] < sectors[sector][3] + allowedOOB) {
           if (mfOnly && !oneGemOnly && overallPads[i * 3 + 1] >= 64) continue;
           if (mfOnly && oneGemOnly && gemType != "topaz" && gemType != "ruby" && (overallPads[i * 3 + 1] >= 68 || overallPads[i * 3 + 1] <= 65)) continue;
-          if (mfOnly && oneGemOnly && (gemType == "topaz" || gemType == "ruby") && overallPads[i * 3 + 1] >= 64) continue;
+          if (mfOnly && oneGemOnly && (gemType == "topaz" || gemType == "ruby") && overallPads[i * 3 + 1] >= 64) continue;if (nomf && overallPads[i * 3 + 1] < 64) continue;
+          if (nomf && overallPads[i * 3 + 1] < 64) continue;
           padCoords.push(overallPads[i * 3]);
           padCoords.push(overallPads[i * 3 + 1]);
           padCoords.push(overallPads[i * 3 + 2]);
@@ -779,6 +782,7 @@
     var oneGemOnly = false;
     var gemType = "ruby";
     var hybrid = false;
+    var nomf = false;
 
     document.getElementById("menua1").style.opacity = 1;
     document.getElementById("menua1").style.display = "flex";
@@ -795,7 +799,7 @@
       selectedSquareDiv.style.backgroundColor = "#edbdc2";
     }
     function getRoute() {
-      var output = generateRoute(activeSquareIndex, allowedOOB, priority, waypointNumber, angleEnable, angle22, angle33, mfOnly, checkingLOS, noDens, minPadDist, oneGemOnly, gemType);
+      var output = generateRoute(activeSquareIndex, allowedOOB, priority, waypointNumber, angleEnable, angle22, angle33, mfOnly, checkingLOS, noDens, minPadDist, oneGemOnly, gemType, hybrid, nomf);
     }
     function genOre() {
       var oreType;
@@ -881,7 +885,8 @@
         mfOnly = document.getElementById("mfbox").checked;
         noDens = document.getElementById("nodens").checked;
         oneGemOnly = document.getElementById("rubyonly").checked;
-        //hybrid = document.getElementById("hybrid").checked;
+        hybrid = document.getElementById("hybrid").checked;
+        nomf = document.getElementById("nomf").checked;
         if (document.getElementById("ruby").checked) {
           gemType = "ruby";
         } else if (document.getElementById("sapphire").checked) {
