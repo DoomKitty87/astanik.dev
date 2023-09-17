@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('inter.ttf') format('truetype');
+}
+
+:root {
+  --font-size-large: 450px;
+  --font-size-medium: 144px;
+  --font-size-small: 48px;
+}
+
+body {
+  font-family: 'Inter', Arial;
+  font-size: var(--font-size-small);
+  background-color: #230c24;
+  color: #fffeff;
+  overflow: hidden;
+  user-select: none;
+}
+
+.namecontainer {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  bottom: 0;
+}
+
+.nametitle {
+  font-size: var(--font-size-large);
+  margin-bottom: 0px;
+  line-height: .75em;
+}
+
+.namesubtitle {
+  font-size: var(--font-size-medium);
+  margin-bottom: 0px;
+  line-height: 0.75em;
+  margin-left: 0.1em;
+}
+
+.decorativeblock {
+  position: fixed;
+  bottom: 2em;
+  right: 0;
+  width: 20em;
+  height: 6em;
+  background-color: #bc58a420;
+}
+
+.menubuttons {
+  position: fixed;
+  right: 0;
+  display: block;
+}
+
+.menubutton {
+  cursor: pointer;
+  text-align: right;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0.2em;
+  transition: color 0.2s;
+}
+
+.menubutton[data-active='true'] {
+  color: #9ad2a2ff;
+}
+
+.menubutton[data-active='true']:after {
+  width: 100%;
+}
+
+.menubutton:after {
+  margin-left: auto;
+  margin-right: 0;
+  background-color: #9ad2a2ff;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.2em;
+  margin-top: -0.25em;
+  transition: width 0.5s ease;
+}
+
+.menubutton:hover:after {
+  width: 100%;
+}
+
+.popupdisplay {
+  background-color: #9ad2a27f;
+  margin-top: 2em;
+  width: 30em;
+  height: 8em;
+}

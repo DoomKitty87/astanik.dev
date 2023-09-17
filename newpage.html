@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ansel Stanik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="namecontainer">
+    <h1 class="nametitle">ansel</h1>
+    <h2 class="namesubtitle">stanik</h2>
+  </div>
+  <div class="decorativeblock"></div>
+  <div class="menubuttons">
+    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('work')">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('about')">about</h3>
+    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('skills')">skills</h3>
+    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('contact')">contact</h3>
+  </div>
+  <div class="popupdisplay">
+    <p class="bodytext" id="abouttext">hi im ansel</p>
+  </div>
+  <script>
+    function openPanel(panel) {
+      var panels = document.getElementsByClassName('popupdisplay');
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].style.display = 'none';
+      }
+      if (buttons[panel].dataset.active = 'true') return;
+      var buttons = document.getElementsByClassName('menubutton');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].dataset.active = 'false';
+      }
+      buttons[panel].dataset.active = 'true';
+      document.getElementById(panel + 'text').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
