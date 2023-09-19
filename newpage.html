@@ -10,8 +10,8 @@
 </head>
 <body>
   <div class="namecontainer">
-    <h1 class="nametitle">ansel</h1>
-    <h2 class="namesubtitle">stanik</h2>
+    <h1 class="nametitle" id="nametext">ansel</h1>
+    <h2 class="namesubtitle" id="namesub">stanik</h2>
   </div>
   <div class="decorativeblock"></div>
   <div class="menubuttons">
@@ -54,10 +54,17 @@
       if (buttons[panel].dataset.active == 'false') return;
       panels[panel].style.display = 'block';
     }
-
+    const name = document.getElementById('nametext');
+    const last = document.getElementById('namesub');
+    const bound = name.getBoundingClientRect();
+    const bound2 = last.getBoundingClientRect();
     document.addEventListener("mousemove", event => {
       document.body.style.setProperty("background-position-x", (event.clientX - document.body.clientWidth).toString() + "px");
       document.body.style.setProperty("background-position-y", (event.clientY - document.body.clientHeight).toString() + "px");
+      name.style.setProperty("background-position-x", (event.clientX - bound.left - (bound.right - bound.left) * 5).toString() + "px");
+      name.style.setProperty("background-position-y", (event.clientY - bound.top - (bound.bottom - bound.top) * 5).toString() + "px");
+      last.style.setProperty("background-position-x", (event.clientX - bound2.left - (bound2.right - bound2.left) * 10).toString() + "px");
+      last.style.setProperty("background-position-y", (event.clientY - bound2.top - (bound2.bottom - bound2.top) * 10).toString() + "px");
     });
   </script>
 </body>

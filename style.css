@@ -35,13 +35,25 @@ body {
   font-size: var(--font-size-large);
   margin-bottom: 0px;
   line-height: .75em;
+  background-image: radial-gradient(circle at center, #557459 0%, #fffeff 10%);
+  background-size: 1000% 1000%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .namesubtitle {
   font-size: var(--font-size-medium);
-  margin-bottom: 0px;
-  line-height: 0.75em;
+  margin-bottom: -0.05em;
+  line-height: 0.85em;
   margin-left: 0.1em;
+  background-image: radial-gradient(circle at center, #557459 0%, #fffeff 10%);
+  background-size: 2000% 2000%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .decorativeblock {
@@ -116,7 +128,8 @@ body {
 
 .bodytext {
   margin-bottom: 0.5em;
-  width: 30em;
+  width: fit-content;
+  max-width: 30em;
 }
 
 .contactlink {
