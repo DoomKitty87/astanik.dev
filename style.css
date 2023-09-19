@@ -13,7 +13,8 @@ body {
   font-family: 'Inter', Arial;
   font-size: var(--font-size-small);
   background-size: 200% 200%;
-  background-image: radial-gradient(circle at center, #230c24, #250d26);
+  background-color: #557459;
+  background-image: radial-gradient(circle at center, #230c24, #ffffff00);
   background-repeat: no-repeat;
   color: #fffeff;
   overflow: hidden;
@@ -50,6 +51,7 @@ body {
   width: 25em;
   height: 6em;
   background-color: #bc58a420;
+  z-index: -1;
 }
 
 .menubuttons {
@@ -114,6 +116,7 @@ body {
 
 .bodytext {
   margin-bottom: 0.5em;
+  width: 30em;
 }
 
 .contactlink {
