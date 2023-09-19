@@ -15,28 +15,49 @@
   </div>
   <div class="decorativeblock"></div>
   <div class="menubuttons">
-    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('work')">work</h3>
-    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('about')">about</h3>
-    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('skills')">skills</h3>
-    <h3 data-active="false" class="menubutton" onclick="this.dataset.active=(this.dataset.active == 'true' ? 'false' : 'true');openPanel('contact')">contact</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
+  </div>
+  <div class="popupholder">
+  <div class="popupdisplay">
+    <h1 class="titletext">things i did</h1>
+  </div>
+  <div class="popupdisplay" id="popupholder">
+    <h1 class="titletext">about me</h1>
   </div>
   <div class="popupdisplay">
-    <p class="bodytext" id="abouttext">hi im ansel</p>
+    <h1 class="titletext">things i can do</h1>
+  </div>
+  <div class="popupdisplay">
+    <h1 class="titletext">contact me</h1>
+    <p class="bodytext">email: <a href="" class="contactlink" id="emailtext"></a></p>
+  </div>
   </div>
   <script>
+    document.getElementById('emailtext').innerHTML = 'ansel.' + 'stanik' + '@' + 'icloud.com';
+    document.getElementById('emailtext').href = 'mailto:' + 'ansel.' + 'stanik' + '@' + 'icloud.com';
     function openPanel(panel) {
       var panels = document.getElementsByClassName('popupdisplay');
       for (var i = 0; i < panels.length; i++) {
-        panels[i].style.display = 'none';
+        panels[i].style.display = 'none'
       }
-      if (buttons[panel].dataset.active = 'true') return;
       var buttons = document.getElementsByClassName('menubutton');
+      if (buttons[panel].dataset.active == 'false') buttons[panel].dataset.active = 'true';
+      else buttons[panel].dataset.active = 'false';
       for (var i = 0; i < buttons.length; i++) {
+        if (i == panel) continue;
         buttons[i].dataset.active = 'false';
       }
-      buttons[panel].dataset.active = 'true';
-      document.getElementById(panel + 'text').style.display = 'block';
+      if (buttons[panel].dataset.active == 'false') return;
+      panels[panel].style.display = 'block';
     }
+
+    document.addEventListener("mousemove", event => {
+      document.body.style.setProperty("background-position-x", (event.clientX - document.body.clientWidth / 2).toString() + "px");
+      document.body.style.setProperty("background-position-y", (event.clientY - document.body.clientHeight / 2).toString() + "px");
+    });
   </script>
 </body>
 </html>
