@@ -12,8 +12,9 @@
 body {
   font-family: 'Inter', Arial;
   font-size: var(--font-size-small);
-  background-image: radial-gradient(circle at center, #230c24, #341236);
-  background-repeat:repeat;
+  background-size: 200% 200%;
+  background-image: radial-gradient(circle at center, #230c24, #250d26);
+  background-repeat: no-repeat;
   color: #fffeff;
   overflow: hidden;
   user-select: none;
