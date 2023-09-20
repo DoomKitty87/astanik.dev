@@ -47,7 +47,7 @@
     const bound = name.getBoundingClientRect();
     const bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
-    const panelSizes = [20, 20, 20, 17];
+    const panelSizes = [32, 5, 31, 6, 20, 4, 17, 4];
     function openPanel(panel) {
       var panels = document.getElementsByClassName('popupdisplay');
       for (var i = 0; i < panels.length; i++) {
@@ -62,12 +62,14 @@
       }
       nameContainer.style.setProperty("bottom", 0);
       decorativeBlock.style.setProperty("right", 0);
-      popupHolder.style.setProperty("width", 0);
+      popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
 
       if (buttons[panel].dataset.active == 'false') return;
       nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
       decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");
-      popupHolder.style.setProperty("width", panelSizes[panel].toString() + "em");
+      popupHolder.style.setProperty("width", panelSizes[panel * 2].toString() + "em");
+      popupHolder.style.setProperty("height", panelSizes[panel * 2 + 1].toString() + "em");
+      popupHolder.style.setProperty("left", 0);
       panels[panel].style.display = 'block';
     }
     document.addEventListener("mousemove", event => {

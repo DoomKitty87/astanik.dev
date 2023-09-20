@@ -29,7 +29,7 @@ body {
   flex-direction: row;
   align-items: flex-end;
   bottom: 0;
-  transition: bottom 0.2s;
+  transition: bottom 0.5s;
 }
 
 .nametitle {
@@ -55,7 +55,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  transition: margin-bottom 0.25s ease;
 }
 
 .decorativeblock {
@@ -66,7 +65,7 @@ body {
   height: 6em;
   background-color: #bc58a420;
   z-index: -1;
-  transition: right 0.25s ease;
+  transition: right 0.5s ease;
 }
 
 .menubuttons {
@@ -82,7 +81,7 @@ body {
   width: fit-content;
   margin-left: auto;
   margin-right: 0.2em;
-  transition: color 0.2s;
+  transition: color 0.5s ease;
 }
 
 .menubutton[data-active='true'] {
@@ -127,8 +126,8 @@ body {
   left: 0;
   top: 2em;
   background-color: #bc58a420;
-  width: 30em;
-  transition: width 0.25s ease;
+  width: 0;
+  transition: left 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
 .bodytext {
