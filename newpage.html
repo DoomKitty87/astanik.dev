@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="namecontainer">
+  <div class="namecontainer" id="namecontainer">
     <h1 class="nametitle" id="nametext">ansel</h1>
     <h2 class="namesubtitle" id="namesub">stanik</h2>
   </div>
-  <div class="decorativeblock"></div>
+  <div class="decorativeblock" id="decoration"></div>
   <div class="menubuttons">
     <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
   </div>
-  <div class="popupholder">
+  <div class="popupholder" id="popupholder">
   <div class="popupdisplay">
     <h1 class="titletext">things i did</h1>
   </div>
@@ -39,6 +39,14 @@
   <script>
     document.getElementById('emailtext').innerHTML = 'ansel.' + 'stanik' + '@' + 'icloud.com';
     document.getElementById('emailtext').href = 'mailto:' + 'ansel.' + 'stanik' + '@' + 'icloud.com';
+    const name = document.getElementById('nametext');
+    const last = document.getElementById('namesub');
+    const nameContainer = document.getElementById('namecontainer');
+    const decorativeBlock = document.getElementById('decoration');
+    const popupHolder = document.getElementById('popupholder');
+    const bound = name.getBoundingClientRect();
+    const bound2 = last.getBoundingClientRect();
+    const bound3 = decorativeBlock.getBoundingClientRect();
     function openPanel(panel) {
       var panels = document.getElementsByClassName('popupdisplay');
       for (var i = 0; i < panels.length; i++) {
@@ -51,13 +59,14 @@
         if (i == panel) continue;
         buttons[i].dataset.active = 'false';
       }
+      nameContainer.style.setProperty("bottom", 0);
+      decorativeBlock.style.setProperty("right", 0);
+
       if (buttons[panel].dataset.active == 'false') return;
+      nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
+      decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");
       panels[panel].style.display = 'block';
     }
-    const name = document.getElementById('nametext');
-    const last = document.getElementById('namesub');
-    const bound = name.getBoundingClientRect();
-    const bound2 = last.getBoundingClientRect();
     document.addEventListener("mousemove", event => {
       document.body.style.setProperty("background-position-x", (event.clientX - document.body.clientWidth).toString() + "px");
       document.body.style.setProperty("background-position-y", (event.clientY - document.body.clientHeight).toString() + "px");
