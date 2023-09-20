@@ -115,8 +115,11 @@ body {
 
 .titletext {
   margin-top: 0.2em;
+  margin-left: 0.85em;
   font-size: calc(var(--font-size-small) * 1.2);
   height: 0.8em;
+  width: 30em;
+  max-width: max-content;
 }
 
 .popupholder {
@@ -124,16 +127,15 @@ body {
   left: 0;
   top: 2em;
   background-color: #bc58a420;
-  width: 0;
-  padding-right: 1em;
-  padding-left: 1em;
+  width: 30em;
   transition: width 0.25s ease;
 }
 
 .bodytext {
   margin-bottom: 0.5em;
-  width: fit-content;
-  max-width: 30em;
+  margin-left: 1em;
+  width: 30em;
+  max-width: max-content;
 }
 
 .contactlink {
