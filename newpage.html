@@ -54,6 +54,19 @@
         panels[i].style.display = 'none'
       }
       var buttons = document.getElementsByClassName('menubutton');
+      var foundActive = 0;
+      for (var i = 0; i < buttons.length; i++) {
+        if (buttons[i].dataset.active == 'true') foundActive++;
+      }
+      if (!foundActive) {
+        popupHolder.style.transition = "none";
+        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
+        popupHolder.offsetHeight;
+        popupHolder.style.transition = "";
+      }
+      if (foundActive == 1 && buttons[panel].dataset.active == 'true') {
+        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
+      }
       if (buttons[panel].dataset.active == 'false') buttons[panel].dataset.active = 'true';
       else buttons[panel].dataset.active = 'false';
       for (var i = 0; i < buttons.length; i++) {
@@ -62,8 +75,7 @@
       }
       nameContainer.style.setProperty("bottom", 0);
       decorativeBlock.style.setProperty("right", 0);
-      popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
-
+      
       if (buttons[panel].dataset.active == 'false') return;
       nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
       decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");
