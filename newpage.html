@@ -47,14 +47,12 @@
     const bound = name.getBoundingClientRect();
     const bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
-    const panelSizes = [32, 5, 31, 6, 20, 4, 17, 4];
-    function openPanel(panel) {
+    const panelSizes = [32, 5, 25, 6, 20, 4, 13.5, 2.3];
+    async function openPanel(panel) {
       var panels = document.getElementsByClassName('popupdisplay');
-      for (var i = 0; i < panels.length; i++) {
-        panels[i].style.display = 'none'
-      }
       var buttons = document.getElementsByClassName('menubutton');
       var foundActive = 0;
+      var waitingForTransition = false;
       for (var i = 0; i < buttons.length; i++) {
         if (buttons[i].dataset.active == 'true') foundActive++;
       }
@@ -66,7 +64,14 @@
       }
       if (foundActive == 1 && buttons[panel].dataset.active == 'true') {
         popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
+        waitingForTransition = true;
       }
+      else {
+        for (var i = 0; i < panels.length; i++) {
+          panels[i].style.display = 'none'
+        }
+      }
+
       if (buttons[panel].dataset.active == 'false') buttons[panel].dataset.active = 'true';
       else buttons[panel].dataset.active = 'false';
       for (var i = 0; i < buttons.length; i++) {
@@ -75,7 +80,10 @@
       }
       nameContainer.style.setProperty("bottom", 0);
       decorativeBlock.style.setProperty("right", 0);
-      
+      if (waitingForTransition) {
+        await new Promise(r => setTimeout(r, 500));
+        panels[panel].style.display = 'none';
+      }
       if (buttons[panel].dataset.active == 'false') return;
       nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
       decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");

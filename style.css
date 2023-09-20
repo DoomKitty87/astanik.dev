@@ -7,6 +7,7 @@
   --font-size-large: 24vw;
   --font-size-medium: 8vw;
   --font-size-small: 2.5vw;
+  --font-size-paragraph: 2vw;
 }
 
 body {
@@ -113,8 +114,8 @@ body {
 }
 
 .titletext {
-  margin-top: 0.2em;
-  margin-left: 0.85em;
+  margin-top: -1em;
+  margin-left: 2em;
   font-size: calc(var(--font-size-small) * 1.2);
   height: 0.8em;
   width: 30em;
@@ -127,7 +128,7 @@ body {
   top: 2em;
   background-color: #bc58a420;
   width: 0;
-  transition: left 0.5s ease, width 0.5s ease, height 0.5s ease;
+  transition: left 0.5s ease, width 0.25s ease, height 0.25s ease;
 }
 
 .bodytext {
@@ -135,6 +136,7 @@ body {
   margin-left: 1em;
   width: 30em;
   max-width: max-content;
+  font-size: var(--font-size-paragraph);
 }
 
 .contactlink {
