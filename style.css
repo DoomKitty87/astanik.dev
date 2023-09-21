@@ -180,3 +180,24 @@ body {
 .contactlink:hover:after {
   width: 100%;
 }
+
+.carousel {
+  height: 8em;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2em;
+}
+
+.project {
+  margin-left: 2em;
+}
+
+.projectimage {
+  height: 5em;
+  width: 5em;
+}
+
+.projecttext {
+  margin-top: 0;
+  text-align: center;
+}

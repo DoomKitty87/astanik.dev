@@ -36,7 +36,7 @@
   </div>
   <div class="decorativeblock" id="decoration"></div>
   <div class="menubuttons">
-    <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(0);updateCarousel(-1)">work</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
@@ -44,17 +44,40 @@
   <div class="popupholder" id="popupholder">
   <div class="popupdisplay">
     <h1 class="titletext">things i did</h1>
+    <div class="carousel">
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">0</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">1</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">2</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">3</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">4</h2>
+      </div>
+    </div>
+    <p class="bodytext">test</p>
   </div>
   <div class="popupdisplay" id="popupholder">
     <h1 class="titletext">about me</h1>
-    <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. me and electricity are best buds! + i like computers.</p>
+    <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like music, computers, puzzles, lights, and colors.</p>
   </div>
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
   </div>
   <div class="popupdisplay">
     <h1 class="titletext">contact me</h1>
-    <p class="bodytext">email: <a href="" class="contactlink" id="emailtext"></a></p>
+    <p class="bodytext">email me at <a href="" class="contactlink" id="emailtext"></a></p>
   </div>
   </div>
   <script>
@@ -68,10 +91,19 @@
     const bound = name.getBoundingClientRect();
     const bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
-    const panelSizes = [32, 5, 25, 6, 20, 4, 13.5, 2.3];
+    const panelSizes = [32, 15, 25, 6, 20, 4, 16, 2.3];
     const background = document.getElementById('background');
-    var buttons = document.getElementsByClassName('menubutton');
-    var panels = document.getElementsByClassName('popupdisplay');
+    const buttons = document.getElementsByClassName('menubutton');
+    const panels = document.getElementsByClassName('popupdisplay');
+    const projects = document.getElementsByClassName('project');
+    var carouselSlides = 0;
+    function updateCarousel(change) {
+      carouselSlides += change;
+      for (var i = 0; i < projects.length; i++) {
+        if (i < carouselSlides || i > carouselSlides + 3) projects[i].style.setProperty("display", "none");
+      }
+    }
+
     async function openPanel(panel) {
       var foundActive = 0;
       var waitingForTransition = false;
