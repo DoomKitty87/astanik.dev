@@ -8,6 +8,13 @@
   --font-size-medium: 8vw;
   --font-size-small: 2.5vw;
   --font-size-paragraph: 2vw;
+  --button-color: #f5b1e9;
+  --accent-color: #f5b1e9;
+  --hover-color: #ec6ed6;
+  --background-color: #3a386e;
+  --underline-color: #d23956;
+  --highlighted-color: #da5c74;
+  --light-background: #6562af;
 }
 
 svg {
@@ -17,7 +24,7 @@ svg {
 body {
   font-family: 'Inter', Arial;
   font-size: var(--font-size-small);
-  color: #fffeff;
+  color: var(--accent-color);
   overflow: hidden;
   user-select: none;
   height: 100vh;
@@ -28,9 +35,9 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background-image: linear-gradient(to right, #35322d 25%, #ee5e6b);
-  height: 100vh;
-  width: 100vw;
+  background-image: linear-gradient(to right, var(--background-color) 25%, var(--light-background));
+  height: 200vh;
+  width: 200vw;
   z-index: -2;
   filter: url(#noise);
 }
@@ -48,7 +55,7 @@ body {
   font-size: var(--font-size-large);
   margin-bottom: 0px;
   line-height: .75em;
-  background-image: radial-gradient(circle at center, #557459 0%, #fffeff 10%);
+  background-image: radial-gradient(circle at center, var(--hover-color) 0%, var(--accent-color) 10%);
   background-size: 1000% 1000%;
   background-repeat: no-repeat;
   background-clip: text;
@@ -61,7 +68,7 @@ body {
   margin-bottom: -0.05em;
   line-height: 0.85em;
   margin-left: 0.1em;
-  background-image: radial-gradient(circle at center, #557459 0%, #fffeff 10%);
+  background-image: radial-gradient(circle at center, var(--hover-color) 0%, var(--accent-color) 10%);
   background-size: 2000% 2000%;
   background-repeat: no-repeat;
   background-clip: text;
@@ -75,7 +82,8 @@ body {
   right: 0;
   width: 25em;
   height: 6em;
-  background-color: #bc58a420;
+  background-color: var(--background-color);
+  opacity: 0.5;
   z-index: -1;
   transition: right 0.5s ease;
 }
@@ -94,10 +102,11 @@ body {
   margin-left: auto;
   margin-right: 0.2em;
   transition: color 0.5s ease;
+  color: var(--button-color);
 }
 
 .menubutton[data-active='true'] {
-  color: #9ad2a2ff;
+  color: var(--highlighted-color);
 }
 
 .menubutton[data-active='true']:after {
@@ -107,7 +116,7 @@ body {
 .menubutton:after {
   margin-left: auto;
   margin-right: 0;
-  background-color: #9ad2a2ff;
+  background-color: var(--underline-color);
   content: "";
   display: block;
   width: 0;
@@ -137,7 +146,8 @@ body {
   position: fixed;
   left: 0;
   top: 2em;
-  background-color: #bc58a420;
+  background-color: var(--background-color);
+  opacity: 0.5;
   width: 0;
   transition: left 0.5s ease, width 0.25s ease, height 0.25s ease;
 }
@@ -152,13 +162,13 @@ body {
 
 .contactlink {
   text-decoration: none;
-  color: #9ad2a2ff;
+  color: var(--highlighted-color);
 }
 
 .contactlink:after {
   margin-right: auto;
   margin-left: 0;
-  background-color: #9ad2a2ff;
+  background-color: var(--underline-color);
   content: "";
   display: block;
   width: 0;

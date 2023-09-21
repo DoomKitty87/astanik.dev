@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.png">
   <svg>
     <filter id="noise">
-      <feTurbulence
+      <feTurbulence id="backgroundfilter"
         type="turbulence"
         baseFrequency="0.0015"
         numOctaves="2"
@@ -47,7 +47,7 @@
   </div>
   <div class="popupdisplay" id="popupholder">
     <h1 class="titletext">about me</h1>
-    <p class="bodytext">i am a high school junior based in oregon who likes computers and other cool things</p>
+    <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. me and electricity are best buds! + i like computers.</p>
   </div>
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
@@ -70,9 +70,9 @@
     const bound3 = decorativeBlock.getBoundingClientRect();
     const panelSizes = [32, 5, 25, 6, 20, 4, 13.5, 2.3];
     const background = document.getElementById('background');
+    var buttons = document.getElementsByClassName('menubutton');
+    var panels = document.getElementsByClassName('popupdisplay');
     async function openPanel(panel) {
-      var panels = document.getElementsByClassName('popupdisplay');
-      var buttons = document.getElementsByClassName('menubutton');
       var foundActive = 0;
       var waitingForTransition = false;
       for (var i = 0; i < buttons.length; i++) {
