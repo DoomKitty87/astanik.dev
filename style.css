@@ -190,6 +190,7 @@ body {
 
 .project {
   margin-left: 2em;
+  position: absolute;
 }
 
 .projectimage {

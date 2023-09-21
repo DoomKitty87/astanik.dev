@@ -36,7 +36,7 @@
   </div>
   <div class="decorativeblock" id="decoration"></div>
   <div class="menubuttons">
-    <h3 data-active="false" class="menubutton" onclick="openPanel(0);updateCarousel(-1)">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(0);updateCarousel(1)">work</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
@@ -64,6 +64,14 @@
       <div class="project">
         <img class="projectimage">
         <h2 class="projecttext">4</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">5</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage">
+        <h2 class="projecttext">6</h2>
       </div>
     </div>
     <p class="bodytext">test</p>
@@ -97,10 +105,19 @@
     const panels = document.getElementsByClassName('popupdisplay');
     const projects = document.getElementsByClassName('project');
     var carouselSlides = 0;
+
     function updateCarousel(change) {
       carouselSlides += change;
+      if (carouselSlides >= projects.length) carouselSlides -= projects.length;
       for (var i = 0; i < projects.length; i++) {
-        if (i < carouselSlides || i > carouselSlides + 3) projects[i].style.setProperty("display", "none");
+        projects[i].style.setProperty("display", "none");
+      }
+      for (var i = 0; i < 4; i++) {
+        var j = i + carouselSlides;
+        if (j < 0) j = projects.length + j - 1;
+        if (j >= projects.length) j -= projects.length;
+        projects[j].style.setProperty("display", "block");
+        projects[j].style.setProperty("left", `${7*i}em`);
       }
     }
 
