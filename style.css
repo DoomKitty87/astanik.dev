@@ -10,18 +10,29 @@
   --font-size-paragraph: 2vw;
 }
 
+svg {
+  shape-rendering: optimizeSpeed;
+}
+
 body {
   font-family: 'Inter', Arial;
   font-size: var(--font-size-small);
-  background-size: 200% 200%;
-  background-color: #557459;
-  background-image: radial-gradient(circle at center, #230c24, #ffffff00);
-  background-repeat: no-repeat;
   color: #fffeff;
   overflow: hidden;
   user-select: none;
   height: 100vh;
   width: 100vw;
+}
+
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to right, #35322d 25%, #ee5e6b);
+  height: 100vh;
+  width: 100vw;
+  z-index: -2;
+  filter: url(#noise);
 }
 
 .namecontainer {

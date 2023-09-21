@@ -6,9 +6,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="icon" href="favicon.png">
+  <svg>
+    <filter id="noise">
+      <feTurbulence
+        type="turbulence"
+        baseFrequency="0.0015"
+        numOctaves="2"
+        result="noisetexture"
+      />
+      <feColorMatrix
+        type="saturate"
+        values="0.2"
+        in="noisetexture"
+        result="desat"/>
+      <feBlend 
+        in="desat"
+        in2="SourceGraphic"
+        mode="normal"
+      />
+    </filter>
+  </svg>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="background" id="background"></div>
   <div class="namecontainer" id="namecontainer">
     <h1 class="nametitle" id="nametext">ansel</h1>
     <h2 class="namesubtitle" id="namesub">stanik</h2>
@@ -48,6 +69,7 @@
     const bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
     const panelSizes = [32, 5, 25, 6, 20, 4, 13.5, 2.3];
+    const background = document.getElementById('background');
     async function openPanel(panel) {
       var panels = document.getElementsByClassName('popupdisplay');
       var buttons = document.getElementsByClassName('menubutton');
@@ -93,8 +115,6 @@
       panels[panel].style.display = 'block';
     }
     document.addEventListener("mousemove", event => {
-      document.body.style.setProperty("background-position-x", (event.clientX - document.body.clientWidth).toString() + "px");
-      document.body.style.setProperty("background-position-y", (event.clientY - document.body.clientHeight).toString() + "px");
       name.style.setProperty("background-position-x", (event.clientX - bound.left - (bound.right - bound.left) * 5).toString() + "px");
       name.style.setProperty("background-position-y", (event.clientY - bound.top - (bound.bottom - bound.top) * 5).toString() + "px");
       last.style.setProperty("background-position-x", (event.clientX - bound2.left - (bound2.right - bound2.left) * 10).toString() + "px");
