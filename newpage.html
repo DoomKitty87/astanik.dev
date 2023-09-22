@@ -36,7 +36,7 @@
   </div>
   <div class="decorativeblock" id="decoration"></div>
   <div class="menubuttons">
-    <h3 data-active="false" class="menubutton" onclick="openPanel(0);updateCarousel(1)">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
     <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
@@ -44,7 +44,7 @@
   <div class="popupholder" id="popupholder">
   <div class="popupdisplay">
     <h1 class="titletext">things i did</h1>
-    <div class="carousel">
+    <div class="carousel" id="portfolio">
       <div class="project">
         <img class="projectimage">
         <h2 class="projecttext">0</h2>
@@ -106,21 +106,45 @@
     const projects = document.getElementsByClassName('project');
     var carouselSlides = 0;
 
-    function updateCarousel(change) {
+    async function updateCarousel(change) {
       carouselSlides += change;
       if (carouselSlides >= projects.length) carouselSlides -= projects.length;
+      if (carouselSlides <= -projects.length) carouselSlides += projects.length;
       for (var i = 0; i < projects.length; i++) {
         projects[i].style.setProperty("display", "none");
       }
-      for (var i = 0; i < 4; i++) {
-        var j = i + carouselSlides;
-        if (j < 0) j = projects.length + j - 1;
-        if (j >= projects.length) j -= projects.length;
-        projects[j].style.setProperty("display", "block");
-        projects[j].style.setProperty("left", `${7*i}em`);
+      if (change == 1) {
+        for (var i = 0; i < 4; i++) {
+          var j = i + carouselSlides;
+          if (j < 0) j += projects.length;
+          if (j >= projects.length) j -= projects.length;
+          projects[j].style.setProperty("display", "block");
+          if (i == 3) {
+            projects[j].style.setProperty("left", `${7*(i+1)}em`);
+            projects[j].style.setProperty("opacity", "0");
+            projects[j].offsetHeight;
+          }
+          projects[j].style.setProperty("opacity", "1");
+          projects[j].style.setProperty("left", `${7*(i)}em`);
+        }
+      }
+      else {
+        for (var i = 3; i >= 0; i--) {
+          var j = i + carouselSlides;
+          if (j < 0) j += projects.length;
+          if (j >= projects.length) j -= projects.length;
+          projects[j].style.setProperty("display", "block");
+          if (i == 0) {
+            projects[j].style.setProperty("left", `${7*(i-1)}em`);
+            projects[j].style.setProperty("opacity", "0");
+            projects[j].offsetHeight;
+          }
+          projects[j].style.setProperty("opacity", "1");
+          projects[j].style.setProperty("left", `${7*(i)}em`);
+        }
       }
     }
-
+    updateCarousel(0);
     async function openPanel(panel) {
       var foundActive = 0;
       var waitingForTransition = false;
@@ -168,6 +192,9 @@
       name.style.setProperty("background-position-y", (event.clientY - bound.top - (bound.bottom - bound.top) * 5).toString() + "px");
       last.style.setProperty("background-position-x", (event.clientX - bound2.left - (bound2.right - bound2.left) * 10).toString() + "px");
       last.style.setProperty("background-position-y", (event.clientY - bound2.top - (bound2.bottom - bound2.top) * 10).toString() + "px");
+    });
+    document.getElementById("portfolio").addEventListener("wheel", event => {
+      updateCarousel(-Math.sign(event.deltaY));
     });
   </script>
 </body>
