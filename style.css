@@ -11,7 +11,8 @@
   --button-color: #f5b1e9;
   --accent-color: #f5b1e9;
   --hover-color: #ec6ed6;
-  --background-color: #3a386e;
+  --background-color: #3a386e80;
+  --background-opaque: #3a386e;
   --underline-color: #d23956;
   --highlighted-color: #da5c74;
   --light-background: #6562af;
@@ -31,11 +32,15 @@ body {
   width: 100vw;
 }
 
+img {
+  object-fit: cover;
+}
+
 .background {
   position: fixed;
   left: 0;
   top: 0;
-  background-image: linear-gradient(to right, var(--background-color) 25%, var(--light-background));
+  background-image: linear-gradient(to right, var(--background-opaque) 25%, var(--light-background));
   height: 200vh;
   width: 200vw;
   z-index: -2;
@@ -147,7 +152,6 @@ body {
   left: 0;
   top: 2em;
   background-color: var(--background-color);
-  opacity: 0.5;
   width: 0;
   transition: left 0.5s ease, width 0.25s ease, height 0.25s ease;
 }
@@ -191,12 +195,13 @@ body {
 .project {
   margin-left: 2em;
   position: absolute;
-  transition: left 0.5s ease, opacity 0.5s ease;
+  transition: left 0.5s, opacity 0.5s ease;
 }
 
 .projectimage {
   height: 5em;
-  width: 5em;
+  width: 6em;
+  cursor: pointer;
 }
 
 .projecttext {

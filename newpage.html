@@ -46,31 +46,31 @@
     <h1 class="titletext">things i did</h1>
     <div class="carousel" id="portfolio">
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="symbiont.png">
         <h2 class="projecttext">0</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="seafoam.png">
         <h2 class="projecttext">1</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="trebuchet.png">
         <h2 class="projecttext">2</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="primes.png">
         <h2 class="projecttext">3</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="transience.png">
         <h2 class="projecttext">4</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="cube.png">
         <h2 class="projecttext">5</h2>
       </div>
       <div class="project">
-        <img class="projectimage">
+        <img class="projectimage" src="route.png">
         <h2 class="projecttext">6</h2>
       </div>
     </div>
@@ -106,7 +106,7 @@
     const projects = document.getElementsByClassName('project');
     var carouselSlides = 0;
 
-    async function updateCarousel(change) {
+    function updateCarousel(change) {
       carouselSlides += change;
       if (carouselSlides >= projects.length) carouselSlides -= projects.length;
       if (carouselSlides <= -projects.length) carouselSlides += projects.length;
