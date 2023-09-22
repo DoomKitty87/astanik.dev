@@ -46,32 +46,36 @@
     <h1 class="titletext">things i did</h1>
     <div class="carousel" id="portfolio">
       <div class="project">
-        <img class="projectimage" src="symbiont.png">
-        <h2 class="projecttext">0</h2>
+        <img class="projectimage" src="symbiont.png" style="object-position: left">
+        <h2 class="projecttext">FPS game made in Unity engine.</h2>
       </div>
       <div class="project">
         <img class="projectimage" src="seafoam.png">
         <h2 class="projecttext">1</h2>
       </div>
       <div class="project">
-        <img class="projectimage" src="trebuchet.png">
+        <img class="projectimage" src="planck.png" style="object-position: left">
         <h2 class="projecttext">2</h2>
       </div>
       <div class="project">
-        <img class="projectimage" src="primes.png">
+        <img class="projectimage" src="trebuchet.png" style="object-position: left">
         <h2 class="projecttext">3</h2>
       </div>
       <div class="project">
-        <img class="projectimage" src="transience.png">
+        <img class="projectimage" src="primes.png" style="object-position: right">
         <h2 class="projecttext">4</h2>
       </div>
       <div class="project">
-        <img class="projectimage" src="cube.png">
+        <img class="projectimage" src="transience.png">
         <h2 class="projecttext">5</h2>
       </div>
       <div class="project">
-        <img class="projectimage" src="route.png">
+        <img class="projectimage" src="cube.png" style="object-position: left">
         <h2 class="projecttext">6</h2>
+      </div>
+      <div class="project">
+        <img class="projectimage" src="route.png">
+        <h2 class="projecttext">7</h2>
       </div>
     </div>
     <p class="bodytext">test</p>
@@ -114,6 +118,12 @@
         projects[i].style.setProperty("display", "none");
       }
       if (change == 1) {
+        var remove = carouselSlides - 1;
+        if (remove < 0) remove += projects.length;
+        if (remove >= projects.length) remove -= projects.length;
+        projects[remove].style.setProperty("display", "block");
+        projects[remove].style.setProperty("opacity", "0");
+        projects[remove].style.setProperty("left", "-7em");
         for (var i = 0; i < 4; i++) {
           var j = i + carouselSlides;
           if (j < 0) j += projects.length;
@@ -129,6 +139,12 @@
         }
       }
       else {
+        var remove = carouselSlides + 4;
+        if (remove < 0) remove += projects.length;
+        if (remove >= projects.length) remove -= projects.length;
+        projects[remove].style.setProperty("display", "block");
+        projects[remove].style.setProperty("opacity", "0");
+        projects[remove].style.setProperty("left", "28em");
         for (var i = 3; i >= 0; i--) {
           var j = i + carouselSlides;
           if (j < 0) j += projects.length;

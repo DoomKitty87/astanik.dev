@@ -200,11 +200,18 @@ img {
 
 .projectimage {
   height: 5em;
-  width: 6em;
+  width: 7em;
   cursor: pointer;
 }
 
 .projecttext {
   margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  font-size: calc(var(--font-size-paragraph) * 0.5);
+  background-color: var(--background-color);
+  width: 15em;
+  text-align: left;
+  padding: 1em;
 }
