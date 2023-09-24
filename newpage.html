@@ -47,7 +47,7 @@
     <div class="carousel" id="portfolio">
       <h1 onclick="updateCarousel(-1)" class="scrollbutton" style="position:relative;left:0.2em">&lt</h1>
       <div class="project">
-        <img class="projectimage" src="symbiont.png" style="object-position: left">
+        <a href="https://github.com/DoomKitty87/symbiont-ogpc" target="_blank"><img class="projectimage" src="symbiont.png" style="object-position: left"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Symbiont</h1>
           <div class="tags">
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="seafoam.png">
+        <a href="https://github.com/DoomKitty87/seafoam" target="_blank"><img class="projectimage" src="seafoam.png"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Seafoam</h1>
           <div class="tags">
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="planck.png" style="object-position: left">
+        <a href="https://github.com/DoomKitty87/planck-server" target="_blank"><img class="projectimage" src="planck.png" style="object-position: left"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Planck</h1>
           <div class="tags">
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="trebuchet.png" style="object-position: left">
+        <a href="https://github.com/DoomKitty87/trebuchetjs" target="_blank"><img class="projectimage" src="trebuchet.png" style="object-position: left"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Trebuchet.js</h1>
           <div class="tags">
@@ -92,7 +92,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="primes.png" style="object-position: right">
+        <a href="https://github.com/DoomKitty87/primes" target="_blank"><img class="projectimage" src="primes.png" style="object-position: right"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Primes</h1>
           <div class="tags">
@@ -103,7 +103,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="transience.png">
+        <a href="https://github.com/DoomKitty87/CS-3-4-Game-2022" target="_blank"><img class="projectimage" src="transience.png"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Transience</h1>
           <div class="tags">
@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="cube.png" style="object-position: left">
+        <a href="https://github.com/DoomKitty87/commandline-3d" target="_blank"><img class="projectimage" src="cube.png" style="object-position: left"></a>
         <div class="projectcard">
           <h1 class="projecttitle">CommandLine3D</h1>
           <div class="tags">
@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="quickparse.png">
+        <a href="https://github.com/DoomKitty87/quickparsejs" target="_blank"><img class="projectimage" src="quickparse.png"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Quickparse.js</h1>
           <div class="tags">
@@ -134,7 +134,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="route.png">
+        <a href="https://github.com/DoomKitty87/route-gen" target="_blank"><img class="projectimage" src="route.png"></a>
         <div class="projectcard">
           <h1 class="projecttitle">RouteGen</h1>
           <div class="tags">
@@ -144,7 +144,7 @@
         </div>
       </div>
       <div class="project">
-        <img class="projectimage" src="snowmelt.png">
+        <a href="https://github.com/DoomKitty87/snowmelt" target="_blank"><img class="projectimage" src="snowmelt.png"></a>
         <div class="projectcard">
           <h1 class="projecttitle">Snowmelt</h1>
           <div class="tags">
@@ -155,7 +155,8 @@
       </div>
       <h1 onclick="updateCarousel(1)" class="scrollbutton" style="position:relative;left:14.425em">&gt</h1>
     </div>
-    <p class="bodytext">test</p>
+    <a href="https://github.com/DoomKitty87" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-bottom:0;margin-top:3em;">my github</p></a>
+    <a href="https://www.npmjs.com/~anselstanik" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-top:0.5em;">my npm</p></a>
   </div>
   <div class="popupdisplay" id="popupholder">
     <h1 class="titletext">about me</h1>
@@ -203,6 +204,7 @@
         projects[remove].style.setProperty("display", "block");
         projects[remove].style.setProperty("opacity", "0");
         projects[remove].style.setProperty("left", "-7em");
+        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
         for (var i = 0; i < 4; i++) {
           var j = i + carouselSlides;
           if (j < 0) j += projects.length;
@@ -215,6 +217,7 @@
           }
           projects[j].style.setProperty("opacity", "1");
           projects[j].style.setProperty("left", `${7*(i)}em`);
+          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
         }
       }
       else {
@@ -224,6 +227,7 @@
         projects[remove].style.setProperty("display", "block");
         projects[remove].style.setProperty("opacity", "0");
         projects[remove].style.setProperty("left", "28em");
+        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
         for (var i = 3; i >= 0; i--) {
           var j = i + carouselSlides;
           if (j < 0) j += projects.length;
@@ -236,6 +240,7 @@
           }
           projects[j].style.setProperty("opacity", "1");
           projects[j].style.setProperty("left", `${7*(i)}em`);
+          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
         }
       }
     }

@@ -98,6 +98,7 @@ img {
   right: 0;
   top: 2em;
   display: block;
+  z-index: 1;
 }
 
 .menubutton {
@@ -196,12 +197,20 @@ img {
   margin-left: 2em;
   position: absolute;
   transition: left 0.5s, opacity 0.5s ease;
+  z-index: 0;
 }
 
 .projectimage {
   height: 5em;
   width: 7em;
   cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.projectimage:hover {
+  z-index: 2;
+  transform: scale(1.1);
 }
 
 .projecttext {
@@ -250,7 +259,7 @@ img {
 .scrollbutton {
   bottom: 0.5em;
   cursor: pointer;
-  transition: color 0.25s;
+  transition: color 0.25s ease;
   line-height: .45em;
   height: .6em;
   z-index: 2;
@@ -258,4 +267,31 @@ img {
 
 .scrollbutton:hover {
   color: var(--highlighted-color);
+}
+
+.profilelink {
+  font-size: calc(var(--font-size-small) * 0.7);
+  text-decoration: none;
+  color: var(--highlighted-color);
+  font-weight: bold;
+}
+
+.highlightlink {
+  width: fit-content;
+}
+
+.highlightlink:after {
+  margin-right: auto;
+  margin-left: 0;
+  background-color: var(--underline-color);
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.2em;
+  margin-top: -0.25em;
+  transition: width 0.5s ease;
+}
+
+.highlightlink:hover:after {
+  width: 100%;
 }
