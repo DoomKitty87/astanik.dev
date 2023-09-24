@@ -206,9 +206,7 @@ img {
 
 .projecttext {
   margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  margin-left: -0.5em;
   font-size: calc(var(--font-size-paragraph) * 0.5);
   width: 15em;
   text-align: left;
@@ -240,4 +238,11 @@ img {
 
 .projecttag:hover {
   transform: scale(1.1);
+}
+
+.embed {
+  width: 10em;
+  margin-left: 1em;
+  border-radius: 12px;
+  display: none;
 }
