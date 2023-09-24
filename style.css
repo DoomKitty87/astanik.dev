@@ -246,3 +246,16 @@ img {
   border-radius: 12px;
   display: none;
 }
+
+.scrollbutton {
+  bottom: 0.5em;
+  cursor: pointer;
+  transition: color 0.25s;
+  line-height: .45em;
+  height: .6em;
+  z-index: 2;
+}
+
+.scrollbutton:hover {
+  color: var(--highlighted-color);
+}

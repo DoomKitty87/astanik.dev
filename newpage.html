@@ -45,6 +45,7 @@
   <div class="popupdisplay">
     <h1 class="titletext">things i've made</h1>
     <div class="carousel" id="portfolio">
+      <h1 onclick="updateCarousel(-1)" class="scrollbutton" style="position:relative;left:0.2em">&lt</h1>
       <div class="project">
         <img class="projectimage" src="symbiont.png" style="object-position: left">
         <div class="projectcard">
@@ -152,14 +153,15 @@
           <h2 class="projecttext">Rainmeter skin that I made and use. I like system info and whatnot.</h2>
         </div>
       </div>
+      <h1 onclick="updateCarousel(1)" class="scrollbutton" style="position:relative;left:14.425em">&gt</h1>
     </div>
     <p class="bodytext">test</p>
   </div>
   <div class="popupdisplay" id="popupholder">
     <h1 class="titletext">about me</h1>
     <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like music, computers, puzzles, lights, and colors.</p>
-    <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/track/4F7A0DXBrmUAkp32uenhZt?si=bd4159c0ce45410f">starboy - the weeknd</a></h3>
-    <iframe onload="this.style.display='block'" src="https://open.spotify.com/embed/track/7MXVkk9YMctZqd1Srtv4MB" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe?si=QXzx6Un2TfmKGShE6tEWdw">starboy - the weeknd</a></h3>
+    <iframe onload="this.style.display='block'" src="https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
@@ -180,7 +182,7 @@
     const bound = name.getBoundingClientRect();
     const bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
-    const panelSizes = [32, 15, 25, 6, 20, 4, 16, 2.3];
+    const panelSizes = [32, 15, 25, 5.5, 20, 4, 16, 2.3];
     const background = document.getElementById('background');
     const buttons = document.getElementsByClassName('menubutton');
     const panels = document.getElementsByClassName('popupdisplay');
@@ -289,7 +291,6 @@
     var lastTime = Date.now();
     document.getElementById("portfolio").addEventListener("wheel", event => {
       if (Date.now() - lastTime < 100) return;
-      console.log(Date.now() - lastTime);
       updateCarousel(-Math.sign(event.deltaY));
       lastTime = Date.now();
     });
