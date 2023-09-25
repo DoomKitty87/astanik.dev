@@ -295,3 +295,13 @@ img {
 .highlightlink:hover:after {
   width: 100%;
 }
+
+.skilltitle {
+  margin-left: 2em;
+  margin-right: 2em;
+  font-size: var(--font-size-small);
+}
+
+.skillsection {
+  
+}
