@@ -162,8 +162,8 @@
     <h1 class="titletext">about me</h1>
     <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like music, computers, puzzles, lights, and colors.</p>
     <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe?si=QXzx6Un2TfmKGShE6tEWdw">starboy - the weeknd</a></h3>
-    <!--<iframe onload="this.style.display='block'" src="https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    --></div>
+    <iframe src="#" onload="this.style.display='block'" id="embedalbum" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
   </div>
@@ -324,6 +324,13 @@
       updateCarousel(-Math.sign(event.deltaY));
       lastTime = Date.now();
     });
+  </script>
+  <script>
+    async function loadIframe() {
+      await new Promise(r => setTimeout(r, 500)); 
+    document.getElementById("embedalbum").src = "https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe";
+    }
+    loadIframe();
   </script>
 </body>
 </html>
