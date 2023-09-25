@@ -173,6 +173,7 @@
   </div>
   </div>
   <script>
+    document.getElementById('backgroundfilter').setAttribute('seed', Date.now() % 1000000);
     document.getElementById('emailtext').innerHTML = 'ansel.' + 'stanik' + '@' + 'icloud.com';
     document.getElementById('emailtext').href = 'mailto:' + 'ansel.' + 'stanik' + '@' + 'icloud.com';
     const name = document.getElementById('nametext');
