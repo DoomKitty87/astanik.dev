@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css" loading="block"/>
   <meta charset="UTF-8" />
   <title>Ansel Stanik</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -26,12 +27,11 @@
       />
     </filter>
   </svg>
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="background" id="background"></div>
   <div class="namecontainer" id="namecontainer">
-    <h1 class="nametitle" id="nametext">ansel</h1>
+    <h1 class="nametitle" id="nametext"></h1>
     <h2 class="namesubtitle" id="namesub">stanik</h2>
   </div>
   <div class="decorativeblock" id="decoration"></div>
@@ -162,8 +162,8 @@
     <h1 class="titletext">about me</h1>
     <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like music, computers, puzzles, lights, and colors.</p>
     <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe?si=QXzx6Un2TfmKGShE6tEWdw">starboy - the weeknd</a></h3>
-    <iframe onload="this.style.display='block'" src="https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
+    <!--<iframe onload="this.style.display='block'" src="https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    --></div>
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
   </div>
@@ -181,8 +181,8 @@
     const nameContainer = document.getElementById('namecontainer');
     const decorativeBlock = document.getElementById('decoration');
     const popupHolder = document.getElementById('popupholder');
-    const bound = name.getBoundingClientRect();
-    const bound2 = last.getBoundingClientRect();
+    var bound = name.getBoundingClientRect();
+    var bound2 = last.getBoundingClientRect();
     const bound3 = decorativeBlock.getBoundingClientRect();
     const panelSizes = [32, 15, 25, 5.5, 20, 4, 16, 2.3];
     const background = document.getElementById('background');
@@ -246,6 +246,30 @@
       }
     }
     updateCarousel(0);
+    async function loadName() {
+      var name = document.getElementById('nametext');
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML = 'a';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'n';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 's';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'e';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'l';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+    }
+    loadName();
     async function openPanel(panel) {
       var foundActive = 0;
       var waitingForTransition = false;
