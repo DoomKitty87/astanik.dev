@@ -303,5 +303,14 @@ img {
 }
 
 .skillsection {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skilllabel {
+  font-size: calc(var(--font-size-small) * 0.75);
+  color: var(--highlighted-color);
+  margin-bottom: 1em;
+  margin-top: 0;
 }

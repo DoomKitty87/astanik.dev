@@ -167,24 +167,27 @@
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
     <div style="display:flex;flex-direction:row;">
-      <div class="skillsection">
+      <div class="skillsection" id="softwareskills">
         <h2 class="skilltitle">Software</h2>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
-        <p class="skilllabel"></p>
+        <p class="skilllabel">Blender</p>
+        <p class="skilllabel">Logic Pro</p>
+        <p class="skilllabel">Unity</p>
+        <p class="skilllabel">Premiere Pro</p>
+        <p class="skilllabel">Photoshop</p>
       </div>
-      <div class="skillsection">
+      <div class="skillsection" id="languageskills">
         <h2 class="skilltitle">Languages</h2>
+        <p class="skilllabel">C++</p>
+        <p class="skilllabel">HTML</p>
+        <p class="skilllabel">C#</p>
+        <p class="skilllabel">Python</p>
+        <p class="skilllabel">JavaScript</p>
+        <p class="skilllabel">PHP</p>
+        <p class="skilllabel">SQL</p>
+        <p class="skilllabel">CSS</p>
+        <p class="skilllabel">Java</p>
       </div>
-      <div class="skillsection">
+      <div class="skillsection" id="subjectskills">
         <h2 class="skilltitle">Subjects</h2>
       </div>
     </div>
@@ -346,6 +349,10 @@
       updateCarousel(-Math.sign(event.deltaY));
       lastTime = Date.now();
     });
+
+    const skillsSoftware = document.getElementById("softwareskills").children;
+    const skillsLanguages = document.getElementById("languageskills").children;
+    const skillsSubjects = document.getElementById("subjectskills").children;
   </script>
   <script>
     async function loadIframe() {
