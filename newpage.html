@@ -168,16 +168,16 @@
   <div class="popupdisplay">
     <h1 class="titletext">things i can do</h1>
     <div style="display:flex;flex-direction:row;">
+      <div><h2 class="skilltitle">Software</h2>
       <div class="skillsection" id="softwareskills">
-        <h2 class="skilltitle">Software</h2>
         <p class="skilllabel">Blender</p>
         <p class="skilllabel">Logic Pro</p>
         <p class="skilllabel">Unity</p>
         <p class="skilllabel">Premiere Pro</p>
         <p class="skilllabel">Photoshop</p>
-      </div>
+      </div></div>
+      <div><h2 class="skilltitle">Languages</h2>
       <div class="skillsection" id="languageskills">
-        <h2 class="skilltitle">Languages</h2>
         <p class="skilllabel">C++</p>
         <p class="skilllabel">HTML</p>
         <p class="skilllabel">C#</p>
@@ -187,10 +187,17 @@
         <p class="skilllabel">SQL</p>
         <p class="skilllabel">CSS</p>
         <p class="skilllabel">Java</p>
-      </div>
+      </div></div>
+      <div><h2 class="skilltitle">Subjects</h2>
       <div class="skillsection" id="subjectskills">
-        <h2 class="skilltitle">Subjects</h2>
-      </div>
+        <p class="skilllabel">Frontend Web</p>
+        <p class="skilllabel">Software Development</p>
+        <p class="skilllabel">Project Management</p>
+        <p class="skilllabel">Backend Web</p>
+        <p class="skilllabel">Application Networking</p>
+        <p class="skilllabel">Web Design</p>
+        <p class="skilllabel">3D Design</p>
+      </div></div>
     </div>
   </div>
   <div class="popupdisplay">
@@ -354,6 +361,72 @@
     const skillsSoftware = document.getElementById("softwareskills").children;
     const skillsLanguages = document.getElementById("languageskills").children;
     const skillsSubjects = document.getElementById("subjectskills").children;
+    const softwareOrder = [skillsSoftware.length];
+    const languagesOrder = [skillsLanguages.length];
+    const subjectsOrder = [skillsSubjects.length];
+    for (var i = 0; i < skillsSoftware.length; i++) {
+      softwareOrder[i] = i;
+    }
+    for (var i = 0; i < skillsLanguages.length; i++) {
+      languagesOrder[i] = i;
+    }
+    for (var i = 0; i < skillsSubjects.length; i++) {
+      subjectsOrder[i] = i;
+    }
+    function updateSkills() {
+      console.log(softwareOrder);
+      for (var i = 0; i < softwareOrder.length; i++) {
+        if (i == Math.trunc(softwareOrder.length / 2)) skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1.5)`);
+        else skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1)`);
+      }
+      for (var i = 0; i < languagesOrder.length; i++) {
+        if (i == Math.trunc(languagesOrder.length / 2)) skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1.5)`);      
+      }
+      for (var i = 0; i < subjectsOrder.length; i++) {
+        if (i == Math.trunc(subjectsOrder.length / 2)) skillsSubjects[subjectsOrder[i]].style.setProperty("transform", `scale(1.5)`);      
+      }
+    }
+    updateSkills();
+    function changeSkills(type, direction) {
+      var temp;
+      switch (type) {
+        case "software":
+          if (direction == -1) {
+            temp = softwareOrder[0];
+            for (var i = 0; i < softwareOrder.length - 1; i++) softwareOrder[i] = softwareOrder[i + 1];
+            softwareOrder[-1] = temp;
+          } else {
+            temp = softwareOrder[-1];
+            for (var i = softwareOrder.length - 1; i > 0; i--) softwareOrder[i] = softwareOrder[i - 1];
+            softwareOrder[0] = temp;
+          }
+          break;
+        case "languages":
+          if (direction == -1) {
+            temp = languagesOrder[0];
+            for (var i = 0; i < languagesOrder.length - 1; i++) languagesOrder[i] = languagesOrder[i + 1];
+            languagesOrder[-1] = temp;
+          } else {
+            temp = languagesOrder[-1];
+            for (var i = softwareOrder.length - 1; i > 0; i--) languagesOrder[i] = languagesOrder[i - 1];
+            languagesOrder[0] = temp;
+          }
+          break;
+        case "subjects":
+          if (direction == -1) {
+            temp = subjectsOrder[0];
+            for (var i = 0; i < subjectsOrder.length - 1; i++) subjectsOrder[i] = subjectsOrder[i + 1];
+            subjectsOrder[-1] = temp;
+          } else {
+            temp = subjectsOrder[-1];
+            for (var i = subjectsOrder.length - 1; i > 0; i--) subjectsOrder[i] = subjectsOrder[i - 1];
+            subjectsOrder[0] = temp;
+          }
+          break;
+      }
+    }
+    changeSkills("software", 1);
+    updateSkills();
   </script>
   <script>
     async function loadIframe() {
