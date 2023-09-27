@@ -311,8 +311,6 @@ img {
 .skilllabel {
   font-size: calc(var(--font-size-small) * 0.75);
   color: var(--highlighted-color);
-  margin-bottom: 1em;
-  margin-top: 0;
-  transition: transform 0.5s ease;
-  position: relative;
+  transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+  position: absolute;
 }
