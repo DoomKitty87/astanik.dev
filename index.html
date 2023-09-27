@@ -1,389 +1,456 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Ansel Stanik</title>
-<link href="index.css" rel="stylesheet" type="text/css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
-<style type="text/css">
-body {
-    background-color: #0A0A0A;
-}
-</style>
+  <link rel="stylesheet" href="style.css" loading="block"/>
+  <meta charset="UTF-8" />
+  <title>Ansel Stanik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <svg>
+    <filter id="noise">
+      <feTurbulence id="backgroundfilter"
+        type="turbulence"
+        baseFrequency="0.0015"
+        numOctaves="2"
+        result="noisetexture"
+      />
+      <feColorMatrix
+        type="saturate"
+        values="0.2"
+        in="noisetexture"
+        result="desat"/>
+      <feBlend 
+        in="desat"
+        in2="SourceGraphic"
+        mode="normal"
+      />
+    </filter>
+  </svg>
 </head>
 <body>
-<div class="container">
-<div class="namecard"><div></div><h1 class="nametitle"><center><span class="name1">Ansel </span><span class="name2">Stanik</span>
-</center></h1></div>
-<center>
+  <div class="background" id="background"></div>
+  <div class="namecontainer" id="namecontainer">
+    <h1 class="nametitle" id="nametext"></h1>
+    <h2 class="namesubtitle" id="namesub">stanik</h2>
+  </div>
+  <div class="decorativeblock" id="decoration"></div>
+  <div class="menubuttons">
+    <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
+    <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
+  </div>
+  <div class="popupholder" id="popupholder">
+  <div class="popupdisplay">
+    <h1 class="titletext">things i've made</h1>
+    <div class="carousel" id="portfolio">
+      <h1 onclick="updateCarousel(-1)" class="scrollbutton" style="position:relative;left:0.2em">&lt</h1>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/symbiont-ogpc" target="_blank"><img class="projectimage" src="symbiont.png" style="object-position: left"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Symbiont</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:green">Unity</h3>
+            <h3 class="projecttag" style="background-color:coral">SQL</h3>
+            <h3 class="projecttag" style="background-color:violet">PHP</h3>
+          </div>
+          <h2 class="projecttext">FPS game with consciousness-swapping made in Unity engine.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/seafoam" target="_blank"><img class="projectimage" src="seafoam.png"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Seafoam</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:red">HTML</h3>
+            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
+          </div>
+          <h2 class="projecttext">Webapp port of RouteGen for gemstone mining routes in games.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/planck-server" target="_blank"><img class="projectimage" src="planck.png" style="object-position: left"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Planck</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:blue">Python</h3>
+            <h3 class="projecttag" style="background-color:darkorchid">Network</h3>
+          </div>
+          <h2 class="projecttext">Private messaging app using peer-to-server-to-peer networking and PyQt for GUI.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/trebuchetjs" target="_blank"><img class="projectimage" src="trebuchet.png" style="object-position: left"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Trebuchet.js</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
+            <h3 class="projecttag" style="background-color:orange">Math</h3>
+          </div>
+          <h2 class="projecttext">Node.js package to bring lightweight physics to Three.js.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/primes" target="_blank"><img class="projectimage" src="primes.png" style="object-position: right"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Primes</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:blue">Python</h3>
+            <h3 class="projecttag" style="background-color:orange">Math</h3>
+          </div>
+          <h2 class="projecttext">Playground for large prime number generation with different methods.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/CS-3-4-Game-2022" target="_blank"><img class="projectimage" src="transience.png"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Transience</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:green">Unity</h3>
+          </div>
+          <h2 class="projecttext">2D platformer with music-synced elements made in Unity.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/commandline-3d" target="_blank"><img class="projectimage" src="cube.png" style="object-position: left"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">CommandLine3D</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:darkblue">C++</h3>
+          </div>
+          <h2 class="projecttext">A 3D rendering engine for the command line.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/quickparsejs" target="_blank"><img class="projectimage" src="quickparse.png"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Quickparse.js</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
+            <h3 class="projecttag" style="background-color:orange">Math</h3>
+          </div>
+          <h2 class="projecttext">Math expression parsing package for user input-expression in Node.js.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/route-gen" target="_blank"><img class="projectimage" src="route.png"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">RouteGen</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:darkblue">C++</h3>
+          </div>
+          <h2 class="projecttext">Command-line/R&D version of Seafoam, generating routes for gemstone mining.</h2>
+        </div>
+      </div>
+      <div class="project">
+        <a href="https://github.com/DoomKitty87/snowmelt" target="_blank"><img class="projectimage" src="snowmelt.png"></a>
+        <div class="projectcard">
+          <h1 class="projecttitle">Snowmelt</h1>
+          <div class="tags">
+            <h3 class="projecttag" style="background-color:firebrick">Rainmeter</h3>
+          </div>
+          <h2 class="projecttext">Rainmeter skin that I made and use. I like system info and whatnot.</h2>
+        </div>
+      </div>
+      <h1 onclick="updateCarousel(1)" class="scrollbutton" style="position:relative;left:14.425em">&gt</h1>
+    </div>
+    <a href="https://github.com/DoomKitty87" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-bottom:0;margin-top:3em;">my github</p></a>
+    <a href="https://www.linkedin.com/in/ansel-stanik-8b238b293/" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-bottom:0;margin-top:0.5em;">my linkedin</p></a>
+    <a href="https://www.npmjs.com/~anselstanik" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-top:0.5em;">my npm</p></a>
+  </div>
+  <div class="popupdisplay" id="popupholder">
+    <h1 class="titletext">about me</h1>
+    <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like music, computers, puzzles, lights, and colors.</p>
+    <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe?si=QXzx6Un2TfmKGShE6tEWdw">starboy - the weeknd</a></h3>
+    <iframe src="#" onload="this.style.display='block'" id="embedalbum" class="embed" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+  <div class="popupdisplay">
+    <h1 class="titletext">things i can do</h1>
+    <div style="display:flex;flex-direction:row;">
+      <div><h2 class="skilltitle">Software</h2>
+      <div class="skillsection" id="softwareskills" onclick="changeSkills('software', -1);updateSkills()">
+        <p class="skilllabel">Blender</p>
+        <p class="skilllabel">Logic Pro</p>
+        <p class="skilllabel">Unity</p>
+        <p class="skilllabel">Premiere Pro</p>
+        <p class="skilllabel">Photoshop</p>
+      </div></div>
+      <div><h2 class="skilltitle">Languages</h2>
+      <div class="skillsection" id="languageskills" onclick="changeSkills('languages', -1);updateSkills()">
+        <p class="skilllabel">C++</p>
+        <p class="skilllabel">HTML</p>
+        <p class="skilllabel">C#</p>
+        <p class="skilllabel">Python</p>
+        <p class="skilllabel">JavaScript</p>
+        <p class="skilllabel">PHP</p>
+        <p class="skilllabel">SQL</p>
+        <p class="skilllabel">CSS</p>
+        <p class="skilllabel">Java</p>
+      </div></div>
+      <div><h2 class="skilltitle">Subjects</h2>
+      <div class="skillsection" id="subjectskills" onclick="changeSkills('subjects', -1);updateSkills()">
+        <p class="skilllabel">Frontend Web</p>
+        <p class="skilllabel">Software Development</p>
+        <p class="skilllabel">Project Management</p>
+        <p class="skilllabel">Backend Web</p>
+        <p class="skilllabel">Application Networking</p>
+        <p class="skilllabel">Web Design</p>
+        <p class="skilllabel">3D Design</p>
+      </div></div>
+    </div>
+  </div>
+  <div class="popupdisplay">
+    <h1 class="titletext">contact me</h1>
+    <p class="bodytext">email me at <a href="" class="contactlink" id="emailtext"></a></p>
+  </div>
+  </div>
+  <script>
+    document.getElementById('backgroundfilter').setAttribute('seed', Date.now() % 1000000);
+    document.getElementById('emailtext').innerHTML = 'ansel.' + 'stanik' + '@' + 'icloud.com';
+    document.getElementById('emailtext').href = 'mailto:' + 'ansel.' + 'stanik' + '@' + 'icloud.com';
+    const name = document.getElementById('nametext');
+    const last = document.getElementById('namesub');
+    const nameContainer = document.getElementById('namecontainer');
+    const decorativeBlock = document.getElementById('decoration');
+    const popupHolder = document.getElementById('popupholder');
+    var bound = name.getBoundingClientRect();
+    var bound2 = last.getBoundingClientRect();
+    const bound3 = decorativeBlock.getBoundingClientRect();
+    const panelSizes = [32, 16, 25, 5.5, 28, 10, 16, 2.3];
+    const background = document.getElementById('background');
+    const buttons = document.getElementsByClassName('menubutton');
+    const panels = document.getElementsByClassName('popupdisplay');
+    const projects = document.getElementsByClassName('project');
+    var carouselSlides = 0;
 
-<div class="body">
-	<div class="textcard1"><p class="bodytext"><span class="poptext">Hi,</span> I'm a student and developer from Portland, Oregon. I enjoy front and backend development for web and software, and maybe some cybersecurity.</p></div>
-	<div class="textcard2"><h2 class="bodytext2">Interested in my projects?<a href="#portfolio">Portfolio</a></h2>
-	<h2 class="bodytext2">Want to contact me?<a href="#contact_card">Email</a></h2></div>
-	<canvas class="cubecanvas" id="cubecanvas"></canvas>
-	<div class="skillscontainer">
-	<h1 class="skillstitle">Skills</h1>
-	<div class="skill"><p class="skilllabel">Frontend</p><div class="skillbar" style="--skillvalue: 65%"></div></div>
-	<div class="skill"><p class="skilllabel">Backend</p><div class="skillbar" style="--skillvalue: 60%"></div></div>
-	<div class="skill"><p class="skilllabel">Gamedev</p><div class="skillbar" style="--skillvalue: 65%"></div></div>
-	<div class="skill"><p class="skilllabel">Software</p><div class="skillbar" style="--skillvalue: 55%"></div></div>
-	<div class="skill"><p class="skilllabel">Security</p><div class="skillbar" style="--skillvalue: 35%"></div></div>
-	</div>
-	<div class="aboutcard">
-	<h1 class="abouttitle">Who am I?</h1>
-	<p class="abouttext">A high school <s>sophomore</s> junior who loves to create, innovate, and learn. I like to self-produce bad rap music and solve cube puzzles in my spare time, or play incremental/roguelike games. I love brightly colored games and websites (ironic), especially with copious amounts of neon, as well as old computers. I'm a big fan of numbers, and hope to break the record for computing pi at some point, though that's not the most achieveable goal. I'm a student leader in the Makerspace club, and was part the FTC robotics team at my last school. I hope you enjoy my website!</p>
-	</div>
-	<div class="languages">
-	<span class="hexagon" onclick="writescript('HTML')">&#x2B22;<h3 class="languagelabel">HTML5</h3></span>
-	<span class="hexagon" onclick="writescript('CSS')">&#x2B22;<h3 class="languagelabel">CSS</h3></span>
-	<span class="hexagon" onclick="writescript('JS')">&#x2B22;<h3 class="languagelabel">JavaScript</h3></span>
-	<span class="hexagon" onclick="writescript('CS')">&#x2B22;<h3 class="languagelabel">C#</h3></span>
-	<span class="hexagon" onclick="writescript('JAVA')">&#x2B22;<h3 class="languagelabel">Java</h3></span>
-	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PHP')">&#x2B22;<h3 class="languagelabel">PHP</h3></span>
-	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('SQL')">&#x2B22;<h3 class="languagelabel">SQL</h3></span>
-	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('PY')">&#x2B22;<h3 class="languagelabel">Python</h3></span>
-	<span class="hexagon" style="position: relative; bottom: 13rem;" onclick="writescript('CPP')">&#x2B22;<h3 class="languagelabel">C++</h3></span>
-	<div class="typedscripts">
-	<p class="scripttext" id="scripttypearea"></p>	
-	</div>
-	</div>
-	<div class="portfoliocontainer">
-	<h1 class="portfoliotitle" id="portfolio">Things I've Made</h1>
-	<div class="portfolioitem" data-active="true">
-		<p class="portfoliotext"><strong class="portfolioheader">Symbiont</strong><br><br>3D Unity FPS puzzle game made for OGPC 2023, written in C#. A lot of Blender, Photoshop, and Premiere Pro for marketing material and modeling.</p><img class="portfolioimage" src="symbiont.png" alt="Poster for Symbiont.">
-	</div>
-	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Primes</strong><br><br>Python application with PyQT to calculate and visualize large prime numbers using a variety of different methods.</p><img class="portfolioimage" src="primes.png" alt="Primes application.">
-	</div>
-		<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Seafoam</strong><br><br>Tauri-based desktop app used to generate mining routes. Javascript ported from RouteGen with added frontend. Also hosted on this website for ease of access, at <a class="link" href="seafoam">astanik.dev/seafoam</a>.</p><img class="portfolioimage" src="seafoam.png" alt="Seafoam application.">
-	</div>
-	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Transience</strong><br><br>2D Unity Platformer game using C#, as well as Blender and Logic Pro for modeling/sound design. Centered around music, and heavily utilizes realtime audio processing to sync gameplay elements to beats in music.</p><img class="portfolioimage" src="transience.png" alt="Screenshot of Transience menu.">
-	</div>
-	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Commandline3D</strong><br><br>C++ command line tool to render and animate objects in 3D space using a terminal window with text (because it's fun). Works best in Unix.</p><img class="portfolioimage" src="cube.png" alt="Example cube in CL3D.">
-	</div>
-	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">Trebuchet</strong><br><br>NPM package adding lightweight and simple physics simulations to threejs, a popular 3D rendering package for JavaScript.</p><img class="portfolioimage" src="trebuchet.png" alt="Screenshot of NPM page.">
-	</div>
-	<div class="portfolioitem" data-active="false">
-		<p class="portfoliotext"><strong class="portfolioheader">RouteGen</strong><br><br>Command line tool used to generate gemstone mining routes for a popular MMORPG, utilizing OpenMP, decision tree methodology, and weighted pathfinding.</p><img class="portfolioimage" src="route.png" alt="Route output from one iteration.">
-	</div>
-		<button class="portfolionav" style="left: 65rem;" onclick="changeSlide(-1)" >&#8594;</button>
-		<button onclick="changeSlide(1)" class="portfolionav" style="left: 2.5rem;">&#8592;</button>
-	</div>
-	<div class="experiencecard">
-		<h1 class="experiencetitle">Why am I qualified?</h1>
-		<p class="experiencetext"><span class="experienceheader">Experience:</span><br><br>Web development using React, Next.js, and plain HTML/CSS/JS, experience in scripting with Python and Arduino, C++ experience, game development in Unity, and server-to-client database communications for backend.<br><br><span class="experienceheader">Certifications:</span><br><br>None yet :(<br><br><span class="experienceheader">Awards:</span><br><br>2023 Oregon Game Project Challenge Programming (High School Division)</p>
-		<canvas class="modelcanvas" id="modelcanvas"></canvas>
-	</div>
-	<div class="contactcard" id="contact_card">
-		<h1 class="contacttitle">Contact me</h1>
-		<span class="emailinfo">
-		<span class="email" id="email">noscraping@haha.no</span>
-		<button class="emailbutton"><a class="emaillink" id="emaillink" href="#">&#9993;</a></button>
-		<div class="linkdiv"><span class="linktitle">GitHub:</span><a class="sitelink" href="https://github.com/DoomKitty87">Link</a></div>
-		<div class="linkdiv"><span class="linktitle">NPM:</span><a class="sitelink" href="https://www.npmjs.com/~anselstanik">Link</a></div>
-		</span>
-	</div>
-</div>
-</center>
-	</div>
-	<script>
-	var name = "ansel.stanik";
-	var domain = "icloud.com";
-	
-	document.getElementById("emaillink").href = `mailto:${name}@${domain}`;
-	document.getElementById("email").innerHTML = `${name}@${domain}`;
-		
-	document.getElementById("email").addEventListener("click", () => {
-		navigator.clipboard.writeText(`${name}@${domain}`);
-	});
-	</script>
-	<script type="importmap">
-  	{
-    "imports": {
-      "three": "https://unpkg.com/three/build/three.module.js",
-      "three/addons/": "https://unpkg.com/three/examples/jsm/"
-    	}
-  	}
-	</script>
-	<script type="module">
-		import * as THREE from 'three';
-		import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
-		import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
-		import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
-		import {RenderPixelatedPass} from 'three/addons/postprocessing/RenderPixelatedPass.js';
-		import {AfterimagePass} from 'three/addons/postprocessing/AfterimagePass.js';
+    function updateCarousel(change) {
+      carouselSlides += change;
+      if (carouselSlides >= projects.length) carouselSlides -= projects.length;
+      if (carouselSlides <= -projects.length) carouselSlides += projects.length;
+      for (var i = 0; i < projects.length; i++) {
+        projects[i].style.setProperty("display", "none");
+      }
+      if (change == 1) {
+        var remove = carouselSlides - 1;
+        if (remove < 0) remove += projects.length;
+        if (remove >= projects.length) remove -= projects.length;
+        projects[remove].style.setProperty("display", "block");
+        projects[remove].style.setProperty("opacity", "0");
+        projects[remove].style.setProperty("left", "-7em");
+        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
+        for (var i = 0; i < 4; i++) {
+          var j = i + carouselSlides;
+          if (j < 0) j += projects.length;
+          if (j >= projects.length) j -= projects.length;
+          projects[j].style.setProperty("display", "block");
+          if (i == 3) {
+            projects[j].style.setProperty("left", `${7*(i+1)}em`);
+            projects[j].style.setProperty("opacity", "0");
+            projects[j].offsetHeight;
+          }
+          projects[j].style.setProperty("opacity", "1");
+          projects[j].style.setProperty("left", `${7*(i)}em`);
+          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
+        }
+      }
+      else {
+        var remove = carouselSlides + 4;
+        if (remove < 0) remove += projects.length;
+        if (remove >= projects.length) remove -= projects.length;
+        projects[remove].style.setProperty("display", "block");
+        projects[remove].style.setProperty("opacity", "0");
+        projects[remove].style.setProperty("left", "28em");
+        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
+        for (var i = 3; i >= 0; i--) {
+          var j = i + carouselSlides;
+          if (j < 0) j += projects.length;
+          if (j >= projects.length) j -= projects.length;
+          projects[j].style.setProperty("display", "block");
+          if (i == 0) {
+            projects[j].style.setProperty("left", `${7*(i-1)}em`);
+            projects[j].style.setProperty("opacity", "0");
+            projects[j].offsetHeight;
+          }
+          projects[j].style.setProperty("opacity", "1");
+          projects[j].style.setProperty("left", `${7*(i)}em`);
+          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
+        }
+      }
+    }
+    updateCarousel(0);
+    async function loadName() {
+      var name = document.getElementById('nametext');
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML = 'a';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'n';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 's';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'e';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+      await new Promise(r => setTimeout(r, 100));
+      name.innerHTML += 'l';
+      bound = name.getBoundingClientRect();
+      bound2 = last.getBoundingClientRect();
+    }
+    loadName();
+    async function openPanel(panel) {
+      var foundActive = 0;
+      var waitingForTransition = false;
+      for (var i = 0; i < buttons.length; i++) {
+        if (buttons[i].dataset.active == 'true') foundActive++;
+      }
+      if (!foundActive) {
+        popupHolder.style.transition = "none";
+        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
+        popupHolder.offsetHeight;
+        popupHolder.style.transition = "";
+      }
+      if (foundActive == 1 && buttons[panel].dataset.active == 'true') {
+        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
+        waitingForTransition = true;
+      }
+      else {
+        for (var i = 0; i < panels.length; i++) {
+          panels[i].style.display = 'none'
+        }
+      }
 
-		
-		const scene = new THREE.Scene();
-		scene.background = new THREE.Color(0x0A0A0A);
-		const cubecanvas = document.getElementById("cubecanvas");
-		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-		const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-		const material = new THREE.MeshBasicMaterial({color: 0x717171});
-		const materialdark = new THREE.MeshBasicMaterial({color: 0x161616});
-		const cube = new THREE.Mesh(geometry, material);
-		const cubedark = new THREE.Mesh(geometry, materialdark);
-		scene.add(cube);
-		scene.add(cubedark);
-		cube.position.x = -0.5;
-		cube.position.y = 0.25;
-		cubedark.position.x = 0.5;
-		cubedark.position.z = 0.2;
-		cubedark.position.y = -0.25;
-		camera.position.z = 5;
-		const raycaster = new THREE.Raycaster();
-		const pointer = new THREE.Vector2(1, 1);
-		var scale = false;
-		var scaledown = false;
+      if (buttons[panel].dataset.active == 'false') buttons[panel].dataset.active = 'true';
+      else buttons[panel].dataset.active = 'false';
+      for (var i = 0; i < buttons.length; i++) {
+        if (i == panel) continue;
+        buttons[i].dataset.active = 'false';
+      }
+      nameContainer.style.setProperty("bottom", 0);
+      decorativeBlock.style.setProperty("right", 0);
+      if (waitingForTransition) {
+        await new Promise(r => setTimeout(r, 500));
+        panels[panel].style.display = 'none';
+      }
+      if (buttons[panel].dataset.active == 'false') return;
+      nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
+      decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");
+      popupHolder.style.setProperty("width", panelSizes[panel * 2].toString() + "em");
+      popupHolder.style.setProperty("height", panelSizes[panel * 2 + 1].toString() + "em");
+      popupHolder.style.setProperty("left", 0);
+      panels[panel].style.display = 'block';
+    }
+    document.addEventListener("mousemove", event => {
+      name.style.setProperty("background-position-x", (event.clientX - bound.left - (bound.right - bound.left) * 5).toString() + "px");
+      name.style.setProperty("background-position-y", (event.clientY - bound.top - (bound.bottom - bound.top) * 5).toString() + "px");
+      last.style.setProperty("background-position-x", (event.clientX - bound2.left - (bound2.right - bound2.left) * 10).toString() + "px");
+      last.style.setProperty("background-position-y", (event.clientY - bound2.top - (bound2.bottom - bound2.top) * 10).toString() + "px");
+    });
+    var lastTime = Date.now();
+    document.getElementById("portfolio").addEventListener("wheel", event => {
+      if (Date.now() - lastTime < 100) return;
+      updateCarousel(-Math.sign(event.deltaY));
+      lastTime = Date.now();
+    });
 
-		function onPointerMove(event) {
-			const rect = event.target.getBoundingClientRect();
-			pointer.x = (event.clientX - rect.left) / event.target.clientWidth * 2 - 1;
-			pointer.y = (event.clientY - rect.top) / event.target.clientHeight * 2 - 1;
-		}
-		
-		function onMouseClick(event) {
-			raycaster.setFromCamera(pointer, camera);
-			const intersected = raycaster.intersectObjects(scene.children);
-			if (intersected.length > 0) {
-				scale = true;
-				scaledown = false;
-				cube.scale.x = 1;
-				cube.scale.y = 1;
-				cube.scale.z = 1;
-				cubedark.scale.x = 1;
-				cubedark.scale.y = 1;
-				cubedark.scale.z = 1;
-			}
-		}
-			
-		const renderer = new THREE.WebGLRenderer({antialias: true, canvas: cubecanvas});
-		renderer.setSize(cubecanvas.clientWidth, cubecanvas.clientHeight);
-		
-		const composer = new EffectComposer(renderer);
-		const renderPass = new RenderPass(scene, camera);
-		composer.addPass(renderPass);
-		
-		const renderPixelatedPass = new RenderPixelatedPass(6, scene, camera);
-		composer.addPass(renderPixelatedPass);
-		const afterimagePass = new AfterimagePass();
-		composer.addPass(afterimagePass);
-			
-		function animate() {
-			requestAnimationFrame(animate);
-			composer.render();
-			
-			raycaster.setFromCamera(pointer, camera);
-			const intersects = raycaster.intersectObjects(scene.children);
-			if (intersects.length > 0) {
-				cubedark.material = material;
-				cube.material = materialdark;
-			}
-			else {
-				cubedark.material = materialdark;
-				cube.material = material;
-			}
-			
-			if (scale) {
-				if (cube.scale.x >= 1.15) {
-					scale = false;
-					scaledown = true;
-				}
-				else {
-					cube.scale.x += 0.01;
-					cube.scale.y += 0.01;
-					cube.scale.z += 0.01;
-					cubedark.scale.x += 0.01;
-					cubedark.scale.y += 0.01;
-					cubedark.scale.z += 0.01;
-				}
-			}
-			else if (scaledown) {
-				if (cube.scale.x <= 1) {
-					scaledown = false;
-				}
-				else {
-					cube.scale.x -= 0.0075;
-					cube.scale.y -= 0.0075;
-					cube.scale.z -= 0.0075;
-					cubedark.scale.x -= 0.0075;
-					cubedark.scale.y -= 0.0075;
-					cubedark.scale.z -= 0.0075;
-				}
-			}
-			cube.rotation.x += 0.0025;
-			cube.rotation.y += 0.0025;
-			cubedark.rotation.x -= 0.0025;
-			cubedark.rotation.z += 0.0025;
-		}
-		cubecanvas.addEventListener('mousemove', onPointerMove);
-		cubecanvas.addEventListener('click', onMouseClick);
-		animate();
-	</script>
-	<script>
-	var i = 0;
-	var txt = 'Lorem ipsum.';
-	var speed = 10;
-	var typehandle;
-	function typing() {
-		if (i < txt.length) {
-			document.getElementById("scripttypearea").innerHTML += txt.charAt(i);
-			i++;
-			typehandle = setTimeout(typing, speed);
-		}
-	}
-	function writescript(type) {
-		document.getElementById("scripttypearea").innerHTML = null;
-		i = 0;
-		switch (type) {
-			case "HTML":
-				txt = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset="utf-8">\n\t\t<title>Ansel Stanik</title>\n\t\t<link href="index.css" rel="stylesheet" type="text/css">\n\t</head>\n\t<body>\n\t\t<div class="container">\n\t\t\t<p>Hello World!</p>\n\t\t</div>\n\t</body>\n</html>`;
-				break;
-			case "CSS":
-				txt = `.container {\n\tbackground-color: #FFFFFF;\n\tpadding: 10px;\n\tmargin-top: 5rem;\n}\n.nav a {\n\ttext-decoration: none;\n\tcolor: #000000;\n\ttransition: transform 0.5s;\n\ttransform: scale(1);\n\tbackground-color: #161616;\n}\n.nav a:hover {\n\ttransform: scale(1.1);\n}`;
-				break;
-			case "JS":
-				txt = `let i = 1n;\nlet x = 3n * (10n ** 1020n);\nlet pi = x;\nwhile (x > 0) {\n\tx = x * i / ((i + 1n) * 4n);\n\tpi += x / (i + 2n);\n\ti += 2n;\n}\nconsole.log(pi / (10n ** 20n));`;
-				break;
-			case "CS":
-				txt = `using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\n\npublic class HelloWorld : MonoBehaviour\n{\n\t[SerializeField] private float speed;\n\n\tprivate void Start() {\n\t\tDebug.Log("Hello World!");\n\t}\n\n\tprivate void FixedUpdate() {\n\t\ttransform.position += new Vector3(speed * Time.deltaTime, 0, 0);\n\t}\n}`;
-				break;
-			case "PHP":
-				txt = `<?php\n\tfunction Authenticate($username, $password) {\n\t\t$sql = "SELECT password FROM users WHERE name = ?";\n\t\t$request = $connection->prepare($sql);\n\t\t$request->bind_param("s", $username);\n\t\t$responsepass = $request->execute();\n\t\t$request->close();\n\t\tif ($password == $responsepass)\n\t\t\treturn true;\n\t\telse\n\t\t\treturn false;\n\t}\n\tdefine("DBHOST", "localhost");\n\tdefine("DBNAME", "anselsdata");\n\tdefine("DBUSER", "admin");\n\tdefine("DBPASS", "password123");\n\t$connection = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);\n\tif (isset($_POST['authenticate'])) {\n\t\t$username = $_POST['username'];\n\t\t$password = $_POST['password'];\n\t\tif (!Authenticate($name, $password)) {\n\t\t\tthrow new RuntimeException("Authentication failed.", mysqli_connect_error());\n\t\t}\n\t}\n?>`;
-				break;
-			case "SQL":
-				txt = `IF (SELECT ISNULL(\n\t\tSELECT *\n\t\tFROM users\n\t\tWHERE id=0)) {\n\tINSERT INTO users VALUES (\n\t\t"admin",\n\t\t"password123",\n\t\t"admin@example.xyz");\n}`;
-				break;
-			case "PY":
-				txt = `testrange = input("How many numbers to test?")\n\nfor i in range(1, testrange):\n\tif (i % 3 == 0) and (i % 5 == 0):\n\t\tprint("FizzBuzz")\n\telse if (i % 3 == 0):\n\t\tprint("Fizz")\n\telse if (i % 5 == 0):\n\t\tprint("Buzz")\n\telse:\n\t\tprint(i)`;
-				break;
-			case "CPP":
-				txt = `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n\tstring name;\n\n\tcout << "Hello! What is your name?" << endl;\n\tcin >> name;\n\tcout << "Hi there " << name << "! Nice to meet you!" << endl;\n\n\treturn 0;\n}`;
-				break;
-			case "JAVA":
-				txt = `public class Ansel {\n\tint coolness;\n\tstring keyboard_layout;\n\n\tpublic Ansel() {\n\t\tcoolness = 102;\n\t\tkeyboard_layout = "QWERTY (for now)";\n\t}\n\n\tpublic void how_cool() {\n\t\tSystem.out.println(coolness);\n\t}\n}`
-				break;
-		}
-		speed = 10 / (txt.length / 250);
-		clearTimeout(typehandle);
-		typing();
-	}
-	var loadedInitHTML = false;
-	window.addEventListener("scroll", function() {
-		if (window.pageYOffset > document.getElementById("scripttypearea").getBoundingClientRect().top && !loadedInitHTML) {
-			writescript("HTML");
-			loadedInitHTML = true;
-		}
-	});
-</script>
-<script>
-	var slidePos = 0;
-	var slides = document.getElementsByClassName("portfolioitem");
-	showslide(slidePos);
-	
-	function changeSlide(n) {
-		slidePos += n;
-		showslide(n);
-	}
-	
-	function showslide(n) {
-		if (slidePos > slides.length - 1) slidePos = 0;
-		if (slidePos < 0) slidePos = slides.length - 1;
-		for (var i = 0; i < slides.length; i++) {
-			if (slides[i].dataset.active == "true") {
-				slides[i].dataset.active = "tofalse";
-				slides[i].style.setProperty("--entry", (n < 0) ? "200%" : "-200%");
-			}
-		}
-		slides[slidePos].dataset.active = "true";
-		slides[slidePos].style.setProperty("--entry", (n < 0) ? "200%" : "-200%")
-	}
-	
-	window.addEventListener("animationend", (event) => {
-		if (event.target.dataset.active == "tofalse") event.target.dataset.active = "false";
-	})
-</script>
-<script type="module">
-	import * as THREE from 'three';
-	import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-	
-	const scene = new THREE.Scene();
-	const modelcanvas = document.getElementById("modelcanvas");
-	const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-	const raycaster = new THREE.Raycaster();
-	const pointer = new THREE.Vector2(1, 1);
-	
-	const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: modelcanvas});
-	renderer.setSize(modelcanvas.clientWidth, modelcanvas.clientHeight);
-	renderer.outputEncoding = THREE.sRGBEncoding;
-	const light = new THREE.AmbientLight(0xFFFFFF);
-	scene.add(light);
-	
-	var turntime = 0;
-	var turn = false;
-	
-	const loader = new GLTFLoader();
-	var loadedobj;
-	loader.load('poly.glb', function (gltf) {
-		//const mat = new THREE.MeshBasicMaterial({color:0x717171});
-		//gltf.scene.traverse((o) => {
-		//	o.material = mat;
-		//})
-		loadedobj = gltf;
-		scene.add(gltf.scene);
-	});
-	camera.position.z = 2;
-	
-	function onMouseClick(event) {
-		raycaster.setFromCamera(pointer, camera);
-		const intersected = raycaster.intersectObjects(scene.children);
-		if (intersected.length > 0) {
-			turn = true;
-		}
-	}
-	
-	function onPointerMove(event) {
-		const rect = event.target.getBoundingClientRect();
-		pointer.x = (event.clientX - rect.left) / event.target.clientWidth * 2 - 1;
-		pointer.y = (event.clientY - rect.top) / event.target.clientHeight * 2 - 1;
-	}
-				
-	function animate() {
-		requestAnimationFrame(animate);
-		if (loadedobj != null) {
-			loadedobj.scene.traverse((o) => {
-				if (o.isMesh) {
-					o.rotation.y += 0.005;
-					if (turn) {
-						o.rotation.z += 0.05;
-						turntime++;
-					}
-					if (turntime > 30) {
-						turn = false;
-						turntime = 0;
-					}
-				}
-			});
-		}
-		raycaster.setFromCamera(pointer, camera);
-		if (raycaster.intersectObjects(scene.children).length > 0) {
-			modelcanvas.style.setProperty("transform", "scale(1.1)");
-		}
-		else {
-			modelcanvas.style.setProperty("transform", "scale(1)");
-		}
-		renderer.render(scene, camera);
-	}
-	modelcanvas.addEventListener("mousemove", onPointerMove);
-	modelcanvas.addEventListener("click", onMouseClick);
-	animate();
-</script>
+    const skillsSoftware = document.getElementById("softwareskills").children;
+    const skillsLanguages = document.getElementById("languageskills").children;
+    const skillsSubjects = document.getElementById("subjectskills").children;
+    const softwareOrder = [skillsSoftware.length];
+    const languagesOrder = [skillsLanguages.length];
+    const subjectsOrder = [skillsSubjects.length];
+    for (var i = 0; i < skillsSoftware.length; i++) {
+      softwareOrder[i] = i;
+    }
+    for (var i = 0; i < skillsLanguages.length; i++) {
+      languagesOrder[i] = i;
+    }
+    for (var i = 0; i < skillsSubjects.length; i++) {
+      subjectsOrder[i] = i;
+    }
+    function updateSkills() {
+      for (var i = 0; i < softwareOrder.length; i++) {
+        if (i == Math.trunc(softwareOrder.length / 2)) skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1.5)`);
+        else skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1)`);
+        skillsSoftware[softwareOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(softwareOrder.length / 2))}em`);
+        skillsSoftware[softwareOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(softwareOrder.length / 2)));
+      }
+      for (var i = 0; i < languagesOrder.length; i++) {
+        if (i == Math.trunc(languagesOrder.length / 2)) skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1.5)`);  
+        else skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1)`);
+        skillsLanguages[languagesOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(languagesOrder.length / 2))}em`);    
+        skillsLanguages[languagesOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(languagesOrder.length / 2)));
+      }
+      for (var i = 0; i < subjectsOrder.length; i++) {
+        if (i == Math.trunc(subjectsOrder.length / 2)) skillsSubjects[subjectsOrder[i]].style.setProperty("transform", `scale(1.5)`);      
+        else skillsSubjects[subjectsOrder[i]].style.setProperty("transform", `scale(1)`);
+        skillsSubjects[subjectsOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(subjectsOrder.length / 2))}em`);
+        skillsSubjects[subjectsOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(subjectsOrder.length / 2)));
+      }
+    }
+    updateSkills();
+    function changeSkills(type, direction) {
+      var temp;
+      switch (type) {
+        case "software":
+          if (direction == 1) {
+            temp = softwareOrder[0];
+            for (var i = 0; i < softwareOrder.length - 1; i++) softwareOrder[i] = softwareOrder[i + 1];
+            softwareOrder[softwareOrder.length - 1] = temp;
+          } else {
+            temp = softwareOrder[softwareOrder.length - 1];
+            for (var i = softwareOrder.length - 1; i > 0; i--) softwareOrder[i] = softwareOrder[i - 1];
+            softwareOrder[0] = temp;
+          }
+          break;
+        case "languages":
+          if (direction == 1) {
+            temp = languagesOrder[0];
+            for (var i = 0; i < languagesOrder.length - 1; i++) languagesOrder[i] = languagesOrder[i + 1];
+            languagesOrder[languagesOrder.length - 1] = temp;
+          } else {
+            temp = languagesOrder[languagesOrder.length - 1];
+            for (var i = languagesOrder.length - 1; i > 0; i--) languagesOrder[i] = languagesOrder[i - 1];
+            languagesOrder[0] = temp;
+          }
+          break;
+        case "subjects":
+          if (direction == 1) {
+            temp = subjectsOrder[0];
+            for (var i = 0; i < subjectsOrder.length - 1; i++) subjectsOrder[i] = subjectsOrder[i + 1];
+            subjectsOrder[subjectsOrder.length - 1] = temp;
+          } else {
+            temp = subjectsOrder[subjectsOrder.length - 1];
+            for (var i = subjectsOrder.length - 1; i > 0; i--) subjectsOrder[i] = subjectsOrder[i - 1];
+            subjectsOrder[0] = temp;
+          }
+          break;
+      }
+    }
+    document.getElementById("softwareskills").addEventListener("wheel", event => {
+      changeSkills("software", Math.sign(event.deltaY));
+      updateSkills();
+    });
+    document.getElementById("languageskills").addEventListener("wheel", event => {
+      changeSkills("languages", Math.sign(event.deltaY));
+      updateSkills();
+    });
+    document.getElementById("subjectskills").addEventListener("wheel", event => {
+      changeSkills("subjects", Math.sign(event.deltaY));
+      updateSkills();
+    });
+  </script>
+  <script>
+    async function loadIframe() {
+      await new Promise(r => setTimeout(r, 500)); 
+    document.getElementById("embedalbum").src = "https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe";
+    }
+    loadIframe();
+  </script>
 </body>
 </html>
