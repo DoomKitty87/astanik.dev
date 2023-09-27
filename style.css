@@ -313,4 +313,6 @@ img {
   color: var(--highlighted-color);
   margin-bottom: 1em;
   margin-top: 0;
+  transition: transform 0.5s ease;
+  position: relative;
 }

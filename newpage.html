@@ -169,7 +169,7 @@
     <h1 class="titletext">things i can do</h1>
     <div style="display:flex;flex-direction:row;">
       <div><h2 class="skilltitle">Software</h2>
-      <div class="skillsection" id="softwareskills">
+      <div class="skillsection" id="softwareskills" onclick="changeSkills('software', 1);updateSkills()">
         <p class="skilllabel">Blender</p>
         <p class="skilllabel">Logic Pro</p>
         <p class="skilllabel">Unity</p>
@@ -374,10 +374,10 @@
       subjectsOrder[i] = i;
     }
     function updateSkills() {
-      console.log(softwareOrder);
       for (var i = 0; i < softwareOrder.length; i++) {
         if (i == Math.trunc(softwareOrder.length / 2)) skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1.5)`);
         else skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1)`);
+        skillsSoftware[softwareOrder[i]].style.setProperty("bottom", `${5 * (i - Math.trunc(softwareOrder.length / 2))}em`);
       }
       for (var i = 0; i < languagesOrder.length; i++) {
         if (i == Math.trunc(languagesOrder.length / 2)) skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1.5)`);      
@@ -394,9 +394,9 @@
           if (direction == -1) {
             temp = softwareOrder[0];
             for (var i = 0; i < softwareOrder.length - 1; i++) softwareOrder[i] = softwareOrder[i + 1];
-            softwareOrder[-1] = temp;
+            softwareOrder[softwareOrder.length - 1] = temp;
           } else {
-            temp = softwareOrder[-1];
+            temp = softwareOrder[softwareOrder.length - 1];
             for (var i = softwareOrder.length - 1; i > 0; i--) softwareOrder[i] = softwareOrder[i - 1];
             softwareOrder[0] = temp;
           }
@@ -405,9 +405,9 @@
           if (direction == -1) {
             temp = languagesOrder[0];
             for (var i = 0; i < languagesOrder.length - 1; i++) languagesOrder[i] = languagesOrder[i + 1];
-            languagesOrder[-1] = temp;
+            languagesOrder[languagesOrder.length - 1] = temp;
           } else {
-            temp = languagesOrder[-1];
+            temp = languagesOrder[languagesOrder.length - 1];
             for (var i = softwareOrder.length - 1; i > 0; i--) languagesOrder[i] = languagesOrder[i - 1];
             languagesOrder[0] = temp;
           }
@@ -416,17 +416,15 @@
           if (direction == -1) {
             temp = subjectsOrder[0];
             for (var i = 0; i < subjectsOrder.length - 1; i++) subjectsOrder[i] = subjectsOrder[i + 1];
-            subjectsOrder[-1] = temp;
+            subjectsOrder[subjectsOrder.length - 1] = temp;
           } else {
-            temp = subjectsOrder[-1];
+            temp = subjectsOrder[subjectsOrder.length - 1];
             for (var i = subjectsOrder.length - 1; i > 0; i--) subjectsOrder[i] = subjectsOrder[i - 1];
             subjectsOrder[0] = temp;
           }
           break;
       }
     }
-    changeSkills("software", 1);
-    updateSkills();
   </script>
   <script>
     async function loadIframe() {
