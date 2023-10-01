@@ -295,23 +295,23 @@
     updateCarousel(0);
     async function loadName() {
       var name = document.getElementById('nametext');
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 50));
       name.innerHTML = 'a';
       bound = name.getBoundingClientRect();
       bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 50));
       name.innerHTML += 'n';
       bound = name.getBoundingClientRect();
       bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 50));
       name.innerHTML += 's';
       bound = name.getBoundingClientRect();
       bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 50));
       name.innerHTML += 'e';
       bound = name.getBoundingClientRect();
       bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 50));
       name.innerHTML += 'l';
       bound = name.getBoundingClientRect();
       bound2 = last.getBoundingClientRect();
