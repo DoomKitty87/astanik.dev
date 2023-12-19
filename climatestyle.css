@@ -1,8 +1,73 @@
+@font-face {
+  font-family: "Inter";
+  src: url("inter.ttf");
+}
+
+:root {
+  --background-color: #f9f0d0;
+  --text-dark: #537020;
+  --background-light: #afc84d;
+  --background-secondary: #6aa731;
+  font-size: 1vw;
+}
+
 html, body {
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 body {
-  background-color: #fffeff;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Inter";
+  color: var(--text-dark);
+}
+
+button {
+  color: var(--text-dark);
+  border: none;
+  background-color: var(--background-light);
+  padding: 0.4rem 0.6rem;
+  border: 0.25rem solid var(--background-secondary);
+  border-radius: 0.5rem;
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: scale(1);
+}
+
+input {
+  background-color: var(--background-light);
+  border: 0.25rem solid var(--background-secondary);
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.bodycontainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-light);
+  box-shadow: 0rem 0rem 1rem;
+}
+
+#result {
+  width: 60%;
 }

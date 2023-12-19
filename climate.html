@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="climatestyle.css">
 </head>
 <body>
-  <form>
-    <input type="number" id="distance">
-    <label for="distance">Distance from IBW</label>
-    <input type="button" onclick="Calculate()">
-  </form>
-  <h3 id="result"></h3>
+  <div class="bodycontainer">
+    <label for="distance">Distance from IBW (miles)</label><br>
+    <input type="number" id="distance"><br>
+    <button onclick="Calculate()">Calculate</button>
+    <h3 id="result"></h3>
+  </div>
   <script>
     function Calculate() {
       const distance = document.getElementById("distance").value;
