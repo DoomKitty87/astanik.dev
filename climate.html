@@ -22,11 +22,12 @@
       const cost = gallonsUsed * 4.109;
       const emissions = distance * .47;
       const busEmissions = distance * .39;
+      const monthly = (emissions - busEmissions) * 20;
       document.getElementById("result").innerHTML = `
         Driving to school from ${Math.round(distance * 100) / 100} miles away uses ~${Math.round(gallonsUsed * 100) / 100} gallons 
         of fuel, which costs ~$${Math.round(cost * 100) / 100}. This also releases about ${Math.round(emissions * 100) / 100} lbs of 
         carbon dioxide into the atmosphere.\nRiding a TriMet bus costs $0 with the student bus pass, and only releases ${Math.round(busEmissions * 100) / 100} 
-        lbs of CO<sub>2</sub>. 
+        lbs of CO<sub>2</sub>. This saves ${Math.round(monthly * 100) / 100}lbs of CO<sub>2</sub> per month. 
       `;
     }
   </script>
