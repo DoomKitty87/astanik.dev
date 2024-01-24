@@ -355,6 +355,7 @@
           for (let y = -startY; y < startY; y++) {
             for (let z = -startZ; z < startZ; z++) {
               if (biomeLock == 4 && y + originY >= 64) continue;
+              if (biomeLock != 4 && y + originY < 64) continue;
               if (originX + x < 0 || originX + x > 639 || originY + y < 0 || originY + y > 255 || originZ + z < 0 || originZ + z > 639) continue;
               if (oreArray[originX + x][originY + y][originZ + z] != 1) continue;
               path.push(originX + x, originY + y, originZ + z);
@@ -383,6 +384,7 @@
                 if (x == 0 && y == 0 && z == 0) continue;
                 if (Math.abs(x) < minDist && Math.abs(y) < minDist && Math.abs(z) < minDist) continue;
                 if (biomeLock == 4 && path[path.length - 2] + y >= 64) continue;
+                if (biomeLock != 4 && path[path.length - 2] + y < 64) continue;
                 if (path[path.length - 3] + x < 0 || path[path.length - 3] + x > 639 || path[path.length - 2] + y < 0 || path[path.length - 2] + y > 255 || path[path.length - 1] + z < 0 || path[path.length - 1] + z > 639) continue;
                 if (oreArray[path[path.length - 3] + x][path[path.length - 2] + y][path[path.length - 1] + z] != 1) continue;
                 var cntue = false;
