@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="wip.css" loading="block" />
+  <meta charset="UTF-8" />
+  <title>Ansel Stanik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <svg width="0" height="0">
+    <filter id="noise">
+      <feTurbulence id="backgroundfilter"
+        type="turbulence"
+        baseFrequency="0.3"
+        numOctaves="1"
+        result="noisetexture"
+      />
+      <feBlend 
+        in="noisetexture"
+        in2="SourceGraphic"
+        mode="normal"
+      />
+    </filter>
+  </svg>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="contentbg"></div>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <h1 class="hometitle">Ansel Stanik</h1>
+  <script>
+    document.addEventListener("wheel", (e) => function(e) {
+      console.log("e");
+    });
+  </script>
+</body>
+</html>
