@@ -86,3 +86,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.doublelink {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}

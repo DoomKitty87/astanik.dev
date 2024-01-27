@@ -11,7 +11,7 @@ document.getElementById("renderercontainer").appendChild( renderer.domElement );
 const geometry = new THREE.BufferGeometry();
 
 const width = 250;
-const depth = 100;
+const depth = 150;
 
 const vertices = new Float32Array(width * depth * 3);
 
@@ -66,12 +66,16 @@ function animate() {
   if (frames % delay == 0) {
     for (var i = 0; i < vertices.length / 3; i++) {
       vertices[i * 3 + 2] -= vertexScale;
-      vertices[i * 3 + 1] = noise2D(vertices[i * 3] / 100, vertices[i * 3 + 2] / 40) * Math.abs(vertices[i * 3]) * 0.25; 
     }
-    buffer.needsUpdate = true;
-    geometry.computeBoundingBox();
-    geometry.computeBoundingSphere();
   }
+
+  for (var i = 0; i < vertices.length / 3; i++) {
+    vertices[i * 3 + 1] = noise2D(vertices[i * 3] / 100, vertices[i * 3 + 2] / 40) * Math.abs(vertices[i * 3]) * 0.25 * Math.sin(frames / delay * 0.1);
+  }
+
+  buffer.needsUpdate = true;
+  geometry.computeBoundingBox();
+  geometry.computeBoundingSphere();
   plane.position.x = -(mousePos.x) * movementSensitivity;
   plane.position.y = (mousePos.y) * movementSensitivity;
   camera.setRotationFromEuler(new THREE.Euler((mousePos.y) * -rotationSensitivity, (mousePos.x) * -rotationSensitivity, 0));
