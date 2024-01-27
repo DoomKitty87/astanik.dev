@@ -1,470 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" loading="block"/>
+  <link rel="stylesheet" href="index.css" loading="block" />
   <meta charset="UTF-8" />
   <title>Ansel Stanik</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-  <svg>
-    <filter id="noise">
-      <feTurbulence id="backgroundfilter"
-        type="turbulence"
-        baseFrequency="0.0015"
-        numOctaves="2"
-        result="noisetexture"
-      />
-      <feColorMatrix
-        type="saturate"
-        values="0.2"
-        in="noisetexture"
-        result="desat"/>
-      <feBlend 
-        in="desat"
-        in2="SourceGraphic"
-        mode="normal"
-      />
-    </filter>
-  </svg>
 </head>
 <body>
-  <div class="background" id="background"></div>
-  <div class="namecontainer" id="namecontainer">
-    <h1 class="nametitle" id="nametext"></h1>
-    <h2 class="namesubtitle" id="namesub">stanik</h2>
-  </div>
-  <div class="decorativeblock" id="decoration"></div>
-  <div class="menubuttons">
-    <h3 data-active="false" class="menubutton" onclick="openPanel(0)">work</h3>
-    <h3 data-active="false" class="menubutton" onclick="openPanel(1)">about</h3>
-    <h3 data-active="false" class="menubutton" onclick="openPanel(2)">skills</h3>
-    <h3 data-active="false" class="menubutton" onclick="openPanel(3)">contact</h3>
-  </div>
-  <div class="popupholder" id="popupholder">
-  <div class="popupdisplay">
-    <h1 class="titletext">things i've made</h1>
-    <div class="carousel" id="portfolio">
-      <h1 onclick="updateCarousel(-1)" class="scrollbutton" style="position:relative;left:0.2em">&lt</h1>
-      <div class="project">
-        <a href="https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2" target="_blank"><img class="projectimage" src="symbiont.png" style="object-position: left"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Symbiont</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:green">Unity</h3>
-            <h3 class="projecttag" style="background-color:coral">SQL</h3>
-            <h3 class="projecttag" style="background-color:violet">PHP</h3>
-          </div>
-          <h2 class="projecttext">FPS game with consciousness-swapping made in Unity engine.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://astanik.dev/seafoam" target="_blank"><img class="projectimage" src="seafoam.png"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Seafoam</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:red">HTML</h3>
-            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
-          </div>
-          <h2 class="projecttext">Webapp port of RouteGen for gemstone mining routes in games.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/planck-server" target="_blank"><img class="projectimage" src="planck.png" style="object-position: left"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Planck</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:blue">Python</h3>
-            <h3 class="projecttag" style="background-color:darkorchid">Network</h3>
-          </div>
-          <h2 class="projecttext">Private messaging app using peer-to-server-to-peer networking and PyQt for GUI.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://astanik.dev/omnistudy" target="_blank"><img class="projectimage" src="omnistudy.png" style="object-position: center"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">OmniStudy</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
-            <h3 class="projecttag" style="background-color:red">HTML</h3>
-            <h3 class="projecttag" style="background-color:orange">Math</h3>
-          </div>
-          <h2 class="projecttext">Website with infinite problem generation and explanations for advanced classes.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/trebuchetjs" target="_blank"><img class="projectimage" src="trebuchet.png" style="object-position: left"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Trebuchet.js</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
-            <h3 class="projecttag" style="background-color:orange">Math</h3>
-          </div>
-          <h2 class="projecttext">Node.js package to bring lightweight physics to Three.js.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/primes" target="_blank"><img class="projectimage" src="primes.png" style="object-position: right"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Primes</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:blue">Python</h3>
-            <h3 class="projecttag" style="background-color:orange">Math</h3>
-          </div>
-          <h2 class="projecttext">Playground for large prime number generation with different methods.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/CS-3-4-Game-2022" target="_blank"><img class="projectimage" src="transience.png"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Transience</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:green">Unity</h3>
-          </div>
-          <h2 class="projecttext">2D platformer with music-synced elements made in Unity.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/commandline-3d" target="_blank"><img class="projectimage" src="cube.png" style="object-position: left"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">CommandLine3D</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:darkblue">C++</h3>
-          </div>
-          <h2 class="projecttext">A 3D rendering engine for the command line.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/quickparsejs" target="_blank"><img class="projectimage" src="quickparse.png"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Quickparse.js</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:gold">JavaScript</h3>
-            <h3 class="projecttag" style="background-color:orange">Math</h3>
-          </div>
-          <h2 class="projecttext">Math expression parsing package for user input-expression in Node.js.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/route-gen" target="_blank"><img class="projectimage" src="route.png"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">RouteGen</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:darkblue">C++</h3>
-          </div>
-          <h2 class="projecttext">Command-line/R&D version of Seafoam, generating routes for gemstone mining.</h2>
-        </div>
-      </div>
-      <div class="project">
-        <a href="https://github.com/DoomKitty87/snowmelt" target="_blank"><img class="projectimage" src="snowmelt.png"></a>
-        <div class="projectcard">
-          <h1 class="projecttitle">Snowmelt</h1>
-          <div class="tags">
-            <h3 class="projecttag" style="background-color:firebrick">Rainmeter</h3>
-          </div>
-          <h2 class="projecttext">Rainmeter skin that I made and use. I like system info and whatnot.</h2>
-        </div>
-      </div>
-      <h1 onclick="updateCarousel(1)" class="scrollbutton" style="position:relative;left:14.425em">&gt</h1>
+  <div id="renderercontainer"></div>
+  <h1 id="hometitle">Ansel Stanik</h1>
+  <h2 id="homesubtitle">Student and Developer</h1>
+  <div class="row">
+    <div class="column">
+      <h3 class="homeinfoheader">Education</h3>
+      <h4 class="homeinfotext">
+        Ida B. Wells-Barnett HS (2021-25)<br>
+        4.0 GPA 1520 PSAT 35 PACT
+      </h4>
+      <h3 class="homeinfoheader">Skills</h3>
+      <h4 class="homeinfotext">
+        Web<br>
+        Software<br>
+        Gamedev<br>
+        Procedural Generation<br>
+        3D Modeling and Texturing
+      </h4>
     </div>
-    <a href="https://github.com/DoomKitty87" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-bottom:0;margin-top:3em;">my github</p></a>
-    <a href="https://www.linkedin.com/in/ansel-stanik-8b238b293/" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-bottom:0;margin-top:0.5em;">my linkedin</p></a>
-    <a href="https://www.npmjs.com/~anselstanik" target="_blank" class="profilelink"><p class="highlightlink" style="margin-left:3em;margin-top:0.5em;">my npm</p></a>
-  </div>
-  <div class="popupdisplay" id="popupholder">
-    <h1 class="titletext">about me</h1>
-    <p class="bodytext">hi i'm ansel, a high school junior in portland, oregon. i like playing and listening to music, computers, puzzles, lights, and colors.</p>
-    <h3 class="bodytext">album i'm enjoying: <a class="contactlink" href="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe?si=QXzx6Un2TfmKGShE6tEWdw">starboy - the weeknd</a></h3>
-    <iframe src="#" onload="this.style.display='block'" id="embedalbum" class="embed" frameBorder="0" allowfullscreen="" allow="fullscreen;"></iframe>
-    </div>
-  <div class="popupdisplay">
-    <h1 class="titletext">things i can do</h1>
-    <div style="display:flex;flex-direction:row;">
-      <div><h2 class="skilltitle">Software</h2>
-      <div class="skillsection" id="softwareskills" onclick="changeSkills('software', -1);updateSkills()">
-        <p class="skilllabel">Blender</p>
-        <p class="skilllabel">Logic Pro</p>
-        <p class="skilllabel">Unity</p>
-        <p class="skilllabel">Premiere Pro</p>
-        <p class="skilllabel">Photoshop</p>
-      </div></div>
-      <div><h2 class="skilltitle">Languages</h2>
-      <div class="skillsection" id="languageskills" onclick="changeSkills('languages', -1);updateSkills()">
-        <p class="skilllabel">C++</p>
-        <p class="skilllabel">HTML</p>
-        <p class="skilllabel">C#</p>
-        <p class="skilllabel">Python</p>
-        <p class="skilllabel">JavaScript</p>
-        <p class="skilllabel">PHP</p>
-        <p class="skilllabel">SQL</p>
-        <p class="skilllabel">CSS</p>
-        <p class="skilllabel">Java</p>
-      </div></div>
-      <div><h2 class="skilltitle">Subjects</h2>
-      <div class="skillsection" id="subjectskills" onclick="changeSkills('subjects', -1);updateSkills()">
-        <p class="skilllabel">Frontend Web</p>
-        <p class="skilllabel">Software Development</p>
-        <p class="skilllabel">Project Management</p>
-        <p class="skilllabel">Backend Web</p>
-        <p class="skilllabel">Application Networking</p>
-        <p class="skilllabel">Web Design</p>
-        <p class="skilllabel">3D Design</p>
-      </div></div>
+    <div class="column">
+      <h3 class="homeinfoheader">Projects</h3>
+      <h4 class="homeinfotext">
+        <a class="homeinfolink" target="_blank" href="https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2#gallery-6">Symbiont</a><br>
+        <a class="homeinfolink" target="_blank" href="https://astanik.dev/seafoam">Seafoam</a><br>
+        <a class="homeinfolink" target="_blank" href="https://astanik.dev/omnistudy">OmniStudy</a><br>
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87/planck-server">Planck</a><br>
+      </h4>
+      <h3 class="homeinfoheader">Links</h3>
+      <h4 class="homeinfotext">
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87">GitHub</a><br>
+        <a class="homeinfolink" target="_blank" href="https://www.npmjs.com/~anselstanik">NPM</a><br>
+        <a class="homeinfolink" target="_blank" href="https://www.linkedin.com/in/ansel-stanik-8b238b293/">LinkedIn</a><br>
+        <a class="homeinfolink" target="_blank" href="./resume.pdf">Resume</a><br>
+      </h4>
     </div>
   </div>
-  <div class="popupdisplay">
-    <h1 class="titletext">contact me</h1>
-    <p class="bodytext">email me at <a href="" class="contactlink" id="emailtext"></a></p>
-    <p class="bodytext">or <a href="" class="contactlink" id="emailtext2"></a></p>
+  <div class="row">
+    <div class="column">
+      <h4 class="homeinfotext" style="margin-top: 1rem;">
+        Email me at
+        <a class="homeinfolink" href="" id="email">email@email.com</a>
+      </h4>
+    </div>
   </div>
-  </div>
+  <script type="module" src="index.js"></script>
   <script>
-    document.getElementById('backgroundfilter').setAttribute('seed', Date.now() % 1000000);
-    document.getElementById('emailtext').innerHTML = 'ansel.' + 'stanik' + '@' + 'icloud.com';
-    document.getElementById('emailtext').href = 'mailto:' + 'ansel.' + 'stanik' + '@' + 'icloud.com';
-    document.getElementById('emailtext2').innerHTML = 'contact' + '@' + 'astanik.' + 'dev';
-    document.getElementById('emailtext2').href = 'mailto:' + 'contact' + '@' + 'astanik.' + 'dev';
-    const name = document.getElementById('nametext');
-    const last = document.getElementById('namesub');
-    const nameContainer = document.getElementById('namecontainer');
-    const decorativeBlock = document.getElementById('decoration');
-    const popupHolder = document.getElementById('popupholder');
-    var bound = name.getBoundingClientRect();
-    var bound2 = last.getBoundingClientRect();
-    const bound3 = decorativeBlock.getBoundingClientRect();
-    const panelSizes = [32, 16, 25, 5.5, 28, 10, 16, 4];
-    const background = document.getElementById('background');
-    const buttons = document.getElementsByClassName('menubutton');
-    const panels = document.getElementsByClassName('popupdisplay');
-    const projects = document.getElementsByClassName('project');
-    var carouselSlides = 0;
-
-    function updateCarousel(change) {
-      carouselSlides += change;
-      if (carouselSlides >= projects.length) carouselSlides -= projects.length;
-      if (carouselSlides <= -projects.length) carouselSlides += projects.length;
-      for (var i = 0; i < projects.length; i++) {
-        projects[i].style.setProperty("display", "none");
-      }
-      if (change == 1) {
-        var remove = carouselSlides - 1;
-        if (remove < 0) remove += projects.length;
-        if (remove >= projects.length) remove -= projects.length;
-        projects[remove].style.setProperty("display", "block");
-        projects[remove].style.setProperty("opacity", "0");
-        projects[remove].style.setProperty("left", "-7em");
-        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
-        for (var i = 0; i < 4; i++) {
-          var j = i + carouselSlides;
-          if (j < 0) j += projects.length;
-          if (j >= projects.length) j -= projects.length;
-          projects[j].style.setProperty("display", "block");
-          if (i == 3) {
-            projects[j].style.setProperty("left", `${7*(i+1)}em`);
-            projects[j].style.setProperty("opacity", "0");
-            projects[j].offsetHeight;
-          }
-          projects[j].style.setProperty("opacity", "1");
-          projects[j].style.setProperty("left", `${7*(i)}em`);
-          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
-        }
-      }
-      else {
-        var remove = carouselSlides + 4;
-        if (remove < 0) remove += projects.length;
-        if (remove >= projects.length) remove -= projects.length;
-        projects[remove].style.setProperty("display", "block");
-        projects[remove].style.setProperty("opacity", "0");
-        projects[remove].style.setProperty("left", "28em");
-        projects[remove].children[0].children[0].style.setProperty("cursor", "default");
-        for (var i = 3; i >= 0; i--) {
-          var j = i + carouselSlides;
-          if (j < 0) j += projects.length;
-          if (j >= projects.length) j -= projects.length;
-          projects[j].style.setProperty("display", "block");
-          if (i == 0) {
-            projects[j].style.setProperty("left", `${7*(i-1)}em`);
-            projects[j].style.setProperty("opacity", "0");
-            projects[j].offsetHeight;
-          }
-          projects[j].style.setProperty("opacity", "1");
-          projects[j].style.setProperty("left", `${7*(i)}em`);
-          projects[j].children[0].children[0].style.setProperty("cursor", "pointer");
-        }
-      }
-    }
-    updateCarousel(0);
-    async function loadName() {
-      var name = document.getElementById('nametext');
-      await new Promise(r => setTimeout(r, 50));
-      name.innerHTML = 'a';
-      bound = name.getBoundingClientRect();
-      bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 50));
-      name.innerHTML += 'n';
-      bound = name.getBoundingClientRect();
-      bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 50));
-      name.innerHTML += 's';
-      bound = name.getBoundingClientRect();
-      bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 50));
-      name.innerHTML += 'e';
-      bound = name.getBoundingClientRect();
-      bound2 = last.getBoundingClientRect();
-      await new Promise(r => setTimeout(r, 50));
-      name.innerHTML += 'l';
-      bound = name.getBoundingClientRect();
-      bound2 = last.getBoundingClientRect();
-    }
-    loadName();
-    async function openPanel(panel) {
-      var foundActive = 0;
-      var waitingForTransition = false;
-      for (var i = 0; i < buttons.length; i++) {
-        if (buttons[i].dataset.active == 'true') foundActive++;
-      }
-      if (!foundActive) {
-        popupHolder.style.transition = "none";
-        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
-        popupHolder.offsetHeight;
-        popupHolder.style.transition = "";
-      }
-      if (foundActive == 1 && buttons[panel].dataset.active == 'true') {
-        popupHolder.style.setProperty("left", -panelSizes[panel * 2].toString() + "em");
-        waitingForTransition = true;
-      }
-      else {
-        for (var i = 0; i < panels.length; i++) {
-          panels[i].style.display = 'none'
-        }
-      }
-
-      if (buttons[panel].dataset.active == 'false') buttons[panel].dataset.active = 'true';
-      else buttons[panel].dataset.active = 'false';
-      for (var i = 0; i < buttons.length; i++) {
-        if (i == panel) continue;
-        buttons[i].dataset.active = 'false';
-      }
-      nameContainer.style.setProperty("bottom", 0);
-      decorativeBlock.style.setProperty("right", 0);
-      if (waitingForTransition) {
-        await new Promise(r => setTimeout(r, 500));
-        panels[panel].style.display = 'none';
-      }
-      if (buttons[panel].dataset.active == 'false') return;
-      nameContainer.style.setProperty("bottom", (bound.top - bound.bottom).toString() + "px");
-      decorativeBlock.style.setProperty("right", (bound3.left - bound3.right).toString() + "px");
-      popupHolder.style.setProperty("width", panelSizes[panel * 2].toString() + "em");
-      popupHolder.style.setProperty("height", panelSizes[panel * 2 + 1].toString() + "em");
-      popupHolder.style.setProperty("left", 0);
-      panels[panel].style.display = 'block';
-    }
-    document.addEventListener("mousemove", event => {
-      name.style.setProperty("background-position-x", (event.clientX - bound.left - (bound.right - bound.left) * 5).toString() + "px");
-      name.style.setProperty("background-position-y", (event.clientY - bound.top - (bound.bottom - bound.top) * 5).toString() + "px");
-      last.style.setProperty("background-position-x", (event.clientX - bound2.left - (bound2.right - bound2.left) * 10).toString() + "px");
-      last.style.setProperty("background-position-y", (event.clientY - bound2.top - (bound2.bottom - bound2.top) * 10).toString() + "px");
-    });
-    var lastTime = Date.now();
-    document.getElementById("portfolio").addEventListener("wheel", event => {
-      if (Date.now() - lastTime < 100) return;
-      updateCarousel(-Math.sign(event.deltaY));
-      lastTime = Date.now();
-    });
-
-    const skillsSoftware = document.getElementById("softwareskills").children;
-    const skillsLanguages = document.getElementById("languageskills").children;
-    const skillsSubjects = document.getElementById("subjectskills").children;
-    const softwareOrder = [skillsSoftware.length];
-    const languagesOrder = [skillsLanguages.length];
-    const subjectsOrder = [skillsSubjects.length];
-    for (var i = 0; i < skillsSoftware.length; i++) {
-      softwareOrder[i] = i;
-    }
-    for (var i = 0; i < skillsLanguages.length; i++) {
-      languagesOrder[i] = i;
-    }
-    for (var i = 0; i < skillsSubjects.length; i++) {
-      subjectsOrder[i] = i;
-    }
-    function updateSkills() {
-      for (var i = 0; i < softwareOrder.length; i++) {
-        if (i == Math.trunc(softwareOrder.length / 2)) skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1.5)`);
-        else skillsSoftware[softwareOrder[i]].style.setProperty("transform", `scale(1)`);
-        skillsSoftware[softwareOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(softwareOrder.length / 2))}em`);
-        skillsSoftware[softwareOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(softwareOrder.length / 2)));
-      }
-      for (var i = 0; i < languagesOrder.length; i++) {
-        if (i == Math.trunc(languagesOrder.length / 2)) skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1.5)`);  
-        else skillsLanguages[languagesOrder[i]].style.setProperty("transform", `scale(1)`);
-        skillsLanguages[languagesOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(languagesOrder.length / 2))}em`);    
-        skillsLanguages[languagesOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(languagesOrder.length / 2)));
-      }
-      for (var i = 0; i < subjectsOrder.length; i++) {
-        if (i == Math.trunc(subjectsOrder.length / 2)) skillsSubjects[subjectsOrder[i]].style.setProperty("transform", `scale(1.5)`);      
-        else skillsSubjects[subjectsOrder[i]].style.setProperty("transform", `scale(1)`);
-        skillsSubjects[subjectsOrder[i]].style.setProperty("top", `${6 + 2 * (i - Math.trunc(subjectsOrder.length / 2))}em`);
-        skillsSubjects[subjectsOrder[i]].style.setProperty("opacity", 1 - (1 / 2) * Math.abs(i - Math.trunc(subjectsOrder.length / 2)));
-      }
-    }
-    updateSkills();
-    function changeSkills(type, direction) {
-      var temp;
-      switch (type) {
-        case "software":
-          if (direction == 1) {
-            temp = softwareOrder[0];
-            for (var i = 0; i < softwareOrder.length - 1; i++) softwareOrder[i] = softwareOrder[i + 1];
-            softwareOrder[softwareOrder.length - 1] = temp;
-          } else {
-            temp = softwareOrder[softwareOrder.length - 1];
-            for (var i = softwareOrder.length - 1; i > 0; i--) softwareOrder[i] = softwareOrder[i - 1];
-            softwareOrder[0] = temp;
-          }
-          break;
-        case "languages":
-          if (direction == 1) {
-            temp = languagesOrder[0];
-            for (var i = 0; i < languagesOrder.length - 1; i++) languagesOrder[i] = languagesOrder[i + 1];
-            languagesOrder[languagesOrder.length - 1] = temp;
-          } else {
-            temp = languagesOrder[languagesOrder.length - 1];
-            for (var i = languagesOrder.length - 1; i > 0; i--) languagesOrder[i] = languagesOrder[i - 1];
-            languagesOrder[0] = temp;
-          }
-          break;
-        case "subjects":
-          if (direction == 1) {
-            temp = subjectsOrder[0];
-            for (var i = 0; i < subjectsOrder.length - 1; i++) subjectsOrder[i] = subjectsOrder[i + 1];
-            subjectsOrder[subjectsOrder.length - 1] = temp;
-          } else {
-            temp = subjectsOrder[subjectsOrder.length - 1];
-            for (var i = subjectsOrder.length - 1; i > 0; i--) subjectsOrder[i] = subjectsOrder[i - 1];
-            subjectsOrder[0] = temp;
-          }
-          break;
-      }
-    }
-    document.getElementById("softwareskills").addEventListener("wheel", event => {
-      changeSkills("software", Math.sign(event.deltaY));
-      updateSkills();
-    });
-    document.getElementById("languageskills").addEventListener("wheel", event => {
-      changeSkills("languages", Math.sign(event.deltaY));
-      updateSkills();
-    });
-    document.getElementById("subjectskills").addEventListener("wheel", event => {
-      changeSkills("subjects", Math.sign(event.deltaY));
-      updateSkills();
-    });
-  </script>
-  <script>
-    async function loadIframe() {
-      await new Promise(r => setTimeout(r, 500)); 
-    document.getElementById("embedalbum").src = "https://open.spotify.com/embed/album/2ODvWsOgouMbaA5xf0RkJe";
-    }
-    loadIframe();
+    const email = document.getElementById("email");
+    email.href = "mailto:contact@" + "astanik.dev";
+    email.innerHTML = "contact@" + "astanik.dev";
   </script>
 </body>
 </html>

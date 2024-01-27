@@ -41,7 +41,7 @@ const noise2D = createNoise2D();
 geometry.setIndex(indices);
 var buffer = new THREE.BufferAttribute(vertices, 3);
 geometry.setAttribute('position', buffer);
-const material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
 material.wireframe = true;
 const plane = new THREE.Mesh( geometry, material );
 scene.add( plane );
