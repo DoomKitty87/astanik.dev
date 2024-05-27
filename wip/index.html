@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css" loading="block" />
+  <meta charset="UTF-8" />
+  <title>Ansel Stanik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+</head>
+<body>
+  <canvas id="background" data-fragment-url="background.frag"></canvas>
+  <h1 class="title">Ansel Stanik</h1>
+  <div class="main-container">
+    <div class="column">
+      <h2 class="subtitle">Hi, I'm Ansel, a high school junior from Portland, Oregon.</h2>
+      <h2 class="subtitle">Here's my resume, and some of my projects.</h2>
+      <a class="button" target="_blank" href="resume.pdf">Resume</a>
+    </div>
+    <div class="column">
+      <div class="grid">
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="nocte.png" style="object-position:right"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="seafoam.png" style="object-position:center"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="planck.png" style="object-position:left"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="symbiont.png" style="object-position:left"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="omnistudy.png" style="object-position:center"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="quickparse.png" style="object-position:left"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="transience.png" style="object-position:center"/></a>
+        </div>
+        <div class="grid-item">
+          <a target="_blank" href="google.com"><img class="project-image" src="cube.png" style="object-position:left"/></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const canvas = document.getElementById('background');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const glsl = new GlslCanvas(canvas);
+  </script>
+  <script type="module" src="index.js"></script>
+</body>
+</html>
