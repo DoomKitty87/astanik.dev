@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Italic';
+  src: url('./fonts/ralewayitalic.ttf');
+}
+
+@keyframes scaleRight {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(1.1);
+  }
+}
+
+:root {
+  font-size: 1vw;
+
+  --accent-color: #ffffff;
+}
+
 html {
   padding: none;
   margin: none;
@@ -16,4 +42,104 @@ body {
   height: 100%;
   background-color: #000;
   z-index: -1;
+  filter: brightness(25) blur(5px) contrast(1.5);
+  transform: scale(1.1);
+}
+
+#main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#sidenavbar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5rem;
+  z-index: 1;
+}
+
+#sidenavbar:hover + #decorationleft {
+  opacity: 0.5;
+  left: 2rem;
+}
+
+#sidenavbar:hover ~ #title {
+  margin-left: 5rem;
+}
+
+#decorationleft {
+  background-color: var(--accent-color);
+  width: 0.1rem;
+  height: 30%;
+  position: absolute;
+  left: 2.65rem;
+  top: 35%;
+  transition: opacity 0.3s, left 0.3s;
+  opacity: 1;
+}
+
+#title {
+  font-family: 'Raleway Italic', sans-serif;
+  font-size: 5rem;
+  color: var(--accent-color);
+  margin-left: 35rem;
+  margin-top: 7rem;
+  font-weight: 200;
+  text-align: left;
+  position: absolute;
+  cursor: default;
+  transition: margin-left 0.3s;
+  top: 0;
+  left: 0;
+}
+
+.sidenavbarbutton {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
+  text-align: left;
+  margin-left: 4rem;
+  font-family: 'Raleway Italic', sans-serif;
+  cursor: pointer;
+  font-weight: 200;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.sidenavbarbutton:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+.activebutton {
+  transform: scale(1.1);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-color);
+  font-family: 'Raleway', sans-serif;
+}
+
+.active {
+  display: flex;
 }
