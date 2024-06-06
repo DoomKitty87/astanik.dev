@@ -43,7 +43,7 @@ var camPos = 0;
 function animate() {
 	renderer.render( scene, camera );
 
-  const t = Date.now() * 0.0005;
+  const t = Date.now() * 0.0001;
   const dt = t - tlast;
   tlast = t;
   const r = 200;

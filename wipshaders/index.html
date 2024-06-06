@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css" loading="block" />
+  <meta charset="UTF-8" />
+  <title>Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+</head>
+<body>
+  <canvas id="background" data-fragment-url="background.frag"></canvas>
+  <script>
+    const canvas = document.getElementById('background');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const glsl = new GlslCanvas(canvas);
+  </script>
+</body>
+</html>
