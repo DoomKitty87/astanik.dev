@@ -1,5 +1,7 @@
 import * as THREE from './three.js';
 
+var currentIndex = 0;
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
 
@@ -30,18 +32,62 @@ scene.add( torusKnotMesh3 );
 
 light.parent = camera;
 
+function lerp(a, b, n) {
+  return (1 - n) * a + n * b;
+}
+
+var tlast = Date.now();
+
+var camPos = 0;
+
 function animate() {
 	renderer.render( scene, camera );
 
   const t = Date.now() * 0.0005;
+  const dt = t - tlast;
+  tlast = t;
   const r = 200;
 
   const x = r * Math.cos( t );
   const y = r * Math.sin( t );
 
-  camera.position.x = x;
-  camera.position.y = y;
+  const camTargets = [];
 
-  camera.rotation.x = x * 0.01;
+  camTargets.push(new THREE.Vector3(x, y, 0));
+  camTargets.push(new THREE.Vector3(x * 0.01, 0, 0));
+  // camera.position.x = x;
+  // camera.position.y = y;
+
+  // camera.rotation.x = x * 0.01;
+
+  camTargets.push(new THREE.Vector3(y, x, 0));
+  camTargets.push(new THREE.Vector3(y * 0.01, 0, 0));
+
+  camTargets.push(new THREE.Vector3(x * 2, 0, 0));
+  camTargets.push(new THREE.Vector3(0, t % 6.28, 0));
+
+  camTargets.push(new THREE.Vector3(0, x * 2, 0));
+  camTargets.push(new THREE.Vector3(0, 0, t % 6.28));
+
+  camPos = lerp(camPos, currentIndex, dt);
+
+  const lower = Math.floor(camPos);
+  const upper = Math.ceil(camPos);
+
+  const camPosLerp = camPos - lower;
+
+  const targetPosition = camTargets[lower * 2].clone().lerp(camTargets[upper * 2], camPosLerp);
+  const targetRotation = camTargets[lower * 2 + 1].clone().lerp(camTargets[upper * 2 + 1], camPosLerp);
+
+  camera.position.copy(targetPosition);
+  camera.rotation.x = targetRotation.x;
+  camera.rotation.y = targetRotation.y;
+  camera.rotation.z = targetRotation.z;
 }
 renderer.setAnimationLoop( animate );
+
+function navigateTo(index) {
+  currentIndex = index;
+}
+
+window.navigateTo = navigateTo;

@@ -11,24 +11,20 @@
   <div id="backgroundholder"></div>
   <div id="main">
     <div id="sidenavbar">
-      <button class="sidenavbarbutton activebutton">Home</button>
-      <button class="sidenavbarbutton">About</button>
-      <button class="sidenavbarbutton">Work</button>
-      <button class="sidenavbarbutton">Contact</button>
+      <button class="sidenavbarbutton activebutton" data-panel="0">Home</button>
+      <button class="sidenavbarbutton" data-panel="1">About</button>
+      <button class="sidenavbarbutton" data-panel="2">Work</button>
+      <button class="sidenavbarbutton" data-panel="3">Contact</button>
     </div>
     <div id="decorationleft"></div>
     <h1 id="title">Ansel Stanik</h1>
     <div id="panelcontainer">
       <div class="panel active" data-panel="Home">
-        <h2>Home</h2>
-        <p>Welcome to my website! I'm a web developer and designer based in the United States. I specialize in front-end development and design, but I also have experience with back-end development and server management. I'm currently working on a few projects, so check back soon for updates!</p>
       </div>
       <div class="panel" data-panel="About">
-        <h2>About</h2>
-        <p>I've been working in web development and design for over 10 years. I started out as a freelancer, but I've since worked for several companies and agencies. I'm passionate about creating beautiful, user-friendly websites and applications that help businesses grow and succeed.</p>
+        <p>I'm currently a junior in high school, located in Portland, Oregon.<br>Something else interesting.<br>Something else interesting.<br>Something else interesting.</p>
       </div>
       <div class="panel" data-panel="Work">
-        <h2>Work</h2>
         <p>Here are a few examples of my work:</p>
         <ul>
           <li><a href="https://example.com">Example Website</a></li>
@@ -37,7 +33,6 @@
         </ul>
       </div>
       <div class="panel" data-panel="Contact">
-        <h2>Contact</h2>
         <p>If you'd like to get in touch, you can reach me at <a href="mailto:
           [email protected]">[email protected]</a>. I'm always open to new projects and collaborations, so don't hesitate to reach out!</p>
       </div>
@@ -49,6 +44,7 @@
     const panels = document.querySelectorAll('.panel');
     buttons.forEach(button => {
       button.addEventListener('click', () => {
+        navigateTo(parseInt(button.getAttribute('data-panel')));
         buttons.forEach(b => b.classList.remove('activebutton'));
         button.classList.add('activebutton');
 

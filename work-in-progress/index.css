@@ -62,7 +62,7 @@ body {
   flex-direction: column;
   position: absolute;
   justify-content: center;
-  left: 0;
+  left: 5rem;
   top: 0;
   height: 100%;
   width: 5rem;
@@ -71,11 +71,7 @@ body {
 
 #sidenavbar:hover + #decorationleft {
   opacity: 0.5;
-  left: 2rem;
-}
-
-#sidenavbar:hover ~ #title {
-  margin-left: 5rem;
+  left: 7rem;
 }
 
 #decorationleft {
@@ -83,25 +79,24 @@ body {
   width: 0.1rem;
   height: 30%;
   position: absolute;
-  left: 2.65rem;
-  top: 35%;
+  left: 7.65rem;
+  top: 34%;
   transition: opacity 0.3s, left 0.3s;
   opacity: 1;
 }
 
 #title {
   font-family: 'Raleway Italic', sans-serif;
-  font-size: 5rem;
+  font-size: 6rem;
   color: var(--accent-color);
-  margin-left: 35rem;
-  margin-top: 7rem;
-  font-weight: 200;
+  margin-top: 4rem;
+  font-weight: 350;
   text-align: left;
   position: absolute;
   cursor: default;
-  transition: margin-left 0.3s;
+  text-align: center;
   top: 0;
-  left: 0;
+  left: auto;
 }
 
 .sidenavbarbutton {
@@ -124,7 +119,7 @@ body {
 }
 
 .activebutton {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .panel {
@@ -142,4 +137,10 @@ body {
 
 .active {
   display: flex;
+}
+
+.panel > p {
+  font-size: 1.5rem;
+  text-align: left;
+  width: 50%;
 }
