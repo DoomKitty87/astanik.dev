@@ -16,5 +16,5 @@ body {
   height: 100%;
   z-index: -1;
   transform: scale(1.1);
-  filter: blur(4px);
+  filter: brightness(0.8) blur(4px);
 }

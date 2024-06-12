@@ -8,16 +8,6 @@
   src: url('./fonts/ralewayitalic.ttf');
 }
 
-@keyframes scaleRight {
-  0% {
-    transform: scaleX(1);
-  }
-
-  100% {
-    transform: scaleX(1.1);
-  }
-}
-
 :root {
   font-size: 1vw;
 
@@ -90,7 +80,7 @@ body {
   font-size: 6rem;
   color: var(--accent-color);
   margin-top: 4rem;
-  font-weight: 350;
+  font-weight: 300;
   text-align: left;
   position: absolute;
   cursor: default;
@@ -124,23 +114,36 @@ body {
 
 .panel {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  opacity: 0;
   justify-content: center;
   align-items: center;
   color: var(--accent-color);
   font-family: 'Raleway', sans-serif;
+  left: 100%;
+  transition: left 0.3s, opacity 0.3s;
 }
 
 .active {
-  display: flex;
+  opacity: 1;
+  left: 25%;
 }
 
 .panel > p {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 200;
   text-align: left;
-  width: 50%;
+  width: 100%;
+}
+
+.panel > p:before {
+  content: '>';
+  text-align: right;
+  position: relative;
+  bottom: 0.1rem;
+  margin-right: 1rem;
 }
