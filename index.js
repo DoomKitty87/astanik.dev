@@ -1,86 +1,46 @@
-import { createNoise2D } from "./simplex-noise.js";
-import * as THREE from './three.js';
+const indicator = document.getElementById('navbar-indicator');
+const navbarItems = document.getElementsByClassName('navbar-item');
+const pages = document.getElementsByClassName('page');
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const email = document.getElementById('email-link');
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.getElementById("renderercontainer").appendChild( renderer.domElement );
+email.href = 'mailto:' + 'conta' + 'ct@' + 'asta' + 'nik.dev';
+email.innerHTML += ' - conta' + 'ct@' + 'asta' + 'nik.dev';
 
-const geometry = new THREE.BufferGeometry();
+var currentSelected = 0;
 
-const width = 250;
-const depth = 150;
+indicator.style.top = `${navbarItems[0].offsetTop}px`;
 
-const vertices = new Float32Array(width * depth * 3);
+updatePages();
 
-const vertexScale = 1;
-
-for (var i = 0; i < width * depth; i++) {
-  vertices[i * 3] = (i % width - width / 2) * vertexScale;
-  vertices[i * 3 + 1] = 0;
-  vertices[i * 3 + 2] = -Math.floor(i / width) * vertexScale;
+for (let i = 0; i < pages.length; i++) {
+  pages[i].style.transition = 'top 0.2s';
 }
 
-const indices = [];
-
-for (var x = 0; x < (width - 1); x++) {
-  for (var z = 0; z < (depth - 1); z++) {
-    indices.push(x + z * width);
-    indices.push(x + 1 + z * width);
-    indices.push(x + z * width);
-    indices.push(x + 1 + z * width);
-    indices.push(x + 1 + (z + 1) * width);
-    indices.push(x + (z + 1) * width);
+function updatePages() {
+  for (let i = 0; i < pages.length; i++) {
+    pages[i].style.top = `calc(${i - currentSelected} * 100%)`;
   }
 }
 
-const noise2D = createNoise2D();
-
-geometry.setIndex(indices);
-var buffer = new THREE.BufferAttribute(vertices, 3);
-geometry.setAttribute('position', buffer);
-const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
-material.wireframe = true;
-const plane = new THREE.Mesh( geometry, material );
-scene.add( plane );
-
-var mousePos = {x: 0, y: 0};
-
-const resolutionX = window.innerWidth;
-const resolutionY = window.innerHeight;
-document.addEventListener('mousemove', function(e) {
-  mousePos.x = e.clientX / resolutionX * 2 - 1;
-  mousePos.y = e.clientY / resolutionY * 2 - 1;
+document.querySelectorAll('.navbar-item').forEach(item => {
+  item.addEventListener('click', () => {
+    currentSelected = Array.from(navbarItems).indexOf(item);
+    updatePages();
+    indicator.style.top = `${item.offsetTop}px`;
+  });
 });
 
-camera.position.y = 5;
-const speed = 0.02;
-const delay = 1 / speed;
-const movementSensitivity = 0.1;
-const rotationSensitivity = 0.02;
-var frames = 0;
-function animate() {
-	requestAnimationFrame( animate );
-  if (frames % delay == 0) {
-    for (var i = 0; i < vertices.length / 3; i++) {
-      vertices[i * 3 + 2] -= vertexScale;
-    }
-  }
+var cooldown = 0;
 
-  for (var i = 0; i < vertices.length / 3; i++) {
-    vertices[i * 3 + 1] = noise2D(vertices[i * 3] / 100, vertices[i * 3 + 2] / 40) * Math.abs(vertices[i * 3]) * 0.25 * Math.sin(frames / delay * 0.1);
+document.addEventListener('wheel', (e) => {
+  //if (Math.abs(e.deltaY) < 1) return;
+  if (cooldown > 0) {
+    cooldown--;
+    return;
   }
-
-  buffer.needsUpdate = true;
-  geometry.computeBoundingBox();
-  geometry.computeBoundingSphere();
-  plane.position.x = -(mousePos.x) * movementSensitivity;
-  plane.position.y = (mousePos.y) * movementSensitivity;
-  camera.setRotationFromEuler(new THREE.Euler((mousePos.y) * -rotationSensitivity, (mousePos.x) * -rotationSensitivity, 0));
-  frames++;
-  plane.position.z = frames / delay * vertexScale;
-	renderer.render( scene, camera );
-}
-animate();
+  currentSelected += Math.sign(e.deltaY);
+  indicator.style.top = `${navbarItems[currentSelected].offsetTop}px`;
+  //cooldown = 5;
+  updatePages();
+});

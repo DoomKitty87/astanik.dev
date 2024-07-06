@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css" loading="block" />
+  <meta charset="UTF-8" />
+  <title>Ansel Stanik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+</head>
+<body>
+  <div id="renderercontainer"></div>
+  <h1 id="hometitle">Ansel Stanik</h1>
+  <h2 id="homesubtitle">Student and Developer</h1>
+  <div class="row">
+    <div class="column">
+      <h3 class="homeinfoheader">Education</h3>
+      <h4 class="homeinfotext">
+        Ida B. Wells-Barnett HS (2021-25)<br>
+        4.0 GPA 1520 PSAT 35 PACT
+      </h4>
+      <h3 class="homeinfoheader">Skills</h3>
+      <h4 class="homeinfotext">
+        Web<br>
+        Software<br>
+        Gamedev<br>
+        Procedural Generation<br>
+        3D Modeling and Texturing
+      </h4>
+    </div>
+    <div class="column" style="margin: 0 -20rem;">
+      <h4 class="homeinfotext" style="margin-top: 3rem;">
+        Hi, I'm Ansel. I like making software, websites, and games, and building the systems to support them. If you have any interest in what I do or working with me, feel free to reach out.
+      </h4>
+    </div>
+    <div class="column">
+      <h3 class="homeinfoheader">Projects</h3>
+      <h4 class="homeinfotext">
+        <span class="doublelink">
+          <a class="homeinfolink" target="_blank" href="https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2#gallery-6">Symbiont</a>
+          <a class="homeinfolink" target="_blank" href="https://www.npmjs.com/package/trebuchetjs">Trebuchet</a>
+        </span>
+        <span class="doublelink">
+        <a class="homeinfolink" target="_blank" href="https://astanik.dev/seafoam">Seafoam</a>
+        <a class="homeinfolink" target="_blank" href="https://www.npmjs.com/package/quickparsejs">QuickParse</a>
+        </span>
+        <span class="doublelink">
+        <a class="homeinfolink" target="_blank" href="https://astanik.dev/omnistudy">OmniStudy</a>
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87/primes">Primes</a>
+        </span>
+        <span class="doublelink">
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87/planck-server">Planck</a>
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87/commandline-3d">CL3D</a>
+        </span>
+      </h4>
+      <h3 class="homeinfoheader">Links</h3>
+      <h4 class="homeinfotext">
+        <a class="homeinfolink" target="_blank" href="https://github.com/DoomKitty87">GitHub</a><br>
+        <a class="homeinfolink" target="_blank" href="https://www.npmjs.com/~anselstanik">NPM</a><br>
+        <a class="homeinfolink" target="_blank" href="https://www.linkedin.com/in/ansel-stanik-8b238b293/">LinkedIn</a><br>
+        <a class="homeinfolink" target="_blank" href="./resume.pdf">Resume</a><br>
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h4 class="homeinfotext" style="margin-top: 1rem;">
+        Email me at
+        <a class="homeinfolink" href="" id="email">email@email.com</a>
+      </h4>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+  <script>
+    const email = document.getElementById("email");
+    email.href = "mailto:contact@" + "astanik.dev";
+    email.innerHTML = "contact@" + "astanik.dev";
+  </script>
+</body>
+</html>
