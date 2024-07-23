@@ -31,16 +31,16 @@ document.querySelectorAll('.navbar-item').forEach(item => {
   });
 });
 
-var cooldown = 0;
+let allowedToScroll = true;
 
-document.addEventListener('wheel', (e) => {
-  //if (Math.abs(e.deltaY) < 1) return;
-  if (cooldown > 0) {
-    cooldown--;
-    return;
-  }
-  currentSelected += Math.sign(e.deltaY);
+addEventListener("wheel", (event) => {
+  if (!allowedToScroll) return;
+  if (currentSelected >= pages.length - 1 && event.deltaY > 0) return;
+  if (currentSelected <= 0 && event.deltaY < 0) return;
+  currentSelected += Math.sign(event.deltaY);
   indicator.style.top = `${navbarItems[currentSelected].offsetTop}px`;
-  //cooldown = 5;
-  updatePages();
+  allowedToScroll = false;
+  setTimeout(() => {
+    allowedToScroll = true;
+  }, 500);
 });
