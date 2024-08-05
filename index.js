@@ -38,6 +38,7 @@ addEventListener("wheel", (event) => {
   if (currentSelected >= pages.length - 1 && event.deltaY > 0) return;
   if (currentSelected <= 0 && event.deltaY < 0) return;
   currentSelected += Math.sign(event.deltaY);
+  updatePages();
   indicator.style.top = `${navbarItems[currentSelected].offsetTop}px`;
   allowedToScroll = false;
   setTimeout(() => {
