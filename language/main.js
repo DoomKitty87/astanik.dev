@@ -37,12 +37,12 @@ document.getElementById('message-input').onkeypress = function(e) {
 document.getElementById('submit-button').onclick = async function() {
   const message = document.getElementById('message-input').value;
   document.getElementById('message-input').value = '';
-  message_terminal.innerHtml += '<span class="role-user">User</span><span class="content-user">' + message + '</span>';
+  message_terminal.innerHTML += '<span class="role-user">User</span><span class="content-user">' + message + '</span>';
   await chat_session.sendMessage(message);
-  message_terminal.innerHtml = chat_session.getFormattedMessages();
+  message_terminal.innerHTML = chat_session.getFormattedMessages();
 }
 
 async function initializeChat() {
   await chat_session.getResponse();
-  message_terminal.innerHtml = chat_session.getFormattedMessages();
+  message_terminal.innerHTML = chat_session.getFormattedMessages();
 }
