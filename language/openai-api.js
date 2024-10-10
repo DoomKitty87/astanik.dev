@@ -20,6 +20,8 @@ export default class ChatSession
       }
     }
 
+    console.log(using_messages);
+
     var html = '';
 
     for (var i = 0; i < using_messages.length; i++) {
