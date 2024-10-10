@@ -38,8 +38,8 @@ document.getElementById('message-input').onkeypress = function(e) {
 document.getElementById('submit-button').onclick = async function() {
   const message = document.getElementById('message-input').value;
   document.getElementById('message-input').value = '';
-  message_terminal.scrollTop = message_terminal.scrollHeight;
   message_terminal.innerHTML += '<span class="role-user">User</span><span class="content-user">' + message + '</span>';
+  message_terminal.scrollTop = message_terminal.scrollHeight;
   await chat_session.sendMessage(message);
   message_terminal.innerHTML = chat_session.getFormattedMessages();
   message_terminal.scrollTop = message_terminal.scrollHeight;
