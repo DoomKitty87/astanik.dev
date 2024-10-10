@@ -9,13 +9,17 @@ export default class ChatSession
     return this.messages;
   }
 
+  capFirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   getFormattedMessages() {
     const messages = this.messages;
 
     var using_messages = [];
 
     for (var i = 0; i < messages.length; i++) {
-      if (messages[i].role != 'system') {
+      if (messages[i]["role"] != 'system') {
         using_messages += messages[i];
       }
     }
@@ -23,8 +27,8 @@ export default class ChatSession
     var html = '';
 
     for (var i = 0; i < using_messages.length; i++) {
-      html += '<span class="role-' + using_messages[i].role + '">' + using_messages[i].role + '</span>';
-      html += '<span class="content-' + using_messages[i].role + '">' + using_messages[i].content + '</span>';
+      html += '<span class="role-' + using_messages[i]["role"] + '">' + capFirst(using_messages[i]["role"]) + '</span>';
+      html += '<span class="content-' + using_messages[i]["role"] + '">' + using_messages[i]["content"] + '</span>';
     }
 
     return html;
