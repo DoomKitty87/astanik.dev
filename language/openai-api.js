@@ -10,9 +10,9 @@ export default class ChatSession
   }
 
   getFormattedMessages() {
-    messages = this.messages;
+    const messages = this.messages;
 
-    using_messages = [];
+    const using_messages = [];
 
     for (var i = 0; i < messages.length; i++) {
       if (messages[i].role != 'system') {
@@ -20,7 +20,7 @@ export default class ChatSession
       }
     }
 
-    html = '';
+    const html = '';
 
     for (var i = 0; i < using_messages.length; i++) {
       html += '<span class="role-' + using_messages[i].role + '">' + using_messages[i].role + '</span>';
