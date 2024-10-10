@@ -31,7 +31,7 @@ activity_buttons.forEach(button => {
 document.getElementById('message-input').onkeypress = function(e) {
   if (e.key === 'Enter') {
     document.getElementById('submit-button').click();
-    document.getElementById('message-input').value = '';
+    e.preventDefault();
   }
 }
 
@@ -41,9 +41,11 @@ document.getElementById('submit-button').onclick = async function() {
   message_terminal.innerHTML += '<span class="role-user">User</span><span class="content-user">' + message + '</span>';
   await chat_session.sendMessage(message);
   message_terminal.innerHTML = chat_session.getFormattedMessages();
+  message_terminal.scrollTop = message_terminal.scrollHeight;
 }
 
 async function initializeChat() {
   await chat_session.getResponse();
   message_terminal.innerHTML = chat_session.getFormattedMessages();
+  message_terminal.scrollTop = message_terminal.scrollHeight;
 }
