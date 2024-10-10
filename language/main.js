@@ -31,6 +31,7 @@ activity_buttons.forEach(button => {
 document.getElementById('message-input').onkeypress = function(e) {
   if (e.key === 'Enter') {
     document.getElementById('submit-button').click();
+    document.getElementById('message-input').value = '';
   }
 }
 
