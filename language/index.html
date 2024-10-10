@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="page active-page" id="home-page">
+    <button class="activity-button" data-activity="english">Tell a story</button>
+    <button class="activity-button" data-activity="english-images">Teach me english vocab</button>
+    <button class="activity-button" data-activity="math">Teach me math</button>
+  </div>
+  <div class="page" id="activity-page">
+    <button class="back-button">Back</button>
+    <p class="message-history" id="message-terminal"></p>
+    <textarea class="story-input" id="message-input"></textarea>
+    <button class="story-submit" id="submit-button">Send</button>
+  </div>
+  <script src="./main.js" type="module"></script>
+</body>
+</html>
