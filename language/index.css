@@ -106,6 +106,10 @@ body {
   width: fit-content;
 }
 
+.role-user::first-letter, .role-assistant::first-letter {
+  text-transform: uppercase;
+}
+
 .content-assistant {
   background-color: var(--secondary-color);
   color: white;
