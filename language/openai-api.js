@@ -10,7 +10,7 @@ export default class ChatSession
   }
 
   capFirst(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    return string[0].toUpperCase() + string.slice(1);
   }
 
   getFormattedMessages() {
