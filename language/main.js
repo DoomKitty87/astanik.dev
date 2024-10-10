@@ -22,7 +22,7 @@ activity_buttons.forEach(button => {
     activity_page.classList.add('active-page');
     chat_session = new ChatSession(
       button.dataset.activity);
-    message_terminal.innerHTML = '';
+    message_terminal.innerHTML = '<span class="role-assistant">Loading assistant...</span>';
     document.getElementById('message-input').value = '';
     initializeChat();
   }

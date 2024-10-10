@@ -27,7 +27,7 @@ export default class ChatSession
     var html = '';
 
     for (var i = 0; i < using_messages.length; i++) {
-      html += '<span class="role-' + using_messages[i]["role"] + '">' + capFirst(using_messages[i]["role"]) + '</span>';
+      html += '<span class="role-' + using_messages[i]["role"] + '">' + this.capFirst(using_messages[i]["role"]) + '</span>';
       html += '<span class="content-' + using_messages[i]["role"] + '">' + using_messages[i]["content"] + '</span>';
     }
 
