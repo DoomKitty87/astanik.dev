@@ -9,27 +9,30 @@ const message_terminal = document.getElementById('message-terminal');
 
 var chat_session;
 
-home_page.style.display = 'block';
-activity_page.style.display = 'none';
-
 document.querySelectorAll('.back-button').forEach(button => {
   button.onclick = () => {
-    home_page.style.display = 'block';
-    activity_page.style.display = 'none';
+    home_page.classList.add('active-page');
+    activity_page.classList.remove('active-page');
   }
 });
 
 activity_buttons.forEach(button => {
   button.onclick = () => {
-    home_page.style.display = 'none';
-    activity_page.style.display = 'block';
+    home_page.classList.remove('active-page');
+    activity_page.classList.add('active-page');
     chat_session = new ChatSession(
       button.dataset.activity);
-    message_terminal.innerText = '';
+    //message_terminal.innerText = '';
     document.getElementById('message-input').value = '';
     initializeChat();
   }
 });
+
+document.getElementById('message-input').onkeypress = function(e) {
+  if (e.key === 'Enter') {
+    document.getElementById('submit-button').click();
+  }
+}
 
 document.getElementById('submit-button').onclick = async function() {
   const message = document.getElementById('message-input').value;

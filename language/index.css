@@ -6,6 +6,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --primary-color: #00afeb;
+  --background-color: #fbf9f8;
+  --dark-background-color: #3b3e44;
+  --secondary-color: #1a65a0;
+  font-size: 1vw;
 }
 
 .page {
@@ -15,5 +26,102 @@ body {
 .active-page {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-button {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--dark-background-color);
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.nav-button, .back-button, .story-submit {
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.story-input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--dark-background-color);
+  color: white;
+}
+
+.message-history {
+  text-align: left;
+  margin: 4rem;
+  padding: 1rem;
+  background-color: var(--dark-background-color);
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.role-assistant {
+  background-color: var(--primary-color);
+  color: white;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.role-user {
+  background-color: var(--primary-color);
+  color: white;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.content-assistant {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 1rem;
+  width: fit-content;
+}
+
+.content-user {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: .5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: fit-content;
 }

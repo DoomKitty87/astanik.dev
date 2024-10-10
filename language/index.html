@@ -7,16 +7,24 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <div class="navbar">
+    <h1 class="title">Learning App</h1>
+    <button class="nav-button back-button">Home</button>
+  </div>
   <div class="page active-page" id="home-page">
     <button class="activity-button" data-activity="english">Tell a story</button>
     <button class="activity-button" data-activity="english-images">Teach me english vocab</button>
     <button class="activity-button" data-activity="math">Teach me math</button>
   </div>
-  <div class="page" id="activity-page">
-    <button class="back-button">Back</button>
-    <p class="message-history" id="message-terminal"></p>
-    <textarea class="story-input" id="message-input"></textarea>
-    <button class="story-submit" id="submit-button">Send</button>
+  <div class="page" id="activity-page" style="flex-direction:column;">
+    <div style="width:100%;"><p class="message-history" id="message-terminal">
+      <span class="role-assistant">Loading assistant...</span>
+    </p></div>
+    <div style="display:flex;width:100%;">
+      <button class="back-button">Back</button>
+      <textarea class="story-input" id="message-input"></textarea>
+      <button class="story-submit" id="submit-button">Send</button>
+   </div>
   </div>
   <script src="./main.js" type="module"></script>
 </body>

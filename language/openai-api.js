@@ -10,12 +10,24 @@ export default class ChatSession
   }
 
   getFormattedMessages() {
-    return this.messages.map(message => {
-      if (message.role === 'system') {
-        return ``;
+    messages = this.messages;
+
+    using_messages = [];
+
+    for (var i = 0; i < messages.length; i++) {
+      if (messages[i].role != 'system') {
+        using_messages += messages[i];
       }
-      return `${message.role}: ${message.content}`;
-    }).join('\n');
+    }
+
+    html = '';
+
+    for (var i = 0; i < using_messages.length; i++) {
+      html += '<span class="role-' + using_messages[i].role + '">' + using_messages[i].role + '</span>';
+      html += '<span class="content-' + using_messages[i].role + '">' + using_messages[i].content + '</span>';
+    }
+
+    return html;
   }
 
   constructor(activity) {
