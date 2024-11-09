@@ -1,0 +1,1 @@
+document.getElementById('emailtext').innerHTML += 'contact' + '@astanik' + '.dev';
