@@ -9,7 +9,7 @@
   --color-secondary: #5ecec7;
   --color-tertiary: #f93f42;
 
-  --font-size: 1vw;
+  font-size: 1vw;
 }
 
 .material-symbols-rounded {
@@ -46,6 +46,33 @@ body {
   color: var(--color-primary);
 }
 
+.subtitle-style-0 {
+  text-decoration: underline dotted var(--color-secondary);
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.subtitle-style-1 {
+  text-decoration: underline wavy var(--color-primary);
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.subtitle-style-2 {
+  text-decoration: underline dashed var(--color-tertiary);
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0;
+  font-weight: 500;
+}
+
 .box-style-1 {
   padding: 2rem;
   background-color: var(--color-secondary);
@@ -79,6 +106,59 @@ body {
   text-decoration: underline dashed var(--color-tertiary);
 }
 
+.project-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project {
+  position: absolute;
+}
+
+.project img {
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  transition: 0.2s;
+}
+
+.project h3 {
+  position: absolute;
+  opacity: 0;
+  left: 58rem;
+  top: 2rem;
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+.project p {
+  position: absolute;
+  opacity: 0;
+  color: var(--color-secondary);
+}
+
+.project a {
+  position: absolute;
+  opacity: 0;
+  color: var(--color-tertiary);
+}
+
+.project-expanded img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50rem;
+  height: 30rem;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.project-expanded h3 {
+  opacity: 1;
+}
+
 #namebox {
   position: absolute;
   top: 3rem;
@@ -88,27 +168,35 @@ body {
 #linksbox {
   position: absolute;
   top: 5rem;
-  left: 52rem;
+  left: 54rem;
   z-index: 2;
 }
 
 #infobox {
   position: absolute;
   top: 12rem;
-  left: 31rem;
+  left: 33rem;
 }
 
 #aboutbox {
   position: absolute;
   top: 19rem;
-  left: 5rem;
+  left: 7rem;
   width: 50rem;
   z-index: -1;
 }
 
 #skillsbox {
   position: absolute;
-  left: 57rem;
-  top: 25rem;
+  left: 59rem;
+  top: 21rem;
   width: 25rem;
+}
+
+#projectsbox {
+  position: absolute;
+  top: 31rem;
+  left: 9rem;
+  width: 50rem;
+  height: 30rem;
 }
