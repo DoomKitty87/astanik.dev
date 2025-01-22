@@ -1,0 +1,205 @@
+:root {
+  --primary-0: #BBD9D4;
+  --primary-1: #5AAB9B;
+  --primary-2: #2D927F;
+  --primary-3: #0C816A;
+  --primary-4: #006551;
+
+  --secondary1-0: #B9D4D6;
+  --secondary1-1: #579DA4;
+  --secondary1-2: #2C838B;
+  --secondary1-3: #0D717A;
+  --secondary1-4: #015860;
+
+  --secondary2-0: #FFECDB;
+  --secondary2-1: #FFBF87;
+  --secondary2-2: #E59146;
+  --secondary2-3: #C96913;
+  --secondary2-4: #9E4A00;
+
+  --complement-0: #FFE9DB;
+  --complement-1: #FFB687;
+  --complement-2: #E58546;
+  --complement-3: #C95B13;
+  --complement-4: #9E3E00;
+
+  font-size: 1vw;
+
+  --text-large: 8rem;
+  --text-medium: 4rem;
+  --text-small: 2rem;
+}
+
+@font-face {
+  src: url('fonts/Alata-Regular.ttf');
+  font-family: "Alata";
+}
+
+body {
+  margin: 0;
+  background-color: var(--complement-0);
+  font-family: "Alata";
+}
+
+#navbar {
+  z-index: 1;
+  position: absolute;
+  right: 4rem;
+  top: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+
+.navitem {
+  position: relative;
+  right: 0;
+  font-size: var(--text-medium);
+  font-weight: 400;
+  margin: 0;
+  cursor: pointer;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.navitem:hover {
+  right: 2rem;
+  color: var(--primary-3);
+}
+
+.title {
+  font-size: var(--text-large);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.subtitle {
+  font-size: var(--text-medium);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  font-size: var(--text-small);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.displaypage {
+  position: absolute;
+  transition: 0.2s;
+  opacity: 0;
+  animation: slideout 0.5s;
+}
+
+.activepage {
+  opacity: 1;
+  animation: slidein 0.5s;
+}
+
+@keyframes slidein {
+  from {
+    left: -50rem;
+    top: 30rem;
+  }
+  to {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes slideout {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 50rem;
+    top: -30rem;
+  }
+}
+
+#content {
+  position: absolute;
+  left: 14rem;
+  top: 8rem;
+  width: 100%;
+  height: 1rem;
+}
+
+#workcarouselslider {
+  background-color: var(--primary-0);
+  height: 1rem;
+  width: 100%;
+  display: flex;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.workcarouselsliderarrow {
+  cursor: pointer;
+}
+
+#workcarouselnavigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28rem;
+}
+
+#workcarouselsliderbar {
+  position: relative;
+  background-color: var(--primary-3);
+  width: 6rem;
+  height: 1rem;
+}
+
+#workbox {
+  width: 65%;
+}
+
+.workitem {
+  position: absolute;
+  transition: 0.5s;
+  opacity: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.workitemtitle {
+  font-size: var(--text-medium);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.workitembody {
+  font-size: var(--text-small);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.workitemimage {
+  width: 25rem;
+  height: 25rem;
+  margin-right: 3rem;
+}
+
+.workitem.active {
+  opacity: 1;
+}
+
+.noanimation {
+  transition: 0s;
+}

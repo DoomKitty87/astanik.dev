@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ansel stanik</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="navbar">
+      <h3 class="navitem">home</h3>
+      <h3 class="navitem">work</h3>
+      <h3 class="navitem">about</h3>
+    </div>
+    <div id="content">
+      <div id="maintitlebox" class="displaypage activepage">
+        <h1 class="title">title text</h1>
+        <h2 class="subtitle">subtitle text</h2>
+        <p class="body">body text</p>
+      </div>
+      <div id="workbox" class="displaypage">
+        <h2 class="title">work</h2>
+        <br>
+        <br>
+        <div id="workcarousel">
+          <div class="workitem active">
+            <img class="workitemimage" src="https://via.placeholder.com/150" />
+            <div>
+              <h2 class="workitemtitle">work item title</h2>
+              <p class="workitembody">work item body</p>
+            </div>
+          </div>
+          <div class="workitem">
+            <img class="workitemimage" src="https://via.placeholder.com/150" />
+            <div>
+              <h2 class="workitemtitle">work item title</h2>
+              <p class="workitembody">work item body</p>
+            </div>
+          </div>
+        </div>
+        <div id="workcarouselnavigation">
+          <div id="workcarouselsliderleft">
+            <h3 class="workcarouselsliderarrow">←</h3>
+          </div>
+          <div id="workcarouselslider">
+            <div id="workcarouselsliderbar"></div>
+          </div>
+          <div id="workcarouselsliderright">
+            <h3 class="workcarouselsliderarrow">→</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const pages = document.querySelectorAll('.displaypage');
+      const content = document.querySelector('#content');
+
+      var page = 0;
+
+      function swapPage(index) {
+        return function() {
+          const fromDiv = pages[page];
+          const toDiv = pages[index];
+
+          fromDiv.classList.remove('activepage');
+          toDiv.classList.add('activepage');
+
+          page = index;
+        };
+      }
+
+      const navitems = document.querySelectorAll('.navitem');
+
+      for (let i = 0; i < navitems.length; i++) {
+        navitems[i].addEventListener('click', swapPage(i));
+      }
+
+      const workcarouselslider = document.querySelector('#workcarouselslider');
+      const workcarouselsliderbar = document.querySelector('#workcarouselsliderbar');
+      
+      const workitems = document.querySelectorAll('.workitem');
+
+      var sliderWidth = workcarouselslider.getBoundingClientRect().width;
+      workcarouselsliderbar.style.width = sliderWidth / workitems.length + 'px';
+
+      var currentWorkItem = 0;
+
+      function updateCarousel(value, direction) {
+        if (value !== currentWorkItem) {
+          workitems[currentWorkItem].classList.remove('active');
+          workitems[value].classList.add('active');
+
+          if (direction === 1) {
+            workitems[currentWorkItem].style.left = '-100%';
+            workitems[value].classList.add('noanimation');
+            workitems[value].style.left = '100%';
+            workitems[value].offsetHeight;
+            workitems[value].classList.remove('noanimation');
+            workitems[value].style.left = '0%';
+
+          } else if (direction === -1) {
+            workitems[currentWorkItem].style.left = '100%';
+            workitems[value].classList.add('noanimation');
+            workitems[value].style.left = '-100%';
+            workitems[value].offsetHeight;
+            workitems[value].classList.remove('noanimation');
+            workitems[value].style.left = '0%';
+          }
+
+          currentWorkItem = value;
+
+          const sliderRect = workcarouselsliderbar.getBoundingClientRect();
+          const rect = workcarouselslider.getBoundingClientRect();
+          const width = rect.width;
+          const widthRect = sliderRect.width;
+          const maxSlider = width - widthRect;
+          
+          workcarouselsliderbar.style.width = width / workitems.length + 'px';
+          workcarouselsliderbar.style.left = (value / (workitems.length - 1)) * maxSlider + 'px';
+        }
+      }
+
+      workcarouselslider.addEventListener('mousemove', function(event) {
+        const rect = workcarouselslider.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const width = rect.width;
+
+        const fraction = Math.min(Math.max(x / width, 0), 1);
+        const index = Math.floor(fraction * workitems.length);
+
+        updateCarousel(index, Math.sign(index - currentWorkItem));
+      });
+
+      const workcarouselsliderleft = document.querySelector('#workcarouselsliderleft');
+      const workcarouselsliderright = document.querySelector('#workcarouselsliderright');
+
+      workcarouselsliderleft.addEventListener('click', function() {
+        var index = currentWorkItem - 1;
+        if (index < 0) index += workitems.length;
+        updateCarousel(index, -1);
+      });
+
+      workcarouselsliderright.addEventListener('click', function() {
+        var index = currentWorkItem + 1;
+        if (index >= workitems.length) index -= workitems.length;
+        updateCarousel(index, 1);
+      });
+    </script>
+  </body>
+</html>
