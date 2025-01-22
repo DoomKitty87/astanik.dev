@@ -99,6 +99,7 @@ body {
   opacity: 0;
   animation: slideout 0.5s;
   z-index: 0;
+  width: 50rem;
 }
 
 .activepage {
@@ -218,4 +219,19 @@ body {
 
 .noanimation {
   transition: 0s;
+}
+
+#email, .link{
+  text-decoration: wavy underline;
+  color: var(--primary-4);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: dotted underline;
+}
+
+#email:hover, .link:hover {
+  color: var(--primary-2);
 }

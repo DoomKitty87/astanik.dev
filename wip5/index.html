@@ -17,10 +17,10 @@
       <div id="maintitlebox" class="displaypage activepage">
         <h1 class="title">ansel stanik</h1>
         <h2 class="subtitle">programmer & student</h2>
-        <p class="body">short bio</p>
+        <p class="body">hi, i'm ansel stanik, a high school senior from portland, oregon. i enjoy creating solutions and ideas, in computer science and around it.</p>
       </div>
       <div id="workbox" class="displaypage">
-        <h2 class="title">work</h2>
+        <h2 class="title">my work</h2>
         <br>
         <br>
         <div id="workcarousel">
@@ -54,11 +54,17 @@
       <div id="aboutbox" class="displaypage">
         <h1 class="title">about me</h1>
         <p class="body">i am really cool.</p>
+        <h2 class="subtitle">you can contact me at<br><a id="email"></a></h2>
       </div>
     </div>
     <script>
       const pages = document.querySelectorAll('.displaypage');
       const content = document.querySelector('#content');
+
+      const email = document.querySelector('#email');
+      const address = 'contact@' + 'astanik.dev';
+      email.href = 'mailto:' + address;
+      email.innerHTML = address;
 
       var page = 0;
 
