@@ -39,6 +39,7 @@ body {
   margin: 0;
   background-color: var(--complement-0);
   font-family: "Alata";
+  overflow: hidden;
 }
 
 #navbar {
@@ -145,6 +146,13 @@ body {
 
 .workcarouselsliderarrow {
   cursor: pointer;
+  user-select: none;
+  font-size: var(--text-small);
+  transition: 0.2s;
+}
+
+.workcarouselsliderarrow:hover {
+  color: var(--primary-3);
 }
 
 #workcarouselnavigation {
@@ -160,6 +168,8 @@ body {
   background-color: var(--primary-3);
   width: 6rem;
   height: 1rem;
+  left: 0;
+  transition: 0.2s;
 }
 
 #workbox {
