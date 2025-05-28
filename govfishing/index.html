@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>govfishing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="main-title">gov<span class="main-title-alt">fishing</span><span id="feedback-bar" class="feedback-bar"></span></h1>
+  <h2 class="score-title">score: <span id="score">0</span></h2>
+  <div class="game-container">
+    <div id="pre-start">
+      <button id="start-button" class="start-button" onclick="startGame()">play</button>
+    </div>
+    <div id="game-content" class="hidden">
+      <ul id="categories-list-box" class="categories-list-box"></ul>
+      <input type="text" id="guess-input" class="guess-input" placeholder="Type your guess here...">
+      <button id="submit-guess-button" class="submit-guess-button" onclick="submitGuess()">Submit Guess</button>
+    </div>
+  </div>
+  <script>
+    // Load file containing possible articles
+    var isLoaded = false;
+    var isPlaying = false;
+    var articles = [];
+
+    var currentArticle = null;
+    var score = 0;
+
+    const scoreCounter = document.getElementById('score');
+
+    const feedbackBar = document.getElementById('feedback-bar');
+    const submitGuessButton = document.getElementById('submit-guess-button');
+
+    const preStartScreen = document.getElementById('pre-start');
+    const gameContentScreen = document.getElementById('game-content');
+
+    const categoriesListBox = document.getElementById('categories-list-box');
+
+    fetch('entries.json')
+      .then(response => response.json())
+      .then(data => {
+        articles = data;
+        isLoaded = true;
+        console.log('Articles loaded:', articles);
+
+        const startButton = document.getElementById('start-button');
+        startButton.innerText = 'play a random article of' + ' ' + articles.length + ' possibilities';
+      })
+      .catch(error => console.error('Error loading articles:', error));
+
+      function startGame() {
+        if (!isLoaded) {
+          console.error('Articles not loaded yet.');
+          return;
+        }
+
+        // Clear previous categories
+        categoriesListBox.innerHTML = '';
+
+        // Reset feedback bar
+        feedbackBar.textContent = '';
+        feedbackBar.classList.remove('correct', 'incorrect');
+
+        // Randomly select an article
+        const randomIndex = Math.floor(Math.random() * articles.length);
+        const selectedArticle = articles[randomIndex];
+
+        // Display the article
+        for (const category in selectedArticle["categories"]) {
+          const categoryElement = document.createElement('li');
+          categoryElement.textContent = `${selectedArticle["categories"][category]}`;
+          categoryElement.classList.add('category-item');
+          categoriesListBox.appendChild(categoryElement);
+        }
+
+        preStartScreen.classList.add('hidden');
+        gameContentScreen.classList.remove('hidden');
+        isPlaying = true;
+        currentArticle = selectedArticle;
+      }
+
+    function submitGuess() {
+      const guessInput = document.getElementById('guess-input');
+      const guess = guessInput.value.trim().toLowerCase();
+
+      if (guess === '') {
+        return;
+      }
+
+      // Check if the guess matches the article title using Levenshtein distance
+      var guessCorrect = false;
+
+      for (const alias of currentArticle.aliases) {
+        if (levenshteinDistance(guess, alias.toLowerCase()) <= 0.4) {
+          guessCorrect = true;
+          break;
+        }
+      }
+
+      if (guessCorrect || levenshteinDistance(guess, currentArticle.name.toLowerCase()) <= 0.4) {
+        // Correct guess
+        feedbackBar.textContent = currentArticle.name;
+        feedbackBar.classList.add('correct');
+        feedbackBar.classList.remove('incorrect');
+        score += 1;
+        scoreCounter.textContent = score;
+      } else {
+        // Incorrect guess
+        feedbackBar.textContent = currentArticle.name;
+        feedbackBar.classList.remove('correct');
+        feedbackBar.classList.add('incorrect');
+      }
+
+      // Clear the input field
+      guessInput.value = '';
+      isPlaying = false;
+
+      submitGuessButton.innerText = 'next question';
+      submitGuessButton.onclick = function() {
+        startGame();
+        submitGuessButton.innerText = 'submit guess';
+        submitGuessButton.onclick = submitGuess;
+      };
+    }
+
+    const levenshteinDistance = (s, t) => {
+      // t is the target string, s is the guess
+
+      if (!s.length) return t.length;
+      if (!t.length) return s.length;
+      const arr = [];
+      for (let i = 0; i <= t.length; i++) {
+        arr[i] = [i];
+        for (let j = 1; j <= s.length; j++) {
+          arr[i][j] =
+            i === 0
+              ? j
+              : Math.min(
+                  arr[i - 1][j] + 1,
+                  arr[i][j - 1] + 1,
+                  arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
+                );
+        }
+      }
+      
+      return arr[t.length][s.length] / t.length;
+    };
+
+    // Add event listener for the Enter key
+    document.getElementById('guess-input').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent form submission
+        if (!isPlaying) {
+          startGame();
+          return;
+        }
+        submitGuess();
+      }
+    });
+  </script>
+</body>
+</html>

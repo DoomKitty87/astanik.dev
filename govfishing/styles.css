@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Space Mono";
+  src: url("./SpaceMono-Regular.ttf") format("truetype");
+}
+
+:root {
+  --text-color: #000000;
+  --text-highlight-color: #333333;
+  --fill-color: #f0f0f0;
+  --fill-highlight-color: #e0e0e0;
+
+  font-size: 1vw;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  margin: 0;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  color: var(--text-color);
+  width: auto;
+  height: 100%;
+  user-select: none;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-title {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.main-title-alt {
+  font-style: italic;
+  font-weight: 100;
+}
+
+.start-button {
+  top: 12.5rem;
+  align-self: center;
+  position: relative;
+  padding: 2rem;
+  font-size: 2rem;
+  font-family: "Space Mono", monospace;
+  font-weight: 600;
+  background-color: var(--fill-color);
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: var(--fill-highlight-color);
+}
+
+.hidden {
+  display: none !important;
+}
+
+#game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 40rem;
+}
+
+.categories-list-box {
+  align-self: flex-start;
+  justify-self: flex-start;
+  margin-left: 7rem;
+  margin-top: 3rem;
+}
+
+.category-item {
+  font-size: 1.5rem;
+  list-style: square;
+}
+
+.guess-input {
+  width: calc(100% - 16rem);
+  margin-top: auto;
+  font-family: "Space Mono", monospace;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 2px solid var(--text-color);
+  background-color: var(--fill-color);
+}
+
+.guess-input:focus {
+  outline: none;
+  border-color: var(--text-highlight-color);
+}
+
+.submit-guess-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-family: "Space Mono", monospace;
+  font-weight: 600;
+  background-color: var(--fill-color);
+  cursor: pointer;
+}
+
+.submit-guess-button:hover {
+  background-color: var(--fill-highlight-color);
+}
+
+.feedback-bar {
+  margin-left: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 2rem;
+}
+
+.correct {
+  background-color: #00aa00aa;
+  color: #00aa00;
+  opacity: 0.8;
+}
+
+.incorrect {
+  background-color: #aa0000aa;
+  color: #aa0000;
+}
+
+#score {
+  font-style: italic;
+}
