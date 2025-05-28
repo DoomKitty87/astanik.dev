@@ -24,6 +24,8 @@
     var isPlaying = false;
     var articles = [];
 
+    var usedArticles = [];
+
     var currentArticle = null;
     var score = 0;
 
@@ -64,7 +66,21 @@
 
         // Randomly select an article
         const randomIndex = Math.floor(Math.random() * articles.length);
-        const selectedArticle = articles[randomIndex];
+        var selectedArticle = articles[randomIndex];
+
+        // Check if the article has already been used
+        while (usedArticles.includes(selectedArticle) && usedArticles.length < articles.length) {
+          // If it has, select another one
+          const newIndex = Math.floor(Math.random() * articles.length);
+          if (newIndex !== randomIndex) {
+            selectedArticle = articles[newIndex];
+          }
+        }
+
+        // If all articles have been used, reset the usedArticles array
+        if (usedArticles.length === articles.length) {
+          usedArticles = [];
+        }
 
         // Display the article
         for (const category in selectedArticle["categories"]) {
@@ -78,6 +94,7 @@
         gameContentScreen.classList.remove('hidden');
         isPlaying = true;
         currentArticle = selectedArticle;
+        usedArticles.push(currentArticle);
       }
 
     function submitGuess() {
