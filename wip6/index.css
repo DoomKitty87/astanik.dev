@@ -1,0 +1,257 @@
+@font-face {
+  font-family: "Funnel Display";
+  src: url("fonts/FunnelDisplay-VariableFont_wght.ttf");
+}
+
+:root {
+  font-size: 1vw;
+
+  --primary-color: #000;
+  --primary-color-rgb: 0, 0, 0;
+  --secondary-color: #fff;
+  --background-color: #fff;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.shape-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  filter: url(#pixelate);
+  z-index: 1;
+}
+
+.triangle {
+  position: relative;
+}
+
+.title {
+  margin-top: 5rem;
+  margin-left: 10rem;
+  font-size: 8rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--primary-color);
+  font-family: "Funnel Display";
+  z-index: 0;
+}
+
+.subtitle {
+  position: relative;
+  margin-top: -7rem;
+  margin-left: 10rem;
+  margin-bottom: 0rem;
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--primary-color);
+  font-family: "Funnel Display";
+  z-index: 2;
+}
+
+.subtitle-noadjust {
+  position: relative;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0rem;
+  text-align: left;
+  color: var(--primary-color);
+  font-family: "Funnel Display";
+  z-index: 2;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+}
+
+.page.active {
+  opacity: 1;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+#page-indicator {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+#active-page-indicator {
+  position: absolute;
+  bottom: -0.25rem;
+  width: 6rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  transition: left 0.25s ease;
+  left: 0;
+}
+
+.page-bar {
+  background-color: rgba(var(--primary-color-rgb), 0.2);
+  width: 100%;
+  border-radius: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  height: 0.5rem;
+}
+
+.page-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: -0.25rem;
+  cursor: pointer;
+}
+
+.page-number {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-family: "Funnel Display";
+  text-align: center;
+  opacity: 0.2;
+  transition: opacity 0.25s ease;
+}
+
+.page-number.active {
+  opacity: 1;
+}
+
+.page-icon-shape {
+  width: 6rem;
+  height: 1rem;
+  margin-top: -1rem;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  opacity: 0.2;
+}
+
+.description {
+  position: relative;
+  margin-left: 10rem;
+  font-family: "Funnel Display";
+  font-size: 2rem;
+  display: flex;
+  width: 50rem;
+  z-index: 2;
+}
+
+.link {
+  font-family: "Funnel Display";
+  text-decoration: dotted underline var(--primary-color);
+  font-size: 2rem;
+  color: var(--primary-color);
+  z-index: 2;
+  margin-bottom: 1rem;
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.link:hover {
+  opacity: 0.2;
+}
+
+#work-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 2;
+  padding-top: 2rem;
+  padding-left: 8rem;
+}
+
+/* .work-item {
+  width: 25rem;
+  height: 15rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-size: cover;
+  filter: grayscale(1);
+}
+
+.work-title {
+  font-family: "Funnel Display";
+}
+
+.work-description {
+  height: 0;
+} */
+
+.work-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  align-items: start;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  margin-top: -6rem;
+}
+
+.work-subject-title {
+  padding: 0;
+  margin: 0;
+  font-family: "Funnel Display";
+  font-size: 4rem;
+  color: var(--primary-color);
+  z-index: 2;
+  font-weight: 700;
+}
+
+.work-item {
+  font-family: "Funnel Display";
+  text-decoration: dotted underline var(--primary-color);
+  font-size: 2rem;
+  color: var(--primary-color);
+  z-index: 2;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.inline-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.work-subject {
+  display: flex;
+  flex-direction: column;
+}

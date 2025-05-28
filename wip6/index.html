@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="index.css" />
+  <svg>
+    <filter id="pixelate" x="0" y="0">
+      <feFlood x="4" y="4" height="2" width="2"/>
+      <feComposite width="10" height="10"/>
+      <feTile result="a"/>
+      <feComposite in="SourceGraphic" in2="a" 
+                    operator="in"/>
+      <feMorphology operator="dilate"
+                    radius="3"/>
+    </filter>
+  </svg>
+</head>
+<body>
+  <div class="page active">
+    <div class="shape-container"></div>
+    <div class="column" style="width: 70rem;">
+      <h1 class="title">Ansel Stanik</h1>
+      <h2 class="subtitle">Programmer & Student</h2>
+      <p class="description">I'm a high school student in Portland, Oregon. I concern myself mostly with software development and computer graphics.</p>
+    </div>
+    <div class="column" style="margin-top: 10rem;">
+      <h2 class="subtitle-noadjust" style="margin-bottom: 2rem;">Links</h2>
+      <a href="github" class="link">GitHub</a>
+      <a href="linkedin" class="link">LinkedIn</a>
+      <a href="email" class="link">Email</a>
+    </div>
+  </div>
+  
+  <div class="page" style="flex-direction: column;">
+    <div class="shape-container"></div>
+    <div class="inline-title">
+      <h1 class="title">Work</h1>
+      
+    </div>
+    <div class="work-container">
+      <div class="work-subject" style="width: 50%;">
+        <h2 class="work-subject-title">Software</h2>
+        <a class="work-item">Seafoam</a>
+        <a class="work-item">Omnistudy</a>
+        <a class="work-item">Integrand</a>
+      </div>
+      <div class="column" style="width: 50%;">
+        <div class="work-subject">
+          <h2 class="work-subject-title">Research</h2>
+          <a class="work-item">ORCID</a>
+          <a class="work-item">Google Scholar</a>
+        </div>
+        <div class="work-subject">
+          <h2 class="work-subject-title">Games</h2>
+          <a class="work-item">Nocte</a>
+          <a class="work-item">Symbiont</a>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="work-container">
+      <div class="work-item" style="opacity: 0.1"></div>
+    </div> -->
+
+  </div>
+
+  <div class="page">
+    <div class="shape-container"></div>
+    <h1 class="title">Contact</h1>
+  </div>
+
+  <div id="page-indicator">
+    <div id="active-page-indicator"></div>
+    <div class="page-icon">
+      <h3 class="page-number active">about</h3>
+      <div class="page-icon-shape"></div>
+    </div>
+    <div class="page-bar"></div>
+    <div class="page-icon">
+      <h3 class="page-number">work</h3>
+      <div class="page-icon-shape"></div>
+    </div>
+    <div class="page-bar"></div>
+    <div class="page-icon">
+      <h3 class="page-number">contact</h3>
+      <div class="page-icon-shape"></div>
+    </div>
+  </div>
+  
+  <script>
+    const shapeColors = [
+      '#A0A0A0',
+      '#B0B0B0',
+      '#C0C0C0',
+    ];
+
+    const shapeContainers = document.getElementsByClassName('shape-container');
+
+    class Shape {
+
+      constructor(object) {
+        this.obj = object;
+        this.velocityX = 0;
+        this.velocityY = 0;
+        this.accelerationX = 0;
+        this.accelerationY = 0;
+        this.positionX = 0;
+        this.positionY = 0;
+        this.angularVelocity = 0;
+        this.angularAcceleration = 0;
+        this.angle = 0;
+        this.scale = 1;
+      }
+
+    }
+
+    const activeShapes = [];
+
+    var mousePosition = [0, 0];
+
+    function createTriangle() {
+      const triangle = document.createElement('div');
+      triangle.style.width = '0';
+      triangle.style.height = '0';
+      triangle.style.borderLeft = '50px solid transparent';
+      triangle.style.borderRight = '50px solid transparent';
+      triangle.style.borderBottom = '100px solid ' + shapeColors[Math.floor(Math.random() * shapeColors.length)];
+      triangle.style.position = 'absolute';
+      const scale = (Math.random() - 0.5) + 1.5;
+      triangle.style.scale = scale;
+      
+      shapeContainers[0].appendChild(triangle);
+      activeShapes.push(new Shape(triangle));
+      activeShapes[activeShapes.length - 1].positionX = Math.random() * window.innerWidth;
+      activeShapes[activeShapes.length - 1].positionY = Math.random() * window.innerHeight;
+      activeShapes[activeShapes.length - 1].scale = scale;
+      triangle.style.top = `${activeShapes[activeShapes.length - 1].positionY}px`;
+      triangle.style.left = `${activeShapes[activeShapes.length - 1].positionX}px`;
+      activeShapes[activeShapes.length - 1].angle = Math.random() * 360;
+      triangle.style.transform = `rotate(${activeShapes[activeShapes.length - 1].angle}deg)`;
+    }
+
+    function createSquare() {
+      const square = document.createElement('div');
+      square.style.width = '100px';
+      square.style.height = '100px';
+      square.style.backgroundColor = shapeColors[Math.floor(Math.random() * shapeColors.length)];
+      square.style.position = 'absolute';
+      const scale = (Math.random() - 0.5) + 1.5;
+      square.style.scale = scale;
+      
+      shapeContainers[1].appendChild(square);
+      activeShapes.push(new Shape(square));
+      activeShapes[activeShapes.length - 1].positionX = Math.random() * window.innerWidth;
+      activeShapes[activeShapes.length - 1].positionY = Math.random() * window.innerHeight;
+      activeShapes[activeShapes.length - 1].scale = scale;
+      square.style.top = `${activeShapes[activeShapes.length - 1].positionY}px`;
+      square.style.left = `${activeShapes[activeShapes.length - 1].positionX}px`;
+      activeShapes[activeShapes.length - 1].angle = Math.random() * 360;
+      square.style.transform = `rotate(${activeShapes[activeShapes.length - 1].angle}deg)`;
+    }
+
+    function createHexagon() {
+      const hexagon = document.createElement('div');
+      hexagon.style.userSelect = 'none';
+      hexagon.style.fontSize = '200px';
+      hexagon.innerHTML = '&#x2B22;';
+      hexagon.style.width = '200px';
+      hexagon.style.height = '200px';
+      hexagon.style.color = shapeColors[Math.floor(Math.random() * shapeColors.length)];
+      hexagon.style.position = 'absolute';
+      const scale = (Math.random() - 0.5) + 1.5;
+      hexagon.style.scale = scale;
+
+      shapeContainers[2].appendChild(hexagon);
+      activeShapes.push(new Shape(hexagon));
+      activeShapes[activeShapes.length - 1].positionX = Math.random() * window.innerWidth;
+      activeShapes[activeShapes.length - 1].positionY = Math.random() * window.innerHeight;
+      activeShapes[activeShapes.length - 1].scale = scale;
+      hexagon.style.top = `${activeShapes[activeShapes.length - 1].positionY}px`;
+      hexagon.style.left = `${activeShapes[activeShapes.length - 1].positionX}px`;
+      activeShapes[activeShapes.length - 1].angle = Math.random() * 360;
+    }
+
+    function wrapCoordinates(x, y, width, height, padding) {
+      if (x < -padding) {
+        x = width + padding;
+      }
+      if (x > width + padding) {
+        x = -padding;
+      }
+      if (y < -padding) {
+        y = height + padding;
+      }
+      if (y > height + padding) {
+        y = -padding;
+      }
+      return [x, y];
+    }
+
+    function smoothstep(edge0, edge1, x) {
+      var t = Math.min(Math.max((x - edge0) / (edge1 - edge0), 0), 1);
+      return t * t * (3 - 2 * t);
+    }
+
+    function update() {
+      activeShapes.forEach((shape) => {
+        shape.velocityX *= 0.7;
+        shape.velocityY *= 0.7;
+        shape.accelerationX += (Math.random() - 0.5) * 0.05;
+        shape.accelerationY += (Math.random() - 0.5) * 0.05;
+
+        const centerX = shape.positionX + 50;
+        const centerY = shape.positionY + 60;
+        // Render dot at center
+        // const dot = document.createElement('div');
+        // dot.style.width = '10px';
+        // dot.style.height = '10px';
+        // dot.style.backgroundColor = 'red';
+        // dot.style.position = 'absolute';
+        // dot.style.top = `${centerY}px`;
+        // dot.style.left = `${centerX}px`;
+        // shapeContainer.appendChild(dot);
+
+        const vector = [mousePosition[0] - centerX, mousePosition[1] - centerY];
+        var magnitude = Math.sqrt(vector[0] ** 2 + vector[1] ** 2);
+        magnitude = smoothstep(100 / magnitude, 0, 1);
+        shape.accelerationX -= vector[0] * 0.001 * magnitude;
+        shape.accelerationY -= vector[1] * 0.001 * magnitude;
+
+        shape.velocityX += shape.accelerationX;
+        shape.velocityY += shape.accelerationY;
+        shape.positionX += shape.velocityX;
+        shape.positionY += shape.velocityY;
+        shape.obj.style.top = `${shape.positionY}px`;
+        shape.obj.style.left = `${shape.positionX}px`;
+        [shape.positionX, shape.positionY] = wrapCoordinates(shape.positionX, shape.positionY, window.innerWidth, window.innerHeight, 200);
+
+        shape.angularVelocity *= 0.7;
+        shape.angularAcceleration += (Math.random() - 0.5) * 0.05;
+        shape.angularVelocity += shape.angularAcceleration;
+        shape.angle += shape.angularVelocity;
+        shape.obj.style.transform = `rotate(${shape.angle}deg)`;
+      });
+    }
+
+    for (let i = 0; i < 10; i++) {
+      createTriangle();
+      createSquare();
+      createHexagon();
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mousePosition = [e.clientX, e.clientY];
+    });
+
+    setInterval(() => {
+      update();
+    }, 1000 / 60);
+  </script>
+
+  <script>
+    const pages = document.getElementsByClassName('page');
+
+    const pageTransforms = [
+      [
+        'translateX(0)',
+        'translateX(-125%)',
+        'translateX(-125%)',
+      ],
+      [
+        'translateX(125%)',
+        'translateX(0)',
+        'translateX(-125%)',
+      ],
+      [
+        'translateX(125%)',
+        'translateX(125%)',
+        'translateX(0)',
+      ],
+    ]
+
+    let currentPage = 0;
+
+    const pageChangeCooldown = 1000;
+    const pageIndicator = document.getElementById('active-page-indicator');
+    const pageNumbers = document.getElementsByClassName('page-number');
+    
+    for (let i = 0; i < document.getElementsByClassName('page-icon').length; i++) {
+      document.getElementsByClassName('page-icon')[i].addEventListener('click', () => {
+        goToPage(i);
+      });
+    }
+
+    var lastPageChange = 0;
+    var lastPageChangeDirection = 0;
+
+    for (let i = 0; i < pages.length; i++) {
+      pages[i].style.transform = pageTransforms[i][0];
+    }
+
+    function goToPage(page) {
+      if (page != currentPage) {
+        pages[currentPage].style.transform = pageTransforms[currentPage][page];
+        currentPage = page;
+        pages[currentPage].style.transform = pageTransforms[currentPage][currentPage];
+        pages[currentPage].classList.add('active');
+        pageIndicator.style.left = `${currentPage * 22}rem`;
+        for (let i = 0; i < pageNumbers.length; i++) {
+          if (i == currentPage) {
+            pageNumbers[i].classList.add('active');
+          } else {
+            pageNumbers[i].classList.remove('active');
+          }
+        }
+      }
+    }
+
+    function changePage(direction) {
+      if (direction > 0) {
+        if (currentPage < pages.length - 1) {
+          pages[currentPage].style.transform = pageTransforms[currentPage][currentPage + 1];
+          currentPage++;
+          pages[currentPage].style.transform = pageTransforms[currentPage][currentPage];
+          pages[currentPage].classList.add('active');
+          pageNumbers[currentPage].classList.add('active');
+          pageNumbers[currentPage - 1].classList.remove('active');
+        }
+      } else {
+        if (currentPage > 0) {
+          pages[currentPage].style.transform = pageTransforms[currentPage][currentPage - 1];
+          currentPage--;
+          pages[currentPage].style.transform = pageTransforms[currentPage][currentPage];
+          pageNumbers[currentPage].classList.add('active');
+          pageNumbers[currentPage + 1].classList.remove('active');
+        }
+      }
+      pageIndicator.style.left = `${currentPage * 22}rem`;
+      lastPageChange = Date.now();
+      lastPageChangeDirection = Math.sign(direction);
+    }
+
+    function updateScroll(e) {
+      if (Date.now() - lastPageChange > pageChangeCooldown || Math.sign(e.deltaY) != lastPageChangeDirection) {
+        changePage(e.deltaY);
+      }
+    }
+
+    document.addEventListener('wheel', (e) => {
+      updateScroll(e);
+    });
+  </script>
+
+  <!-- <script>
+    const workContainer = document.getElementById('work-container');
+
+    const workItems = [
+      {
+        title: 'Symbiont',
+        image: '../wip5/images/symbiont.png',
+        description: 'A personal website that I am currently working on. It is built with HTML, CSS, and JavaScript.',
+        link: '',
+      },
+      {
+        title: 'Nocte',
+        image: '../wip5/images/testimagenocte.png',
+        description: 'A personal website that I am currently working on. It is built with HTML, CSS, and JavaScript.',
+        link: '',
+      },
+      {
+        title: 'Nocte',
+        image: '../wip5/images/testimagenocte.png',
+        description: 'A personal website that I am currently working on. It is built with HTML, CSS, and JavaScript.',
+        link: '',
+      },
+    ];
+
+    for (let i = 0; i < workItems.length; i++) {
+      const workItem = document.createElement('div');
+      workItem.classList.add('work-item');
+      workItem.style.backgroundImage = `url(${workItems[i].image})`;
+
+      const title = document.createElement('h2');
+      title.classList.add('work-title');
+      title.style.marginBottom = '1rem';
+      title.innerHTML = workItems[i].title;
+
+      const description = document.createElement('p');
+      description.classList.add('work-description');
+      description.innerHTML = workItems[i].description;
+
+      workItem.appendChild(title);
+      workItem.appendChild(description);
+      workContainer.appendChild(workItem);
+    }
+  </script> -->
+</body>
+</html>
