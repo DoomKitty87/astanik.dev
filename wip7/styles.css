@@ -1,0 +1,157 @@
+:root {
+    font-size: 1vw;
+}
+
+@font-face {
+    font-family: 'Antonio';
+    src: url('fonts/Antonio-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pirata One';
+    src: url('fonts/PirataOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Six Caps';
+    src: url('fonts/SixCaps-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Teko';
+    src: url('fonts/Teko-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tulpen One';
+    src: url('fonts/TulpenOne-Regular.ttf') format('truetype');
+}
+
+@keyframes cycleFonts {
+    0% {
+        font-family: 'Tulpen One', sans-serif;
+        font-size: 20rem;
+    }
+
+    5% {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 15rem;
+    }
+
+    10% {
+        font-family: 'Pirata One', cursive;
+        font-size: 15rem;
+    }
+
+    15% {
+        font-family: 'Six Caps', sans-serif;
+        font-size: 15rem;
+    }
+
+    25% {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 15rem;
+    }
+
+    35% {
+        font-family: 'Pirata One', cursive;
+        font-size: 15rem;
+    }
+
+    50% {
+        font-family: 'Six Caps', sans-serif;
+        font-size: 15rem;
+    }
+
+    65% {
+        font-family: 'Teko', sans-serif;
+        font-size: 15rem;
+    }
+
+    80% {
+        font-family: 'Tulpen One', cursive;
+        font-size: 15rem;
+    }
+
+    100% {
+        font-family: 'Tulpen One', sans-serif;
+        font-size: 20rem;
+    }
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    animation: cycleFonts 2s;
+    font-family: 'Tulpen One', sans-serif;
+    font-size: 20rem;
+    color: yellow;
+}
+
+.titled {
+    font-family: 'Tulpen One', sans-serif;
+    font-size: 20rem;
+    color: #ffffff;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: grayscale(100%);
+}
+
+.nav-arrow {
+    position: absolute;
+    top: calc(50% - 5rem);
+    left: calc(50% - 5rem);
+    width: 10rem;
+    height: 10rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 10rem;
+    color: #ffffff;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.1);
+}
