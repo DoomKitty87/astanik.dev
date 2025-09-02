@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url('fonts/CascadiaCode-VariableFont_wght.ttf')
+}
+
+:root {
+    --background-color-dark: #231B25;
+    --background-color-light: #7B5782;
+    --accent-color: #C59FDA;
+    --text-color: #A8F3EA;
+
+    font-size: 1vw;
+}
+
+body {
+    background-color: var(--background-color-dark);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+
+    font-family: 'Cascadia Code', monospace;
+    color: var(--text-color);
+}
+
+#content {
+    --base-margin: 3rem;
+    margin: var(--base-margin) calc(var(--base-margin) * 2);
+    border: 2px solid var(--accent-color);
+    height: calc(100% - var(--base-margin) * 2);
+    width: auto;
+}
+
+#navigation {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-button {
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+    background-color: var(--background-color-dark);
+    color: var(--text-color);
+    font-family: 'Cascadia Code', monospace;
+    margin: 0.5rem;
+    width: fit-content;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
