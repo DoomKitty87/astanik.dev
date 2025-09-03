@@ -8,13 +8,168 @@
 </head>
 <body>
     <div id="content">
-
+        <p class="terminal-text" id="main-terminal">[ansel@astanik.dev ~]$ whoami</p>
+        <div id="extra-main-terminal">
+            <h1 class="fancy-name">&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗███████╗███████╗██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗████████╗&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗██╗██╗&nbsp;&nbsp;██╗<br>
+            ██╔══██╗████╗&nbsp;&nbsp;██║██╔════╝██╔════╝██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔════╝╚══██╔══╝██╔══██╗████╗&nbsp;&nbsp;██║██║██║&nbsp;██╔╝<br>
+            ███████║██╔██╗&nbsp;██║███████╗█████╗&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;███████║██╔██╗&nbsp;██║██║█████╔╝<br>
+            ██╔══██║██║╚██╗██║╚════██║██╔══╝&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚════██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██╔══██║██║╚██╗██║██║██╔═██╗<br>
+            ██║&nbsp;&nbsp;██║██║&nbsp;╚████║███████║███████╗███████╗&nbsp;&nbsp;&nbsp;&nbsp;███████║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;██║██║&nbsp;╚████║██║██║&nbsp;&nbsp;██╗<br>
+            ╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚══════╝╚══════╝╚══════╝&nbsp;&nbsp;&nbsp;&nbsp;╚══════╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝╚═╝&nbsp;&nbsp;╚═╝</h1>
+            <p class="terminal-text">computer science student at oregon state university<br><br>[ansel@astanik.dev ~]$ <span id="caret">█</span></p>
+        </div>
+    </div>
+    <div id="sub-content">
+        <p class="terminal-text" id="sub-content-text">[you@astanik.dev ~]$ /bin/bash get_info.sh games/northwoods</p>
     </div>
     <div id="navigation">
-        <button class="nav-button">about me</button>
-        <button class="nav-button">games</button>
-        <button class="nav-button">research</button>
-        <button class="nav-button">web</button>
+        <button class="nav-button" onclick="openCategory('about me')">about me</button>
+        <button class="nav-button" onclick="openCategory('games')">games</button>
+        <button class="nav-button" onclick="openCategory('research')">research</button>
+        <button class="nav-button" onclick="openCategory('web')">web</button>
     </div>
+
+    <script>
+        var caret = document.getElementById('caret');
+
+        function blinkCaret() {
+            if (caret.style.visibility === 'visible') {
+                caret.style.visibility = 'hidden';
+            } else {
+                caret.style.visibility = 'visible';
+            }
+        }
+
+        setInterval(blinkCaret, 500);
+
+        const data = {
+            'about me': {
+                'top-command': 'whoami',
+                'command': 'aboutme.sh',
+                'content': `<h1 class="fancy-name">&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗███████╗███████╗██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗████████╗&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗██╗██╗&nbsp;&nbsp;██╗</h1>
+<h1 class="fancy-name">██╔══██╗████╗&nbsp;&nbsp;██║██╔════╝██╔════╝██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔════╝╚══██╔══╝██╔══██╗████╗&nbsp;&nbsp;██║██║██║&nbsp;██╔╝</h1>
+<h1 class="fancy-name">███████║██╔██╗&nbsp;██║███████╗█████╗&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;███████║██╔██╗&nbsp;██║██║█████╔╝</h1>
+<h1 class="fancy-name">██╔══██║██║╚██╗██║╚════██║██╔══╝&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚════██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██╔══██║██║╚██╗██║██║██╔═██╗</h1>
+<h1 class="fancy-name">██║&nbsp;&nbsp;██║██║&nbsp;╚████║███████║███████╗███████╗&nbsp;&nbsp;&nbsp;&nbsp;███████║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;██║██║&nbsp;╚████║██║██║&nbsp;&nbsp;██╗</h1>
+<h1 class="fancy-name">╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚══════╝╚══════╝╚══════╝&nbsp;&nbsp;&nbsp;&nbsp;╚══════╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝╚═╝&nbsp;&nbsp;╚═╝</h1>
+        <p class="terminal-text">computer science student at oregon state university<br><br>[ansel@astanik.dev ~]$ <span id="caret">█</span></p>`,
+                'subcontent': 'whatever will go in the little box'
+            },
+            'games': {
+                'top-command': 'ls games',
+                'command': 'get_info.sh games/',
+                'options': [
+                    {
+                        'name': 'northwoods',
+                        'description': 'a survival game set in the pacific northwest',
+                    }
+                ]
+            }
+        }
+
+        const contentPane = document.getElementById('sub-content');
+
+        const content = document.getElementById('content');
+        const terminalText = document.getElementById('main-terminal');
+        const subContentText = document.getElementById('sub-content-text');
+        const extraMainTerminal = document.getElementById('extra-main-terminal');
+
+        const mainTermPrompt = '[ansel@astanik.dev ~]$ ';
+        const panelTermPrompt = '[you@astanik.dev ~]$ ';
+
+        async function animateSubContent(command, content) {
+            contentPane.style.transform = 'translateX(0)';
+
+            for (let i = 0; i < command.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 50));
+                subContentText.innerHTML += command.charAt(i);
+            }
+
+            subContentText.innerHTML += '<br><br>';
+
+            for (let i = 0; i < content.split('\n').length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                const nextLine = content.split('\n')[i];
+                subContentText.innerHTML += nextLine + '<br>';
+            }
+        }
+
+        var currentPage = 'about me';
+        const currentOptionButtons = [];
+
+        var animating = false;
+
+        async function openCategory(name) {
+            if (animating) return;
+            if (name == currentPage) return;
+            currentPage = name;
+
+            // Close pane
+            contentPane.style.transform = 'translateX(115%)';
+
+            // Clear terminal
+            terminalText.innerHTML = '';
+            extraMainTerminal.innerHTML = '';
+
+            // Animate text change on main terminal
+            terminalText.innerHTML = mainTermPrompt;
+
+            const targetText = data[name]['top-command'];
+            for (let i = 0; i < targetText.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 50));
+                terminalText.innerHTML += targetText.charAt(i);
+            }
+
+            let toFill = data[name]['content'];
+            if (!toFill) {
+                toFill = '';
+                data[name]['options'].forEach(element => {
+                    toFill += '<button class="option-button" onclick="selectOption(\'' + element['name'] + '\')">' + element['name'] + '</button>\n';
+                });
+            }
+
+            for (let i = 0; i < toFill.split('\n').length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                // Animate line by line instead of character by character
+                const nextLine = toFill.split('\n')[i];
+                extraMainTerminal.innerHTML += nextLine;
+            }
+
+            caret = document.getElementById('caret');
+
+            // Add buttons
+            const optionButtons = document.querySelectorAll('.option-button');
+            optionButtons.forEach(button => {
+                currentOptionButtons.push(button);
+            });
+
+            subContentText.innerHTML = panelTermPrompt;
+
+            if (name == 'about me') {
+                const newSubContentCommand = '/bin/bash ' + data[name]['command']
+                const newSubContent = data[name]['subcontent']
+                // Command gets printed character by character, content gets printed line by line
+                animateSubContent(newSubContentCommand, newSubContent);
+            } else {
+                selectOption(data[name]['options'][0]['name']);
+            }
+        }
+
+        function selectOption(name) {
+            // Set active class on current button and remove it from others
+            currentOptionButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.textContent === name) {
+                    button.classList.add('active');
+                }
+            });
+
+            const command = '/bin/bash ' + data[currentPage]['command'] + name;
+            const description = data[currentPage]['options'].find(option => option.name === name).description;
+
+            subContentText.innerHTML = panelTermPrompt;
+            animateSubContent(command, description);
+        }
+    </script>
 </body>
 </html>

@@ -21,6 +21,8 @@ body {
 
     font-family: 'Cascadia Code', monospace;
     color: var(--text-color);
+
+    overflow: hidden;
 }
 
 #content {
@@ -29,11 +31,13 @@ body {
     border: 2px solid var(--accent-color);
     height: calc(100% - var(--base-margin) * 2);
     width: auto;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
 }
 
 #navigation {
     position: absolute;
-    left: 1rem;
+    left: 2rem;
     top: 0;
     height: 100%;
     display: flex;
@@ -51,4 +55,47 @@ body {
     width: fit-content;
     padding: 0.5rem;
     font-size: 1rem;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.nav-button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color-dark);
+}
+
+.fancy-name {
+    font-size: 0.5rem;
+    margin: 0;
+}
+
+.terminal-text {
+    font-size: 1rem;
+}
+
+#sub-content {
+    border: 2px solid var(--accent-color);
+    height: 33rem;
+    width: 77rem;
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    transition: transform 0.25s;
+}
+
+.option-button {
+    background: none;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Cascadia Code', monospace;
+    font-size: 1rem;
+    transition: color 0.25s;
+}
+
+.option-button.active, .option-button:hover {
+    color: var(--accent-color);
 }
