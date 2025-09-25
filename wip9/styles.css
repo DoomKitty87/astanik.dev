@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-VariableFont_opsz\,wght.ttf')
+}
+
+@font-face {
+    font-family: 'Inter Italic';
+    src: url('fonts/Inter-Italic-VariableFont_opsz\,wght.ttf')
+}
+
+:root {
+    font-size: 1vw;
+
+    --text-color: #0a0a0a;
+    --background-color: #efefef;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-big {
+    font-size: 3.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.subtitle-big {
+    font-size: 1.8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    width: 70rem;
+    margin-bottom: 2rem;
+}
+
+.project-text {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    width: 40%;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.project-subtitle {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.1rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+}
+
+.project-images {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    overflow-x: scroll;
+    scrollbar-color: var(--background-color) var(--background-color);
+}
+
+.project-image {
+    height: 15rem;
+}
+
+.link {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    text-decoration: underline;
+    margin: 1rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 2rem 5rem;
+    text-align: center;
+    width: 60rem;
+}
