@@ -28,6 +28,7 @@
         var caret = document.getElementById('caret');
 
         function blinkCaret() {
+            if (!caret) return;
             if (caret.style.visibility === 'visible') {
                 caret.style.visibility = 'hidden';
             } else {
@@ -129,13 +130,21 @@
             subContentText.innerHTML = panelTermPrompt;
             imagePane.innerHTML = '';
 
+            for (let j = 0; j < images.length; j++) {
+                const image = images[j];
+                const img = document.createElement('img');
+                img.src = 'images/' + image;
+                img.className = 'content-image';
+                imagePane.appendChild(img);
+            }
+
             for (let i = 0; i < command.length; i++) {
                 if (cancelAnimation) {
                     cancelAnimation = false;
                     animatingSubContent = false;
                     return;
                 }
-                await new Promise(resolve => setTimeout(resolve, 25));
+                await new Promise(resolve => setTimeout(resolve, 10));
                 subContentText.innerHTML += command.charAt(i);
             }
 
@@ -147,23 +156,9 @@
                     animatingSubContent = false;
                     return;
                 }
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 50));
                 const nextLine = content.split('\n')[i];
                 subContentText.innerHTML += nextLine + '<br>';
-            }
-
-            for (let j = 0; j < images.length; j++) {
-                const image = images[j];
-                if (cancelAnimation) {
-                    cancelAnimation = false;
-                    animatingSubContent = false;
-                    return;
-                }
-                await new Promise(resolve => setTimeout(resolve, 100));
-                const img = document.createElement('img');
-                img.src = 'images/' + image;
-                img.className = 'content-image';
-                imagePane.appendChild(img);
             }
 
             animatingSubContent = false;
@@ -171,14 +166,17 @@
 
         var currentPage = '';
         const currentOptionButtons = [];
-        openCategory('about me');
 
         var animating = false;
+
+        openCategory('about me');
 
         async function openCategory(name) {
             if (animating) return;
             if (name == currentPage) return;
             currentPage = name;
+
+            animating = true;
 
             // Close pane
             contentPane.style.transform = 'translateX(115%)';
@@ -193,7 +191,7 @@
 
             const targetText = data[name]['top-command'];
             for (let i = 0; i < targetText.length; i++) {
-                await new Promise(resolve => setTimeout(resolve, 50));
+                await new Promise(resolve => setTimeout(resolve, 10));
                 terminalText.innerHTML += targetText.charAt(i);
             }
 
@@ -206,7 +204,7 @@
             }
 
             for (let i = 0; i < toFill.split('\n').length; i++) {
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 50));
                 // Animate line by line instead of character by character
                 const nextLine = toFill.split('\n')[i];
                 extraMainTerminal.innerHTML += nextLine;
@@ -228,6 +226,8 @@
             } else {
                 selectOption(data[name]['options'][0]['name']);
             }
+
+            animating = false;
         }
 
         function selectOption(name) {
