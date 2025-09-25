@@ -85,6 +85,10 @@ body {
     transition: transform 0.25s;
 }
 
+#sub-content-text {
+    width: 37rem;
+}
+
 .option-button {
     background: none;
     color: var(--text-color);
@@ -98,4 +102,35 @@ body {
 
 .option-button.active, .option-button:hover {
     color: var(--accent-color);
+}
+
+.link {
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: color 0.25s;
+}
+
+.link:hover {
+    color: var(--accent-color);
+}
+
+#images-content {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--accent-color);
+    background-color: var(--background-color-dark);
+    height: 45rem;
+    width: 35rem;
+    position: absolute;
+    top: 9%;
+    left: 52%;
+    padding: 0.5rem;
+    padding-top: 0;
+    transition: transform 0.25s;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.content-image {
+    margin-top: 0.5rem;
 }

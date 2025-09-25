@@ -8,19 +8,14 @@
 </head>
 <body>
     <div id="content">
-        <p class="terminal-text" id="main-terminal">[ansel@astanik.dev ~]$ whoami</p>
+        <p class="terminal-text" id="main-terminal">[ansel@astanik.dev ~]$ <span id="caret">█</span></p>
         <div id="extra-main-terminal">
-            <h1 class="fancy-name">&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗███████╗███████╗██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗████████╗&nbsp;█████╗&nbsp;███╗&nbsp;&nbsp;&nbsp;██╗██╗██╗&nbsp;&nbsp;██╗<br>
-            ██╔══██╗████╗&nbsp;&nbsp;██║██╔════╝██╔════╝██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔════╝╚══██╔══╝██╔══██╗████╗&nbsp;&nbsp;██║██║██║&nbsp;██╔╝<br>
-            ███████║██╔██╗&nbsp;██║███████╗█████╗&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████╗&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;███████║██╔██╗&nbsp;██║██║█████╔╝<br>
-            ██╔══██║██║╚██╗██║╚════██║██╔══╝&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚════██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██╔══██║██║╚██╗██║██║██╔═██╗<br>
-            ██║&nbsp;&nbsp;██║██║&nbsp;╚████║███████║███████╗███████╗&nbsp;&nbsp;&nbsp;&nbsp;███████║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;██║██║&nbsp;╚████║██║██║&nbsp;&nbsp;██╗<br>
-            ╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚══════╝╚══════╝╚══════╝&nbsp;&nbsp;&nbsp;&nbsp;╚══════╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝╚═╝&nbsp;&nbsp;╚═╝</h1>
-            <p class="terminal-text">computer science student at oregon state university<br><br>[ansel@astanik.dev ~]$ <span id="caret">█</span></p>
         </div>
     </div>
     <div id="sub-content">
-        <p class="terminal-text" id="sub-content-text">[you@astanik.dev ~]$ /bin/bash get_info.sh games/northwoods</p>
+        <p class="terminal-text" id="sub-content-text"></p>
+    </div>
+    <div id="images-content">
     </div>
     <div id="navigation">
         <button class="nav-button" onclick="openCategory('about me')">about me</button>
@@ -53,7 +48,10 @@
 <h1 class="fancy-name">██║&nbsp;&nbsp;██║██║&nbsp;╚████║███████║███████╗███████╗&nbsp;&nbsp;&nbsp;&nbsp;███████║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;██║██║&nbsp;╚████║██║██║&nbsp;&nbsp;██╗</h1>
 <h1 class="fancy-name">╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚══════╝╚══════╝╚══════╝&nbsp;&nbsp;&nbsp;&nbsp;╚══════╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝╚═╝&nbsp;&nbsp;╚═╝</h1>
         <p class="terminal-text">computer science student at oregon state university<br><br>[ansel@astanik.dev ~]$ <span id="caret">█</span></p>`,
-                'subcontent': 'whatever will go in the little box'
+                'subcontent': `i'm a first-year student at oregon state.<br>
+                <a class="link" href="files/ansel_stanik_resume.pdf" target="_blank" rel="noopener">my resume</a><br>
+                <a class="link" href="https://github.com/doomkitty87" target="_blank" rel="noopener">my github</a><br>
+                <a class="link" href="https://linkedin.com/in/anselstanik" target="_blank" rel="noopener">my linkedin</a><br>`,
             },
             'games': {
                 'top-command': 'ls games',
@@ -62,24 +60,49 @@
                     {
                         'name': 'northwoods',
                         'description': 'a survival game set in the pacific northwest',
+                        'images': ['northwoodspostcard.png', 'northwoodscliffs.png', 'northwoodsforest.png']
                     },
                     {
                         'name': 'on the lamb!',
                         'description': 'eccentric sheep herding game made for GMTK 2025',
+                        'images': ['onthelamblasso.png', 'onthelambmap.png', 'onthelambmonster.png', 'onthelambcloning.png', 'onthelambrocket.png']
                     },
                     {
                         'name': 'nocte',
                         'description': 'an exploration game set on a procedurally generated planet',
+                        'images': ['nocteposteralt.png', 'noctemountains.png']
                     },
                     {
                         'name': 'symbiont',
                         'description': 'a first-person shooter where you swap consciousness with your enemies',
+                        'images': ['symbiontposter.png']
                     }
+                ]
+            },
+            'research': {
+                'top-command': 'ls research',
+                'command': 'get_info.sh research/',
+                'options': [
+                    {
+
+                    },
+                ]
+            },
+            'web': {
+                'top-command': 'ls web',
+                'command': 'get_info.sh web/',
+                'options': [
+                    {
+                        'name': 'seafoam',
+                        'description': 'a route finding tool for Minecraft mining that minimizes travel time and angular movement while maximizing output',
+                        'images': ['seafoam1.png', 'seafoam2.png', 'seafoam3.png']
+                    },
                 ]
             }
         }
 
         const contentPane = document.getElementById('sub-content');
+        const imagePane = document.getElementById('images-content');
 
         const content = document.getElementById('content');
         const terminalText = document.getElementById('main-terminal');
@@ -88,11 +111,12 @@
 
         const mainTermPrompt = '[ansel@astanik.dev ~]$ ';
         const panelTermPrompt = '[you@astanik.dev ~]$ ';
+        const imagePath = 'images/';
 
         var cancelAnimation = false;
         var animatingSubContent = false;
 
-        async function animateSubContent(command, content) {
+        async function animateSubContent(command, content, images=[]) {
             while (animatingSubContent) {
                 cancelAnimation = true;
                 await new Promise(resolve => setTimeout(resolve, 25));
@@ -101,7 +125,9 @@
             animatingSubContent = true;
             cancelAnimation = false;
             contentPane.style.transform = 'translateX(0)';
+            imagePane.style.transform = images.length > 0 ? 'translateY(0)' : 'translateY(150%)';
             subContentText.innerHTML = panelTermPrompt;
+            imagePane.innerHTML = '';
 
             for (let i = 0; i < command.length; i++) {
                 if (cancelAnimation) {
@@ -125,11 +151,27 @@
                 const nextLine = content.split('\n')[i];
                 subContentText.innerHTML += nextLine + '<br>';
             }
+
+            for (let j = 0; j < images.length; j++) {
+                const image = images[j];
+                if (cancelAnimation) {
+                    cancelAnimation = false;
+                    animatingSubContent = false;
+                    return;
+                }
+                await new Promise(resolve => setTimeout(resolve, 100));
+                const img = document.createElement('img');
+                img.src = 'images/' + image;
+                img.className = 'content-image';
+                imagePane.appendChild(img);
+            }
+
             animatingSubContent = false;
         }
 
-        var currentPage = 'about me';
+        var currentPage = '';
         const currentOptionButtons = [];
+        openCategory('about me');
 
         var animating = false;
 
@@ -140,6 +182,7 @@
 
             // Close pane
             contentPane.style.transform = 'translateX(115%)';
+            imagePane.style.transform = 'translateY(150%)';
 
             // Clear terminal
             terminalText.innerHTML = '';
@@ -198,8 +241,9 @@
 
             const command = '/bin/bash ' + data[currentPage]['command'] + name;
             const description = data[currentPage]['options'].find(option => option.name === name).description;
+            const images = data[currentPage]['options'].find(option => option.name === name).images;
 
-            animateSubContent(command, description);
+            animateSubContent(command, description, images);
         }
     </script>
 </body>
