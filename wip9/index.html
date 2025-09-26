@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 style="margin-top: 7rem; margin-bottom: 0.5rem;" class="title-big">Ansel Stanik</h1>
+    <div id="navigation">
+        <button class="nav-link" onclick="goTo('about')">About</button>
+        <button class="nav-link" onclick="goTo('projects')">Projects</button>
+        <button class="nav-link" onclick="goTo('research')">Research</button>
+        <button class="nav-link" onclick="goTo('experience')">Experience</button>
+    </div>
+
+    <h1 style="margin-top: 7rem; margin-bottom: 0.5rem;" class="title-big" id="about">Ansel Stanik</h1>
     <h2 class="subtitle-big">Computer Science Student at Oregon State University</h2>
     <div style="margin-top: 1rem;">
         <a class="link" href="files/ansel_stanik_resume.pdf" target="_blank">My Resume</a>
         <a class="link" href="https://github.com/doomkitty87" target="_blank">GitHub</a>
-        <a class="link" href="https://github.com/anselstanik" target="_blank">LinkedIn</a>
+        <a class="link" href="https://linkedin.com/in/anselstanik" target="_blank">LinkedIn</a>
         <a class="link" href="mailto:contact@astanik.dev">contact@astanik.dev</a>
     </div>
     <p class="description">
         I'm a first-year computer science student at Oregon State University with interest and experience in software, computer graphics, and interdisciplinary research. Real-time procedural generation and machine learning are some topics I find interesting, and I spend a lot of my free time walking and hiking.
     </p>
-    <h1 style="margin-bottom: 2rem; margin-top: 1rem;" class="title">Projects</h1>
+    <h1 style="margin-bottom: 2rem; margin-top: 1rem;" class="title" id="projects">Projects</h1>
     <div class="project">
         <div class="project-text">
             <h2 class="project-title">Northwoods</h2>
@@ -82,7 +89,7 @@
             <img class="project-image" src="../images/seafoam.png">
         </div>
     </div>
-    <h1 style="margin-bottom: 1rem; margin-top: 1rem;" class="title">Research</h1>
+    <h1 style="margin-bottom: 1rem; margin-top: 1rem;" class="title" id="research">Research</h1>
     <div class="container">
         <div class="column">
             <h2 class="subtitle-big" style="text-align:center;">Publications</h2>
@@ -118,7 +125,7 @@
             <p class="category-entry">Built machine learning models to predict glaucoma risk and intraocular pressure in patients.</p>
             <p class="category-entry">Created accessible frontend interfaces for clinicians, allowing for portable model deployment in the field, and helping increase access to early glaucoma screening without the need for imaging or specialized equipment.</p>
             <h3 class="category">Data Visualization</h3>
-            <p class="category-entry">Used popular Python data visualization libraries (Matplotlib, Seaborn, Pyvista) to create helpful visualizations of data obtained through image analysis.</p>
+            <p class="category-entry">Used popular Python data visualization libraries (Matplotlib, Seaborn, PyVista) to create helpful visualizations of data obtained through image analysis.</p>
             <p class="category-entry">Developed custom data visualization systems to allow for high-detail rendering of computed strain data on 3D models extracted from microscopy data.</p>
             <p class="category-entry">Trained collaborators on custom data visualization techniques and scripts to enhance analysis workflows and throughput.</p>
             <h3 class="category">Image Analysis</h3>
@@ -129,5 +136,38 @@
             <p class="category-entry">Extracted orientation data from cytoskeleton component image masks over time to compare cell behaviors under different conditions.</p>
         </div>
     </div>
+    <h1 style="margin-bottom: 1rem; margin-top: 3rem;" class="title" id="experience">Experience</h1>
+    <div class="experience">
+        <h2 class="experience-title">Ocular Biomechanics Research Assistant</h2>
+        <h3 class="experience-subtitle">Oregon Health & Science University | Feb 2024 - Present</h3>
+        <p class="experience-note">Developed algorithms and procedures primarily for the analysis of various types of image data (SEM, confocal microscopy, OCT, LSFM) in 2D and 3D.</p>
+        <p class="experience-note">Led teams of 2-4 to process data and produce publication-ready visualizations, and collaborated with clinicians and researchers on various projects.</p>
+        <p class="experience-note">Taught new team members to use custom processes and techniques, creating accessible documentation and communicating effectively.</p>
+        <p class="experience-note">Built accessible and interpretable user interfaces for machine learning models, allowing clinicians to provide wider access to early glaucoma screening.</p>
+    </div>
+    <div class="experience">
+        <h2 class="experience-title">Lead Developer & Technical Artist</h2>
+        <h3 class="experience-subtitle">Fractal Development | Jan 2023 - Aug 2025</h3>
+        <p class="experience-note">Led teams of 5-7 to develop an entry for the Oregon Game Project Challenge, a statewide competition.</p>
+        <p class="experience-note">Managed project timelines and goals, team responsibilities, and meetings.</p>
+        <p class="experience-note">Built efficient rendering and procedural content generation systems for real-time gameplay using data-oriented workflows.</p>
+        <p class="experience-note">Marketed and promoted projects by producing trailers and presenting to industry professional judges.</p>
+    </div>
+    <div class="experience">
+        <h2 class="experience-title">Programming Lead & Team Captain</h2>
+        <h3 class="experience-subtitle">Loose Screws FTC | Sep 2023 - June 2025</h3>
+        <p class="experience-note">Coordinated efforts between engineering, programming, and outreach teams to keep projects on track in a team of 10+.</p>
+        <p class="experience-note">Mentored middle school robotics team with a multi-week workshop, teaching chassis building fundamentals and control system programming in Java, culminating in a robot built entirely by the students.</p>
+        <p class="experience-note">Presented technical concepts and explained team processes to professional judges.</p>
+        <p class="experience-note">Developed frameworks for robot driver-controlled and autonomous modes, implementing custom proportional-integral-derivative control system and TensorFlow-based real-time image classification models for navigation.</p>
+    </div>
+    <script>
+        function goTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
