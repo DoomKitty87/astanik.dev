@@ -7,16 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="navigation">
-        <button class="nav-link" onclick="goTo('about')">About</button>
-        <button class="nav-link" onclick="goTo('projects')">Projects</button>
-        <button class="nav-link" onclick="goTo('research')">Research</button>
-        <button class="nav-link" onclick="goTo('experience')">Experience</button>
-    </div>
-
     <h1 style="margin-top: 7rem; margin-bottom: 0.5rem;" class="title-big" id="about">Ansel Stanik</h1>
     <h2 class="subtitle-big">Computer Science Student at Oregon State University</h2>
-    <div style="margin-top: 1rem;">
+    <div style="margin-top: 1rem;" class="link-row">
         <a class="link" href="files/ansel_stanik_resume.pdf" target="_blank">My Resume</a>
         <a class="link" href="https://github.com/doomkitty87" target="_blank">GitHub</a>
         <a class="link" href="https://linkedin.com/in/anselstanik" target="_blank">LinkedIn</a>
@@ -25,6 +18,12 @@
     <p class="description">
         I'm a first-year computer science student at Oregon State University with interest and experience in software, computer graphics, and interdisciplinary research. Real-time procedural generation and machine learning are some topics I find interesting, and I spend a lot of my free time walking and hiking.
     </p>
+    <div id="navigation">
+        <button class="nav-link" onclick="goTo('about')">About</button>
+        <button class="nav-link" onclick="goTo('projects')">Projects</button>
+        <button class="nav-link" onclick="goTo('research')">Research</button>
+        <button class="nav-link" onclick="goTo('experience')">Experience</button>
+    </div>
     <h1 style="margin-bottom: 2rem; margin-top: 1rem;" class="title" id="projects">Projects</h1>
     <div class="project">
         <div class="project-text">
@@ -131,7 +130,7 @@
             <h3 class="category">Image Analysis</h3>
             <p class="category-entry">Designed and optimized bespoke 2D segmentation algorithm for differentiation of aqueous humor from tissue in microscopy images.</p>
             <p class="category-entry">Wrote custom digital volume correlation implementation to enable strain mapping in 3D microscopy data without embedded markers.</p>
-            <p class="category-entry">Extended existing Traction Force Microscopy implementation from 2D to 3D, allowing for more extensive understanding of glaucoma biomechanics.</p>
+            <p class="category-entry">Extended existing traction force microscopy and strain analysis implementation from 2D to 3D, allowing for more extensive understanding of glaucoma biomechanics.</p>
             <p class="category-entry">Conducted morphological analysis of different portions of the eye from 2D microscopy data.</p>
             <p class="category-entry">Extracted orientation data from cytoskeleton component image masks over time to compare cell behaviors under different conditions.</p>
         </div>

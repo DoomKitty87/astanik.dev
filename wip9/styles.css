@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 
 .title-big {
@@ -41,6 +42,7 @@ body {
     font-weight: 300;
     color: var(--text-color);
     margin: 0;
+    text-align: center;
 }
 
 .title {
@@ -54,7 +56,7 @@ body {
 .project {
     display: flex;
     flex-direction: row;
-    width: 70rem;
+    width: 70%;
     margin-bottom: 3rem;
 }
 
@@ -129,7 +131,7 @@ body {
     color: var(--text-color);
     margin: 2rem 5rem;
     text-align: center;
-    width: 60rem;
+    width: 60%;
 }
 
 .publication-link {
@@ -172,7 +174,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 80rem;
+    width: 80%;
 }
 
 .category {
@@ -226,7 +228,7 @@ body {
 .experience {
     display: flex;
     flex-direction: column;
-    width: 70rem;
+    width: 70%;
     margin-bottom: 3rem;
 }
 
@@ -255,4 +257,57 @@ body {
     margin: 0;
     margin-top: 0.3rem;
     margin-left: 0.5rem;
+}
+
+.link-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+    :root {
+        font-size: 2.5vw;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .project-text {
+        width: 100%;
+    }
+
+    .project-images {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .description {
+        width: 90%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .experience {
+        width: 90%;
+    }
+
+    #navigation {
+        position: sticky;
+        flex-direction: row;
+        height: auto;
+        background-color: var(--background-color);
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-link {
+        margin: 2rem 0.5rem;
+    }
+
 }
