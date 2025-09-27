@@ -1,0 +1,313 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-VariableFont_opsz\,wght.ttf')
+}
+
+@font-face {
+    font-family: 'Inter Italic';
+    src: url('fonts/Inter-Italic-VariableFont_opsz\,wght.ttf')
+}
+
+:root {
+    font-size: 1vw;
+
+    --text-color: #0a0a0a;
+    --text-hover-color: #a0a0a0;
+    --background-color: #efefef;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.title-big {
+    font-size: 3.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.subtitle-big {
+    font-size: 1.8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin-bottom: 3rem;
+}
+
+.project-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 2rem;
+    box-sizing: border-box;
+    width: 40%;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.project-subtitle {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.1rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+}
+
+.project-images {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: 15rem;
+    overflow-x: scroll;
+    scrollbar-width: auto;
+    scrollbar-color: var(--text-color) var(--background-color);
+}
+
+.project-image {
+    height: 15rem;
+}
+
+.link {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    text-decoration: underline;
+    margin: 1rem;
+    margin-bottom: 0;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: var(--text-hover-color);
+}
+
+.description {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 2rem 5rem;
+    text-align: center;
+    width: 60%;
+}
+
+.publication-link {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    text-decoration: underline;
+    margin: 1rem;
+    margin-bottom: 0;
+    transition: color 0.2s;
+}
+
+.publication-link:hover {
+    color: var(--text-hover-color);
+}
+
+.publication {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.publication-source {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    color: var(--text-color);
+    margin: 0 1rem;
+    margin-top: 0.1rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.category {
+    font-size: 1.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 0 1rem;
+    margin-top: 1rem;
+}
+
+.category-entry {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0 1.5rem;
+    margin-top: 0.2rem;
+}
+
+#navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.nav-link {
+    font-size: 1.7rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    text-decoration: underline;
+    margin: 0.5rem 0;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: var(--text-hover-color);
+}
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 3rem;
+}
+
+.experience-title {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.experience-subtitle {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.1rem;
+}
+
+.experience-note {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    margin: 0;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+}
+
+.link-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+    :root {
+        font-size: 2.5vw;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .project-text {
+        width: 100%;
+    }
+
+    .project-images {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .description {
+        width: 90%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .experience {
+        width: 90%;
+    }
+
+    #navigation {
+        position: sticky;
+        flex-direction: row;
+        height: auto;
+        background-color: var(--background-color);
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-link {
+        margin: 2rem 0.5rem;
+    }
+
+}

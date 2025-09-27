@@ -1,74 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ansel Stanik</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="My portfolio website." />
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansel Stanik</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="navbar">
-    <div id="navbar-indicator"></div>
-    <button class="navbar-item">Home</button>
-    <button class="navbar-item">Nocte</button>
-    <button class="navbar-item">Seafoam</button>
-    <button class="navbar-item">Symbiont</button>
-    <button class="navbar-item">OmniStudy</button>
-    <button class="navbar-item">Other Projects</button>
-    <!--<button class="navbar-item">Research</button>-->
-  </div>
-
-  <div class="pages">
-    <div class="page">
-      <h1 class="title">Ansel Stanik</h1>
-      <p class="body-text">Hi, I'm Ansel, a high school senior and computer programmer.</p>
-      <p class="body-text">I spend my time pursuing mostly software and game development. You can see some of my projects on this website.</p>
-      <p class="body-text">Here's my:</p>
-      <a class="body-button" href="resume.pdf" target="_blank">Resume</a>
-      <a class="body-button" href="https://github.com/DoomKitty87" target="_blank">GitHub</a>
-      <a class="body-button" href="https://www.linkedin.com/in/ansel-stanik-8b238b293/" target="_blank">LinkedIn</a>
-      <a class="body-button" href="" id="email-link">Email</a>
+    <h1 style="margin-top: 7rem; margin-bottom: 0.5rem;" class="title-big" id="about">Ansel Stanik</h1>
+    <h2 class="subtitle-big">Computer Science Student at Oregon State University</h2>
+    <div style="margin-top: 1rem;" class="link-row">
+        <a class="link" href="files/ansel_stanik_resume.pdf" target="_blank">My Resume</a>
+        <a class="link" href="https://github.com/doomkitty87" target="_blank">GitHub</a>
+        <a class="link" href="https://linkedin.com/in/anselstanik" target="_blank">LinkedIn</a>
+        <a class="link" href="mailto:contact@astanik.dev">contact@astanik.dev</a>
     </div>
-    <div class="page">
-      <h1 class="title">Nocte</h1>
-      <p class="body-text">Nocte was developed for the Oregon Game Project Challenge Season 17 in 2024 by Fractal Development, and won the Game Design award at the competition.</p>
-      <p class="body-text">Its world is fully procedurally generated in realtime, using implicit generation techniques.</p>
-      <p class="body-text">Using the Unity game engine, Nocte can run in realtime while rendering 2500 square kilometers of detailed landscape with upwards of 100,000 foliage objects using low-level instancing techniques.</p>
-      <img src="images/testimagenocte.png" />
+    <p class="description">
+        I'm a first-year computer science student at Oregon State University with interest and experience in software, computer graphics, and interdisciplinary research. Real-time procedural generation and machine learning are some topics I find interesting, and I spend a lot of my free time walking and hiking.
+    </p>
+    <div id="navigation">
+        <button class="nav-link" onclick="goTo('about')">About</button>
+        <button class="nav-link" onclick="goTo('projects')">Projects</button>
+        <button class="nav-link" onclick="goTo('research')">Research</button>
+        <button class="nav-link" onclick="goTo('experience')">Experience</button>
     </div>
-    <div class="page">
-      <h1 class="title">Seafoam</h1>
-      <p class="body-text">Seafoam is a web and desktop application used to algorithmically generate routes for mining gemstones in Hypixel Skyblock.</p>
-      <p class="body-text">It has been accessed over 100,000 times since its release.</p>
-      <img src="images/seafoam.png" style="filter: brightness(0.5) blur(4px)" />
+    <h1 style="margin-bottom: 2rem; margin-top: 1rem;" class="title" id="projects">Projects</h1>
+    <div class="project">
+        <div class="project-text">
+            <h2 class="project-title">Northwoods</h2>
+            <h3 class="project-subtitle">Unity Engine</h3>
+            <p class="project-description">A survival game set in the Pacific Northwest, developed for the 2025 Oregon Game Project Challenge. Won Best In Show and Students' Choice awards out of 40+ teams, becoming the first ever high school team to do so.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=d67YrHbhKMY" target="_blank">Trailer</a>
+            <a class="link" href="https://tms.ogpc.info/Games/Details/1b7379ac-c1a0-42f4-8198-cd94d069b991" target="_blank">Learn More</a>
+        </div>
+        <div class="project-images">
+            <img class="project-image" src="../wip8/images/northwoodsforest.png">
+            <img class="project-image" src="../wip8/images/northwoodscliffs.png">
+        </div>
     </div>
-    <div class="page">
-      <h1 class="title">Symbiont</h1>
-      <p class="body-text">Symbiont was developed for the Oregon Game Project Challenge Season 16 in 2023 by Fractal Development, and won the Programming award at the competition.</p>
-      <p class="body-text">It's a first person shooter with fast-paced gameplay where the player switches their consciousness between robot hosts in order to fight their way out.</p>
-      <img src="images/symbiont.png" />
+    <div class="project">
+        <div class="project-text">
+            <h2 class="project-title">On The Lamb!</h2>
+            <h3 class="project-subtitle">Unity Engine</h3>
+            <p class="project-description">An eccentric sheep herding game made in four days for the GMTK 2025 Game Jam, placing in the top 10% in multiple categories.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=kN98JuUSIng" target="_blank">Trailer</a>
+            <a class="link" href="https://fractaldev.itch.io/on-the-lamb" target="_blank">Learn More</a>
+        </div>
+        <div class="project-images">
+            <img class="project-image" src="../wip8/images/onthelamblasso.png">
+            <img class="project-image" src="../wip8/images/onthelambmap.png">
+        </div>
     </div>
-    <div class="page">
-      <h1 class="title">OmniStudy</h1>
-      <p class="body-text">OmniStudy was developed for the 2023 Congressional App Challenge by Ansel Stanik and Harper Wicker-Lenseigne.</p>
-      <p class="body-text">It provides infinite randomly generated practice problems for physics, calculus, and statistics, with mock quizzes and analytics designed to help students study and succeed.</p>
-      <img src="images/omnistudy.png" style="filter: brightness(0.5) blur(4px)" />
+    <div class="project">
+        <div class="project-text">
+            <h2 class="project-title">Nocte</h2>
+            <h3 class="project-subtitle">Unity Engine</h3>
+            <p class="project-description">A third-person exploration game where you must find a series of structures to complete objectives in a procedurally generated landscape. Won the Game Design award at the 2024 Oregon Game Project Challenge.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=iuVu_se6i7w" target="_blank">Trailer</a>
+            <a class="link" href="https://tms.ogpc.info/Games/Details/cd7fde0e-bea4-4f2e-9692-9df177798a7a" target="_blank">Learn More</a>
+        </div>
+        <div class="project-images">
+            <img class="project-image" src="../wip8/images/noctemountains.png">
+            <img class="project-image" src="../wip8/images/nocteposteralt.png">
+        </div>
     </div>
-    <div class="page">
-      <h1 class="title">Other Projects</h1>
-      <p class="body-text">The application pictured is Planck, a peer-to-server-to-peer encrypted messaging client that allows you to host your own isolated chat servers.</p>
-      <p class="body-text">I have two NPM packages, QuickParse and Trebuchet, which parse mathematical expressions in JavaScript and support lightweight physics in Three.js respectively.</p>
-      <p class="body-text">I have some other interesting projects on my GitHub, like a 3D renderer that operates in the command line through C++.</p>
-      <img src="images/planck.png" style="filter: brightness(0.5) blur(4px)" />
+    <div class="project">
+        <div class="project-text">
+            <h2 class="project-title">Symbiont</h2>
+            <h3 class="project-subtitle">Unity Engine</h3>
+            <p class="project-description">A first person shooter game where you swap consciousness with your enemies. Won the Programming award at the 2023 Oregon Game Project Challenge.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=veMg_MTGvXw" target="_blank">Trailer</a>
+            <a class="link" href="https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2" target="_blank">Learn More</a>
+        </div>
+        <div class="project-images">
+            <img class="project-image" src="../wip8/images/symbiontposter.png">
+        </div>
     </div>
-    <!--<div class="page">
-      <h1 class="title">Research</h1>
-      <p class="body-text"></p>
-    </div>-->
-  </div>
-
-  <script src="index.js"></script>
+    <div class="project">
+        <div class="project-text">
+            <h2 class="project-title">Seafoam</h2>
+            <h3 class="project-subtitle">Web/Software</h3>
+            <p class="project-description">A web and desktop application that generates optimal mining routes for Minecraft, taking into account ergonomics and preferences for optimal throughput, with 85k+ user visits.</p>
+            <a class="link" href="https://github.com/DoomKitty87/seafoam" target="_blank">Desktop Version Repository</a>
+            <a class="link" href="https://astanik.dev/seafoam" target="_blank">Try It</a>
+        </div>
+        <div class="project-images">
+            <img class="project-image" src="../images/seafoam.png">
+        </div>
+    </div>
+    <h1 style="margin-bottom: 1rem; margin-top: 1rem;" class="title" id="research">Research</h1>
+    <div class="container">
+        <div class="column">
+            <h2 class="subtitle-big" style="text-align:center;">Publications</h2>
+            <div class="publication">
+                <a class="publication-link" href="https://doi.org/10.1016/j.actbio.2025.07.040" target="_blank">Actin-microtubule synergy dominates force transmission and collagen strain in human trabecular meshwork</a>
+                <h2 class="publication-source">Acta Biomaterialia 2025</h2>
+            </div>
+            <div class="publication">
+                <a class="publication-link" href="https://doi.org/10.1016/j.tice.2025.103005" target="_blank">3D traction force microscopy in human trabecular meshwork tissues: Effects of ROCK and YAP/TAZ inhibition in normal and glaucomatous tissues</a>
+                <h2 class="publication-source">Tissue and Cell 2025</h2>
+            </div>
+            <div class="publication">
+                <a class="publication-link" href="https://www.cell.com/matter/abstract/S2590-2385(25)00137-7" target="_blank">Matrix stiffness regulates traction forces, cytoskeletal dynamics, and collagen reorganization in trabecular meshwork cells in glaucoma</a>
+                <h2 class="publication-source">Matter 2025</h2>
+            </div>
+            <div class="publication">
+                <a class="publication-link" href="https://doi.org/10.1016/j.bbe.2025.01.004" target="_blank">Impact of aging on anterior segment morphology and aqueous humor dynamics in human Eyes: Advanced imaging and computational techniques</a>
+                <h2 class="publication-source">Biocybernetics and Biomedical Engineering 2025</h2>
+            </div>
+            <div class="publication">
+                <a class="publication-link" href="https://doi.org/10.1016/j.cmpb.2024.108538" target="_blank">High-resolution modeling of aqueous humor dynamics in the conventional outflow pathway of a normal human donor eye</a>
+                <h2 class="publication-source">Computer Methods and Programs in Biomedicine 2024</h2>
+            </div>
+            <div class="publication">
+                <a class="publication-link" href="https://www.mdpi.com/2306-5354/11/6/577" target="_blank">Integrating Deep Learning with Electronic Health Records for Early Glaucoma Detection: A Multi-Dimensional Machine Learning Approach</a>
+                <h2 class="publication-source">Bioengineering 2024</h2>
+            </div>
+        </div>
+        <div class="column">
+            <h2 class="subtitle-big" style="text-align:center;">What I've Done</h2>
+            <h3 class="category">Machine Learning</h3>
+            <p class="category-entry">Handled data ingress and assimilation from various clinical sources to create consistent and useful training datasets.</p>
+            <p class="category-entry">Built machine learning models to predict glaucoma risk and intraocular pressure in patients.</p>
+            <p class="category-entry">Created accessible frontend interfaces for clinicians, allowing for portable model deployment in the field, and helping increase access to early glaucoma screening without the need for imaging or specialized equipment.</p>
+            <h3 class="category">Data Visualization</h3>
+            <p class="category-entry">Used popular Python data visualization libraries (Matplotlib, Seaborn, PyVista) to create helpful visualizations of data obtained through image analysis.</p>
+            <p class="category-entry">Developed custom data visualization systems to allow for high-detail rendering of computed strain data on 3D models extracted from microscopy data.</p>
+            <p class="category-entry">Trained collaborators on custom data visualization techniques and scripts to enhance analysis workflows and throughput.</p>
+            <h3 class="category">Image Analysis</h3>
+            <p class="category-entry">Designed and optimized bespoke 2D segmentation algorithm for differentiation of aqueous humor from tissue in microscopy images.</p>
+            <p class="category-entry">Wrote custom digital volume correlation implementation to enable strain mapping in 3D microscopy data without embedded markers.</p>
+            <p class="category-entry">Extended existing traction force microscopy and strain analysis implementation from 2D to 3D, allowing for more extensive understanding of glaucoma biomechanics.</p>
+            <p class="category-entry">Conducted morphological analysis of different portions of the eye from 2D microscopy data.</p>
+            <p class="category-entry">Extracted orientation data from cytoskeleton component image masks over time to compare cell behaviors under different conditions.</p>
+        </div>
+    </div>
+    <h1 style="margin-bottom: 1rem; margin-top: 3rem;" class="title" id="experience">Experience</h1>
+    <div class="experience">
+        <h2 class="experience-title">Ocular Biomechanics Research Assistant</h2>
+        <h3 class="experience-subtitle">Oregon Health & Science University | Feb 2024 - Present</h3>
+        <p class="experience-note">Developed algorithms and procedures primarily for the analysis of various types of image data (SEM, confocal microscopy, OCT, LSFM) in 2D and 3D.</p>
+        <p class="experience-note">Led teams of 2-4 to process data and produce publication-ready visualizations, and collaborated with clinicians and researchers on various projects.</p>
+        <p class="experience-note">Taught new team members to use custom processes and techniques, creating accessible documentation and communicating effectively.</p>
+        <p class="experience-note">Built accessible and interpretable user interfaces for machine learning models, allowing clinicians to provide wider access to early glaucoma screening.</p>
+    </div>
+    <div class="experience">
+        <h2 class="experience-title">Lead Developer & Technical Artist</h2>
+        <h3 class="experience-subtitle">Fractal Development | Jan 2023 - Aug 2025</h3>
+        <p class="experience-note">Led teams of 5-7 to develop an entry for the Oregon Game Project Challenge, a statewide competition.</p>
+        <p class="experience-note">Managed project timelines and goals, team responsibilities, and meetings.</p>
+        <p class="experience-note">Built efficient rendering and procedural content generation systems for real-time gameplay using data-oriented workflows.</p>
+        <p class="experience-note">Marketed and promoted projects by producing trailers and presenting to industry professional judges.</p>
+    </div>
+    <div class="experience">
+        <h2 class="experience-title">Programming Lead & Team Captain</h2>
+        <h3 class="experience-subtitle">Loose Screws FTC | Sep 2023 - June 2025</h3>
+        <p class="experience-note">Coordinated efforts between engineering, programming, and outreach teams to keep projects on track in a team of 10+.</p>
+        <p class="experience-note">Mentored middle school robotics team with a multi-week workshop, teaching chassis building fundamentals and control system programming in Java, culminating in a robot built entirely by the students.</p>
+        <p class="experience-note">Presented technical concepts and explained team processes to professional judges.</p>
+        <p class="experience-note">Developed frameworks for robot driver-controlled and autonomous modes, implementing custom proportional-integral-derivative control system and TensorFlow-based real-time image classification models for navigation.</p>
+    </div>
+    <script>
+        function goTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
