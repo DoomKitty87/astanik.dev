@@ -1,12 +1,15 @@
 @font-face {
     font-family: 'Inter';
-    src: url('fonts/Inter-VariableFont_opsz\,wght.ttf')
+    src: url('fonts/InterVariable.woff2') format('woff2'),
+            url('fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
 }
 
+/*
 @font-face {
     font-family: 'Inter Italic';
     src: url('fonts/Inter-Italic-VariableFont_opsz\,wght.ttf')
 }
+*/
 
 :root {
     font-size: 1vw;
