@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansel Stanik</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <div class="column">
+        <div class="page active-page">
+            <div class="column">
+                <h1 class="landing-title">Ansel Stanik</h1>
+                <h2 class="subtitle">Computer Science Student at Oregon State University</h2>
+
+                <div class="row" style="width: 100%; justify-content: center; margin-top: 4rem; margin-bottom: 4rem;">
+                    <div class="column" style="width: 100%; align-items: end;">
+                        <a class="button" target="_blank" href="etc">GitHub</a>
+                        <a class="button" target="_blank" style="background-image: url('images/buttonborderlong.svg')" href="etc" id="email">email</a>
+                        <a class="button" target="_blank" href="etc">LinkedIn</a>
+                    </div>
+                    <div class="column" style="width: 100%;align-items: start;">
+                        <a class="button" target="_blank" style="background-image: url('images/buttonborderlong.svg')" href="etc">Google Scholar</a>
+                        <a class="button" target="_blank" href="etc">Resume</a>
+                    </div>
+                </div>
+
+                <div class="row"><h2 class="semi-header">Scroll to see my work</h2><img id="work-arrow" style="margin-left: 1rem" src="images/rightarrow.svg"></div>
+            </div>
+        </div>
+
+        <div class="page"></div>
+
+        <div class="page"></div>
+
+        <div class="page"></div>
+        
+        <div id="navbar">
+            <img class="nav-icon" src="images/navbarcircle.svg">
+            <img class="nav-spacer" src="images/navbardash.svg">
+            <img class="nav-icon" src="images/navbarcircle.svg">
+            <img class="nav-spacer" src="images/navbardash.svg">
+            <img class="nav-icon" src="images/navbarcircle.svg">
+            <img class="nav-spacer" src="images/navbardash.svg">
+            <img class="nav-icon" src="images/navbarcircle.svg">
+
+            <img id="nav-position" src="images/navbarstar.svg">
+        </div>
+    </div>
+    <script>
+        const emailButton = document.getElementById('email');
+        const emailAddress = 'cont' + 'act@as' + 'tanik.dev';
+        emailButton.href = `mailto:${emailAddress}`;
+        emailButton.textContent = emailAddress;
+
+        const navIndicator = document.getElementById('nav-position');
+        var currentPage = 0;
+        var scrollValue = 0;
+
+        const pages = document.getElementsByClassName('page');
+
+        function setCurrentPage(pageIndex) {
+            if (pageIndex != currentPage) {
+                navIndicator.classList.remove('animatestar');
+                void navIndicator.offsetWidth;
+                navIndicator.classList.add('animatestar');
+                // TODO: It'd be nice if this didn't behave weirdly when scrolling quickly
+                // ^ is because of the left position set/transition
+                // Also should fix the below when scrolling quickly!
+
+                // pages[currentPage].classList.remove('active-page');
+                // pages[pageIndex].classList.add('active-page');
+
+                const storedTransition = pages[currentPage].style.transition;
+
+                pages[pageIndex].style.transition = 'none';
+                void pages[pageIndex].offsetWidth;
+                if (pageIndex > currentPage) {
+                    pages[pageIndex].style.transform = 'translateX(100%)';
+                } else {
+                    pages[pageIndex].style.transform = 'translateX(-100%)';
+                }
+                void pages[pageIndex].offsetWidth;
+                pages[pageIndex].style.transition = storedTransition;
+                if (pageIndex > currentPage) {
+                    pages[currentPage].style.transform = 'translateX(-100%)';
+                } else {
+                    pages[currentPage].style.transform = 'translateX(100%)';
+                }
+                pages[pageIndex].style.transform = 'translateX(0%)';
+            }
+            currentPage = pageIndex;
+            navIndicator.style.left = `calc(${pageIndex * 28.5}% + 0.0rem)`;
+            if (scrollValue < pageIndex * window.innerWidth) {
+                scrollValue = pageIndex * window.innerWidth;
+            } else if (scrollValue > (pageIndex + 1) * window.innerWidth) {
+                scrollValue = (pageIndex + 1) * window.innerWidth;
+            }
+        }
+
+        const pageIcons = document.getElementsByClassName('nav-icon');
+        for (let i = 0; i < pageIcons.length; i++) {
+            pageIcons[i].addEventListener('click', () => {
+                setCurrentPage(i);
+            });
+        }
+
+        const workArrow = document.getElementById('work-arrow');
+        workArrow.addEventListener('click', () => {
+            setCurrentPage(1);
+        });
+
+        window.addEventListener('wheel', (e) => {
+            scrollValue += e.deltaY;
+            scrollValue = Math.max(0, scrollValue);
+            const pageWidth = window.innerWidth;
+            scrollValue = Math.min(scrollValue, pageWidth * 3);
+            const determinedPage = Math.floor(scrollValue / pageWidth);
+
+            if (determinedPage !== currentPage) {
+                setCurrentPage(determinedPage);
+            }
+        });
+    </script>
+</body>
+</html>
