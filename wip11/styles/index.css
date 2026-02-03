@@ -66,7 +66,7 @@ body {
   height: 100vh;
   margin: 0;
 
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .page {
@@ -138,6 +138,20 @@ body {
   filter: drop-shadow(-5px 5px 0px #fff);
 }
 
+.button-nohover {
+  font-family: 'Sour Gummy';
+  font-size: 2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  background-image: url('../images/buttonbordermedium.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  margin: 0.25rem;
+}
+
 #navbar {
   position: fixed;
   bottom: 1.5rem;
@@ -184,4 +198,106 @@ body {
 
 .animatestar {
   animation: star-spin 1.2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+}
+
+.landing-image-container {
+  width: 21rem;
+  height: 14rem;
+  position: absolute;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  border-radius: 15px;
+}
+
+.image-border {
+  width: 103%;
+  height: 103%;
+  position: absolute;
+  left: -1.5%;
+  top: -1.5%;
+}
+
+#landing-image-1 {
+  left: -4rem;
+  top: 13rem;
+  transform: rotate(70deg);
+}
+
+#landing-image-2 {
+  left: -1rem;
+  top: 1rem;
+  transform: rotate(25deg);
+}
+
+#landing-image-3 {
+  left: 14rem;
+  top: -3.5rem;
+  transform: rotate(-18deg);
+}
+
+#landing-image-4 {
+  right: 18rem;
+  top: -6rem;
+  transform: rotate(15deg);
+}
+
+#landing-image-5 {
+  right: -1rem;
+  top: 1rem;
+  transform: rotate(60deg);
+}
+
+#landing-image-6 {
+  right: -1rem;
+  top: 14rem;
+  transform: rotate(-5deg);
+}
+
+#photography-image-1 {
+  left: -12rem;
+  bottom: -17rem;
+  transform: rotate(-25deg);
+}
+
+#photography-image-2 {
+  left: 2rem;
+  bottom: -23rem;
+  transform: rotate(20deg);
+}
+
+#photography-teaser {
+  position: absolute;
+  left: 10rem;
+  bottom: 19rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#photography-teaser:hover {
+  transform: scale(1.05) translate(5px, -5px);
+  text-shadow: 0 0 5px #fff;
+  filter: drop-shadow(-5px 5px 0px #fff);
+}
+
+#photography-teaser img {
+  transition: filter 0.2s ease-in-out;
+}
+
+#photography-teaser:hover img {
+  filter: brightness(2.0);
+}
+
+.button-arrow-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#photography-arrow {
+  margin-top: -0.5rem;
 }
