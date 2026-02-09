@@ -1,57 +1,80 @@
 /* rubik-doodle-shadow-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Rubik Doodle Shadow';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/rubik-doodle-shadow-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/rubik-doodle-shadow-v1-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* rubik-doodle-triangles-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Rubik Doodle Triangles';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/rubik-doodle-triangles-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/rubik-doodle-triangles-v1-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* rubik-puddles-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Rubik Puddles';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/rubik-puddles-v2-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/rubik-puddles-v2-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* sour-gummy-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Sour Gummy';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/sour-gummy-v3-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/sour-gummy-v3-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* cabin-sketch-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Cabin Sketch';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/cabin-sketch-v23-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/cabin-sketch-v23-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 @keyframes arrow-nudge {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(10%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes star-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 :root {
@@ -95,6 +118,32 @@ body {
   margin-bottom: -2.5rem;
 }
 
+.page-title {
+  font-size: 7rem;
+}
+
+.project-box {
+  position: absolute;
+  right: 3rem;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#game-title {
+  font-family: 'Rubik Doodle Shadow';
+  margin-bottom: -2rem;
+}
+
+#app-title {
+  font-family: 'Rubik Doodle Triangles';
+}
+
+#research-title {
+  font-family: 'Rubik Puddles';
+}
+
 .column {
   display: flex;
   flex-direction: column;
@@ -104,6 +153,131 @@ body {
 .subtitle {
   font-family: 'Sour Gummy';
   font-size: 2rem;
+}
+
+.description {
+  font-family: 'Sour Gummy';
+  font-size: 1.5rem;
+}
+
+#game-selector {
+  position: absolute;
+  left: 0.5rem;
+  top: 30%;
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+}
+
+.game-card {
+  width: 16rem;
+  height: 12rem;
+  position: relative;
+  margin: 1rem;
+  transform: translateY(0);
+  transition: all 0.2s ease-in-out;
+}
+
+.selected-game {
+  width: 18rem;
+  height: 13.5rem;
+}
+
+.game-image-container {
+  width: 25rem;
+  height: 15rem;
+  position: absolute;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  z-index: 0;
+  position: absolute;
+}
+
+.game-image-border {
+  width: 102%;
+  height: 102%;
+  position: absolute;
+  left: -1%;
+  top: -1%;
+}
+
+.game-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  z-index: 0;
+  position: absolute;
+}
+
+.game-thumbnail-border {
+  width: 105%;
+  height: 105%;
+  position: absolute;
+  left: -2.5%;
+  top: -2.5%;
+}
+
+#game-image-1 {
+  left: -6rem;
+  top: 32rem;
+}
+
+#game-image-2 {
+  left: 12rem;
+  top: 39rem;
+}
+
+#game-image-3 {
+  left: 34rem;
+  top: 36rem;
+}
+
+#game-description {
+  max-width: 60rem;
+  background-image: url('../images/descriptionborder.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.award {
+  font-family: 'Sour Gummy';
+  font-size: 2rem;
+  margin: 0rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  color: #ffff00;
+  background-image: url('../images/awardborder.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#game-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -0.5rem;
+}
+
+.technology {
+  font-family: 'Sour Gummy';
+  font-size: 1.5rem;
+  margin: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  color: #9DFFC7;
+  background-image: url('../images/technologyborder.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .semi-header {
