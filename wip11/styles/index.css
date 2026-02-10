@@ -223,6 +223,11 @@ body {
   top: -2.5%;
 }
 
+#game-awards {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
 #game-image-1 {
   left: -6rem;
   top: 32rem;
@@ -235,7 +240,7 @@ body {
 
 #game-image-3 {
   left: 34rem;
-  top: 36rem;
+  top: 37rem;
 }
 
 #game-description {
@@ -280,6 +285,17 @@ body {
   background-repeat: no-repeat;
 }
 
+#game-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
 .semi-header {
   font-family: 'Sour Gummy';
   font-size: 2.5rem;
@@ -289,6 +305,34 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+#game-links {
+  margin-top: 1rem;
+  margin-right: 3rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.game-link {
+  font-family: 'Sour Gummy';
+  font-size: 2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  background-image: url('../images/buttonbordermedium.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  margin: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-link:hover {
+  text-shadow: 0 0 5px #fff;
+  transform: scale(1.05) translate(5px, -5px);
+  filter: drop-shadow(-5px 5px 0px #fff);
 }
 
 .button {

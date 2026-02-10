@@ -66,6 +66,7 @@
             <div id="game-selector">
             </div>
 
+            <video id="game-video" autoplay loop muted></video>
             <div class="project-box">
                 <h1 id="game-title" class="page-title">Project Name</h1>
                 <h2 id="game-subtitle" class="subtitle">Event Name - Year</h2>
@@ -77,9 +78,9 @@
                     First-person open world survival game set in an alternate future where Mount St. Helens’ eruption
                     led to paranormal environmental activity in the region.
                 </p>
-                <div id="game-technologies" class="game-technologies">
+                <div id="game-technologies">
                 </div>
-                <div id="game-links" class="game-links">
+                <div id="game-links">
                 </div>
                 <div class="game-image-container" id="game-image-1">
                     <img class="game-image" src="images/milkyway_orion_v2-2.webp">
@@ -148,18 +149,19 @@
                     'Gaea'
                 ],
                 links: {
-                    'Launch Trailer': 'etc',
-                    'GitHub': 'etc'
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=d67YrHbhKMY',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/1b7379ac-c1a0-42f4-8198-cd94d069b991'
                 },
-                thumbnail: 'images/milkyway_orion_v2-2.webp',
-                video: 'etc',
+                thumbnail: 'images/content/northwoodsthumbnail.webp',
+                video: 'videos/northwoodstrailercondensed.mp4',
                 images: [
-                    'etc',
-                    'etc'
+                    'images/content/northwoodsimg1.webp',
+                    'images/content/northwoodsimg3.webp',
+                    'images/content/northwoodsimg2.webp'
                 ]
             },
             {
-                name: 'On the Lamb!',
+                name: 'On The Lamb!',
                 subtitle: 'GMTK Game Jam 2025',
                 awards: [
                     'Top 10% Overall',
@@ -171,14 +173,15 @@
                     'Blender'
                 ],
                 links: {
-                    'Launch Trailer': 'etc',
-                    'GitHub': 'etc'
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=kN98JuUSIng',
+                    'itch.io': 'https://fractaldev.itch.io/on-the-lamb'
                 },
-                thumbnail: 'images/milkyway_orion_v2-2.webp',
-                video: 'etc',
+                thumbnail: 'images/content/onthelambthumbnail.webp',
+                video: 'videos/onthelambtrailercondensed.mp4',
                 images: [
-                    'etc',
-                    'etc'
+                    'images/content/onthelambimage1.webp',
+                    'images/content/onthelambimage2.webp',
+                    'images/content/onthelambimage3.webp'
                 ]
             },
             {
@@ -194,14 +197,15 @@
                     'Blender'
                 ],
                 links: {
-                    'Launch Trailer': 'etc',
-                    'GitHub': 'etc'
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=iuVu_se6i7w',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/cd7fde0e-bea4-4f2e-9692-9df177798a7a'
                 },
-                thumbnail: 'images/milkyway_orion_v2-2.webp',
-                video: 'etc',
+                thumbnail: 'images/content/noctethumbnail.webp',
+                video: 'videos/noctetrailercondensed.mp4',
                 images: [
-                    'etc',
-                    'etc'
+                    'images/content/nocteimage1.webp',
+                    'images/content/nocteimage2.webp',
+                    'images/content/nocteimage3.webp'
                 ]
             },
             {
@@ -217,37 +221,37 @@
                     'Blender'
                 ],
                 links: {
-                    'Launch Trailer': 'etc',
-                    'GitHub': 'etc'
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=veMg_MTGvXw',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2'
                 },
-                thumbnail: 'images/milkyway_orion_v2-2.webp',
-                video: 'etc',
+                thumbnail: 'images/content/symbiontthumbnail.webp',
+                video: 'videos/symbionttrailercondensed.mp4',
                 images: [
-                    'etc',
-                    'etc'
+                    'images/content/symbiontimage1.webp',
+                    'images/content/symbiontimage2.webp',
+                    'images/content/symbiontimage3.webp'
                 ]
             },
-            {
-                name: 'Transience',
-                subtitle: 'Independent',
-                awards: [
-                ],
-                description: '2D platformer with mechanics and colorful visuals synced to music. My first game!',
-                technologies: [
-                    'Unity',
-                    'C#',
-                ],
-                links: {
-                    'Launch Trailer': 'etc',
-                    'GitHub': 'etc'
-                },
-                thumbnail: 'images/milkyway_orion_v2-2.webp',
-                video: 'etc',
-                images: [
-                    'etc',
-                    'etc'
-                ]
-            }
+            // {
+            //     name: 'Transience',
+            //     subtitle: 'Independent',
+            //     awards: [
+            //     ],
+            //     description: '2D platformer with mechanics and colorful visuals synced to music. My first game!',
+            //     technologies: [
+            //         'Unity',
+            //         'C#',
+            //     ],
+            //     links: {
+            //         'itch.io': 'https://doomkitty87.itch.io/transience-demo-01',
+            //     },
+            //     thumbnail: 'images/milkyway_orion_v2-2.webp',
+            //     video: 'etc',
+            //     images: [
+            //         'etc',
+            //         'etc'
+            //     ]
+            // }
         ]
 
         const gameSelector = document.getElementById('game-selector');
@@ -332,6 +336,39 @@
 
                 technologyElement.style.filter = 'hue-rotate(' + (Math.random() * 360) + 'deg)';
                 technologiesContainer.appendChild(technologyElement);
+            });
+
+            const linksContainer = document.getElementById('game-links');
+            linksContainer.innerHTML = '';
+            for (const [linkName, linkUrl] of Object.entries(game.links)) {
+                const linkElement = document.createElement('a');
+                linkElement.classList.add('game-link');
+                linkElement.textContent = linkName;
+                linkElement.href = linkUrl;
+                linkElement.target = '_blank';
+                linksContainer.appendChild(linkElement);
+            }
+
+            const videoElement = document.getElementById('game-video');
+            if (game.video) {
+                videoElement.src = game.video;
+                videoElement.style.display = 'block';
+            } else {
+                videoElement.style.display = 'none';
+            }
+
+            const imageElements = [
+                document.getElementById('game-image-1'),
+                document.getElementById('game-image-2'),
+                document.getElementById('game-image-3')
+            ];
+
+            game.images.forEach((imageSrc, index) => {
+                if (index < imageElements.length) {
+                    const img = imageElements[index].querySelector('.game-image');
+                    img.src = imageSrc;
+                    imageElements[index].style.display = 'block';
+                }
             });
 
             for (let i = 0; i < games.length; i++) {
