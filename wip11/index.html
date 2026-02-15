@@ -92,15 +92,15 @@
                 <div id="game-links">
                 </div>
                 <div class="game-image-container" id="game-image-1">
-                    <img class="game-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="game-image" src="">
                     <img class="game-image-border" src="images/gameimageborder.svg">
                 </div>
                 <div class="game-image-container" id="game-image-2">
-                    <img class="game-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="game-image" src="">
                     <img class="game-image-border" src="images/gameimageborder.svg">
                 </div>
                 <div class="game-image-container" id="game-image-3">
-                    <img class="game-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="game-image" src="">
                     <img class="game-image-border" src="images/gameimageborder.svg">
                 </div>
             </div>
@@ -122,15 +122,15 @@
                 <div id="app-links">
                 </div>
                 <div class="project-image-container" id="project-image-1">
-                    <img class="project-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="project-image" src="">
                     <img class="project-image-border" src="images/projectimageborder.svg">
                 </div>
                 <div class="project-image-container" id="project-image-2">
-                    <img class="project-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="project-image" src="">
                     <img class="project-image-border" src="images/projectimageborder.svg">
                 </div>
                 <div class="project-image-container" id="project-image-3">
-                    <img class="project-image" src="images/milkyway_orion_v2-2.webp">
+                    <img class="project-image" src="">
                     <img class="project-image-border" src="images/projectimageborder.svg">
                 </div>
             </div>
@@ -413,6 +413,7 @@
 
         const gameSelector = document.getElementById('game-selector');
         const projectSelector = document.getElementById('project-selector');
+        const gameVideoElements = []
 
         // Populate game selector
         games.forEach((game, index) => {
@@ -434,6 +435,15 @@
                 gameCard.classList.add('selected-game');
             }
             gameSelector.appendChild(gameCard);
+
+            // Load the video ahead of time so it doesn't have to load when the user clicks
+            const video = document.createElement('video');
+            gameVideoElements.push(video);
+            video.src = game.video;
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.id = 'game-video';
         });
 
         gameSelector.addEventListener('wheel', (e) => {
@@ -639,13 +649,10 @@
                 linksContainer.appendChild(linkElement);
             }
 
-            const videoElement = document.getElementById('game-video');
-            if (game.video) {
-                videoElement.src = game.video;
-                videoElement.style.display = 'block';
-            } else {
-                videoElement.style.display = 'none';
-            }
+            const videoElement = gameVideoElements[gameIndex];
+            const gameVideo = document.getElementById('game-video');
+            gameVideo.parentElement.replaceChild(videoElement, gameVideo);
+            videoElement.play();
 
             const imageElements = [
                 document.getElementById('game-image-1'),

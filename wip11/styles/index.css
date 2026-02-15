@@ -177,7 +177,7 @@ body {
 #game-selector {
   position: absolute;
   left: 0.5rem;
-  top: 30%;
+  top: 10%;
   display: flex;
   height: fit-content;
   flex-direction: column;
