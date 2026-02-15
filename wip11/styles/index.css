@@ -97,8 +97,8 @@ body {
   height: 100%;
   position: absolute;
 
-  background-image: url('../images/orioncombined.png');
-  background-size: 180% 180%;
+  background-image: url('../images/content/9E29D09B-1073-4648-AD86-D45BDB1DE27F_1_102_a.webp');
+  background-size: cover;
   background-position-x: 90%;
   background-position-y: 60%;
   background-repeat: no-repeat;
@@ -106,8 +106,20 @@ body {
   transform: translateX(100%);
 }
 
+.secondary-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 0.8s ease-in-out;
+  transform: translateY(100%);
+}
+
 .active-page {
   transform: translateX(0%);
+}
+
+.secondary-page.active-page {
+  transform: translateY(0%);
 }
 
 .landing-title {
@@ -138,6 +150,8 @@ body {
 
 #app-title {
   font-family: 'Rubik Doodle Triangles';
+  font-weight: 400;
+  margin-bottom: -2rem;
 }
 
 #research-title {
@@ -169,13 +183,65 @@ body {
   flex-direction: column;
 }
 
+#project-selector {
+  position: absolute;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.project-card {
+  width: 24rem;
+  height: 15rem;
+  position: relative;
+  margin: 1rem;
+  left: 0;
+  top: 0;
+  transform: translateY(0);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  filter: drop-shadow(-5px 5px 0px #fff);
+  left: 0.25rem;
+  top: -0.25rem;
+}
+
+#app-description {
+  max-width: 45rem;
+  padding: 1rem 2rem;
+  margin-top: -2rem;
+}
+
+#project-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
 .game-card {
   width: 16rem;
   height: 12rem;
   position: relative;
   margin: 1rem;
+  left: 0;
+  top: 0;
   transform: translateY(0);
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  filter: drop-shadow(-5px 5px 0px #fff);
+  left: 0.25rem;
+  top: -0.25rem;
 }
 
 .selected-game {
@@ -189,7 +255,14 @@ body {
   position: absolute;
 }
 
-.game-image {
+.project-image-container {
+  width: 26rem;
+  height: 16rem;
+  position: absolute;
+}
+
+.game-image,
+.project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -198,7 +271,8 @@ body {
   position: absolute;
 }
 
-.game-image-border {
+.game-image-border,
+.project-image-border {
   width: 102%;
   height: 102%;
   position: absolute;
@@ -206,21 +280,24 @@ body {
   top: -1%;
 }
 
-.game-thumbnail {
+.game-thumbnail,
+.project-thumbnail {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   border-radius: 15px;
   z-index: 0;
   position: absolute;
 }
 
-.game-thumbnail-border {
-  width: 105%;
-  height: 105%;
+.game-thumbnail-border,
+.project-thumbnail-border {
+  width: 102%;
+  height: 102%;
   position: absolute;
-  left: -2.5%;
-  top: -2.5%;
+  left: -1%;
+  top: -1%;
 }
 
 #game-awards {
@@ -241,6 +318,21 @@ body {
 #game-image-3 {
   left: 34rem;
   top: 37rem;
+}
+
+#project-image-1 {
+  left: -45rem;
+  top: 2rem;
+}
+
+#project-image-2 {
+  left: -27rem;
+  top: 10rem;
+}
+
+#project-image-3 {
+  left: -42rem;
+  top: 20rem;
 }
 
 #game-description {
@@ -266,7 +358,8 @@ body {
   background-repeat: no-repeat;
 }
 
-#game-technologies {
+#game-technologies,
+#app-technologies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -307,14 +400,16 @@ body {
   align-items: center;
 }
 
-#game-links {
+#game-links,
+#app-links {
   margin-top: 1rem;
   margin-right: 3rem;
   display: flex;
   gap: 1.5rem;
 }
 
-.game-link {
+.game-link,
+.project-link {
   font-family: 'Sour Gummy';
   font-size: 2rem;
   color: var(--text-color);
@@ -329,7 +424,8 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.game-link:hover {
+.game-link:hover,
+.project-link:hover {
   text-shadow: 0 0 5px #fff;
   transform: scale(1.05) translate(5px, -5px);
   filter: drop-shadow(-5px 5px 0px #fff);
@@ -373,7 +469,7 @@ body {
 #navbar {
   position: fixed;
   bottom: 1.5rem;
-  width: fit-content;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
@@ -410,7 +506,7 @@ body {
 #nav-position {
   width: 3.5rem;
   position: absolute;
-  left: 0;
+  left: 39.5rem;
   transition: left 0.8s ease-in-out;
 }
 
