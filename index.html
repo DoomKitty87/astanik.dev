@@ -1,183 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansel Stanik</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1 style="margin-top: 7rem; margin-bottom: 0.5rem;" class="title-big" id="about">Ansel Stanik</h1>
-    <h2 class="subtitle-big">Computer Science Student at Oregon State University</h2>
-    <div style="margin-top: 1rem;" class="link-row">
-        <a class="link" href="files/ansel_stanik_resume.pdf" target="_blank">My Resume</a>
-        <a class="link" href="https://github.com/doomkitty87" target="_blank">GitHub</a>
-        <a class="link" href="https://linkedin.com/in/anselstanik" target="_blank">LinkedIn</a>
-        <a class="link" href="mailto:contact@astanik.dev">contact@astanik.dev</a>
-    </div>
-    <p class="description">
-        I'm a first-year computer science student at Oregon State University with interest and experience in software, computer graphics, and interdisciplinary research. Real-time procedural generation and machine learning are some topics I find interesting, and I spend a lot of my free time walking and hiking.
-    </p>
-    <div id="navigation">
-        <button class="nav-link" onclick="goTo('about')">About</button>
-        <button class="nav-link" onclick="goTo('projects')">Projects</button>
-        <button class="nav-link" onclick="goTo('research')">Research</button>
-        <button class="nav-link" onclick="goTo('experience')">Experience</button>
-    </div>
-    <h1 style="margin-bottom: 2rem; margin-top: 1rem;" class="title" id="projects">Projects</h1>
-    <div class="project">
-        <div class="project-text">
-            <h2 class="project-title">Northwoods</h2>
-            <h3 class="project-subtitle">Unity Engine</h3>
-            <p class="project-description">A survival game set in the Pacific Northwest, developed for the 2025 Oregon Game Project Challenge. Won Best In Show and Students' Choice awards out of 40+ teams, becoming the first ever high school team to do so.</p>
-            <a class="link" href="https://www.youtube.com/watch?v=d67YrHbhKMY" target="_blank">Trailer</a>
-            <a class="link" href="https://tms.ogpc.info/Games/Details/1b7379ac-c1a0-42f4-8198-cd94d069b991" target="_blank">Learn More</a>
-        </div>
-        <div class="project-images">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodsforest.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodspostcard.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodstornado.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodstrail.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodscliffs.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/northwoodsfall.jpg">
-        </div>
-    </div>
-    <div class="project">
-        <div class="project-text">
-            <h2 class="project-title">On The Lamb!</h2>
-            <h3 class="project-subtitle">Unity Engine</h3>
-            <p class="project-description">An eccentric sheep herding game made in four days for the GMTK 2025 Game Jam, placing in the top 10% in multiple categories.</p>
-            <a class="link" href="https://www.youtube.com/watch?v=kN98JuUSIng" target="_blank">Trailer</a>
-            <a class="link" href="https://fractaldev.itch.io/on-the-lamb" target="_blank">Learn More</a>
-        </div>
-        <div class="project-images">
-            <img loading="lazy" class="project-image" src="images/compressed/onthelamblasso.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/onthelambmap.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/onthelambmonster.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/onthelambrocket.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/onthelambcloning.jpg">
-        </div>
-    </div>
-    <div class="project">
-        <div class="project-text">
-            <h2 class="project-title">Nocte</h2>
-            <h3 class="project-subtitle">Unity Engine</h3>
-            <p class="project-description">A third-person exploration game where you must find a series of structures to complete objectives in a procedurally generated landscape. Won the Game Design award at the 2024 Oregon Game Project Challenge.</p>
-            <a class="link" href="https://www.youtube.com/watch?v=iuVu_se6i7w" target="_blank">Trailer</a>
-            <a class="link" href="https://tms.ogpc.info/Games/Details/cd7fde0e-bea4-4f2e-9692-9df177798a7a" target="_blank">Learn More</a>
-        </div>
-        <div class="project-images">
-            <img loading="lazy" class="project-image" src="images/compressed/nocteposter.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/nocteplane.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/noctescan.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/noctemountains.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/nocteposteralt.jpg">
-        </div>
-    </div>
-    <div class="project">
-        <div class="project-text">
-            <h2 class="project-title">Symbiont</h2>
-            <h3 class="project-subtitle">Unity Engine</h3>
-            <p class="project-description">A first person shooter game where you swap consciousness with your enemies. Won the Programming award at the 2023 Oregon Game Project Challenge.</p>
-            <a class="link" href="https://www.youtube.com/watch?v=veMg_MTGvXw" target="_blank">Trailer</a>
-            <a class="link" href="https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2" target="_blank">Learn More</a>
-        </div>
-        <div class="project-images">
-            <img loading="lazy" class="project-image" src="images/compressed/symbiontposter.jpg">
-            <img loading="lazy" class="project-image" src="images/compressed/symbiontgameplay.jpg">
-        </div>
-    </div>
-    <div class="project">
-        <div class="project-text">
-            <h2 class="project-title">Seafoam</h2>
-            <h3 class="project-subtitle">Web/Software</h3>
-            <p class="project-description">A web and desktop application that generates optimal mining routes for Minecraft, taking into account ergonomics and preferences for optimal throughput, with 85k+ user visits.</p>
-            <a class="link" href="https://github.com/DoomKitty87/seafoam" target="_blank">Desktop Version Repository</a>
-            <a class="link" href="https://astanik.dev/seafoam" target="_blank">Try It</a>
-        </div>
-        <div class="project-images">
-            <img loading="lazy" class="project-image" src="images/compressed/seafoam.jpg">
-        </div>
-    </div>
-    <h1 style="margin-bottom: 1rem; margin-top: 1rem;" class="title" id="research">Research</h1>
-    <div class="container">
-        <div class="column">
-            <h2 class="subtitle-big" style="text-align:center;">Publications</h2>
-            <div class="publication">
-                <a class="publication-link" href="https://doi.org/10.1016/j.actbio.2025.07.040" target="_blank">Actin-microtubule synergy dominates force transmission and collagen strain in human trabecular meshwork</a>
-                <h2 class="publication-source">Acta Biomaterialia 2025</h2>
-            </div>
-            <div class="publication">
-                <a class="publication-link" href="https://doi.org/10.1016/j.tice.2025.103005" target="_blank">3D traction force microscopy in human trabecular meshwork tissues: Effects of ROCK and YAP/TAZ inhibition in normal and glaucomatous tissues</a>
-                <h2 class="publication-source">Tissue and Cell 2025</h2>
-            </div>
-            <div class="publication">
-                <a class="publication-link" href="https://www.cell.com/matter/abstract/S2590-2385(25)00137-7" target="_blank">Matrix stiffness regulates traction forces, cytoskeletal dynamics, and collagen reorganization in trabecular meshwork cells in glaucoma</a>
-                <h2 class="publication-source">Matter 2025</h2>
-            </div>
-            <div class="publication">
-                <a class="publication-link" href="https://doi.org/10.1016/j.bbe.2025.01.004" target="_blank">Impact of aging on anterior segment morphology and aqueous humor dynamics in human Eyes: Advanced imaging and computational techniques</a>
-                <h2 class="publication-source">Biocybernetics and Biomedical Engineering 2025</h2>
-            </div>
-            <div class="publication">
-                <a class="publication-link" href="https://doi.org/10.1016/j.cmpb.2024.108538" target="_blank">High-resolution modeling of aqueous humor dynamics in the conventional outflow pathway of a normal human donor eye</a>
-                <h2 class="publication-source">Computer Methods and Programs in Biomedicine 2024</h2>
-            </div>
-            <div class="publication">
-                <a class="publication-link" href="https://www.mdpi.com/2306-5354/11/6/577" target="_blank">Integrating Deep Learning with Electronic Health Records for Early Glaucoma Detection: A Multi-Dimensional Machine Learning Approach</a>
-                <h2 class="publication-source">Bioengineering 2024</h2>
-            </div>
-        </div>
-        <div class="column">
-            <h2 class="subtitle-big" style="text-align:center;">What I've Done</h2>
-            <h3 class="category">Machine Learning</h3>
-            <p class="category-entry">Handled data ingress and assimilation from various clinical sources to create consistent and useful training datasets.</p>
-            <p class="category-entry">Built machine learning models to predict glaucoma risk and intraocular pressure in patients.</p>
-            <p class="category-entry">Created accessible frontend interfaces for clinicians, allowing for portable model deployment in the field, and helping increase access to early glaucoma screening without the need for imaging or specialized equipment.</p>
-            <h3 class="category">Data Visualization</h3>
-            <p class="category-entry">Used popular Python data visualization libraries (Matplotlib, Seaborn, PyVista) to create helpful visualizations of data obtained through image analysis.</p>
-            <p class="category-entry">Developed custom data visualization systems to allow for high-detail rendering of computed strain data on 3D models extracted from microscopy data.</p>
-            <p class="category-entry">Trained collaborators on custom data visualization techniques and scripts to enhance analysis workflows and throughput.</p>
-            <h3 class="category">Image Analysis</h3>
-            <p class="category-entry">Designed and optimized bespoke 2D segmentation algorithm for differentiation of aqueous humor from tissue in microscopy images.</p>
-            <p class="category-entry">Wrote custom digital volume correlation implementation to enable strain mapping in 3D microscopy data without embedded markers.</p>
-            <p class="category-entry">Extended existing traction force microscopy and strain analysis implementation from 2D to 3D, allowing for more extensive understanding of glaucoma biomechanics.</p>
-            <p class="category-entry">Conducted morphological analysis of different portions of the eye from 2D microscopy data.</p>
-            <p class="category-entry">Extracted orientation data from cytoskeleton component image masks over time to compare cell behaviors under different conditions.</p>
-        </div>
-    </div>
-    <h1 style="margin-bottom: 1rem; margin-top: 3rem;" class="title" id="experience">Experience</h1>
-    <div class="experience">
-        <h2 class="experience-title">Ocular Biomechanics Research Assistant</h2>
-        <h3 class="experience-subtitle">Oregon Health & Science University | Feb 2024 - Present</h3>
-        <p class="experience-note">Developed algorithms and procedures primarily for the analysis of various types of image data (SEM, confocal microscopy, OCT, LSFM) in 2D and 3D.</p>
-        <p class="experience-note">Led teams of 2-4 to process data and produce publication-ready visualizations, and collaborated with clinicians and researchers on various projects.</p>
-        <p class="experience-note">Taught new team members to use custom processes and techniques, creating accessible documentation and communicating effectively.</p>
-        <p class="experience-note">Built accessible and interpretable user interfaces for machine learning models, allowing clinicians to provide wider access to early glaucoma screening.</p>
-    </div>
-    <div class="experience">
-        <h2 class="experience-title">Lead Developer & Technical Artist</h2>
-        <h3 class="experience-subtitle">Fractal Development | Jan 2023 - Aug 2025</h3>
-        <p class="experience-note">Led teams of 5-7 to develop an entry for the Oregon Game Project Challenge, a statewide competition.</p>
-        <p class="experience-note">Managed project timelines and goals, team responsibilities, and meetings.</p>
-        <p class="experience-note">Built efficient rendering and procedural content generation systems for real-time gameplay using data-oriented workflows.</p>
-        <p class="experience-note">Marketed and promoted projects by producing trailers and presenting to industry professional judges.</p>
-    </div>
-    <div class="experience">
-        <h2 class="experience-title">Programming Lead & Team Captain</h2>
-        <h3 class="experience-subtitle">Loose Screws FTC | Sep 2023 - June 2025</h3>
-        <p class="experience-note">Coordinated efforts between engineering, programming, and outreach teams to keep projects on track in a team of 10+.</p>
-        <p class="experience-note">Mentored middle school robotics team with a multi-week workshop, teaching chassis building fundamentals and control system programming in Java, culminating in a robot built entirely by the students.</p>
-        <p class="experience-note">Presented technical concepts and explained team processes to professional judges.</p>
-        <p class="experience-note">Developed frameworks for robot driver-controlled and autonomous modes, implementing custom proportional-integral-derivative control system and TensorFlow-based real-time image classification models for navigation.</p>
-    </div>
+    <link rel="stylesheet" href="./styles/index.css">
     <script>
-        function goTo(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+        // Redirect to old version if user is on mobile
+        if (window.innerWidth / window.innerHeight < 1.0) {
+            window.location.href = 'https://astanik.dev/mobile';
         }
     </script>
+</head>
+
+<body>
+    <div class="column">
+        <div class="secondary-page active-page">
+            <div class="page active-page">
+                <div class="column">
+                    <h1 class="landing-title">Ansel Stanik</h1>
+                    <h2 class="subtitle">Computer Science Student at Oregon State University</h2>
+
+                    <div class="row"
+                        style="width: 100%; justify-content: center; margin-top: 4rem; margin-bottom: 4rem;">
+                        <div class="column" style="width: 100%; align-items: end;">
+                            <a class="button" target="_blank" href="https://github.com/DoomKitty87">GitHub</a>
+                            <a class="button" target="_blank"
+                                style="background-image: url('images/buttonborderlong.svg')" href="etc"
+                                id="email">email</a>
+                        </div>
+                        <div class="column" style="width: 100%;align-items: start;">
+                            <a class="button" target="_blank" href="files/ansel_stanik_resume.pdf">Resume</a>
+                            <a class="button" target="_blank"
+                                href="https://www.linkedin.com/in/anselstanik/">LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h2 class="semi-header">Scroll to see my work</h2><img id="work-arrow" style="margin-left: 1rem"
+                            src="images/rightarrow.svg">
+                    </div>
+
+                    <div class="row" style="margin-top: 4rem;">
+                        <h3 class="description" style="margin-right: 0.5rem;">If you'd prefer a less cluttered layout,
+                        </h3>
+                        <a href="https://astanik.dev/mobile" class="link">click here</a>
+                    </div>
+                </div>
+
+                <div class="landing-image-container" id="landing-image-1"><img class="image"
+                        src="images/content/9FBFB5DF-F315-4018-99F9-0342D0A2C671_1_102_a.webp"
+                        style="image-orientation: none;"><img class="image-border" src="images/photoborder.svg"></div>
+                <div class="landing-image-container" id="landing-image-2"><img class="image"
+                        src="images/content/E9DAEE73-7B9E-4011-A636-D893F39DC76F_1_102_a.webp"><img class="image-border"
+                        src="images/photoborder.svg"></div>
+                <div class="landing-image-container" id="landing-image-3"><img class="image"
+                        src="images/content/IMG_5201.webp"><img class="image-border" src="images/photoborder.svg"></div>
+                <div class="landing-image-container" id="landing-image-4"><img class="image"
+                        src="images/content/9E29D09B-1073-4648-AD86-D45BDB1DE27F_1_102_a.webp"><img class="image-border"
+                        src="images/photoborder.svg"></div>
+                <div class="landing-image-container" id="landing-image-5"><img class="image"
+                        src="images/content/3C461E43-27C7-4017-BFF3-7CDB85E7C3FC_1_105_c.webp"><img class="image-border"
+                        src="images/photoborder.svg"></div>
+                <div class="landing-image-container" id="landing-image-6"><img class="image"
+                        src="images/content/image.webp"><img class="image-border" src="images/photoborder.svg"></div>
+
+                <div id="photography-teaser" onclick="scrollVertically(1)">
+                    <div class=" landing-image-container" id="photography-image-1"><img class="image"
+                            src="images/content/image-6.webp"><img class="image-border" src="images/photoborder.svg">
+                    </div>
+                    <div class="landing-image-container" id="photography-image-2"><img class="image"
+                            src="images/content/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.webp"><img
+                            class="image-border" src="images/photoborder.svg">
+                    </div>
+                    <div class="button-arrow-stack">
+                        <a class="button-nohover" href="#"
+                            style="background-image: url('images/buttonborderlong.svg')">Photography!</a>
+                        <img id="photography-arrow" src="images/downarrow.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div id="game-selector">
+                </div>
+
+                <video id="game-video" autoplay loop muted></video>
+                <div class="project-box">
+                    <h1 id="game-title" class="page-title">Project Name</h1>
+                    <h2 id="game-subtitle" class="subtitle">Event Name - Year</h2>
+                    <div id="game-awards" class="row">
+                        <h3 class="award">Award 1</h3>
+                        <h3 class="award">Award 2</h3>
+                    </div>
+                    <p id="game-description" class="description">
+                        First-person open world survival game set in an alternate future where Mount St. Helens’
+                        eruption
+                        led to paranormal environmental activity in the region.
+                    </p>
+                    <div id="game-technologies">
+                    </div>
+                    <div id="game-links">
+                    </div>
+                    <div class="game-image-container" id="game-image-1">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                    <div class="game-image-container" id="game-image-2">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                    <div class="game-image-container" id="game-image-3">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div id="project-selector">
+                </div>
+
+                <img id="project-background" src="">
+                <div class="project-box">
+                    <h1 id="app-title" class="page-title">Project Name</h1>
+                    <h2 id="app-subtitle" class="subtitle">Event Name - Year</h2>
+                    <p id="app-description" class="description">
+                        Project description box
+                    </p>
+                    <div id="app-technologies">
+                    </div>
+                    <div id="app-links">
+                    </div>
+                    <div class="project-image-container" id="project-image-1">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                    <div class="project-image-container" id="project-image-2">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                    <div class="project-image-container" id="project-image-3">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <img class="background-img" style="filter: brightness(0.5);"
+                    src="images/content/orionwithflameandm42.webp">
+                <div id="publication-list">
+                    <div id="publication-inner">
+
+                    </div>
+                </div>
+                <div class="project-box">
+                    <h1 id="research-title" class="page-title">Research</h1>
+                    <p class="description" id="research-description">
+                        Here are publications I'm a co-author on. Some of the specifics I've worked on:<br><br>
+                        <span class="emphasis">Machine Learning</span>
+                        <br>
+                        Handled data ingress and assimilation from various clinical sources to create consistent and
+                        useful
+                        training datasets.
+
+                        Built machine learning models to predict glaucoma risk and intraocular pressure in patients.
+
+                        Created accessible frontend interfaces for clinicians, allowing for portable model deployment in
+                        the
+                        field, and helping increase access to early glaucoma screening without the need for imaging or
+                        specialized equipment.
+                        <br><br>
+                        <span class="emphasis">Data Visualization</span>
+                        <br>
+                        Used popular Python data visualization libraries (Matplotlib, Seaborn, PyVista) to create
+                        helpful
+                        visualizations of data obtained through image analysis.
+
+                        Developed custom data visualization systems to allow for high-detail rendering of computed
+                        strain
+                        data on 3D models extracted from microscopy data.
+
+                        Trained collaborators on custom data visualization techniques and scripts to enhance analysis
+                        workflows and throughput.
+                        <br><br>
+                        <span class="emphasis">Image Analysis</span>
+                        <br>
+                        Designed and optimized bespoke 2D segmentation algorithm for differentiation of aqueous humor
+                        from
+                        tissue in microscopy images.
+
+                        Wrote custom digital volume correlation implementation to enable strain mapping in 3D microscopy
+                        data without embedded markers.
+
+                        Extended existing traction force microscopy and strain analysis implementation from 2D to 3D,
+                        allowing for more extensive understanding of glaucoma biomechanics.
+
+                        Conducted morphological analysis of different portions of the eye from 2D microscopy data.
+
+                        Extracted orientation data from cytoskeleton component image masks over time to compare cell
+                        behaviors under different conditions.
+                    </p>
+                </div>
+            </div>
+
+            <div id="navbar">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+
+                <img id="nav-position" src="images/navbarstar.svg">
+            </div>
+        </div>
+
+        <div class="secondary-page">
+            <img class="background-img"
+                src="images/content/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.webp">
+            <img class="back-arrow" id="photography-back" onclick="scrollVertically(0)" src="images/backarrow.svg">
+            <h1 class="page-title" id="photography-title">Photography</h1>
+            <div id="photos-container">
+            </div>
+        </div>
+
+        <div class="secondary-page">
+
+        </div>
+
+    </div>
+
+    <script>
+        const emailButton = document.getElementById('email');
+        const emailAddress = 'cont' + 'act@as' + 'tanik.dev';
+        emailButton.href = `mailto:${emailAddress}`;
+        emailButton.textContent = emailAddress;
+
+        const navIndicator = document.getElementById('nav-position');
+        var currentPage = 0;
+        var scrollValue = 0;
+
+        const pages = document.getElementsByClassName('page');
+        const secondaryPages = document.getElementsByClassName('secondary-page');
+
+        const games = [
+            {
+                name: 'Northwoods',
+                subtitle: 'Oregon Game Project Challenge 2025',
+                awards: [
+                    'Best in Show',
+                    'Players\' Choice'
+                ],
+                description: 'First-person open world survival game set in an alternate future where Mount St. Helens’ eruption led to paranormal environmental activity in the region.',
+                technologies: [
+                    'Unity',
+                    'C#',
+                    'Blender',
+                    'Gaea'
+                ],
+                links: {
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=d67YrHbhKMY',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/1b7379ac-c1a0-42f4-8198-cd94d069b991'
+                },
+                thumbnail: 'images/content/northwoodsthumbnail.webp',
+                video: 'videos/northwoodstrailercondensed.mp4',
+                images: [
+                    'images/content/northwoodsimg1.webp',
+                    'images/content/northwoodsimg3.webp',
+                    'images/content/northwoodsimg2.webp'
+                ]
+            },
+            {
+                name: 'On The Lamb!',
+                subtitle: 'GMTK Game Jam 2025',
+                awards: [
+                    'Top 10% Overall',
+                ],
+                description: 'Eccentric sheep herding game with Wallace and Gromit-inspired machinery and an eldritch horror in your backyard.',
+                technologies: [
+                    'Unity',
+                    'C#',
+                    'Blender'
+                ],
+                links: {
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=kN98JuUSIng',
+                    'itch.io': 'https://fractaldev.itch.io/on-the-lamb'
+                },
+                thumbnail: 'images/content/onthelambthumbnail.webp',
+                video: 'videos/onthelambtrailercondensed.mp4',
+                images: [
+                    'images/content/onthelambimage1.webp',
+                    'images/content/onthelambimage2.webp',
+                    'images/content/onthelambimage3.webp'
+                ]
+            },
+            {
+                name: 'Nocte',
+                subtitle: 'Oregon Game Project Challenge 2024',
+                awards: [
+                    'Game Design',
+                ],
+                description: 'Third-person exploration game involving a robot solving a mystery and a procedurally generated world.',
+                technologies: [
+                    'Unity',
+                    'C#',
+                    'Blender'
+                ],
+                links: {
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=iuVu_se6i7w',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/cd7fde0e-bea4-4f2e-9692-9df177798a7a'
+                },
+                thumbnail: 'images/content/noctethumbnail.webp',
+                video: 'videos/noctetrailercondensed.mp4',
+                images: [
+                    'images/content/nocteimage1.webp',
+                    'images/content/nocteimage2.webp',
+                    'images/content/nocteimage3.webp'
+                ]
+            },
+            {
+                name: 'Symbiont',
+                subtitle: 'Oregon Game Project Challenge 2023',
+                awards: [
+                    'Programming',
+                ],
+                description: 'Fast-paced first person shooter where you play as a computer virus that can swap its consciousness between enemy robots.',
+                technologies: [
+                    'Unity',
+                    'C#',
+                    'Blender'
+                ],
+                links: {
+                    'Launch Trailer': 'https://www.youtube.com/watch?v=veMg_MTGvXw',
+                    'More Info': 'https://tms.ogpc.info/Games/Details/d188f6c3-fb44-4d45-859c-2b3abd0a0ab2'
+                },
+                thumbnail: 'images/content/symbiontthumbnail.webp',
+                video: 'videos/symbionttrailercondensed.mp4',
+                images: [
+                    'images/content/symbiontimage1.webp',
+                    'images/content/symbiontimage2.webp',
+                    'images/content/symbiontimage3.webp'
+                ]
+            },
+            // {
+            //     name: 'Transience',
+            //     subtitle: 'Independent',
+            //     awards: [
+            //     ],
+            //     description: '2D platformer with mechanics and colorful visuals synced to music. My first game!',
+            //     technologies: [
+            //         'Unity',
+            //         'C#',
+            //     ],
+            //     links: {
+            //         'itch.io': 'https://doomkitty87.itch.io/transience-demo-01',
+            //     },
+            //     thumbnail: 'images/milkyway_orion_v2-2.webp',
+            //     video: 'etc',
+            //     images: [
+            //         'etc',
+            //         'etc'
+            //     ]
+            // }
+        ]
+
+        const projects = [
+            {
+                name: 'Grout',
+                subtitle: 'QuackHacks 2025',
+                description: 'To-do list app that avoids scheduling/timeblocking and reduces friction to starting tasks by estimating time to complete tasks via natural language processing and vector embedding to learn from past tasks. Provides a list of tasks you can do in the time you have available based on user-set preferences for productivity.',
+                technologies: [
+                    'React Native',
+                    'TypeScript',
+                ],
+                links: {
+                    'GitHub': 'https://github.com/DoomKitty87/grout',
+                    'Devpost': 'https://devpost.com/software/grout',
+                },
+                thumbnail: 'images/content/groutthumbnail.webp',
+                background: 'images/content/groutthumbnail.webp',
+                images: [
+                ]
+            },
+            {
+                name: 'Seafoam',
+                subtitle: '',
+                description: 'Web- and desktop-based application that generates optimized mining routes for Hypixel Skyblock. Takes into account ore density and user ergonomics to maximize mining efficiency. Originally written in C++, then ported to JavaScript for desktop and web.',
+                technologies: [
+                    'Tauri',
+                    'JavaScript',
+                    'C++'
+                ],
+                links: {
+                    'Try It': 'https://astanik.dev/seafoam',
+                    'GitHub': 'https://github.com/DoomKitty87/seafoam',
+                },
+                thumbnail: 'images/content/seafoambackground.webp',
+                background: 'images/content/seafoambackground.webp',
+                images: [
+                    'images/content/seafoamimage1.webp',
+                    'images/content/seafoamimage2.webp',
+                ]
+            },
+            {
+                name: 'Integrand',
+                subtitle: '',
+                description: 'Mobile app for high school students to see all the information they need in one place, with improved and expanded functionality for grade calculation and other conveniences.',
+                technologies: [
+                    'Flutter',
+                    'Dart',
+                    'PHP',
+                    'MySQL'
+                ],
+                links: {
+                    'Website': 'https://integrand.app',
+                },
+                thumbnail: 'images/content/integrandbackground.webp',
+                background: 'images/content/integrandbackground.webp',
+                images: [
+                    'images/content/integrandimage1.webp',
+                    'images/content/integrandimage2.webp',
+                ]
+            },
+            {
+                name: 'Pin Pals',
+                subtitle: 'DubHacks 2025',
+                description: 'Web-deployed mobile app that gives users a unique character, and allows them to scan each others\' QR codes to obtain their friends\' characters. Connections can level up based on multiple interactions, with a cool-down period.',
+                technologies: [
+                    'React',
+                    'Next.js',
+                    'Supabase',
+                    'TypeScript'
+                ],
+                links: {
+                    'GitHub': 'https://github.com/DoomKitty87/pin-pals',
+                    'Devpost': 'https://devpost.com/software/pin-pals',
+                },
+                thumbnail: 'images/content/pinpalsthumbnail.webp',
+                background: 'images/content/pinpalsbackground.webp',
+                images: [
+                ]
+            },
+            {
+                name: 'Govfishing',
+                subtitle: '',
+                description: 'Web game in the style of catfishing, the Wikipedia category guessing game. You\'re given the Wikipedia categories (not all, though) of a person/event/establishment related to AP Comparative Government, and have to guess what the page title is. Has a nice fuzzy matcher and aliases to avoid frustration.',
+                technologies: [
+                    'HTML',
+                    'JavaScript'
+                ],
+                links: {
+                    'Try It': 'https://astanik.dev/govfishing',
+                },
+                thumbnail: 'images/content/govfishingbackground.webp',
+                background: 'images/content/govfishingbackground.webp',
+                images: [
+                ]
+            },
+            {
+                name: 'OmniStudy',
+                subtitle: '2024 Congressional App Challenge',
+                description: 'Web app that randomly generates practice problem sets based on templates for a few different high school classes. Has explanations with filled-in values for each generated question, and has some statistics and a quiz simulator.',
+                technologies: [
+                    'HTML',
+                    'JavaScript',
+                ],
+                links: {
+                    'Try It': 'https://astanik.dev/omnistudy',
+                    'GitHub': 'https://github.com/DoomKitty87/omnistudy'
+                },
+                thumbnail: 'images/content/omnistudythumbnail.webp',
+                background: 'images/content/omnistudybackground.webp',
+                images: [
+                    'images/content/omnistudyimage1.webp',
+                    'images/content/omnistudyimage2.webp',
+                ]
+            }
+        ]
+
+        const photos = [
+            'images/photos/orionwithflameandm42.png',
+            'images/photos/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.png',
+            'images/photos/pleiades.png',
+            'images/photos/milkyway_orion_v2.png',
+            'images/photos/DSC00019.JPG',
+            'images/photos/DSC00023.JPG',
+            'images/photos/DSC00032.JPG',
+            'images/photos/DSC00063.JPG',
+            'images/photos/DSC00111.JPG',
+        ]
+
+        const publications = [
+            {
+                title: 'Actin-microtubule synergy dominates force transmission and collagen strain in human trabecular meshwork',
+                journal: 'Acta Biomaterialia',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.actbio.2025.07.040'
+            },
+            {
+                title: '3D traction force microscopy in human trabecular meshwork tissues: Effects of ROCK and YAP/TAZ inhibition in normal and glaucomatous tissues',
+                journal: 'Tissue and Cell',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.tice.2025.103005'
+            },
+            {
+                title: 'Matrix stiffness regulates traction forces, cytoskeletal dynamics, and collagen reorganization in trabecular meshwork cells in glaucoma',
+                journal: 'Matter',
+                year: '2025',
+                link: 'https://www.cell.com/matter/abstract/S2590-2385(25)00137-7'
+            },
+            {
+                title: 'Impact of aging on anterior segment morphology and aqueous humor dynamics in human Eyes: Advanced imaging and computational techniques',
+                journal: 'Biocybernetics and Biomedical Engineering',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.bbe.2025.01.004'
+            },
+            {
+                title: 'High-resolution modeling of aqueous humor dynamics in the conventional outflow pathway of a normal human donor eye',
+                journal: 'Computer Methods and Programs in Biomedicine',
+                year: '2024',
+                link: 'https://doi.org/10.1016/j.cmpb.2024.108538'
+            },
+            {
+                title: 'Integrating Deep Learning with Electronic Health Records for Early Glaucoma Detection: A Multi-Dimensional Machine Learning Approach',
+                journal: 'Bioengineering',
+                year: '2024',
+                link: 'https://www.mdpi.com/2306-5354/11/6/577'
+            }
+        ]
+
+        const gameSelector = document.getElementById('game-selector');
+        const projectSelector = document.getElementById('project-selector');
+        const publicationList = document.getElementById('publication-list');
+        const gameVideoElements = []
+
+        // Populate game selector
+        games.forEach((game, index) => {
+            const gameCard = document.createElement('div');
+            gameCard.classList.add('game-card');
+            const thumbnail = document.createElement('img');
+            thumbnail.classList.add('game-thumbnail');
+            thumbnail.src = game.thumbnail;
+            gameCard.appendChild(thumbnail);
+            const border = document.createElement('img');
+            border.classList.add('game-thumbnail-border');
+            border.src = 'images/gamethumbnailborder.svg';
+            gameCard.appendChild(border);
+            gameCard.addEventListener('click', () => {
+                selectGame(index);
+                gameScrollValue = index * (gameSelector.children[0].offsetHeight);
+            });
+            if (index === 0) {
+                gameCard.classList.add('selected-game');
+            }
+            gameSelector.appendChild(gameCard);
+
+            // Load the video ahead of time so it doesn't have to load when the user clicks
+            const video = document.createElement('video');
+            gameVideoElements.push(video);
+            video.src = game.video;
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.id = 'game-video';
+        });
+
+        gameSelector.addEventListener('wheel', (e) => {
+            scrollGameSelector(e.deltaY);
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
+        projects.forEach((project, index) => {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('project-card');
+            const thumbnail = document.createElement('img');
+            thumbnail.classList.add('project-thumbnail');
+            thumbnail.src = project.thumbnail;
+            projectCard.appendChild(thumbnail);
+            const border = document.createElement('img');
+            border.classList.add('project-thumbnail-border');
+            border.src = 'images/projectthumbnailborder.svg';
+            projectCard.appendChild(border);
+            projectCard.addEventListener('click', () => {
+                selectProject(index);
+                projectScrollValue = index * (projectSelector.children[0].offsetWidth);
+            });
+            if (index === 0) {
+                projectCard.classList.add('selected-project');
+            }
+            projectSelector.appendChild(projectCard);
+        });
+
+        projectSelector.addEventListener('wheel', (e) => {
+            scrollProjectSelector(e.deltaY);
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
+        const publicationInner = document.getElementById('publication-inner');
+
+        publications.forEach((publication) => {
+            const publicationElement = document.createElement('div');
+            publicationElement.classList.add('publication');
+            const titleElement = document.createElement('h2');
+            titleElement.classList.add('publication-title');
+            titleElement.textContent = publication.title;
+            publicationElement.appendChild(titleElement);
+            const journalElement = document.createElement('h3');
+            journalElement.classList.add('publication-journal');
+            journalElement.textContent = publication.journal + ', ' + publication.year;
+            publicationElement.appendChild(journalElement);
+            publicationElement.addEventListener('click', () => {
+                window.open(publication.link, '_blank');
+            });
+            publicationInner.appendChild(publicationElement);
+        });
+
+        publicationList.addEventListener('wheel', (e) => {
+            publicationList.scrollBy({
+                top: e.deltaY * 10,
+                behavior: 'smooth'
+            });
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
+        const researchDescription = document.getElementById('research-description');
+        researchDescription.addEventListener('wheel', (e) => {
+            researchDescription.scrollBy({
+                top: e.deltaY * 10,
+                behavior: 'smooth'
+            });
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
+        selectGame(0);
+        selectProject(0);
+
+        var gameScrollValue = 0;
+        var currentGameIndex = 0;
+        var currentSecondaryPage = 0;
+        var projectScrollValue = 0;
+        var currentProjectIndex = 0;
+
+        function scrollVertically(newPage) {
+            // Go to newPage
+            const currentPage = secondaryPages[currentSecondaryPage];
+            const nextPage = secondaryPages[newPage];
+
+            if (newPage == 1) loadPhotos();
+
+            nextPage.style.transition = 'none';
+            if (newPage > currentSecondaryPage) {
+                nextPage.style.transform = 'translateY(100%)';
+            } else {
+                nextPage.style.transform = 'translateY(-100%)';
+            }
+            void nextPage.offsetWidth;
+            nextPage.style.transition = '';
+            if (newPage > currentSecondaryPage) {
+                currentPage.style.transform = 'translateY(-100%)';
+            } else {
+                currentPage.style.transform = 'translateY(100%)';
+            }
+            nextPage.style.transform = 'translateY(0%)';
+            currentSecondaryPage = newPage;
+        }
+
+        function scrollGameSelector(deltaY) {
+            gameScrollValue += deltaY;
+            const maxScroll = (games.length) * (gameSelector.children[0].offsetHeight);
+            gameScrollValue = Math.max(0, Math.min(gameScrollValue, maxScroll));
+
+            if (gameScrollValue < currentGameIndex * gameSelector.children[0].offsetHeight) {
+                currentGameIndex = Math.floor(gameScrollValue / gameSelector.children[0].offsetHeight);
+                selectGame(currentGameIndex);
+            } else if (gameScrollValue > (currentGameIndex + 1) * gameSelector.children[0].offsetHeight) {
+                currentGameIndex = Math.ceil(gameScrollValue / gameSelector.children[0].offsetHeight);
+                selectGame(currentGameIndex);
+            }
+        }
+
+        function scrollProjectSelector(deltaY) {
+            projectScrollValue += deltaY;
+            const maxScroll = (projects.length) * (projectSelector.children[0].offsetWidth);
+            projectScrollValue = Math.max(0, Math.min(projectScrollValue, maxScroll));
+
+            if (projectScrollValue < currentProjectIndex * projectSelector.children[0].offsetWidth) {
+                currentProjectIndex = Math.floor(projectScrollValue / projectSelector.children[0].offsetWidth);
+                selectProject(currentProjectIndex);
+            } else if (projectScrollValue > (currentProjectIndex + 1) * projectSelector.children[0].offsetWidth) {
+                currentProjectIndex = Math.ceil(projectScrollValue / projectSelector.children[0].offsetWidth);
+                selectProject(currentProjectIndex);
+            }
+        }
+
+        function selectProject(projectIndex) {
+            if (projectIndex < 0 || projectIndex >= projects.length) {
+                return;
+            }
+
+            const project = projects[projectIndex];
+            const projectTitle = document.getElementById('app-title');
+            projectTitle.textContent = project.name;
+            const projectSubtitle = document.getElementById('app-subtitle');
+            projectSubtitle.textContent = project.subtitle;
+            const projectDescription = document.getElementById('app-description');
+            projectDescription.textContent = project.description;
+            const technologiesContainer = document.getElementById('app-technologies');
+            technologiesContainer.innerHTML = '';
+            project.technologies.forEach(technology => {
+                const technologyElement = document.createElement('h3');
+                technologyElement.classList.add('technology');
+                technologyElement.textContent = technology;
+                technologyElement.style.filter = 'hue-rotate(' + (Math.random() * 360) + 'deg)';
+                technologiesContainer.appendChild(technologyElement);
+            });
+            const linksContainer = document.getElementById('app-links');
+            linksContainer.innerHTML = '';
+            for (const [linkName, linkUrl] of Object.entries(project.links)) {
+                const linkElement = document.createElement('a');
+                linkElement.classList.add('project-link');
+                linkElement.textContent = linkName;
+                linkElement.href = linkUrl;
+                linkElement.target = '_blank';
+                linksContainer.appendChild(linkElement);
+            }
+            const imageElements = [
+                document.getElementById('project-image-1'),
+                document.getElementById('project-image-2'),
+                document.getElementById('project-image-3')
+            ];
+
+            project.images.forEach((imageSrc, index) => {
+                if (index < imageElements.length) {
+                    const img = imageElements[index].querySelector('.project-image');
+                    img.src = imageSrc;
+                    imageElements[index].style.display = 'block';
+                }
+            });
+
+            if (project.images.length < imageElements.length) {
+                for (let i = project.images.length; i < imageElements.length; i++) {
+                    imageElements[i].style.display = 'none';
+                }
+            }
+
+            const projectBackground = document.getElementById('project-background');
+            projectBackground.src = project.background;
+
+            for (let i = 0; i < projects.length; i++) {
+                if (i === projectIndex) {
+                    projectSelector.children[i].classList.add('selected-project');
+                } else {
+                    projectSelector.children[i].classList.remove('selected-project');
+                }
+
+                projectSelector.children[i].style.transform = `translateX(-${projectIndex * projectSelector.children[0].offsetWidth}px)`;
+            }
+        }
+
+        function selectGame(gameIndex) {
+            if (gameIndex < 0 || gameIndex >= games.length) {
+                return;
+            }
+
+            const game = games[gameIndex];
+            const gameTitle = document.getElementById('game-title');
+            gameTitle.textContent = game.name;
+
+            const gameSubtitle = document.getElementById('game-subtitle');
+            gameSubtitle.textContent = game.subtitle;
+
+            const awardsContainer = document.getElementById('game-awards');
+            awardsContainer.innerHTML = '';
+            game.awards.forEach(award => {
+                const awardElement = document.createElement('h3');
+                awardElement.classList.add('award');
+                awardElement.textContent = award;
+                awardsContainer.appendChild(awardElement);
+            });
+
+            const gameDescription = document.getElementById('game-description');
+            gameDescription.textContent = game.description;
+
+            const technologiesContainer = document.getElementById('game-technologies');
+            technologiesContainer.innerHTML = '';
+            game.technologies.forEach(technology => {
+                const technologyElement = document.createElement('h3');
+                technologyElement.classList.add('technology');
+                technologyElement.textContent = technology;
+
+                technologyElement.style.filter = 'hue-rotate(' + (Math.random() * 360) + 'deg)';
+                technologiesContainer.appendChild(technologyElement);
+            });
+
+            const linksContainer = document.getElementById('game-links');
+            linksContainer.innerHTML = '';
+            for (const [linkName, linkUrl] of Object.entries(game.links)) {
+                const linkElement = document.createElement('a');
+                linkElement.classList.add('game-link');
+                linkElement.textContent = linkName;
+                linkElement.href = linkUrl;
+                linkElement.target = '_blank';
+                linksContainer.appendChild(linkElement);
+            }
+
+            const videoElement = gameVideoElements[gameIndex];
+            const gameVideo = document.getElementById('game-video');
+            gameVideo.parentElement.replaceChild(videoElement, gameVideo);
+            videoElement.play();
+
+            const imageElements = [
+                document.getElementById('game-image-1'),
+                document.getElementById('game-image-2'),
+                document.getElementById('game-image-3')
+            ];
+
+            game.images.forEach((imageSrc, index) => {
+                if (index < imageElements.length) {
+                    const img = imageElements[index].querySelector('.game-image');
+                    img.src = imageSrc;
+                    imageElements[index].style.display = 'block';
+                }
+            });
+
+            for (let i = 0; i < games.length; i++) {
+                if (i === gameIndex) {
+                    gameSelector.children[i].classList.add('selected-game');
+                } else {
+                    gameSelector.children[i].classList.remove('selected-game');
+                }
+
+                gameSelector.children[i].style.transform = `translateY(-${gameIndex * gameSelector.children[0].offsetHeight}px)`;
+            }
+        }
+
+        function setCurrentPage(pageIndex) {
+            if (pageIndex != currentPage) {
+                navIndicator.classList.remove('animatestar');
+                void navIndicator.offsetWidth;
+                navIndicator.classList.add('animatestar');
+                // TODO: It'd be nice if this didn't behave weirdly when scrolling quickly
+                // ^ is because of the left position set/transition
+                // Also should fix the below when scrolling quickly!
+
+                // pages[currentPage].classList.remove('active-page');
+                // pages[pageIndex].classList.add('active-page');
+
+                const storedTransition = pages[currentPage].style.transition;
+
+                pages[pageIndex].style.transition = 'none';
+                void pages[pageIndex].offsetWidth;
+                if (pageIndex > currentPage) {
+                    pages[pageIndex].style.transform = 'translateX(100%)';
+                } else {
+                    pages[pageIndex].style.transform = 'translateX(-100%)';
+                }
+                void pages[pageIndex].offsetWidth;
+                pages[pageIndex].style.transition = storedTransition;
+                if (pageIndex > currentPage) {
+                    pages[currentPage].style.transform = 'translateX(-100%)';
+                } else {
+                    pages[currentPage].style.transform = 'translateX(100%)';
+                }
+                pages[pageIndex].style.transform = 'translateX(0%)';
+            }
+            currentPage = pageIndex;
+            navIndicator.style.left = `calc(${pageIndex * 5.95}% + 39.5rem)`;
+            if (scrollValue < pageIndex * window.innerWidth) {
+                scrollValue = pageIndex * window.innerWidth;
+            } else if (scrollValue > (pageIndex + 1) * window.innerWidth) {
+                scrollValue = (pageIndex + 1) * window.innerWidth;
+            }
+        }
+
+        function loadPhotos() {
+            const photosContainer = document.getElementById('photos-container');
+            if (photosContainer.children.length > 0) {
+                return;
+            }
+            photos.forEach(photoSrc => {
+                const holder = document.createElement('div');
+                holder.classList.add('photo-holder');
+                const photoElement = document.createElement('img');
+                photoElement.classList.add('photo');
+                photoElement.src = photoSrc;
+
+                const background = document.createElement('img');
+                background.classList.add('photo-background');
+                background.src = 'images/photoborder.svg';
+                holder.appendChild(photoElement);
+                holder.appendChild(background);
+
+                holder.addEventListener('click', () => {
+                    const modal = document.createElement('div');
+                    modal.classList.add('photo-modal');
+                    const modalImage = document.createElement('img');
+                    modalImage.classList.add('photo-modal-image');
+                    modalImage.src = photoSrc;
+                    modal.appendChild(modalImage);
+                    modal.addEventListener('click', () => {
+                        modal.remove();
+                    });
+                    document.body.appendChild(modal);
+                });
+
+                photosContainer.appendChild(holder);
+            });
+        }
+
+        const pageIcons = document.getElementsByClassName('nav-icon');
+        for (let i = 0; i < pageIcons.length; i++) {
+            pageIcons[i].addEventListener('click', () => {
+                setCurrentPage(i);
+            });
+        }
+
+        const workArrow = document.getElementById('work-arrow');
+        workArrow.addEventListener('click', () => {
+            setCurrentPage(1);
+        });
+
+        window.addEventListener('wheel', (e) => {
+            scrollValue += e.deltaY;
+            scrollValue = Math.max(0, scrollValue);
+            const pageWidth = window.innerWidth;
+            scrollValue = Math.min(scrollValue, pageWidth * 3);
+            const determinedPage = Math.floor(scrollValue / pageWidth);
+
+            if (determinedPage !== currentPage) {
+                setCurrentPage(determinedPage);
+            }
+        });
+    </script>
 </body>
+
 </html>

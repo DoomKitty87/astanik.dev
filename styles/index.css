@@ -97,7 +97,7 @@ body {
   height: 100%;
   position: absolute;
 
-  background-image: url('../images/content/9E29D09B-1073-4648-AD86-D45BDB1DE27F_1_102_a.webp');
+  background-image: url('../images/content/image-7.webp');
   background-size: cover;
   background-position-x: 90%;
   background-position-y: 60%;
@@ -788,4 +788,25 @@ body {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
+}
+
+.link {
+  font-family: 'Sour Gummy';
+  font-size: 1.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+  background-image: url('../images/buttonbordermedium.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  margin: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+  text-shadow: 0 0 5px #fff;
+  transform: scale(1.05) translate(5px, -5px);
+  filter: drop-shadow(-5px 5px 0px #fff);
 }
