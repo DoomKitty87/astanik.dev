@@ -104,6 +104,7 @@ body {
   background-repeat: no-repeat;
   transition: all 0.8s ease-in-out;
   transform: translateX(100%);
+  overflow: hidden;
 }
 
 .secondary-page {
@@ -112,6 +113,33 @@ body {
   position: absolute;
   transition: all 0.8s ease-in-out;
   transform: translateY(100%);
+  overflow: hidden;
+}
+
+.background-img {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(16px);
+}
+
+.back-arrow {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  top: 2rem;
+  left: 3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.back-arrow:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px #fff);
 }
 
 .active-page {
@@ -132,6 +160,15 @@ body {
 
 .page-title {
   font-size: 7rem;
+}
+
+#photography-title {
+  font-family: 'Cabin Sketch';
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .project-box {
@@ -278,6 +315,7 @@ body {
   position: absolute;
   left: -1%;
   top: -1%;
+  pointer-events: none;
 }
 
 .game-thumbnail,
@@ -298,6 +336,7 @@ body {
   position: absolute;
   left: -1%;
   top: -1%;
+  pointer-events: none;
 }
 
 #game-awards {
@@ -534,6 +573,7 @@ body {
   position: absolute;
   left: -1.5%;
   top: -1.5%;
+  pointer-events: none;
 }
 
 #landing-image-1 {
@@ -614,4 +654,138 @@ body {
 
 #photography-arrow {
   margin-top: -0.5rem;
+}
+
+#publication-list {
+  position: absolute;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0rem;
+  padding-top: 4rem;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 70%, transparent);
+  width: 55rem;
+  height: 100%;
+  scroll-padding-bottom: 1000px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+#publication-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 20rem;
+}
+
+.publication {
+  width: 50rem;
+  padding: 1rem 2rem;
+  background-image: url('../images/descriptionborder.svg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.publication:hover {
+  transform: translate(5px, -5px);
+  text-shadow: 0 0 5px #fff;
+  filter: drop-shadow(-5px 5px 0px #fff);
+}
+
+.publication-title {
+  font-family: 'Sour Gummy';
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.publication-journal {
+  font-family: 'Sour Gummy';
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+#research-description {
+  margin-top: -5rem;
+  width: 37rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  height: 40rem;
+  padding-top: 3rem;
+  padding-bottom: 15rem;
+  mask-image: linear-gradient(to bottom, transparent, black 6%, black 75%, transparent 85%);
+}
+
+.emphasis {
+  font-family: 'Sour Gummy';
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#photos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  gap: 1rem;
+  margin-top: -2rem;
+  padding: 2rem 2rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  max-height: 100%;
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 65%, transparent 80%);
+}
+
+.photo-holder {
+  width: 28rem;
+  height: 18rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.photo-holder:hover {
+  transform: scale(1.05) translate(5px, -5px);
+  filter: drop-shadow(-5px 5px 0px #fff);
+}
+
+.photo-background {
+  position: relative;
+  width: 104%;
+  height: 104%;
+  left: -2%;
+  top: -102%;
+  pointer-events: none;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.photo-modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }

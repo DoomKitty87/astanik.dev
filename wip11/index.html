@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansel Stanik</title>
     <link rel="stylesheet" href="./styles/index.css">
+    <script>
+        // Redirect to old version if user is on mobile
+        if (window.innerWidth / window.innerHeight < 1.0) {
+            window.location.href = 'https://astanik.dev/mobile';
+        }
+    </script>
 </head>
 
 <body>
@@ -25,7 +31,7 @@
                                 id="email">email</a>
                         </div>
                         <div class="column" style="width: 100%;align-items: start;">
-                            <a class="button" target="_blank" href="files/resume.pdf">Resume</a>
+                            <a class="button" target="_blank" href="files/ansel_stanik_resume.pdf">Resume</a>
                             <a class="button" target="_blank"
                                 href="https://www.linkedin.com/in/anselstanik/">LinkedIn</a>
                         </div>
@@ -54,112 +60,169 @@
                 <div class="landing-image-container" id="landing-image-6"><img class="image"
                         src="images/content/image.webp"><img class="image-border" src="images/photoborder.svg"></div>
 
-                <div id="photography-teaser" onclick="scrollVertically(1)"">
+                <div id="photography-teaser" onclick="scrollVertically(1)">
                     <div class=" landing-image-container" id="photography-image-1"><img class="image"
-                        src="images/content/orionwithflameandm42.webp"><img class="image-border"
-                        src="images/photoborder.svg">
+                            src="images/content/image-6.webp"><img class="image-border" src="images/photoborder.svg">
+                    </div>
+                    <div class="landing-image-container" id="photography-image-2"><img class="image"
+                            src="images/content/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.webp"><img
+                            class="image-border" src="images/photoborder.svg">
+                    </div>
+                    <div class="button-arrow-stack">
+                        <a class="button-nohover" href="#"
+                            style="background-image: url('images/buttonborderlong.svg')">Photography!</a>
+                        <img id="photography-arrow" src="images/downarrow.svg">
+                    </div>
                 </div>
-                <div class="landing-image-container" id="photography-image-2"><img class="image"
-                        src="images/content/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.webp"><img
-                        class="image-border" src="images/photoborder.svg"></div>
-                <div class="button-arrow-stack">
-                    <a class="button-nohover" href="#"
-                        style="background-image: url('images/buttonborderlong.svg')">Photography!</a>
-                    <img id="photography-arrow" src="images/downarrow.svg">
+            </div>
+
+            <div class="page">
+                <div id="game-selector">
                 </div>
+
+                <video id="game-video" autoplay loop muted></video>
+                <div class="project-box">
+                    <h1 id="game-title" class="page-title">Project Name</h1>
+                    <h2 id="game-subtitle" class="subtitle">Event Name - Year</h2>
+                    <div id="game-awards" class="row">
+                        <h3 class="award">Award 1</h3>
+                        <h3 class="award">Award 2</h3>
+                    </div>
+                    <p id="game-description" class="description">
+                        First-person open world survival game set in an alternate future where Mount St. Helens’
+                        eruption
+                        led to paranormal environmental activity in the region.
+                    </p>
+                    <div id="game-technologies">
+                    </div>
+                    <div id="game-links">
+                    </div>
+                    <div class="game-image-container" id="game-image-1">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                    <div class="game-image-container" id="game-image-2">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                    <div class="game-image-container" id="game-image-3">
+                        <img class="game-image" src="">
+                        <img class="game-image-border" src="images/gameimageborder.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div id="project-selector">
+                </div>
+
+                <img id="project-background" src="">
+                <div class="project-box">
+                    <h1 id="app-title" class="page-title">Project Name</h1>
+                    <h2 id="app-subtitle" class="subtitle">Event Name - Year</h2>
+                    <p id="app-description" class="description">
+                        Project description box
+                    </p>
+                    <div id="app-technologies">
+                    </div>
+                    <div id="app-links">
+                    </div>
+                    <div class="project-image-container" id="project-image-1">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                    <div class="project-image-container" id="project-image-2">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                    <div class="project-image-container" id="project-image-3">
+                        <img class="project-image" src="">
+                        <img class="project-image-border" src="images/projectimageborder.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" style="background-image: url('images/content/orionwithflameandm42.webp')">
+                <div id="publication-list">
+                    <div id="publication-inner">
+
+                    </div>
+                </div>
+                <div class="project-box">
+                    <h1 id="research-title" class="page-title">Research</h1>
+                    <p class="description" id="research-description">
+                        Here are publications I'm a co-author on. Some of the specifics I've worked on:<br><br>
+                        <span class="emphasis">Machine Learning</span>
+                        <br>
+                        Handled data ingress and assimilation from various clinical sources to create consistent and
+                        useful
+                        training datasets.
+
+                        Built machine learning models to predict glaucoma risk and intraocular pressure in patients.
+
+                        Created accessible frontend interfaces for clinicians, allowing for portable model deployment in
+                        the
+                        field, and helping increase access to early glaucoma screening without the need for imaging or
+                        specialized equipment.
+                        <br><br>
+                        <span class="emphasis">Data Visualization</span>
+                        <br>
+                        Used popular Python data visualization libraries (Matplotlib, Seaborn, PyVista) to create
+                        helpful
+                        visualizations of data obtained through image analysis.
+
+                        Developed custom data visualization systems to allow for high-detail rendering of computed
+                        strain
+                        data on 3D models extracted from microscopy data.
+
+                        Trained collaborators on custom data visualization techniques and scripts to enhance analysis
+                        workflows and throughput.
+                        <br><br>
+                        <span class="emphasis">Image Analysis</span>
+                        <br>
+                        Designed and optimized bespoke 2D segmentation algorithm for differentiation of aqueous humor
+                        from
+                        tissue in microscopy images.
+
+                        Wrote custom digital volume correlation implementation to enable strain mapping in 3D microscopy
+                        data without embedded markers.
+
+                        Extended existing traction force microscopy and strain analysis implementation from 2D to 3D,
+                        allowing for more extensive understanding of glaucoma biomechanics.
+
+                        Conducted morphological analysis of different portions of the eye from 2D microscopy data.
+
+                        Extracted orientation data from cytoskeleton component image masks over time to compare cell
+                        behaviors under different conditions.
+                    </p>
+                </div>
+            </div>
+
+            <div id="navbar">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+                <img class="nav-spacer" src="images/navbardash.svg">
+                <img class="nav-icon" src="images/navbarcircle.svg">
+
+                <img id="nav-position" src="images/navbarstar.svg">
             </div>
         </div>
 
-        <div class="page">
-            <div id="game-selector">
-            </div>
-
-            <video id="game-video" autoplay loop muted></video>
-            <div class="project-box">
-                <h1 id="game-title" class="page-title">Project Name</h1>
-                <h2 id="game-subtitle" class="subtitle">Event Name - Year</h2>
-                <div id="game-awards" class="row">
-                    <h3 class="award">Award 1</h3>
-                    <h3 class="award">Award 2</h3>
-                </div>
-                <p id="game-description" class="description">
-                    First-person open world survival game set in an alternate future where Mount St. Helens’
-                    eruption
-                    led to paranormal environmental activity in the region.
-                </p>
-                <div id="game-technologies">
-                </div>
-                <div id="game-links">
-                </div>
-                <div class="game-image-container" id="game-image-1">
-                    <img class="game-image" src="">
-                    <img class="game-image-border" src="images/gameimageborder.svg">
-                </div>
-                <div class="game-image-container" id="game-image-2">
-                    <img class="game-image" src="">
-                    <img class="game-image-border" src="images/gameimageborder.svg">
-                </div>
-                <div class="game-image-container" id="game-image-3">
-                    <img class="game-image" src="">
-                    <img class="game-image-border" src="images/gameimageborder.svg">
-                </div>
+        <div class="secondary-page">
+            <img class="background-img"
+                src="images/content/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.webp">
+            <img class="back-arrow" id="photography-back" onclick="scrollVertically(0)" src="images/backarrow.svg">
+            <h1 class="page-title" id="photography-title">Photography</h1>
+            <div id="photos-container">
             </div>
         </div>
 
-        <div class="page">
-            <div id="project-selector">
-            </div>
+        <div class="secondary-page">
 
-            <img id="project-background" src="">
-            <div class="project-box">
-                <h1 id="app-title" class="page-title">Project Name</h1>
-                <h2 id="app-subtitle" class="subtitle">Event Name - Year</h2>
-                <p id="app-description" class="description">
-                    Project description box
-                </p>
-                <div id="app-technologies">
-                </div>
-                <div id="app-links">
-                </div>
-                <div class="project-image-container" id="project-image-1">
-                    <img class="project-image" src="">
-                    <img class="project-image-border" src="images/projectimageborder.svg">
-                </div>
-                <div class="project-image-container" id="project-image-2">
-                    <img class="project-image" src="">
-                    <img class="project-image-border" src="images/projectimageborder.svg">
-                </div>
-                <div class="project-image-container" id="project-image-3">
-                    <img class="project-image" src="">
-                    <img class="project-image-border" src="images/projectimageborder.svg">
-                </div>
-            </div>
         </div>
-
-        <div class="page" style="background-image: url('images/content/orionwithflameandm42.webp')">
-            <div class="project-box">
-                <h1 id="research-title" class="page-title">Research</h1>
-            </div>
-        </div>
-
-        <div id="navbar">
-            <img class="nav-icon" src="images/navbarcircle.svg">
-            <img class="nav-spacer" src="images/navbardash.svg">
-            <img class="nav-icon" src="images/navbarcircle.svg">
-            <img class="nav-spacer" src="images/navbardash.svg">
-            <img class="nav-icon" src="images/navbarcircle.svg">
-            <img class="nav-spacer" src="images/navbardash.svg">
-            <img class="nav-icon" src="images/navbarcircle.svg">
-
-            <img id="nav-position" src="images/navbarstar.svg">
-        </div>
-    </div>
-
-    <div class="secondary-page">
-
-    </div>
-
-    <div class="secondary-page"></div>
 
     </div>
 
@@ -411,8 +474,60 @@
             }
         ]
 
+        const photos = [
+            'images/photos/orionwithflameandm42.png',
+            'images/photos/blend_integration_ADBE_01_ADBE_cloned_integration_ADBE_01_ADBE_HDR.png',
+            'images/photos/pleiades.png',
+            'images/photos/milkyway_orion_v2.png',
+            'images/photos/DSC00019.JPG',
+            'images/photos/DSC00023.JPG',
+            'images/photos/DSC00032.JPG',
+            'images/photos/DSC00063.JPG',
+            'images/photos/DSC00111.JPG',
+        ]
+
+        const publications = [
+            {
+                title: 'Actin-microtubule synergy dominates force transmission and collagen strain in human trabecular meshwork',
+                journal: 'Acta Biomaterialia',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.actbio.2025.07.040'
+            },
+            {
+                title: '3D traction force microscopy in human trabecular meshwork tissues: Effects of ROCK and YAP/TAZ inhibition in normal and glaucomatous tissues',
+                journal: 'Tissue and Cell',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.tice.2025.103005'
+            },
+            {
+                title: 'Matrix stiffness regulates traction forces, cytoskeletal dynamics, and collagen reorganization in trabecular meshwork cells in glaucoma',
+                journal: 'Matter',
+                year: '2025',
+                link: 'https://www.cell.com/matter/abstract/S2590-2385(25)00137-7'
+            },
+            {
+                title: 'Impact of aging on anterior segment morphology and aqueous humor dynamics in human Eyes: Advanced imaging and computational techniques',
+                journal: 'Biocybernetics and Biomedical Engineering',
+                year: '2025',
+                link: 'https://doi.org/10.1016/j.bbe.2025.01.004'
+            },
+            {
+                title: 'High-resolution modeling of aqueous humor dynamics in the conventional outflow pathway of a normal human donor eye',
+                journal: 'Computer Methods and Programs in Biomedicine',
+                year: '2024',
+                link: 'https://doi.org/10.1016/j.cmpb.2024.108538'
+            },
+            {
+                title: 'Integrating Deep Learning with Electronic Health Records for Early Glaucoma Detection: A Multi-Dimensional Machine Learning Approach',
+                journal: 'Bioengineering',
+                year: '2024',
+                link: 'https://www.mdpi.com/2306-5354/11/6/577'
+            }
+        ]
+
         const gameSelector = document.getElementById('game-selector');
         const projectSelector = document.getElementById('project-selector');
+        const publicationList = document.getElementById('publication-list');
         const gameVideoElements = []
 
         // Populate game selector
@@ -479,6 +594,44 @@
             scrollValue -= e.deltaY;
         });
 
+        const publicationInner = document.getElementById('publication-inner');
+
+        publications.forEach((publication) => {
+            const publicationElement = document.createElement('div');
+            publicationElement.classList.add('publication');
+            const titleElement = document.createElement('h2');
+            titleElement.classList.add('publication-title');
+            titleElement.textContent = publication.title;
+            publicationElement.appendChild(titleElement);
+            const journalElement = document.createElement('h3');
+            journalElement.classList.add('publication-journal');
+            journalElement.textContent = publication.journal + ', ' + publication.year;
+            publicationElement.appendChild(journalElement);
+            publicationElement.addEventListener('click', () => {
+                window.open(publication.link, '_blank');
+            });
+            publicationInner.appendChild(publicationElement);
+        });
+
+        publicationList.addEventListener('wheel', (e) => {
+            publicationList.scrollBy({
+                top: e.deltaY * 10,
+                behavior: 'smooth'
+            });
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
+        const researchDescription = document.getElementById('research-description');
+        researchDescription.addEventListener('wheel', (e) => {
+            researchDescription.scrollBy({
+                top: e.deltaY * 10,
+                behavior: 'smooth'
+            });
+            e.preventDefault();
+            scrollValue -= e.deltaY;
+        });
+
         selectGame(0);
         selectProject(0);
 
@@ -492,6 +645,8 @@
             // Go to newPage
             const currentPage = secondaryPages[currentSecondaryPage];
             const nextPage = secondaryPages[newPage];
+
+            if (newPage == 1) loadPhotos();
 
             nextPage.style.transition = 'none';
             if (newPage > currentSecondaryPage) {
@@ -716,6 +871,41 @@
             } else if (scrollValue > (pageIndex + 1) * window.innerWidth) {
                 scrollValue = (pageIndex + 1) * window.innerWidth;
             }
+        }
+
+        function loadPhotos() {
+            const photosContainer = document.getElementById('photos-container');
+            if (photosContainer.children.length > 0) {
+                return;
+            }
+            photos.forEach(photoSrc => {
+                const holder = document.createElement('div');
+                holder.classList.add('photo-holder');
+                const photoElement = document.createElement('img');
+                photoElement.classList.add('photo');
+                photoElement.src = photoSrc;
+
+                const background = document.createElement('img');
+                background.classList.add('photo-background');
+                background.src = 'images/photoborder.svg';
+                holder.appendChild(photoElement);
+                holder.appendChild(background);
+
+                holder.addEventListener('click', () => {
+                    const modal = document.createElement('div');
+                    modal.classList.add('photo-modal');
+                    const modalImage = document.createElement('img');
+                    modalImage.classList.add('photo-modal-image');
+                    modalImage.src = photoSrc;
+                    modal.appendChild(modalImage);
+                    modal.addEventListener('click', () => {
+                        modal.remove();
+                    });
+                    document.body.appendChild(modal);
+                });
+
+                photosContainer.appendChild(holder);
+            });
         }
 
         const pageIcons = document.getElementsByClassName('nav-icon');
